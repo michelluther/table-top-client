@@ -1,0 +1,23 @@
+.heroes-container {
+	width: 400px;
+	height: 100%;
+}
+
+.heroes-list {
+	padding: 0;
+	margin: 10px 0;
+
+}
+
+.heroes-entry {
+	margin-bottom: 5px;
+}
+
+.example-header-image {
+	/*background-color: #999;*/
+}
+
+hero-card {
+	margin-bottom: 10px;
+	display: block;
+}

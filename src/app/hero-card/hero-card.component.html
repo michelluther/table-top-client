@@ -1,0 +1,22 @@
+<md-card  class="heroes-entry">
+    <md-card-content>
+        <div class="headerContainer">
+            <!--  -->
+            <div>
+                <img md-card-avatar class="example-header-image" src="../../assets/gauklerin_avatar.png" />
+                <div>
+                    <md-card-title>{{hero.name}}</md-card-title>
+                    <md-card-subtitle>Dog Breed</md-card-subtitle>
+                </div>
+            </div>
+            <div class="heroValues">
+                <ul>
+                    <li>Attacke:5</li>
+                    <li>Parade:4</li>
+                </ul>
+            </div>
+        </div>
+        <hero-controls [hero]="hero">
+        </hero-controls>
+    </md-card-content>
+</md-card>

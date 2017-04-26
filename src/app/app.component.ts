@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Hero } from './domain/hero';
+import { HeroService } from './domain/hero.service';
+import { HeroLifeService } from './hero-controls/hero-life.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'my-app',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
+	providers: [HeroService, HeroLifeService]
+
 })
 export class AppComponent {
-  title = 'app works!';
+	title = 'Tour of Heroes';
+
+
+	constructor(private heroService: HeroService) { }
+
 }

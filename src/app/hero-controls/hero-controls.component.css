@@ -1,0 +1,29 @@
+.mainStatus {
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.mainStatusLabel {
+	color: #aaa;
+	font-size: 2rem;
+	padding: 0;
+}
+
+.mainStatusValue {
+	padding: 0;
+	font-size: 2rem;
+}
+
+.mainStatusValue.good {
+	color: green;
+}
+
+.container {
+	width: 150px;
+}
+
+button {
+}

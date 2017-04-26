@@ -1,0 +1,28 @@
+md-card {
+	padding: 0;
+}
+
+.headerContainer {
+	display: flex;
+	flex-direction: column;
+	/*border-bottom: 1px solid #eee;*/
+	flex-grow: 1;
+	max-width: 400px;
+	border-right: 1px solid #eee;
+}
+
+.heroValues {
+	height: 50px;
+}
+
+md-card-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.mat-card-avatar.example-header-image {
+	width: 80px;
+	height: 80px;
+	margin: 10px;
+}
