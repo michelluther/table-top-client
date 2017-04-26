@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HeroService } from '../domain/hero.service';
 import { Hero } from '../domain/hero';
 import { HeroLifeService } from './hero-life.service';
-import { Subject, Observable, Subscription } from 'rxjs/Rx';
+import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
 
 
 @Component({
@@ -16,24 +16,42 @@ export class HeroControls implements OnInit {
 
 	private lifeDisplay: Number;
 
-	private socket: Subject<any>;
+	private lifeSubject: Subject<any>;
 	private lifeSubscription: Subscription;
 	private lifeSubscription2: Subscription;
 	private message: string;
 	private sentMessage: string;
+	private service: HeroLifeService;
+
+	private lifeObserver = {
+		next: (messageData) => {
+
+		}
+	};
+
 	constructor(websocketService: HeroLifeService) {
-		this.socket = websocketService.createWebsocket();
-	}
-	ngOnInit() {
-		let socket = this.socket;
-		this.lifeSubscription = this.socket.subscribe((message) => {
+		this.service = websocketService;
+		this.lifeSubject = websocketService.lifeSubject;
+		this.lifeSubscription = websocketService.lifeSubject.subscribe((message) => {
 			console.log('i got called, first');
 			let messageData = JSON.parse(message.data);
 			if (messageData.heroId == this.heroProperty.id) {
 				this.heroProperty.lifeLeft = this.heroProperty.lifeLeft + messageData.value;
 			}
 		}
+
 		);
+	}
+	ngOnInit() {
+		// let socket = this.socket;
+		// this.lifeSubscription = this.socket.subscribe((message) => {
+		// 	console.log('i got called, first');
+		// 	let messageData = JSON.parse(message.data);
+		// 	if (messageData.heroId == this.heroProperty.id) {
+		// 		this.heroProperty.lifeLeft = this.heroProperty.lifeLeft + messageData.value;
+		// 	}
+		// }
+		// );
 		// this.lifeSubscription2 = this.socket.subscribe((message) => {
 		// 	console.log('i got called, too');
 		// })
@@ -54,8 +72,8 @@ export class HeroControls implements OnInit {
 	}
 
 	updateLife(value: number): void {
-		this.heroProperty.lifeLeft = this.heroProperty.lifeLeft + value;
-		this.socket.next({
+		this.lifeDisplay = this.heroProperty.lifeLeft + value;
+		this.service.sendLifeUpate({
 			heroId: this.heroProperty.id,
 			oldLive: this.lifeDisplay,
 			value: value
