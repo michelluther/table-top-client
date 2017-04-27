@@ -10,7 +10,7 @@ import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
 	templateUrl: './hero-controls.component.html',
 	styleUrls: ['./hero-controls.component.css']
 })
-export class HeroControls implements OnInit {
+export class HeroControls implements OnInit{
 
 	private heroProperty: Hero;
 
@@ -36,26 +36,17 @@ export class HeroControls implements OnInit {
 			console.log('i got called, first');
 			let messageData = JSON.parse(message.data);
 			if (messageData.heroId == this.heroProperty.id) {
-				this.heroProperty.lifeLeft = this.heroProperty.lifeLeft + messageData.value;
+				this.heroProperty.life_lost = this.heroProperty.life_lost - messageData.value;
+				this.calculateRemainingLife();
 			}
 		}
 
 		);
 	}
-	ngOnInit() {
-		// let socket = this.socket;
-		// this.lifeSubscription = this.socket.subscribe((message) => {
-		// 	console.log('i got called, first');
-		// 	let messageData = JSON.parse(message.data);
-		// 	if (messageData.heroId == this.heroProperty.id) {
-		// 		this.heroProperty.lifeLeft = this.heroProperty.lifeLeft + messageData.value;
-		// 	}
-		// }
-		// );
-		// this.lifeSubscription2 = this.socket.subscribe((message) => {
-		// 	console.log('i got called, too');
-		// })
-		// debugger;
+
+	ngOnInit(): void {
+		console.log(this.heroProperty.life_lost);
+		this.calculateRemainingLife()
 	}
 
 	@Input()
@@ -72,12 +63,16 @@ export class HeroControls implements OnInit {
 	}
 
 	updateLife(value: number): void {
-		this.lifeDisplay = this.heroProperty.lifeLeft + value;
+		// this.heroProperty.life_lost - value;
 		this.service.sendLifeUpate({
 			heroId: this.heroProperty.id,
 			oldLive: this.lifeDisplay,
 			value: value
 		});
+	}
+
+	calculateRemainingLife():void{
+		this.lifeDisplay = this.heroProperty.life - this.heroProperty.life_lost;
 	}
 
 }

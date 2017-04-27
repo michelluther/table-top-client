@@ -13,7 +13,8 @@ import { HEROES } from './mock-heroes';
 @Injectable()
 export class HeroService {
 
-	private heroesUrl = '/assets/characters.json/';
+	private heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
+	// private heroesUrl = '/assets/characters.json/';
 	private heroes: Hero[];
 
 	constructor(private http: Http) { }

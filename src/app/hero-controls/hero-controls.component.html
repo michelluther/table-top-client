@@ -1,7 +1,7 @@
 <div class="container">
     <div class="mainStatus">
         <div class="mainStatusLabel">LE</div>
-        <div class="mainStatusValue good">{{heroProperty.lifeLeft}}/{{heroProperty.life}}</div>
+        <div class="mainStatusValue good">{{lifeDisplay}}/{{heroProperty.life}}</div>
     </div>
     <div class="buttons">
         <button md-mini-fab (click)="updateLife(-5)">-5</button>
