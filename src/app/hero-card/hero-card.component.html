@@ -1,22 +1,26 @@
-<md-card  class="heroes-entry">
+<md-card class="heroes-entry">
     <md-card-content>
         <div class="headerContainer">
             <!--  -->
-            <div>
-                <img md-card-avatar class="example-header-image" src="../../assets/gauklerin_avatar.png" />
-                <div>
-                    <md-card-title>{{hero.name}}</md-card-title>
-                    <md-card-subtitle>{{hero.hero_type.name}}</md-card-subtitle>
-                </div>
-            </div>
-            <div class="heroValues">
-                <ul>
-                    <li>Attacke:5</li>
-                    <li>Parade:4</li>
-                </ul>
+            <div class="headerContent">
+                <md-card-title>{{hero.name}}</md-card-title>
+                <md-card-subtitle>{{hero.hero_type.name}}</md-card-subtitle>
             </div>
         </div>
-        <hero-controls [hero]="hero">
-        </hero-controls>
+        <div class="contentContainer">
+            <ul class="skills">
+                <li><div class="label">Attacke:</div>5</li>
+                <li><div class="label">Parade:</div>4</li>
+                <li><div class="label">Trefferpunkte:</div>1W+4</li>
+                <li><div class="label">Rüstung:</div>3</li>
+            </ul>
+            <div class="heroAvatar">
+                <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" height="100%" />
+            </div>
+        </div>
+        <div class="actionsContainer">
+            <hero-controls [hero]="hero">
+            </hero-controls>
+        </div>
     </md-card-content>
 </md-card>

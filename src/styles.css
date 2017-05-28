@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('/assets/font-awesome/css/font-awesome.min.css');
+
 body {
-	background-color: #efefef;
+	background: #343434 url('/assets/wallpaper.jpg') top center no-repeat;
+	/*background-color: #ababab;*/
+	font-family: Roboto,"Helvetica Neue",sans-serif;
 }

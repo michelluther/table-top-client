@@ -8,6 +8,8 @@ export class Hero {
   gender: String;
 
   culture: number;
+
+  avatar_small: String;
   
   experience: number;
 
@@ -38,6 +40,7 @@ export class Hero {
     this.parade_basis = dataObject['parade_basis'];
 
     this.life_lost = dataObject['life_lost'];
+    this.avatar_small = dataObject['avatar_small'];
 
     this.charisma = dataObject['charisma'];
     this.culture = dataObject['culture'];

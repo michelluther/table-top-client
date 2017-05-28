@@ -13,11 +13,14 @@ import { Router } from '@angular/router';
 export class HeroCard implements OnInit {
 
 	heroProperty: Hero;
+	private baseUrl: String;
 
 	constructor(
 		private heroService: HeroService,
 		private router: Router
-	) { }
+	) { 
+		this.baseUrl = 'http://' + window.location.hostname + ':8000';
+	}
 
 	ngOnInit(): void {
 

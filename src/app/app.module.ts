@@ -8,6 +8,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './herodetail/hero-detail.component';
 import { HeroControls } from './hero-controls/hero-controls.component';
 import { HeroCard } from './hero-card/hero-card.component';
+import 'hammerjs';
 
 import { HeroService } from './domain/hero.service';
 

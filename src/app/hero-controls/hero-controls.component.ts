@@ -23,6 +23,8 @@ export class HeroControls implements OnInit{
 	private sentMessage: string;
 	private service: HeroLifeService;
 
+	
+
 	private lifeObserver = {
 		next: (messageData) => {
 
@@ -30,6 +32,8 @@ export class HeroControls implements OnInit{
 	};
 
 	constructor(websocketService: HeroLifeService) {
+		
+
 		this.service = websocketService;
 		this.lifeSubject = websocketService.lifeSubject;
 		this.lifeSubscription = websocketService.lifeSubject.subscribe((message) => {
