@@ -50,6 +50,7 @@ h1 {
 #appMenuButton {
 	position: fixed;
 	top:20px;
-	left:20px;
+	left:calc(50%);
+	margin-left: -10px;
 	background-color: #ccc;
 }
