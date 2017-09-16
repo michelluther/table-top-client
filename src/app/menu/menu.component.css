@@ -1,0 +1,12 @@
+.menuContainer {
+	position:fixed;
+	top:76px;
+	left:50%;
+	width:100%;
+	max-width: 600px;
+	border: 1px solid #fff;
+}
+
+.mat-menu-content {
+	background-color: rgba(90,90,90,0.5);
+}

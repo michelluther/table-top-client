@@ -13,20 +13,7 @@ md-card-title {
 	margin-bottom: 0;
 }
 
-.headerContainer {
-	background-color: #AD2003;
-	flex-grow: 1;
-	width: 100%;
-	color: #EEEBE3;
-	height: 70px;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	border-bottom: 2px solid #5F0609; 
-}
 
-.headerContent {
-	padding: 10px 20px;
-}
 
 .contentContainer {
 	height: 100px;
@@ -56,7 +43,7 @@ md-card-title {
 ul.skills {
 	list-style-type: none;
 	color: #4b4b4b;
-	padding-left: 20px;
+	padding-left: 0;
 }
 
 div.label {

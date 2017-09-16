@@ -11,22 +11,23 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
 	selector: 'hero-details',
-	template: `
-  	<div *ngIf="hero">
-  		<h1>{{hero.name}}</h1>
-  		<div><label>id: </label>{{hero.id}}</div>
-  	</div>
-  `,
+	templateUrl: './hero-detail.component.html',
+	styleUrls: ['./hero-detail.component.css']
+  	
 })
 export class HeroDetailComponent implements OnInit {
 
 	hero: Hero;
+	private baseUrl: String;
 
 	constructor(
 		private heroService: HeroService,
 		private route: ActivatedRoute,
 		private location: Location
-	) { }
+	) {
+	this.baseUrl = 'http://' + window.location.hostname + ':8000'; 
+}
+
 
 	ngOnInit(): void {
 		this.route.params

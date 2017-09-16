@@ -1,21 +1,20 @@
-<!-- <md-toolbar>
-    <div class="toolbarCenter">
-        <img src="/assets/schwarzes-auge.png" class="logo" />
-        <h1>DSA Abenteuer</h1>
-    </div>
-</md-toolbar> -->
-<!-- <md-sidenav-container class="example-container">
-    <md-sidenav #sidenav class="example-sidenav">
-        <heroes-list></heroes-list>
-    </md-sidenav>
-    <div class="example-sidenav-content">
-        <button md-button (click)="sidenav.open()">
-            Open sidenav
-        </button>
-        <router-outlet></router-outlet>
-    </div>
-</md-sidenav-container> -->
-<div class="pageContainer">
-    <div id="menu"><i class="fa fa-bars"></i></div>
+<!-- <div class="pageContainer"> -->
+<!-- <div id="menu"> -->
+<md-sidenav-container>
+  <md-sidenav mode="push" #sidenav opened="false">
+    <menu>
+    </menu>
+  </md-sidenav>
+  <div class="my-content">
     <router-outlet></router-outlet>
-</div>
+  </div>
+  <!-- primary content -->
+</md-sidenav-container>
+<button class="hamburger hamburger--spin" [ngClass]="{'is-active':sidenav.opened}" type="button" id="appMenuButton" (click)="sidenav.toggle()">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+<!-- <button md-button id="appMenuButton" md-icon-button (click)="sidenav.toggle()"><i class="fa fa-bars"></i></button> -->
+<!-- </div> -->
+<!-- </div> -->

@@ -1,0 +1,44 @@
+.heroDetailHeader {
+  /*padding: 20px 20px 0 20px;*/
+  display: flex;
+}
+
+.padded {
+  padding: 20px;
+}
+
+label {
+  width: 100px;
+}
+
+#avatarContainer {
+  order: 1;
+  border-bottom: 1px solid #999;
+    background-color: #fff;
+}
+
+#propertiesContainer {
+  order: 2;
+}
+
+.heroAvatarImage,.heroAvatar {
+  height: 150px;
+}
+
+.heroAvatar {
+	margin-top:-15px;
+}
+@media (min-width: 48em) {
+  #avatarContainer {
+    order: 2;
+    background-color: transparent;
+  }
+
+  #propertiesContainer {
+    order: 1;
+  }
+
+  .heroAvatarImage, .heroAvatar {
+    height: 300px;
+  }
+}

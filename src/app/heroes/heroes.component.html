@@ -1,8 +1,8 @@
 <div class="heroes-container">
     <div>
-        <!-- <h1>Die Helden!!</h1> -->
     </div>
     <div class="heroes-list">
+        <h1>Die Helden!!</h1>
         <hero-card *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" [hero]="hero">
         </hero-card>
     </div>

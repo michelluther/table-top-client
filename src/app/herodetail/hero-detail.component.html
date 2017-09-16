@@ -1,0 +1,78 @@
+<div class="page flex-col center">
+  <div class="pageContent">
+    <div *ngIf="hero">
+      <div class="headerContainer">
+        <!--  -->
+        <div class="headerContent">
+          <h1>{{hero.name}}</h1>
+          <md-card-subtitle>{{hero.hero_type.name}}</md-card-subtitle>
+        </div>
+      </div>
+      <div class="flex-col">
+        <div class="contentBox Grid Grid--cols-2">
+          <div id="propertiesContainer" class="container Grid-cell">
+            <div class="padded">
+              <h4>Eigenschaften</h4>
+              <div class="flex-row">
+                <div class="label">
+                  <label>id: </label>
+                </div>
+                <div class="value">{{hero.id}}</div>
+              </div>
+              <div class="flex-row">
+                <div class="label">
+                  <label>Größe: </label>
+                </div>
+                <div class="value">{{hero.size}}</div>
+              </div>
+              <div class="flex-row">
+                <div class="label">
+                  <label>Rasse: </label>
+                </div>
+                <div class="value">{{hero.race.name}}</div>
+              </div>
+              <div class="flex-row">
+                <label>Kultur: </label>
+              </div>
+              <div class="value">{{hero.culture}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>Sozialrang: </label>
+              </div>
+              <div class="value">{{hero.social_rank}}</div>
+            </div>
+          </div>
+          <div id="avatarContainer" class="Grid-cell flex-col center">
+            <div class="heroAvatar large flex-item">
+              <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
+            </div>
+          </div>
+        </div>
+        <div class="Grid Grid--full Grid-cell">
+          <div class="actionsContainer Grid-cell">
+            <hero-controls [hero]="hero">
+            </hero-controls>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox flex-item">
+        <div class="kampfwerte padded">
+          <h4>Kampfwerte</h4>
+          <div class="flex-row">
+            <label>Attacke Basis: </label>{{hero.attack_basis}}
+          </div>
+          <div class="flex-row">
+            <label>Parade Basis: </label>{{hero.parade_basis}}
+          </div>
+          <div class="flex-row">
+            <label>Rasse: </label>{{hero.race.name}}
+          </div>
+          <div class="flex-row">
+            <label>Sozialrang: </label>{{hero.social_rank}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
