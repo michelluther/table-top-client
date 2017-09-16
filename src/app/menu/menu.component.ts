@@ -12,6 +12,7 @@ import {
 @Component({
 	selector: 'menu',
 	templateUrl: './menu.component.html',
+	helloer: 'hihhi',
 	styleUrls: ['./menu.component.css']
   	
 })
