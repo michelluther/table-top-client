@@ -12,6 +12,7 @@ import {
 @Component({
 	selector: 'menu',
 	templateUrl: './menu.component.html',
+	teller: 'something',
 	styleUrls: ['./menu.component.css']
   	
 })
