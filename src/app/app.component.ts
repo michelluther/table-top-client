@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Menu } from './menu/menu.component';
 import { Hero } from './domain/hero';
 import { HeroService } from './domain/hero.service';
 import { HeroLifeService } from './hero-controls/hero-life.service';
@@ -13,7 +13,6 @@ import { HeroLifeService } from './hero-controls/hero-life.service';
 })
 export class AppComponent {
 	title = 'Tour of Heroes';
-
 
 	constructor(private heroService: HeroService) { }
 

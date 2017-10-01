@@ -9,6 +9,8 @@ import {
   transition
 } from '@angular/animations';
 
+import { Router } from '@angular/router';
+
 /***
  *
  *
@@ -23,14 +25,24 @@ import {
 export class Menu implements OnInit {
 
 	private baseUrl: String;
+	private open: boolean;
 
 	constructor(
+		private router: Router
 	) {
-	this.baseUrl = 'http://' + window.location.hostname + ':8000'; 
-}
+		this.baseUrl = 'http://' + window.location.hostname + ':8000'; 
+	}
 
 
 	ngOnInit(): void {
+	}
+
+	gotoList(): void {
+		this.router.navigate(['/heroes']);
+	}
+
+	toggle(): void {
+		this.open = !this.open;
 	}
 
 }

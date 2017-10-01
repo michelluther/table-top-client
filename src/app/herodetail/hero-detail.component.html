@@ -32,15 +32,17 @@
                 <div class="value">{{hero.race.name}}</div>
               </div>
               <div class="flex-row">
-                <label>Kultur: </label>
+                <div class="label">
+                  <label>Kultur: </label>
+                </div>
+                <div class="value">{{hero.culture}}</div>
               </div>
-              <div class="value">{{hero.culture}}</div>
-            </div>
-            <div class="flex-row">
-              <div class="label">
-                <label>Sozialrang: </label>
+              <div class="flex-row">
+                <div class="label">
+                  <label>Sozialrang: </label>
+                </div>
+                <div class="value">{{hero.social_rank}}</div>
               </div>
-              <div class="value">{{hero.social_rank}}</div>
             </div>
           </div>
           <div id="avatarContainer" class="Grid-cell flex-col center">
@@ -53,6 +55,21 @@
           <div class="actionsContainer Grid-cell">
             <hero-controls [hero]="hero">
             </hero-controls>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox flex-item flex-col">
+        <div class="kampfwerte padded flex-item flex-col">
+          <h4>Kampfwerte</h4>
+          <div class="flex-row">
+            <div class="flex-item">
+              <label class="long">Attacke Basis: </label>
+              <label class="short">AT: </label>{{hero.attack_basis}}
+            </div>
+            <div class="flex-item">
+              <label class="long">Parade Basis: </label>
+              <label class="short">PA: </label>{{hero.parade_basis}}
+            </div>
           </div>
         </div>
       </div>

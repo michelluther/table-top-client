@@ -50,3 +50,7 @@ div.label {
 	width: 96px;
 	float:left;
 }
+
+.headerContent {
+	cursor: pointer;
+}

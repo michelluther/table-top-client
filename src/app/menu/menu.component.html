@@ -1,7 +1,9 @@
-<md-nav-list>
-  <md-list-item>
-    <a mdLine href="#">Oben</a>
-  </md-list-item>
-  <md-list-item>Salt </md-list-item>
-  <md-list-item>Paprika </md-list-item>
-</md-nav-list>
+<div id="menuContainer" [ngClass]="{'open': open === true }">
+  <md-nav-list class="modal">
+    <md-list-item (click)="gotoList()">
+      <a mdLine>Zurück</a>
+    </md-list-item>
+    <md-list-item>Salt </md-list-item>
+    <md-list-item>Paprika </md-list-item>
+  </md-nav-list>
+</div>
