@@ -16,7 +16,9 @@ label.short {
   width: 40px;
 }
 
-
+.pageContent {
+  
+}
 
 #avatarContainer {
   order: 1;
@@ -35,6 +37,14 @@ label.short {
 
 .heroAvatar {
   margin-top: -15px;
+}
+
+.actionsContainer {
+  position:fixed;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 @media (min-width: 48em) {

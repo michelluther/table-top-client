@@ -1,15 +1,19 @@
 <!-- <md-sidenav-container> -->
-  <!-- <md-sidenav mode="push" #sidenav opened="false"> -->
-    <menu #nav>
-    </menu>
-  <!-- </md-sidenav> -->
-  <div class="my-content">
-    <router-outlet></router-outlet>
+<!-- <md-sidenav mode="push" #sidenav opened="false"> -->
+<!-- <menu #nav>
+    </menu> -->
+<!-- </md-sidenav> -->
+<div id="perspective" class="perspective effect-moveleft">
+  <div class="my-content container">
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-<!-- </md-sidenav-container> -->
-<button class="hamburger hamburger--spin" type="button" id="appMenuButton" (click)="nav.toggle()">
-<!--<button class="hamburger hamburger--spin" [ngClass]="{'is-active':sidenav.opened}" type="button" id="appMenuButton" (click)="sidenav.toggle()">-->
-  <span class="hamburger-box">
+  <!-- </md-sidenav-container> -->
+  <!-- <button class="hamburger hamburger--spin" type="button" id="appMenuButton" (click)="nav.toggle()"> -->
+    <!--<button class="hamburger hamburger--spin" [ngClass]="{'is-active':sidenav.opened}" type="button" id="appMenuButton" (click)="sidenav.toggle()">-->
+    <!-- <span class="hamburger-box">
     <span class="hamburger-inner"></span>
-  </span>
-</button>
+    </span> -->
+
+  <!-- </button> -->
