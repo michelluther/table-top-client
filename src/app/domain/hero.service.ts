@@ -8,41 +8,39 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { SkillService } from './skills.service';
+
 import { HEROES } from './mock-heroes';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class HeroService {
 
 	private heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
-	// private heroesUrl = '/assets/characters.json/';
 	private heroes: Hero[];
 
-	constructor(private http: Http) { }
-
+	constructor(private http: Http, private skillService: SkillService) { }
+ 
 	getHeroes(): Promise<Hero[]> {
 		return this.http.get(this.heroesUrl)
 			.toPromise()
 			.then(response => {
-				console.log(response.json());
 				return this.extractData(response);
 			}
 			)
-			.catch(this.handleError);
 	}
 
 	extractData(res: Response): Hero[] {
 		let body = res.json();
 		let heroes = [];
-		body.forEach(function(hero) {
-			console.log(hero);
-			var newHero = new Hero(hero);
+		body.forEach(function (hero) {
+			var newHero = new Hero(this.skillService).setData(hero);
 			heroes.push(newHero);
-		});
+		}.bind(this));
 		return heroes;
 	}
 
 	handleError(error: Response | any) {
-		console.log("ein Fehler!!!");
 		let errMsg: string;
 		if (error instanceof Response) {
 			const body = error.json() || '';
@@ -57,7 +55,9 @@ export class HeroService {
 
 	getHero(id: Number): Promise<Hero> {
 		return this.getHeroes()
-			.then(heroes => heroes.find(hero => hero.id === id));
+			.then(heroes => 
+				heroes.find(hero => hero.id === id)
+			);
 	}
 
 }

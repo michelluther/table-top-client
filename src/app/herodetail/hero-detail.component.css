@@ -7,6 +7,10 @@
   padding: 20px;
 }
 
+.label {
+
+}
+
 label.long {
   width: 150px;
   display: none;
@@ -17,7 +21,7 @@ label.short {
 }
 
 .pageContent {
-  
+  padding-bottom: 40px;
 }
 
 #avatarContainer {
@@ -47,6 +51,53 @@ label.short {
   z-index: 1000;
 }
 
+.talente {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.skillGroupEntries {
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.skillEntry {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  padding: 5px 0;
+  border: 1px solid #999;
+  width: 100%;
+}
+
+
+.skillTitle {
+  width: 200px;
+}
+
+.skillBe {
+  width: 40px;
+}
+
+.skillValue {
+  width: 30px;
+  border: 1px solid #aaa;
+}
+
+
+
+.dices {
+  display: flex;
+  flex-direction: row;
+}
+
+.dice {
+  width: 30px;
+  border-right: 1px solid #aaa;
+}
+
 @media (min-width: 48em) {
   #avatarContainer {
     order: 2;
@@ -69,5 +120,9 @@ label.short {
 
   label.short {
     display: none;
+  }
+
+  .skillEntry {
+    width: 49%;
   }
 }

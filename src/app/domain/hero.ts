@@ -1,3 +1,11 @@
+import { Skill } from "./skill";
+import { SkillGroup } from "./skillgroup";
+import { SkillService } from "./skills.service";
+import * as _ from 'lodash';
+import { ActualSkill } from "./actualSkill";
+import { ActualSkillGroup } from "./actualSkillGroup";
+import { Component, ChangeDetectorRef } from '@angular/core';
+
 export class Hero {
 
   id: number;
@@ -10,7 +18,7 @@ export class Hero {
   culture: number;
 
   avatar_small: String;
-  
+
   experience: number;
 
   mut: number;
@@ -33,9 +41,14 @@ export class Hero {
   attack_basis: number;
   parade_basis: number;
 
-  skills: Array<Object>;
+  skills: Array<ActualSkill>;
+  skillGroups: ActualSkillGroup[];
 
-  constructor(dataObject: Object) {
+  constructor(private skillService: SkillService) {
+    this.skillService = skillService;
+  };
+
+  setData(dataObject: Object): Hero {
     this.attack_basis = dataObject['attack_basis'];
     this.parade_basis = dataObject['parade_basis'];
 
@@ -62,8 +75,29 @@ export class Hero {
     this.name = dataObject['name'];
     this.race = dataObject['race'];
     this.size = dataObject['size'];
-    this.skills = dataObject['skills'];
+    // this.skills = dataObject['skills'];
+    this.structureSkills(dataObject['skills']);
     this.social_rank = dataObject['social_rank']
-
+    return this;
   }
+
+  structureSkills(skills: Array<Object>): void {
+
+    let skillsPromise = Promise.all([this.skillService.getSkillGroups(), this.skillService.getSkills()]).then(skillGroupsAndSkills => {
+      this.skillGroups = new Array<ActualSkillGroup>();
+      let skillGroups = skillGroupsAndSkills[0];
+      let allSkills = skillGroupsAndSkills[1];
+      let actualSkills = new Array<ActualSkill>();
+      skills.forEach(skill => {
+        let oneSkill = _.find(allSkills, finder => { return finder.id === skill['id'] })
+        actualSkills.push(new ActualSkill(skill, oneSkill))
+      })
+      skillGroups.forEach(skillGroup => {
+        this.skillGroups.push(new ActualSkillGroup(skillGroup, _.filter(actualSkills, actualSkill => { return actualSkill.getSkill().skillGroupId == skillGroup.id })))
+      })
+    });
+  
+}
+
+
 }
