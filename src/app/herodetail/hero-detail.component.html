@@ -95,21 +95,12 @@
       <div class="contentBox flex-item">
         <div class="talente padded">
           <h4>Talente</h4>
-          <div *ngFor="let skillGroup of hero.skillGroups">
+          <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" />
+          <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm">
             <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
             <div class="skillGroupEntries">
-              <div class="skillEntry" *ngFor="let skill of skillGroup.skills">
-                <div class="skillTitle">{{skill.getSkill().name}}</div>
-                <div class="skillBe">{{skill.getSkill().be}}</div>
-                <div class="skillValue">{{skill.value}}</div>
-                <div class="fightDices" *ngIf="skill.id != 1">
-                  <p>{{skillGroup.id}}</p>
-                </div>
-                <div class="dices" *ngIf="skill.id">
-                  <div class="dice">{{skill.getSkill().dice1}}</div>
-                  <div class="dice">{{skill.getSkill().dice2}}</div>
-                  <div class="dice">{{skill.getSkill().dice3}}</div>
-                </div>
+              <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
+                <talent-card [skill]="skill"></talent-card>
               </div>
             </div>
           </div>

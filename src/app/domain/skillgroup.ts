@@ -10,10 +10,28 @@ export class SkillGroup {
   name: String;
   skills: Skill[];
   skillsPromise: Promise<ActualSkill[]>;
+  hasThreeDices: Boolean;
+  hasAttackParade: Boolean;
+  isLongRangeWeaponSkill: Boolean;
 
   constructor(dataObject: Object, private chRef: ChangeDetectorRef) {
     this.name = dataObject['name'];
     this.id = dataObject['id'];
+    if(this.id == 1 || this.id == 8){
+      this.hasThreeDices = false;
+    } else {
+      this.hasThreeDices = true;
+    }
+    if(this.id == 1){
+      this.hasAttackParade = true;
+    } else {
+      this.hasAttackParade = false;
+    }
+    if(this.id == 8){
+      this.isLongRangeWeaponSkill = true;
+    } else {
+      this.isLongRangeWeaponSkill = false;
+    }
   }
 
   setSkills(skills: Skill[]) {
@@ -29,15 +47,6 @@ export class SkillGroup {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve([{ value: 1 }, { value: 2 }]), 1000)
     });;
-  }
-
-  hasThreeDices(): Boolean {
-    console.log('you asked whether we have three dices ...')
-    if(this.id == 1){
-      return false;
-    } else {
-      return true;
-    }
   }
 
 }

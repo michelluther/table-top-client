@@ -6,6 +6,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../domain/hero.service';
 import { SkillService } from '../domain/skills.service';
+import { MatchesSearchTerm } from './skill.pipe';
+import { MdIcon } from '@angular/material';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -13,9 +15,10 @@ import 'rxjs/add/operator/switchMap';
 	selector: 'hero-details',
 	templateUrl: './hero-detail.component.html',
 	styleUrls: ['./hero-detail.component.css']
-  	
 })
 export class HeroDetailComponent implements OnInit {
+
+	talentSearchTerm: String = '';
 
 	hero: Hero;
 	private baseUrl: String;
@@ -23,10 +26,11 @@ export class HeroDetailComponent implements OnInit {
 	constructor(
 		private heroService: HeroService,
 		private route: ActivatedRoute,
-		private location: Location
+		private location: Location,
+		
 	) {
-	this.baseUrl = 'http://' + window.location.hostname + ':8000'; 
-}
+		this.baseUrl = 'http://' + window.location.hostname + ':8000';
+	}
 
 
 	ngOnInit(): void {

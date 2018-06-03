@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdSidenavModule, MdToolbarModule, MdCardModule, MdButtonModule, MdMenuModule, MdListModule } from '@angular/material';
+import { MdSidenavModule, MdToolbarModule, MdCardModule, MdButtonModule, MdMenuModule, MdListModule, MdIcon } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule }    from '@angular/http';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { Menu } from './menu/menu.component';
 import 'hammerjs';
 
 import { HeroService } from './domain/hero.service';
+import { MatchesSearchTerm, MatchesSearchTermChildren } from './herodetail/skill.pipe';
+import { TalentCard } from './talent-card/talent-card.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
@@ -33,9 +35,9 @@ const routes: Routes = [
     MdCardModule,
     MdButtonModule,
     MdListModule,
-    HttpModule,
+    HttpModule
   ],
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent, HeroControls, HeroCard, Menu],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent, HeroControls, HeroCard, Menu, MatchesSearchTerm, MatchesSearchTermChildren, TalentCard],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

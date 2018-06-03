@@ -7,8 +7,8 @@
   padding: 20px;
 }
 
-.label {
-
+.skillEntry i {
+  margin-right: 5px;
 }
 
 label.long {
@@ -44,8 +44,8 @@ label.short {
 }
 
 .actionsContainer {
-  position:fixed;
-  bottom:0;
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -63,39 +63,62 @@ label.short {
   flex-wrap: wrap; */
 }
 
+.skillGroupTitle {
+  padding: 10px 0;
+}
+
 .skillEntry {
   display: flex;
   flex-direction: row;
-  height: 30px;
-  padding: 5px 0;
-  border: 1px solid #999;
   width: 100%;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  align-items: center;
+  justify-content: stretch;
 }
 
+.skillContent {
+  margin: 2px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+  align-items: center;
+}
 
 .skillTitle {
-  width: 200px;
+  width: 150px;
+  padding-left: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .skillBe {
-  width: 40px;
+  width: 60px;
 }
 
 .skillValue {
   width: 30px;
-  border: 1px solid #aaa;
+  color: #AD2003;
 }
 
-
-
-.dices {
+.dices,
+.fightDices {
   display: flex;
   flex-direction: row;
+  padding: 0 10px;
+  align-items: center
 }
 
 .dice {
   width: 30px;
-  border-right: 1px solid #aaa;
+  text-align: center;
+}
+
+.fightDice {
+  width: 45px;
 }
 
 @media (min-width: 48em) {
@@ -104,25 +127,21 @@ label.short {
     background-color: transparent;
     border-bottom: none;
   }
-
   #propertiesContainer {
     order: 1;
   }
-
   .heroAvatarImage,
   .heroAvatar {
     height: 300px;
   }
-
   label.long {
     display: inline;
   }
-
   label.short {
     display: none;
   }
-
   .skillEntry {
-    width: 49%;
+    width: 50%;
+    float: left;
   }
 }
