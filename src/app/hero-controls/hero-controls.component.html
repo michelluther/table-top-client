@@ -1,15 +1,19 @@
 <div class="container">
-    <div class="mainStatus">
-        <div class="mainStatusValue good">{{lifeDisplay}}/{{heroProperty.life}}</div>
-    </div>
-    <div class="buttons">
-        <div class="lifeChangerButton" (click)="updateLife(-5)"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
-</div>
-        <div class="lifeChangerButton" (click)="updateLife(-1)"><i class="fa fa-angle-down" aria-hidden="true"></i>
-</div>
-        <div class="lifeChangerButton" (click)="updateLife(1)"><i class="fa fa-angle-up" aria-hidden="true"></i>
-</div>
-        <div class="lifeChangerButton" (click)="updateLife(5)"><i class="fa fa-angle-double-up" aria-hidden="true"></i>
-</div>
-    </div>
+        <div class="mainStatus">
+                <div class="mainStatusValue good">{{lifeDisplay}}/{{heroProperty.life}}</div>
+        </div>
+        <div class="buttons">
+                <div class="lifeChangerButton" (click)="updateLife(-5)">
+                        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                </div>
+                <div class="lifeChangerButton" (click)="updateLife(-1)">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </div>
+                <div class="lifeChangerButton" (click)="updateLife(1)">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <div class="lifeChangerButton" (click)="updateLife(5)">
+                        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                </div>
+        </div>
 </div>

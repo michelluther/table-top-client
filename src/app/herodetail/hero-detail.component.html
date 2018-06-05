@@ -1,11 +1,13 @@
 <div class="page flex-col center">
+
   <div class="pageContent">
+
     <div *ngIf="hero">
       <div class="headerContainer">
         <!--  -->
         <div class="headerContent">
           <h1>{{hero.name}}</h1>
-          <md-card-subtitle>{{hero.hero_type.name}}</md-card-subtitle>
+          <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
         </div>
       </div>
       <div class="flex-col">
@@ -95,11 +97,28 @@
       <div class="contentBox flex-item">
         <div class="talente padded">
           <h4>Talente</h4>
-          <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" />
-          <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm">
+          <form class="search">
+            <!-- <mat-form-field class="talentSearchBox"> -->
+            <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto" [formControl]="searchCtrl"
+              [value]="autoSearchTerm">
+            <mat-autocomplete #auto="matAutocomplete">
+              <!-- <mat-optgroup *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:autoSearchTerm" > -->
+              <mat-option *ngFor="let skill of filteredSkills | async" [value]="autoSearchTerm" class="skillOption">
+                <div class="skillEntry">
+                  <talent-card [skill]="skill"></talent-card>
+                </div>
+              </mat-option>
+              <!-- </mat-optgroup> -->
+            </mat-autocomplete>
+            <!-- </mat-form-field> -->
+          </form>
+          <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
+          <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
+          <div *ngFor="let skillGroup of hero.skillGroups">
             <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
             <div class="skillGroupEntries">
-              <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
+              <div class="skillEntry" *ngFor="let skill of skillGroup.skills">
+                <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm"> -->
                 <talent-card [skill]="skill"></talent-card>
               </div>
             </div>

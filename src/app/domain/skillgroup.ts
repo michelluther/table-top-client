@@ -36,7 +36,6 @@ export class SkillGroup {
 
   setSkills(skills: Skill[]) {
     this.skills = skills;
-    console.log(this.getSkills());
   }
 
   getSkills(): Skill[] {

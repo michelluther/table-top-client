@@ -1,10 +1,10 @@
-<md-card class="heroes-entry">
-    <md-card-content>
+<mat-card class="heroes-entry">
+    <mat-card-content>
         <div class="headerContainer">
             <!--  -->
             <div class="headerContent" (click)="gotoDetail()">
-                <md-card-title>{{hero.name}}</md-card-title>
-                <md-card-subtitle>{{hero.hero_type.name}}</md-card-subtitle>
+                <mat-card-title>{{hero.name}}</mat-card-title>
+                <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
             </div>
         </div>
         <div class="contentContainer">
@@ -22,5 +22,5 @@
             <hero-controls [hero]="hero">
             </hero-controls>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

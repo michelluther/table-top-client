@@ -1,15 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdSidenavModule, MdToolbarModule, MdCardModule, MdButtonModule, MdMenuModule, MdListModule, MdIcon } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule }    from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './herodetail/hero-detail.component';
 import { HeroControls } from './hero-controls/hero-controls.component';
 import { HeroCard } from './hero-card/hero-card.component';
 import { Menu } from './menu/menu.component';
+
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatInput,
+  MatInputModule,
+  MatOptgroup,
+  MatOption,
+  MatAutocomplete,
+  MatFormFieldControl,
+  MatCard,
+  MatCardSubtitle,
+  MatCardTitle,
+  MatCardContent,
+  MatFormField,
+  MatPseudoCheckbox,
+  MatRipple,
+  MatAutocompleteModule
+} from '@angular/material';
+
 import 'hammerjs';
 
 import { HeroService } from './domain/hero.service';
@@ -28,16 +46,36 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MdMenuModule,
-    MdSidenavModule, 
-    MdToolbarModule, 
-    MdSidenavModule,
-    MdCardModule,
-    MdButtonModule,
-    MdListModule,
-    HttpModule
+    HttpModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent, HeroControls, HeroCard, Menu, MatchesSearchTerm, MatchesSearchTermChildren, TalentCard],
+  // exports: [
+  //   MatAutocompleteModule
+  // ],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    HeroControls,
+    HeroCard,
+    Menu,
+    MatchesSearchTerm,
+    MatchesSearchTermChildren,
+    TalentCard,
+    // MatAutocomplete,
+    MatCard,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCardContent,
+    MatInput,
+    MatFormField
+    // MatOption,
+    // MatOptgroup,
+    // MatPseudoCheckbox,
+    // MatRipple
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

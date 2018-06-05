@@ -37,7 +37,6 @@ export class HeroControls implements OnInit{
 		this.service = websocketService;
 		this.lifeSubject = websocketService.lifeSubject;
 		this.lifeSubscription = websocketService.lifeSubject.subscribe((message) => {
-			console.log('i got called, first');
 			let messageData = JSON.parse(message.data);
 			if (messageData.heroId == this.heroProperty.id) {
 				this.heroProperty.life_lost = this.heroProperty.life_lost - messageData.value;
@@ -49,7 +48,6 @@ export class HeroControls implements OnInit{
 	}
 
 	ngOnInit(): void {
-		console.log(this.heroProperty.life_lost);
 		this.calculateRemainingLife()
 	}
 

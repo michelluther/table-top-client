@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Skill } from '../domain/skill';
 import { ActualSkill } from '../domain/actualSkill';
 import { SkillService } from '../domain/skills.service';
+import { SkillGroup } from '../domain/skillgroup';
 
 @Component({
   selector: 'talent-card',
@@ -27,6 +28,6 @@ export class TalentCard implements OnInit {
 
   @Input()
   get skillGroup() {
-    return this.skillService.getSKillGroup(this.skillProperty.getSkill().skillGroupId);
+    return this.skillProperty.getSkillGroup();
   }
 }

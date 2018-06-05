@@ -87,17 +87,22 @@ export class Hero {
       this.skillGroups = new Array<ActualSkillGroup>();
       let skillGroups = skillGroupsAndSkills[0];
       let allSkills = skillGroupsAndSkills[1];
-      let actualSkills = new Array<ActualSkill>();
+      this.skills = [];
       skills.forEach(skill => {
         let oneSkill = _.find(allSkills, finder => { return finder.id === skill['id'] })
-        actualSkills.push(new ActualSkill(skill, oneSkill))
+        let skillSkillGroup = _.find(skillGroups, skillGroup => { return oneSkill.skillGroupId == skillGroup.id });
+        this.skills.push(new ActualSkill(skill, oneSkill, skillSkillGroup));
       })
       skillGroups.forEach(skillGroup => {
-        this.skillGroups.push(new ActualSkillGroup(skillGroup, _.filter(actualSkills, actualSkill => { return actualSkill.getSkill().skillGroupId == skillGroup.id })))
+        let skills = _.filter(this.skills, actualSkill => {
+          return actualSkill.getSkill().skillGroupId == skillGroup.id
+        });
+        this.skillGroups.push(new ActualSkillGroup(skillGroup, skills));
       })
+      
     });
-  
-}
+
+  }
 
 
 }
