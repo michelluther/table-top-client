@@ -49,8 +49,8 @@ export class HeroDetailComponent implements OnInit {
 					that.filteredSkills = that.searchCtrl.valueChanges
 						.pipe(
 							startWith(''),
-							map(skill => {
-								return skill ? that.filterSkills(skill) : that.hero.skills.slice()
+							map(searchTerm => {
+								return searchTerm ? that.filterSkills(searchTerm) : that.hero.skills.slice()
 							})
 						));
 					clearTimeout(heroTimer);
@@ -72,7 +72,7 @@ export class HeroDetailComponent implements OnInit {
 
 	filterSkills(name: string) {
 		return this.hero.skills.filter(skill =>
-			skill.getSkill().name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+			skill.getSkill().name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
 	}
 
 	//   filterThings(name: string) {
