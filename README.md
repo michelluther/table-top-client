@@ -5,3 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Todos
 
 - Read all available skills and mix them with the skills available for a character
+- image viewer remote controlled
+    - display
+    - hide
+- fight display
+- Master view
+    - Send images 

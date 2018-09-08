@@ -10,7 +10,7 @@ import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
 	templateUrl: './hero-controls.component.html',
 	styleUrls: ['./hero-controls.component.css']
 })
-export class HeroControls implements OnInit{
+export class HeroControls implements OnInit {
 
 	private heroProperty: Hero;
 
@@ -23,8 +23,6 @@ export class HeroControls implements OnInit{
 	private sentMessage: string;
 	private service: HeroLifeService;
 
-	
-
 	private lifeObserver = {
 		next: (messageData) => {
 
@@ -32,7 +30,7 @@ export class HeroControls implements OnInit{
 	};
 
 	constructor(websocketService: HeroLifeService) {
-		
+
 
 		this.service = websocketService;
 		this.lifeSubject = websocketService.lifeSubject;
@@ -73,7 +71,7 @@ export class HeroControls implements OnInit{
 		});
 	}
 
-	calculateRemainingLife():void{
+	calculateRemainingLife(): void {
 		this.lifeDisplay = this.heroProperty.life - this.heroProperty.life_lost;
 	}
 
