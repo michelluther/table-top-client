@@ -44,6 +44,8 @@ import { TalentCard } from './talent-card/talent-card.component';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
 import { FightSetupComponent } from './fight-setup/fight-setup.component';
 import { FightDisplayComponent } from './fight-display/fight-display.component';
+import { RemoteControlComponent } from './remote-control/remote-control.component';
+import { RemoteControlReceiverComponent } from './remote-control-receiver/remote-control-receiver.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
@@ -90,7 +92,9 @@ const routes: Routes = [
     MatSidenav,
     MatSidenavContent,
     MatButton,
-    MatIcon
+    MatIcon,
+    RemoteControlComponent,
+    RemoteControlReceiverComponent
   ],
   bootstrap: [AppComponent],
 })
