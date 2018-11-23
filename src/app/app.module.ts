@@ -23,9 +23,17 @@ import {
   MatCardTitle,
   MatCardContent,
   MatFormField,
+  MatButton,
   MatPseudoCheckbox,
   MatRipple,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatSidenavModule,
+  MatSidenavContainer,
+  MatSidenav,
+  MatSidenavContent,
+  MatButtonModule,
+  MatRippleModule,
+  MatIcon
 } from '@angular/material';
 
 import 'hammerjs';
@@ -53,10 +61,10 @@ const routes: Routes = [
     HttpModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatRippleModule
   ],
   // exports: [
-  //   MatAutocompleteModule
   // ],
   declarations: [
     AppComponent,
@@ -77,11 +85,12 @@ const routes: Routes = [
     MatFormField,
     AdminOverviewComponent,
     FightSetupComponent,
-    FightDisplayComponent
-    // MatOption,
-    // MatOptgroup,
-    // MatPseudoCheckbox,
-    // MatRipple
+    FightDisplayComponent,
+    MatSidenavContainer,
+    MatSidenav,
+    MatSidenavContent,
+    MatButton,
+    MatIcon
   ],
   bootstrap: [AppComponent],
 })
