@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'hero-card',
@@ -17,8 +17,9 @@ export class HeroCard implements OnInit {
 
 	constructor(
 		private heroService: HeroService,
-		private router: Router
-	) { 
+		private router: Router,
+		private route: ActivatedRoute
+	) {
 		this.baseUrl = 'http://' + window.location.hostname + ':8000';
 	}
 
@@ -40,6 +41,6 @@ export class HeroCard implements OnInit {
 	}
 
 	gotoDetail(): void {
-		this.router.navigate(['/hero', this.heroProperty.id]);
+		this.router.navigate(['../hero', this.heroProperty.id], { relativeTo: this.route });
 	}
 }

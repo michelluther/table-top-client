@@ -33,7 +33,10 @@ import {
   MatSidenavContent,
   MatButtonModule,
   MatRippleModule,
-  MatIcon
+  MatIcon,
+  MatDialogModule,
+  MatDialogContent,
+  MatDialog
 } from '@angular/material';
 
 import 'hammerjs';
@@ -46,12 +49,37 @@ import { FightSetupComponent } from './fight-setup/fight-setup.component';
 import { FightDisplayComponent } from './fight-display/fight-display.component';
 import { RemoteControlComponent } from './remote-control/remote-control.component';
 import { RemoteControlReceiverComponent } from './remote-control-receiver/remote-control-receiver.component';
+import { PlayerComponent } from './player/player.component';
+import { MasterComponent } from './master/master.component';
+import { LightboxModule } from 'ngx-lightbox';
+import { ImagePopupComponent } from './image-popup/image-popup.component';
+import { ChooseImageComponent } from './choose-image/choose-image.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
-  { path: 'hero/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent },
-  { path: 'master', component: AdminOverviewComponent }
+  // { path: '', redirectTo: 'player', pathMatch: 'full' },
+  // { path: 'player/hero/:id', component: HeroDetailComponent },
+  // { path: 'player', component: PlayerComponent, outlet: 'appRouter' },
+  { path: '', redirectTo: 'player/heroes', pathMatch: 'full' },
+  {
+    path: 'master', component: AdminOverviewComponent,
+    children: [
+      { path: 'heroes', component: HeroesComponent },
+      { path: 'hero/:id', component: HeroDetailComponent }
+    ]
+  },
+  {
+    path: 'player', component: PlayerComponent,
+    children: [
+      {
+        path: 'heroes',
+        component: HeroesComponent
+      },
+      {
+        path: 'hero/:id',
+        component: HeroDetailComponent
+      }
+    ]
+  },
 ];
 
 
@@ -64,10 +92,12 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    MatRippleModule
+    MatRippleModule,
+    LightboxModule
   ],
-  // exports: [
-  // ],
+  exports: [
+    MatDialogModule
+  ],
   declarations: [
     AppComponent,
     HeroesComponent,
@@ -94,8 +124,13 @@ const routes: Routes = [
     MatButton,
     MatIcon,
     RemoteControlComponent,
-    RemoteControlReceiverComponent
+    RemoteControlReceiverComponent,
+    PlayerComponent,
+    MasterComponent,
+    ImagePopupComponent,
+    ChooseImageComponent
   ],
   bootstrap: [AppComponent],
+  entryComponents: [ImagePopupComponent, ChooseImageComponent],
 })
 export class AppModule { }

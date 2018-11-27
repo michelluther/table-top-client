@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
+import { RemoteControlOperation } from './../domain/remoteControlOperation'
 
 import { Subject, Observer, Observable, Subscription } from 'rxjs/Rx';
 // import { Rx } from 'rxjs';
@@ -26,8 +27,12 @@ export class RemoteControlService {
         return ws;
     }
 
-    public sendRemoteControlInstruction(data): void {
-        this.socket.send(JSON.stringify(data));
+    public sendRemoteControlInstruction(instruction: RemoteControlOperation): void {
+        console.log('will send instruction');
+        const jsonOperation = instruction.toJSON();
+        console.log(jsonOperation);
+
+        this.socket.send(jsonOperation);
     }
 
 }

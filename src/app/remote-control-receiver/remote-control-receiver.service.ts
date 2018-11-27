@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class RemoteControlService {
+export class RemoteControlReceiverService {
 
     private wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlReceiver';
     public wsClientId = Math.random().toString(36).substring(7);

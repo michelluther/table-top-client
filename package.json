@@ -31,6 +31,7 @@
     "hamburgers": "^0.9.1",
     "hammerjs": "^2.0.8",
     "ngx-bootstrap": "^1.9.3",
+    "ngx-lightbox": "^1.2.0",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
     "webpack": "^4.10.2",
