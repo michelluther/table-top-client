@@ -20,12 +20,16 @@ import {
   MatFormFieldControl,
   MatCard,
   MatCardSubtitle,
+  MatSelectionList,
+  MatRadioModule,
   MatCardTitle,
   MatCardContent,
   MatFormField,
   MatPseudoCheckbox,
   MatRipple,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatSelectTrigger,
+  MatSelectModule
 } from '@angular/material';
 
 import 'hammerjs';
@@ -55,7 +59,9 @@ const routes: Routes = [
     HttpModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   // exports: [
   //   MatAutocompleteModule
@@ -76,7 +82,8 @@ const routes: Routes = [
     MatCardTitle,
     MatCardContent,
     MatInput,
-    MatFormField,
+    // MatFormField,
+    // MatSelectionList,
     AdminOverviewComponent,
     FightSetupComponent,
     FightDisplayComponent,

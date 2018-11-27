@@ -13,6 +13,7 @@ import { map, startWith } from 'rxjs/operators';
 
 import 'rxjs/add/operator/switchMap';
 import { ActualSkill } from '../domain/actualSkill';
+import { Weapon } from 'app/domain/weapon';
 
 @Component({
 	selector: 'hero-details',
@@ -46,13 +47,13 @@ export class HeroDetailComponent implements OnInit {
 				if (that.hero && that.hero.skills) {
 					console.log(that.hero.skills);
 					resolve(
-					that.filteredSkills = that.searchCtrl.valueChanges
-						.pipe(
-							startWith(''),
-							map(searchTerm => {
-								return searchTerm ? that.filterSkills(searchTerm) : that.hero.skills.slice()
-							})
-						));
+						that.filteredSkills = that.searchCtrl.valueChanges
+							.pipe(
+								startWith(''),
+								map(searchTerm => {
+									return searchTerm ? that.filterSkills(searchTerm) : that.hero.skills.slice()
+								})
+							));
 					clearTimeout(heroTimer);
 				}
 			}, 100);
@@ -73,6 +74,10 @@ export class HeroDetailComponent implements OnInit {
 	filterSkills(name: string) {
 		return this.hero.skills.filter(skill =>
 			skill.getSkill().name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
+	}
+
+	updateCurrentWeapon(weapon: Weapon) {
+		this.hero.currentWeapon = weapon
 	}
 
 	//   filterThings(name: string) {

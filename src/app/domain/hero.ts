@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import { ActualSkill } from "./actualSkill";
 import { ActualSkillGroup } from "./actualSkillGroup";
 import { Component, ChangeDetectorRef } from '@angular/core';
+import { Weapon } from './weapon'
 
 export class Hero {
 
@@ -44,8 +45,12 @@ export class Hero {
   skills: Array<ActualSkill>;
   skillGroups: ActualSkillGroup[];
 
+  weapons: Array<Weapon>
+  currentWeapon: Weapon
+
   constructor(private skillService: SkillService) {
     this.skillService = skillService;
+    this.weapons = []
   };
 
   setData(dataObject: Object): Hero {
@@ -78,6 +83,12 @@ export class Hero {
     // this.skills = dataObject['skills'];
     this.structureSkills(dataObject['skills']);
     this.social_rank = dataObject['social_rank']
+
+    dataObject['weapons'].forEach(weapon => {
+      this.weapons.push(new Weapon(weapon.name, weapon.tp_dice, weapon.tp_add_points))
+    })
+
+    this.currentWeapon = this.weapons[0]
     return this;
   }
 
@@ -99,7 +110,7 @@ export class Hero {
         });
         this.skillGroups.push(new ActualSkillGroup(skillGroup, skills));
       })
-      
+
     });
 
   }
