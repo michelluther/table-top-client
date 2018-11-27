@@ -79,6 +79,24 @@
               <label class="short">PA: </label>{{hero.parade_basis}}
             </div>
           </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h5>Waffe</h5>
+              <!-- <mat-select placeholder="Favorite food">
+                <mat-option *ngFor="let weapon of hero.weapons" [value]="weapon.id">
+                  {{weapon.name}}
+                </mat-option>
+              </mat-select> -->
+              <mat-radio-group [value]="hero.currentWeapon.name">
+                <mat-card class="weaponEntry" *ngFor="let weapon of hero.weapons">
+                  <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
+                    <div>{{weapon.name}}</div>
+                    <div>{{weapon.damageDice}}W+{{weapon.damageAddPoints}}</div>
+                  </mat-radio-button>
+                </mat-card>
+              </mat-radio-group>
+            </div>
+          </div>
         </div>
       </div>
       <div class="contentBox flex-item">
@@ -99,8 +117,8 @@
           <h4>Talente</h4>
           <form class="search">
             <!-- <mat-form-field class="talentSearchBox"> -->
-            <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto" [formControl]="searchCtrl"
-              [value]="autoSearchTerm">
+            <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
+              [formControl]="searchCtrl" [value]="autoSearchTerm">
             <mat-autocomplete #auto="matAutocomplete">
               <!-- <mat-optgroup *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:autoSearchTerm" > -->
               <mat-option *ngFor="let skill of filteredSkills | async" [value]="autoSearchTerm" class="skillOption">

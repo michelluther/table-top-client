@@ -39,4 +39,3 @@ export class ChooseImageComponent implements OnInit {
 
 }
 
-}

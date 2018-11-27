@@ -20,6 +20,8 @@ import {
   MatFormFieldControl,
   MatCard,
   MatCardSubtitle,
+  MatSelectionList,
+  MatRadioModule,
   MatCardTitle,
   MatCardContent,
   MatFormField,
@@ -36,7 +38,9 @@ import {
   MatIcon,
   MatDialogModule,
   MatDialogContent,
-  MatDialog
+  MatDialog,
+  MatSelectTrigger,
+  MatSelectModule
 } from '@angular/material';
 
 import 'hammerjs';
@@ -92,11 +96,8 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    MatRippleModule,
-    LightboxModule
-  ],
-  exports: [
-    MatDialogModule
+    MatRadioModule,
+    MatSelectModule
   ],
   declarations: [
     AppComponent,
@@ -114,7 +115,8 @@ const routes: Routes = [
     MatCardTitle,
     MatCardContent,
     MatInput,
-    MatFormField,
+    // MatFormField,
+    // MatSelectionList,
     AdminOverviewComponent,
     FightSetupComponent,
     FightDisplayComponent,
