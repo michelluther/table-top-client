@@ -20,7 +20,7 @@ export class HeroService {
 	private heroes: Hero[];
 
 	constructor(private http: Http, private skillService: SkillService) { }
- 
+
 	getHeroes(): Promise<Hero[]> {
 		return this.http.get(this.heroesUrl)
 			.toPromise()
@@ -54,10 +54,10 @@ export class HeroService {
 	}
 
 	getHero(id: Number): Promise<Hero> {
-		return this.getHeroes()
-			.then(heroes => 
-				heroes.find(hero => hero.id === id)
-			);
+		return new Promise((resolve, reject) => this.getHeroes()
+			.then(heroes =>
+				resolve(heroes.find(hero => hero.id === id))
+			));
 	}
 
 }

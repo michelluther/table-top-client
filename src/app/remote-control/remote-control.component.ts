@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RemoteControlService } from './remote-control.service'
 import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
 import { OperationFactory, RemoteControlOperation } from './../domain/remoteControlOperation'
-import { ChooseImageComponent } from './../choose-image/choose-image.component'
+import { ChooseImageComponent, ImagePopupData } from './../choose-image/choose-image.component'
 import { MatDialog } from '@angular/material';
+import { Image } from 'app/domain/adventure.service';
 
 @Component({
   selector: 'remote-control',
@@ -30,6 +31,7 @@ export class RemoteControlComponent implements OnInit {
 
   public sendImage(url: string): void {
     const dialogRef = this.dialog.open(ChooseImageComponent, {
+      // data: new ImagePopupData(null, [new Image('http://test.gif', 'the test')])
       // width: '250px',
     });
     // this.sendRemoteControlOperation('openImage', 'all', ['http://www.ulisses-spiele.de/media/images/produkt-produkt_das-schwarze-auge_dsa-logo_wandtattoo_3161_c.jpg'])

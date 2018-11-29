@@ -17,7 +17,7 @@ export class RemoteControlReceiverComponent implements OnInit {
     [operationTypes.openImage, (url: string) => {
       const dialogRef = this.dialog.open(ImagePopupComponent, {
         // width: '250px',
-        data: { url: url }
+        data: { url: this.baseUrl + url }
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -29,9 +29,11 @@ export class RemoteControlReceiverComponent implements OnInit {
   private service: RemoteControlReceiverService
   private remoteControlReceiverSubject: Subject<any>
   private remoteControlReceiverSubscription: Subscription
+  private baseUrl: string
 
   constructor(websocketService: RemoteControlReceiverService, public dialog: MatDialog) {
 
+    this.baseUrl = 'http://' + window.location.hostname + ':8000';
     this.service = websocketService;
     this.remoteControlReceiverSubject = websocketService.remoteControlReceiverSubject;
     this.remoteControlReceiverSubscription = websocketService.remoteControlReceiverSubject.subscribe((message) => {

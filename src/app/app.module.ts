@@ -36,6 +36,7 @@ import {
   MatButtonModule,
   MatRippleModule,
   MatIcon,
+
   MatDialogModule,
   MatDialogContent,
   MatDialog,
@@ -97,7 +98,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRippleModule,
+    LightboxModule
+  ],
+  exports: [
+    MatDialogModule
   ],
   declarations: [
     AppComponent,

@@ -88,12 +88,14 @@
                 </mat-option>
               </mat-select> -->
               <mat-radio-group [value]="hero.currentWeapon.name">
-                <mat-card class="weaponEntry" *ngFor="let weapon of hero.weapons">
-                  <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
-                    <div>{{weapon.name}}</div>
-                    <div>{{weapon.damageDice}}W+{{weapon.damageAddPoints}}</div>
-                  </mat-radio-button>
-                </mat-card>
+                <div class="skillGroupEntries" *ngFor="let weapon of hero.weapons">
+                  <mat-card class="weaponEntry">
+                    <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
+                      <div>{{weapon.name}}</div>
+                      <div>{{weapon.damageDice}}W+{{weapon.damageAddPoints}}</div>
+                    </mat-radio-button>
+                  </mat-card>
+                </div>
               </mat-radio-group>
             </div>
           </div>

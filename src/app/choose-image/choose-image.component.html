@@ -1,3 +1,7 @@
-<ul>
-  <li *ngFor="let image of images">
-</ul>
+
+<mat-select placeholder="Image" #imageSelector>
+  <mat-option *ngFor="let image of images" [value]="image">
+    {{image.caption}}
+  </mat-option>
+</mat-select>
+<button mat-button class="navButton" (click)="sendImage(imageSelector.value)">Send</button>
