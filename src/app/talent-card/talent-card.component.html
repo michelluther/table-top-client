@@ -1,19 +1,20 @@
 <mat-card>
   <div class="skillTitle">{{skill.getSkill().name}}</div>
   <div class="skillBe">
-    <i class="fa fa-wheelchair"></i>{{skill.getSkill().be}}</div>
+    <i class="fa fa-wheelchair"></i>{{skill.getSkill().be}}
+  </div>
   
   <div class="skillValue">
     <i class="fa fa-tachometer"></i>{{skill.value}}</div>
   <div class="fightDices" *ngIf="skillGroup.hasAttackParade">
     <i class="fa fa-cube"></i> 
-<div class="fightDice">AT: {{skill.attack}}</div>
+    <div class="fightDice">AT: {{skill.attack}}</div>
     <div class="fightDice">PA: {{skill.parade}}</div>
   </div>
   <div class="dices" *ngIf="skillGroup.hasThreeDices">
     <i class="fa fa-cubes"></i>
-    <div class="dice">{{skill.getSkill().dice1}}</div>
-    <div class="dice">{{skill.getSkill().dice2}}</div>
-    <div class="dice">{{skill.getSkill().dice3}}</div>
+    <div class="dice">{{skill.getSkill().dice1}}: {{skill.dice1Value}}</div>
+    <div class="dice">{{skill.getSkill().dice2}}: {{skill.dice2Value}}</div>
+    <div class="dice">{{skill.getSkill().dice3}}: {{skill.dice3Value}}</div>
   </div>
 </mat-card>

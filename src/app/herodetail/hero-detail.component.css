@@ -34,6 +34,10 @@ label.short {
   order: 2;
 }
 
+#attributesContainer {
+  order: 3;
+}
+
 .heroAvatarImage,
 .heroAvatar {
   height: 150px;
@@ -101,7 +105,10 @@ talent-card {
   align-items: center;
 }
 
-
+.weaponEntry {
+  min-height: 30px;
+  padding-left: 10px;
+}
 
 .skillTitle {
   width: 150px;
@@ -175,16 +182,33 @@ form.search {
   line-height: 12px;
 }
 
+mat-radio-button {
+  width: 100%;
+}
+
+.weaponChoiceLabel div {
+  float: left;
+  padding-right: 20px;
+}
+
+.weaponChoiceLabel :nth-child(1) {
+  width: 120px
+} 
+
 
 @media (min-width: 48em) {
   #avatarContainer {
-    order: 2;
+    order: 3;
     background-color: transparent;
     border-bottom: none;
   }
 
   #propertiesContainer {
     order: 1;
+  }
+
+  #attributesContainer {
+    order: 2;
   }
 
   .heroAvatarImage,

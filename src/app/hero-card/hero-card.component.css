@@ -15,10 +15,11 @@ mat-card-title {
 
 
 
-.contentContainer {
+.cardContentContainer {
 	height: 100px;
 	position: relative;
 	overflow: visible;
+	padding: 0px;
 }
 
 .heroValues {
@@ -40,10 +41,12 @@ mat-card-title {
 	/*height: 180px;*/
 }
 
-ul.skills {
+ul.weapons {
 	list-style-type: none;
 	color: #4b4b4b;
-	padding-left: 0;
+	/* padding-left: 0; */
+	/* border-bottom: 1px solid #ccc; */
+	padding: 0 0 5px 10px;
 }
 
 div.label {

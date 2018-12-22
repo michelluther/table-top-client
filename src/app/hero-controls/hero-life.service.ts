@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
+import { HeroService } from "./../domain/hero.service";
 
 import { Subject, Observer, Observable, Subscription } from 'rxjs/Rx';
 // import { Rx } from 'rxjs';
@@ -14,11 +15,14 @@ export class HeroLifeService {
     public wsClientId = Math.random().toString(36).substring(7);
     private socket: WebSocket;
     public lifeSubject: Subject<MessageEvent>;
+    private heroService: HeroService;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, heroService: HeroService) {
+        this.heroService = heroService;
         this.socket = this.createWebsocket();
-        let subject = this.lifeSubject = new Subject();
-        this.socket.onmessage = (evt => subject.next(evt));
+        this.lifeSubject = new Subject();
+        this.lifeSubject.subscribe(this.updateHeroLife.bind(this))
+        this.socket.onmessage = (evt => this.lifeSubject.next(evt));
     }
 
     private createWebsocket(): WebSocket {
@@ -30,5 +34,11 @@ export class HeroLifeService {
         this.socket.send(JSON.stringify(data));
     }
 
-}
+    public updateHeroLife(message): void {
+        let messageData = JSON.parse(message.data);
+        this.heroService.getHero(messageData.heroId).then(hero => {
+            hero.life_lost = hero.life_lost - messageData.value;
+        })
+    }
 
+}

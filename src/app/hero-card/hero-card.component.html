@@ -1,20 +1,20 @@
 <mat-card class="heroes-entry">
     <mat-card-content>
-        <div class="headerContainer">
+        <div class="headerContainer" (click)="gotoDetail()">
             <!--  -->
-            <div class="headerContent" (click)="gotoDetail()">
+            <div class="headerContent">
                 <mat-card-title>{{hero.name}}</mat-card-title>
                 <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
             </div>
         </div>
-        <div class="contentContainer">
-            <ul class="skills">
-                <li><div class="label">Attacke:</div>5</li>
-                <li><div class="label">Parade:</div>4</li>
-                <li><div class="label">Trefferpunkte:</div>1W+4</li>
+        <div class="cardContentContainer">
+            <ul class="weapons">
+                <li><div class="label">Attacke:</div>{{hero.currentAttack}}</li>
+                <li><div class="label">Parade:</div>{{hero.currentParade}}</li>
+                <li><div class="label">Trefferpunkte:</div>{{hero.currentWeapon.damageText}}</li>
                 <li><div class="label">Rüstung:</div>3</li>
             </ul>
-            <div class="heroAvatar">
+            <div class="heroAvatar" (click)="gotoDetail()">
                 <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" height="100%" />
             </div>
         </div>

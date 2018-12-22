@@ -6,6 +6,7 @@ import { ActualSkill } from "./actualSkill";
 import { ActualSkillGroup } from "./actualSkillGroup";
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Weapon } from './weapon'
+import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 
 export class Hero {
 
@@ -41,12 +42,20 @@ export class Hero {
 
   attack_basis: number;
   parade_basis: number;
+  fernkampf_basis: number;
+
+  currentAttack: number;
+  currentParade: number;
+
+  attributes: Map<String, number>;
 
   skills: Array<ActualSkill>;
   skillGroups: ActualSkillGroup[];
 
   weapons: Array<Weapon>
-  currentWeapon: Weapon
+  _currentWeapon: Weapon
+
+  weaponSkillDistributions: Array<WeaponSkillDistribution>
 
   constructor(private skillService: SkillService) {
     this.skillService = skillService;
@@ -56,54 +65,64 @@ export class Hero {
   setData(dataObject: Object): Hero {
     this.attack_basis = dataObject['attack_basis'];
     this.parade_basis = dataObject['parade_basis'];
+    this.fernkampf_basis = dataObject['fernkampf_basis']
 
     this.life_lost = dataObject['life_lost'];
     this.avatar_small = dataObject['avatar_small'];
 
-    this.charisma = dataObject['charisma'];
     this.culture = dataObject['culture'];
     this.experience = dataObject['experience'];
     this.experience_used = dataObject['experience_used'];
-    this.fingerfertigkeit = dataObject['fingerfertigkeit'];
     this.gender = dataObject['gender'];
-    this.gewandheit = dataObject['gewandheit'];
     this.hero_type = dataObject['hero_type'];
     this.id = dataObject['id'];
     this.ini_basis = dataObject['ini_basis'];
-    this.intuition = dataObject['intuition'];
-    this.klugheit = dataObject['klugheit'];
-    this.koerperkraft = dataObject['koerperkraft'];
-    this.konstitution = dataObject['konstitution'];
+
+    this.attributes = new Map<String, number>([
+      ['MU', dataObject['MU']],
+      ['CH', dataObject['CH']],
+      ['GE', dataObject['GE']],
+      ['IN', dataObject['IN']],
+      ['KK', dataObject['KK']],
+      ['KL', dataObject['KL']],
+      ['FF', dataObject['FF']],
+      ['KO', dataObject['KO']]
+    ]);
+
     this.life = dataObject['life'];
     this.magieresistenz = dataObject['magieresistenz'];
-    this.mut = dataObject['mut'];
     this.name = dataObject['name'];
     this.race = dataObject['race'];
     this.size = dataObject['size'];
-    // this.skills = dataObject['skills'];
-    this.structureSkills(dataObject['skills']);
     this.social_rank = dataObject['social_rank']
 
-    dataObject['weapons'].forEach(weapon => {
-      this.weapons.push(new Weapon(weapon.name, weapon.tp_dice, weapon.tp_add_points))
+    this.weapons = []
+
+    this.weaponSkillDistributions = dataObject['weaponSkillDistributions'].map(weaponSkillDistribution => {
+      return new WeaponSkillDistribution(weaponSkillDistribution.skill, weaponSkillDistribution.attack, weaponSkillDistribution.parade)
     })
 
-    this.currentWeapon = this.weapons[0]
+    this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons']);
     return this;
   }
 
-  structureSkills(skills: Array<Object>): void {
+  structureSkills(skills: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>): void {
 
-    let skillsPromise = Promise.all([this.skillService.getSkillGroups(), this.skillService.getSkills()]).then(skillGroupsAndSkills => {
+    let skillsPromise = Promise.all([
+      this.skillService.getSkillGroups(),
+      this.skillService.getSkills()
+    ]).then(skillGroupsAndSkills => {
       this.skillGroups = new Array<ActualSkillGroup>();
       let skillGroups = skillGroupsAndSkills[0];
       let allSkills = skillGroupsAndSkills[1];
       this.skills = [];
-      skills.forEach(skill => {
-        let oneSkill = _.find(allSkills, finder => { return finder.id === skill['id'] })
-        let skillSkillGroup = _.find(skillGroups, skillGroup => { return oneSkill.skillGroupId == skillGroup.id });
-        this.skills.push(new ActualSkill(skill, oneSkill, skillSkillGroup));
+
+      skills.forEach(actualSkill => {
+        let generalSkill = _.find(allSkills, finder => { return finder.id === actualSkill['id'] })
+        let skillSkillGroup = _.find(skillGroups, skillGroup => { return generalSkill.skillGroupId == skillGroup.id });
+        this.skills.push(new ActualSkill(actualSkill, this, generalSkill, skillSkillGroup));
       })
+
       skillGroups.forEach(skillGroup => {
         let skills = _.filter(this.skills, actualSkill => {
           return actualSkill.getSkill().skillGroupId == skillGroup.id
@@ -111,8 +130,41 @@ export class Hero {
         this.skillGroups.push(new ActualSkillGroup(skillGroup, skills));
       })
 
+      weapons.forEach(weapon => {
+        this.weapons.push(new Weapon(weapon['name'],
+          weapon['tp_dice'],
+          weapon['tp_add_points'],
+          _.find(allSkills, skill => {
+            return skill.id === weapon['skill']
+          })))
+      })
+      this.currentWeapon = this.weapons[0]
+
+
     });
 
+  }
+
+  set currentWeapon(weapon: Weapon) {
+    this._currentWeapon = weapon
+    const relevantSkill = this.weaponSkillDistributions.find(distribution => {
+      return distribution.skillId == weapon.skill.id
+    })
+
+    this.currentAttack = relevantSkill ? this.attack_basis + relevantSkill.attack : this.attack_basis
+    this.currentParade = relevantSkill ? this.parade_basis + relevantSkill.parade : this.parade_basis
+  }
+
+  get currentWeapon(): Weapon {
+    return this._currentWeapon
+  }
+
+  get currentLife(): Number {
+    return this.life - this.life_lost
+  }
+
+  getAttributeValue(attributeId: String): number {
+    return this.attributes.get(attributeId)
   }
 
 

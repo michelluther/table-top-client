@@ -383,6 +383,15 @@ $gutter: 1em;
   transition-delay: 0.24s;
 }
 
+.mat-radio-label {
+  width: 100% !important;
+}
+
+.mat-radio-inner-circle, .mat-radio-outer-circle {
+  width: 15px;
+}
+
+
 /* Large screens */
 
 @media (min-width: 48em) {

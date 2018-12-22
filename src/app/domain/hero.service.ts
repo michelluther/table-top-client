@@ -22,12 +22,19 @@ export class HeroService {
 	constructor(private http: Http, private skillService: SkillService) { }
 
 	getHeroes(): Promise<Hero[]> {
-		return this.http.get(this.heroesUrl)
-			.toPromise()
-			.then(response => {
-				return this.extractData(response);
-			}
-			)
+		if (this.heroes) {
+			return new Promise((resolve, reject) => {
+				resolve(this.heroes)
+			})
+		} else {
+			return this.http.get(this.heroesUrl)
+				.toPromise()
+				.then(response => {
+					this.heroes = this.extractData(response);
+					return this.heroes
+				}
+				)
+		}
 	}
 
 	extractData(res: Response): Hero[] {
@@ -54,6 +61,7 @@ export class HeroService {
 	}
 
 	getHero(id: Number): Promise<Hero> {
+
 		return new Promise((resolve, reject) => this.getHeroes()
 			.then(heroes =>
 				resolve(heroes.find(hero => hero.id === id))
