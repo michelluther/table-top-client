@@ -1,21 +1,19 @@
 <div class="page flex-col center">
 
   <div class="pageContent">
-    <form class="search">
-            <!-- <mat-form-field class="talentSearchBox"> -->
-            <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
-              [formControl]="searchCtrl" [value]="autoSearchTerm">
-            <mat-autocomplete #auto="matAutocomplete">
-              <!-- <mat-optgroup *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:autoSearchTerm" > -->
-              <mat-option *ngFor="let skill of filteredSkills | async" [value]="autoSearchTerm" class="skillOption">
-                <div class="skillEntry">
-                  <talent-card [skill]="skill"></talent-card>
-                </div>
-              </mat-option>
-              <!-- </mat-optgroup> -->
-            </mat-autocomplete>
-            <!-- </mat-form-field> -->
-          </form>
+    <!--<form class="search">
+           
+        <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
+          [formControl]="searchCtrl" [value]="autoSearchTerm">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let skill of filteredSkills | async" [value]="autoSearchTerm" class="skillOption">
+            <div class="skillEntry">
+              <talent-card [skill]="skill"></talent-card>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+      -->
     <div *ngIf="hero">
       <div class="headerContainer">
         <!--  -->
@@ -28,13 +26,14 @@
         <div class="contentBox Grid Grid--cols-2">
           <div id="propertiesContainer" class="container Grid-cell">
             <div class="padded">
-              <h4>Eigenschaften</h4>
+             <!-- <h4>Eigenschaften</h4>
               <div class="flex-row">
                 <div class="label">
                   <label>id: </label>
                 </div>
                 <div class="value">{{hero.id}}</div>
               </div>
+              -->
               <div class="flex-row">
                 <div class="label">
                   <label>Größe: </label>
@@ -69,54 +68,53 @@
           </div>
           <div id="attributesContainer" class="container Grid-cell">
             <div class="padded">
-              <h4>&nbsp;</h4>
               <div class="flex-row">
                 <div class="label">
                   <label>Mut</label>
                 </div>
-                <div class="value">{{hero.id}}</div>
+                <div class="value">{{hero.getAttributeValue('MU')}}</div>
               </div>
               <div class="flex-row">
                 <div class="label">
                   <label>Klugheit</label>
                 </div>
-                <div class="value">{{hero.size}}</div>
+                <div class="value">{{hero.getAttributeValue('MU')}}</div>
               </div>
               <div class="flex-row">
                 <div class="label">
                   <label>Intuition</label>
                 </div>
-                <div class="value">{{hero.race.name}}</div>
+                <div class="value">{{hero.getAttributeValue('IN')}}</div>
               </div>
               <div class="flex-row">
                 <div class="label">
                   <label>Charisma</label>
                 </div>
-                <div class="value">{{hero.culture}}</div>
+                <div class="value">{{hero.getAttributeValue('CH')}}</div>
               </div>
               <div class="flex-row">
                 <div class="label">
                   <label>Fingerfertigkeit</label>
                 </div>
-                <div class="value">{{hero.social_rank}}</div>
+                <div class="value">{{hero.getAttributeValue('FF')}}</div>
               </div>
               <div class="flex-row">
                 <div class="label">
                   <label>Gewandheit</label>
                 </div>
-                <div class="value">{{hero.magieresistenz}}</div>
+                <div class="value">{{hero.getAttributeValue('GE')}}</div>
               </div>
                <div class="flex-row">
                 <div class="label">
                   <label>Konstitution</label>
                 </div>
-                <div class="value">{{hero.magieresistenz}}</div>
+                <div class="value">{{hero.getAttributeValue('KO')}}</div>
               </div>
                <div class="flex-row">
                 <div class="label">
                   <label>Körperkraft</label>
                 </div>
-                <div class="value">{{hero.magieresistenz}}</div>
+                <div class="value">{{hero.getAttributeValue('KK')}}</div>
               </div>
             </div>
           </div>
@@ -138,47 +136,29 @@
           <h4>Kampfwerte</h4>
           <div class="flex-row">
             <div class="flex-item">
-              <label class="long">Attacke Basis: </label>
+              <h5>Basiswerte</h5>
+             </div>
+          </div> 
+          <div class="flex-row">
+            <div class="flex-item">
+              <label class="long">Attacke: </label>
               <label class="short">AT: </label>{{hero.attack_basis}}
             </div>
             <div class="flex-item">
-              <label class="long">Parade Basis: </label>
+              <label class="long">Parade: </label>
               <label class="short">PA: </label>{{hero.parade_basis}}
             </div>
             <div class="flex-item">
-              <label class="long">Fernkampf Basis: </label>
+              <label class="long">Fernkampf: </label>
               <label class="short">FK: </label>{{hero.fernkampf_basis}}
             </div>
           </div>
           <div class="flex-row">
             <div class="flex-item">
-              <h5>Waffe</h5>
+              <h5>Aktuelle Werte</h5>
              </div>
-          </div>
-              <!-- <mat-select placeholder="Favorite food">
-                <mat-option *ngFor="let weapon of hero.weapons" [value]="weapon.id">
-                  {{weapon.name}}
-                </mat-option>
-              </mat-select> -->
-          
-          <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
-            <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
-              <mat-card class="weaponEntry flex-item">
-                <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
-                  <div class="weaponChoiceLabel">
-                    <div class="weaponName">{{weapon.name}}</div>
-                    <div class="weaponDices">{{weapon.damageDice}}W+{{weapon.damageAddPoints}}</div>
-                  </div>
-                </mat-radio-button>
-              </mat-card>
-            </div>
-          </mat-radio-group>
-
-        </div>
-      </div>
-      <div class="contentBox flex-item">
-        <div class="kampfwerte padded">
-          <h4>Kampfwerte</h4>
+          </div>  
+          <div class="kampfwerte">
 
           <div class="flex-row">
             <label>Attacke: </label>{{hero.currentAttack}}
@@ -186,6 +166,25 @@
           <div class="flex-row">
             <label>Parade: </label>{{hero.currentParade}}
           </div>
+
+        </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h5>Waffe</h5>
+             </div>
+          </div>          
+          <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
+            <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
+              <mat-card class="weaponEntry flex-item">
+                <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
+                  <div class="weaponChoiceLabel">
+                    <div class="weaponName">{{weapon.name}}</div>
+                    <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
+                  </div>
+                </mat-radio-button>
+              </mat-card>
+            </div>
+          </mat-radio-group>
 
         </div>
       </div>

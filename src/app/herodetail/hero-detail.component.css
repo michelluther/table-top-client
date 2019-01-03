@@ -95,8 +95,8 @@ talent-card {
 
 .skillContent,
 .weaponEntry {
-  margin: 2px;
-  border: 1px solid #ddd;
+  margin: 1px;
+  /* border: 1px solid #ddd; */
   background-color: #fff;
   flex: 1;
   display: flex;
