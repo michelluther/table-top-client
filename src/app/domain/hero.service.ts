@@ -12,6 +12,7 @@ import { SkillService } from './skills.service';
 
 import { HEROES } from './mock-heroes';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { SpellService } from './spells.service';
 
 @Injectable()
 export class HeroService {
@@ -19,7 +20,7 @@ export class HeroService {
 	private heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
 	private heroes: Hero[];
 
-	constructor(private http: Http, private skillService: SkillService) { }
+	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService) { }
 
 	getHeroes(): Promise<Hero[]> {
 		if (this.heroes) {
@@ -41,7 +42,7 @@ export class HeroService {
 		let body = res.json();
 		let heroes = [];
 		body.forEach(function (hero) {
-			var newHero = new Hero(this.skillService).setData(hero);
+			var newHero = new Hero(this.skillService, this.spellService).setData(hero);
 			heroes.push(newHero);
 		}.bind(this));
 		return heroes;

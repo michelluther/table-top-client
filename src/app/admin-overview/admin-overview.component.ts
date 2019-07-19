@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdventureService, Adventure } from './../domain/adventure.service'
 
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-admin-overview',
   templateUrl: './admin-overview.component.html',
@@ -11,7 +13,7 @@ export class AdminOverviewComponent implements OnInit {
 
   private adventures: Array<Adventure>
 
-  constructor(public adventureService: AdventureService) {
+  constructor(public adventureService: AdventureService, private router: Router) {
     this.adventureService.getAdventures().then(adventures => {
       this.adventures = adventures
       console.log(this.adventures)
@@ -23,6 +25,10 @@ export class AdminOverviewComponent implements OnInit {
 
   public sendImage(): void {
 
+  }
+
+  public startFight(): void {
+    this.router.navigate(['master/fight/start']);
   }
 
 }
