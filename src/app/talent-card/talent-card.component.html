@@ -8,8 +8,8 @@
     <i class="fa fa-tachometer"></i>{{skill.value}}</div>
   <div class="fightDices" *ngIf="skillGroup.hasAttackParade">
     <i class="fa fa-cube"></i> 
-    <div class="fightDice">AT: {{skill.attack}}</div>
-    <div class="fightDice">PA: {{skill.parade}}</div>
+    <div class="fightDice">AT: {{skill.getAttack()}}</div>
+    <div class="fightDice">PA: {{skill.getParade()}}</div>
   </div>
   <div class="dices" *ngIf="skillGroup.hasThreeDices">
     <i class="fa fa-cubes"></i>

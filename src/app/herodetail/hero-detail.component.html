@@ -205,6 +205,20 @@
           </div>
         </div>
       </div>
+      <div *ngIf="hero.knowsMagic" class="contentBox flex-item">
+        <div class="talente padded">
+          <h4>Zaubersprüche</h4>
+          <div *ngFor="let spellGroup of hero.spellGroups">
+            <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
+            <div class="spellGroupEntries">
+              <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
+                <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
+                <spell-card [spell]="spell"></spell-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

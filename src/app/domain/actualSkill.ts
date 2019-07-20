@@ -8,16 +8,21 @@ export class ActualSkill {
   value: number;
   hero: Hero;
   constructor(actualSkill: Object, hero: Hero, private skill: Skill, private skillGroup: SkillGroup) {
-    this.value = actualSkill['value'];
+    this.value = actualSkill ? actualSkill['value'] : -7;
     this.hero = hero;
   }
 
   getSkill(): Skill {
     return this.skill;
-  }
+  };
 
-  // getAttack: ():void {
-  // }
+  getAttack(): Number {
+    return this.hero.getAttackOfWeaponSkill(this.skill);
+  };
+
+  getParade(): Number {
+    return this.hero.getParadeOfWeaponSkill(this.skill);
+  };
 
   getSkillGroup(): SkillGroup {
     return this.skillGroup;

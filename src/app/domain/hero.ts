@@ -7,6 +7,7 @@ import { ActualSkillGroup } from "./actualSkillGroup";
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Weapon } from './weapon'
 import { WeaponSkillDistribution } from "./weaponSkillDistribution";
+import { SpellService } from "./spells.service";
 
 export class Hero {
 
@@ -40,6 +41,8 @@ export class Hero {
   magieresistenz: number;
   social_rank: number;
 
+  knowsMagic: Boolean;
+
   attack_basis: number;
   parade_basis: number;
   fernkampf_basis: number;
@@ -57,7 +60,7 @@ export class Hero {
 
   weaponSkillDistributions: Array<WeaponSkillDistribution>
 
-  constructor(private skillService: SkillService) {
+  constructor(private skillService: SkillService, private spellService: SpellService) {
     this.skillService = skillService;
     this.weapons = []
   };
@@ -77,6 +80,7 @@ export class Hero {
     this.hero_type = dataObject['hero_type'];
     this.id = dataObject['id'];
     this.ini_basis = dataObject['ini_basis'];
+    this.knowsMagic = dataObject['knows_magic'];
 
     this.attributes = new Map<String, number>([
       ['MU', dataObject['MU']],
@@ -103,6 +107,9 @@ export class Hero {
     })
 
     this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons']);
+    if(this.knowsMagic){
+      this.structureSpells(dataObject['spells']);
+    }
     return this;
   }
 
@@ -117,11 +124,16 @@ export class Hero {
       let allSkills = skillGroupsAndSkills[1];
       this.skills = [];
 
-      skills.forEach(actualSkill => {
-        let generalSkill = _.find(allSkills, finder => { return finder.id === actualSkill['id'] })
-        let skillSkillGroup = _.find(skillGroups, skillGroup => { return generalSkill.skillGroupId == skillGroup.id });
-        this.skills.push(new ActualSkill(actualSkill, this, generalSkill, skillSkillGroup));
+      allSkills.forEach(skill => {
+        let actualSkill = _.find(skills, actualSkill => { return skill.id === actualSkill['id'] })
+        let skillSkillGroup = _.find(skillGroups, skillGroup => { return skill.skillGroupId == skillGroup.id });
+        this.skills.push(new ActualSkill(actualSkill, this, skill, skillSkillGroup));
       })
+      // skills.forEach(actualSkill => {
+      //   let generalSkill = _.find(allSkills, finder => { return finder.id === actualSkill['id'] })
+      //   let skillSkillGroup = _.find(skillGroups, skillGroup => { return generalSkill.skillGroupId == skillGroup.id });
+      //   this.skills.push(new ActualSkill(actualSkill, this, generalSkill, skillSkillGroup));
+      // })
 
       skillGroups.forEach(skillGroup => {
         let skills = _.filter(this.skills, actualSkill => {
@@ -145,14 +157,30 @@ export class Hero {
 
   }
 
+  structureSpells(spells: Array<Object>) : void {
+    const spellsPromise = Promise.all([
+      this.spellService.getSpells(),
+      this.spellService.getSpellGroups()
+    ]).then(spellsAndSpellGroups => {
+      const spells = spellsAndSpellGroups[0]
+      const spellGroups = spellsAndSpellGroups[1]
+
+
+    })
+  }
+
+  _getDistributionOfSkill(weaponSkill: Skill) {
+    return this.weaponSkillDistributions.find(distribution => {
+      return distribution.skillId == weaponSkill.id
+    })
+  }
+
   set currentWeapon(weapon: Weapon) {
     this._currentWeapon = weapon
-    const relevantSkill = this.weaponSkillDistributions.find(distribution => {
-      return distribution.skillId == weapon.skill.id
-    })
+    const skillDistribution = this._getDistributionOfSkill(weapon.skill)
 
-    this.currentAttack = relevantSkill ? this.attack_basis + relevantSkill.attack : this.attack_basis
-    this.currentParade = relevantSkill ? this.parade_basis + relevantSkill.parade : this.parade_basis
+    this.currentAttack = skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
+    this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
   }
 
   get currentWeapon(): Weapon {
@@ -167,5 +195,14 @@ export class Hero {
     return this.attributes.get(attributeId)
   }
 
+  getAttackOfWeaponSkill(weaponSkill:Skill): Number{
+    const skillDistribution = this._getDistributionOfSkill(weaponSkill)
+    return skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
+  }
 
+  
+  getParadeOfWeaponSkill(weaponSkill:Skill): Number{
+    const skillDistribution = this._getDistributionOfSkill(weaponSkill)
+    return skillDistribution ? this.parade_basis + skillDistribution.attack : this.parade_basis
+  }
 }

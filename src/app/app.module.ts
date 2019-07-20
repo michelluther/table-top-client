@@ -49,6 +49,7 @@ import 'hammerjs';
 import { HeroService } from './domain/hero.service';
 import { MatchesSearchTerm, MatchesSearchTermChildren } from './herodetail/skill.pipe';
 import { TalentCard } from './talent-card/talent-card.component';
+import { SpellCard } from './spell-card/spell-card.component';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
 import { FightSetupComponent } from './fight-setup/fight-setup.component';
 import { FightDisplayComponent } from './fight-display/fight-display.component';
@@ -69,7 +70,8 @@ const routes: Routes = [
     path: 'master', component: AdminOverviewComponent,
     children: [
       { path: 'heroes', component: HeroesComponent },
-      { path: 'hero/:id', component: HeroDetailComponent }
+      { path: 'hero/:id', component: HeroDetailComponent },
+      { path: 'fight/start', component: FightSetupComponent }
     ]
   },
   {
@@ -115,6 +117,7 @@ const routes: Routes = [
     MatchesSearchTerm,
     MatchesSearchTermChildren,
     TalentCard,
+    SpellCard,
     // MatAutocomplete,
     MatCard,
     MatCardSubtitle,
