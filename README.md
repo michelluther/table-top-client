@@ -9,5 +9,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     - display
     - hide
 - fight display
+    - maybe through an open street map?
 - Master view
     - Send images 

@@ -37,6 +37,4 @@ export class RemoteControlComponent implements OnInit {
     // this.sendRemoteControlOperation('openImage', 'all', ['http://www.ulisses-spiele.de/media/images/produkt-produkt_das-schwarze-auge_dsa-logo_wandtattoo_3161_c.jpg'])
   }
 
-
-
 }
