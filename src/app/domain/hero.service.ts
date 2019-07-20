@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
+import { Attribute } from './attribute'
+import { AttributeService } from './attribute.service'
 
 import { Http, Response } from '@angular/http';
 
@@ -10,8 +12,6 @@ import 'rxjs/add/operator/toPromise';
 
 import { SkillService } from './skills.service';
 
-import { HEROES } from './mock-heroes';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { SpellService } from './spells.service';
 
 @Injectable()
@@ -19,8 +19,11 @@ export class HeroService {
 
 	private heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
 	private heroes: Hero[];
+	private attributesConfigured: Attribute[]
 
-	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService) { }
+	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) { 
+
+	}
 
 	getHeroes(): Promise<Hero[]> {
 		if (this.heroes) {
@@ -42,7 +45,8 @@ export class HeroService {
 		let body = res.json();
 		let heroes = [];
 		body.forEach(function (hero) {
-			var newHero = new Hero(this.skillService, this.spellService).setData(hero);
+			var newHero = new Hero(this.skillService, this.spellService, 
+				this.attributeService).setData(hero);
 			heroes.push(newHero);
 		}.bind(this));
 		return heroes;
@@ -67,6 +71,10 @@ export class HeroService {
 			.then(heroes =>
 				resolve(heroes.find(hero => hero.id === id))
 			));
+	}
+
+	get attributes():Array<Attribute> {
+		return this.attributesConfigured
 	}
 
 }

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card matRipple>
   <div class="skillTitle">{{skill.getSkill().name}}</div>
   <div class="skillBe">
     <i class="fa fa-wheelchair"></i>{{skill.getSkill().be}}
@@ -13,8 +13,8 @@
   </div>
   <div class="dices" *ngIf="skillGroup.hasThreeDices">
     <i class="fa fa-cubes"></i>
-    <div class="dice">{{skill.getSkill().dice1}}: {{skill.dice1Value}}</div>
-    <div class="dice">{{skill.getSkill().dice2}}: {{skill.dice2Value}}</div>
-    <div class="dice">{{skill.getSkill().dice3}}: {{skill.dice3Value}}</div>
+    <div class="dice">{{skill.getSkill().dice1.short}}: {{skill.dice1Value}}</div>
+    <div class="dice">{{skill.getSkill().dice2.short}}: {{skill.dice2Value}}</div>
+    <div class="dice">{{skill.getSkill().dice3.short}}: {{skill.dice3Value}}</div>
   </div>
 </mat-card>

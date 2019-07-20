@@ -1,19 +1,18 @@
 <div class="container">
-        <div class="mainStatus">
-                <div class="mainStatusValue good">{{hero.currentLife}}/{{hero.life}}</div>
-        </div>
+        <life-display currentLife="{{hero.currentLife}}" maxLife="{{hero.life}}">
+        </life-display>
         <div class="buttons">
-                <div class="lifeChangerButton" (click)="updateLife(-5)">
+                <button mat-button  class="lifeChangerButton" (click)="updateLife(-5)">
                         <i class="fa fa-angle-double-down" aria-hidden="true"></i>
-                </div>
-                <div class="lifeChangerButton" (click)="updateLife(-1)">
+                </button>
+                <button mat-button class="lifeChangerButton" (click)="updateLife(-1)">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
-                </div>
-                <div class="lifeChangerButton" (click)="updateLife(1)">
+                </button>
+                <button mat-button class="lifeChangerButton" (click)="updateLife(1)">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
-                </div>
-                <div class="lifeChangerButton" (click)="updateLife(5)">
+                </button>
+                <button mat-button class="lifeChangerButton" (click)="updateLife(5)">
                         <i class="fa fa-angle-double-up" aria-hidden="true"></i>
-                </div>
+                </button>
         </div>
 </div>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { Spell } from './spell';
-import { SpellGroup } from './spellgroup';
+import { SpellGroup } from './spellGroup';
 
 import {Component, ChangeDetectorRef} from '@angular/core';
 

@@ -7,8 +7,11 @@ export class ActualSkill {
 
   value: number;
   hero: Hero;
+  isAssignedToHero: Boolean;
+
   constructor(actualSkill: Object, hero: Hero, private skill: Skill, private skillGroup: SkillGroup) {
     this.value = actualSkill ? actualSkill['value'] : -7;
+    this.isAssignedToHero = actualSkill ? true : false;
     this.hero = hero;
   }
 
@@ -29,14 +32,14 @@ export class ActualSkill {
   }
 
   get dice1Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice1)
+    return this.hero.getAttributeValue(this.getSkill().dice1.id)
   }
 
   get dice2Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice2)
+    return this.hero.getAttributeValue(this.getSkill().dice2.id)
   }
 
   get dice3Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice3)
+    return this.hero.getAttributeValue(this.getSkill().dice3.id)
   }
 }

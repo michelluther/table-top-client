@@ -7,17 +7,18 @@ import { SkillService } from './domain/skills.service';
 import { SpellService } from './domain/spells.service';
 import { RemoteControlReceiverService } from './remote-control-receiver/remote-control-receiver.service';
 import { RemoteControlService } from './remote-control/remote-control.service';
+import { AttributeService } from './domain/attribute.service';
 
 @Component({
 	selector: 'my-app',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
-	providers: [HeroService, HeroLifeService, SkillService, SpellService, RemoteControlReceiverService, RemoteControlService]
+	providers: [HeroService, AttributeService, HeroLifeService, SkillService, SpellService, RemoteControlReceiverService, RemoteControlService]
 
 })
 export class AppComponent {
 	title = 'Tour of Heroes';
 
-	constructor(private heroService: HeroService) { }
+	constructor(private heroService: HeroService, private attributeService: AttributeService) { }
 
 }

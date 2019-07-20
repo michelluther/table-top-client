@@ -57,9 +57,9 @@ import { RemoteControlComponent } from './remote-control/remote-control.componen
 import { RemoteControlReceiverComponent } from './remote-control-receiver/remote-control-receiver.component';
 import { PlayerComponent } from './player/player.component';
 import { MasterComponent } from './master/master.component';
-import { LightboxModule } from 'ngx-lightbox';
 import { ImagePopupComponent } from './image-popup/image-popup.component';
 import { ChooseImageComponent } from './choose-image/choose-image.component';
+import { LifeDisplayComponent } from './life-display/life-display.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -93,7 +93,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top'
+    }),
     BrowserAnimationsModule,
     HttpModule,
     MatAutocompleteModule,
@@ -101,8 +103,7 @@ const routes: Routes = [
     FormsModule,
     MatRadioModule,
     MatSelectModule,
-    MatRippleModule,
-    LightboxModule
+    MatRippleModule
   ],
   exports: [
     MatDialogModule
@@ -139,7 +140,8 @@ const routes: Routes = [
     PlayerComponent,
     MasterComponent,
     ImagePopupComponent,
-    ChooseImageComponent
+    ChooseImageComponent,
+    LifeDisplayComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent],

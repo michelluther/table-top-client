@@ -6,6 +6,7 @@ import { Skill } from './skill';
 import { SkillGroup } from './skillgroup';
 
 import {Component, ChangeDetectorRef} from '@angular/core';
+import { AttributeService } from './attribute.service';
 
 @Injectable()
 export class SkillService {
@@ -20,7 +21,7 @@ export class SkillService {
   private skillGroupsPromise: Promise<SkillGroup[]>;
   private skillsPromise: Promise<Skill[]>;
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef) {
+  constructor(private http: Http, private chRef: ChangeDetectorRef, private attributeService:AttributeService) {
   }
 
   getSkills(): Promise<Skill[]> {
@@ -50,7 +51,7 @@ export class SkillService {
     let skills = [];
     let body = res.json();
     body.forEach(skill => {
-      skills.push(new Skill(skill));
+      skills.push(new Skill(skill, this.attributeService));
     });
     return skills;
   }

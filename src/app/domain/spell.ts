@@ -15,9 +15,9 @@ export class Spell {
     this.id = dataObject['id'];
     this.name = dataObject['name'];
     // this.be = dataObject['behinderung'];
-    this.dice1 = dataObject['dice1'].id;
-    this.dice2 = dataObject['dice2'].id;
-    this.dice3 = dataObject['dice3'].id;
+    this.dice1 = dataObject['dice1'];
+    this.dice2 = dataObject['dice2'];
+    this.dice3 = dataObject['dice3'];
 
   }
 }

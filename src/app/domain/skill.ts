@@ -1,3 +1,6 @@
+import { AttributeService } from "./attribute.service";
+import { Attribute } from "./attribute";
+
 export class Skill {
 
   id: number;
@@ -5,19 +8,19 @@ export class Skill {
   skillGroupId: number;
   be: String;
 
-  dice1: String;
-  dice2: String;
-  dice3: String;
-  constructor(dataObject: Object) {
+  dice1: Attribute;
+  dice2: Attribute;
+  dice3: Attribute;
+  constructor(dataObject: Object, private attributeService: AttributeService) {
 
     this.skillGroupId = dataObject['type'];
     this.id = dataObject['id'];
     this.name = dataObject['name'];
     this.be = dataObject['behinderung'];
     if (dataObject['dice1']) {
-      this.dice1 = dataObject['dice1'].id;
-      this.dice2 = dataObject['dice2'].id;
-      this.dice3 = dataObject['dice3'].id;
+      this.dice1 = this.attributeService.attributes.get(dataObject['dice1'].id);
+      this.dice2 = this.attributeService.attributes.get(dataObject['dice2'].id);
+      this.dice3 = this.attributeService.attributes.get(dataObject['dice3'].id);
     }
 
   }

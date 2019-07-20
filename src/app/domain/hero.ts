@@ -4,10 +4,15 @@ import { SkillService } from "./skills.service";
 import * as _ from 'lodash';
 import { ActualSkill } from "./actualSkill";
 import { ActualSkillGroup } from "./actualSkillGroup";
+import { ActualSpell } from "./actualSpell";
+import { ActualSpellGroup } from "./actualSpellGroup";
+import { ActualAttribute } from "./actualAttribute";
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Weapon } from './weapon'
 import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 import { SpellService } from "./spells.service";
+import { AttributeService } from './attribute.service'
+import { SpellGroup } from "./spellGroup";
 
 export class Hero {
 
@@ -50,17 +55,20 @@ export class Hero {
   currentAttack: number;
   currentParade: number;
 
-  attributes: Map<String, number>;
-
+  attributes: Map<String, ActualAttribute>;
+  
   skills: Array<ActualSkill>;
   skillGroups: ActualSkillGroup[];
+
+  spells: Array<ActualSpell>;
+  spellGroups: ActualSpellGroup[];
 
   weapons: Array<Weapon>
   _currentWeapon: Weapon
 
   weaponSkillDistributions: Array<WeaponSkillDistribution>
 
-  constructor(private skillService: SkillService, private spellService: SpellService) {
+  constructor(private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
     this.skillService = skillService;
     this.weapons = []
   };
@@ -82,15 +90,15 @@ export class Hero {
     this.ini_basis = dataObject['ini_basis'];
     this.knowsMagic = dataObject['knows_magic'];
 
-    this.attributes = new Map<String, number>([
-      ['MU', dataObject['MU']],
-      ['CH', dataObject['CH']],
-      ['GE', dataObject['GE']],
-      ['IN', dataObject['IN']],
-      ['KK', dataObject['KK']],
-      ['KL', dataObject['KL']],
-      ['FF', dataObject['FF']],
-      ['KO', dataObject['KO']]
+    this.attributes = new Map<String, ActualAttribute>([
+      ['MU', new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ],
+      ['CH', new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ],
+      ['GE', new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ],
+      ['IN', new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ],
+      ['KK', new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK')) ],
+      ['KL', new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ],
+      ['FF', new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ],
+      ['KO', new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')) ]
     ]);
 
     this.life = dataObject['life'];
@@ -113,8 +121,9 @@ export class Hero {
     return this;
   }
 
-  structureSkills(skills: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>): void {
+  structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>): void {
 
+    
     let skillsPromise = Promise.all([
       this.skillService.getSkillGroups(),
       this.skillService.getSkills()
@@ -125,7 +134,7 @@ export class Hero {
       this.skills = [];
 
       allSkills.forEach(skill => {
-        let actualSkill = _.find(skills, actualSkill => { return skill.id === actualSkill['id'] })
+        let actualSkill = _.find(actualSkillsOfHero, actualSkillData => { return skill.id === actualSkillData['id'] }) // can be undefined, the hero does not have the skill
         let skillSkillGroup = _.find(skillGroups, skillGroup => { return skill.skillGroupId == skillGroup.id });
         this.skills.push(new ActualSkill(actualSkill, this, skill, skillSkillGroup));
       })
@@ -157,14 +166,44 @@ export class Hero {
 
   }
 
-  structureSpells(spells: Array<Object>) : void {
+  structureSpells(actualSpellsOfHero: Array<Object>) : void {
     const spellsPromise = Promise.all([
       this.spellService.getSpells(),
       this.spellService.getSpellGroups()
     ]).then(spellsAndSpellGroups => {
-      const spells = spellsAndSpellGroups[0]
+
+      this.spellGroups = new Array<ActualSpellGroup>();
+      this.spells = new Array<ActualSpell>();
+      
+      const allSpells = spellsAndSpellGroups[0]
       const spellGroups = spellsAndSpellGroups[1]
 
+
+
+      spellGroups.forEach(spellGroup => {
+        this.spellGroups.push(new ActualSpellGroup(spellGroup, []));
+      })
+
+      allSpells.forEach(spell => {
+        let actualSpellDataObject = actualSpellsOfHero.find(actualSpellData => {
+          return spell.id === actualSpellData['id']
+        })
+        let spellGroupOfSpell = this.spellGroups.find(spellGroup => {
+          return spellGroup.getSpellGroup().id === spell.spellGroupId
+        })
+        let actualSpell = new ActualSpell(actualSpellDataObject, this, spell, spellGroupOfSpell.getSpellGroup())
+        this.spells.push(actualSpell)
+        spellGroupOfSpell.getSpells().push(actualSpell)
+      });
+      // allSpells.forEach(spell => {
+      //   let actualSpell = new ActualSpell(spells.find(actualSpell => {
+      //     return actualSpell['id'] === spell.id
+      //   }), this, spell,);
+      //   let spellGroupOfSkill = this.spellGroups.find((spellGroup => {
+      //     return spellGroup.getSpellGroup().id === spell.spellGroupId;
+      //   })
+        
+      // })
 
     })
   }
@@ -183,8 +222,8 @@ export class Hero {
     this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
   }
 
-  get currentWeapon(): Weapon {
-    return this._currentWeapon
+  get currentWeaponDamageText(): string {
+    return this._currentWeapon ? this._currentWeapon.damageText : '0'
   }
 
   get currentLife(): Number {
@@ -192,7 +231,11 @@ export class Hero {
   }
 
   getAttributeValue(attributeId: String): number {
-    return this.attributes.get(attributeId)
+    return this.attributes.get(attributeId).value
+  }
+
+  getAttributeName(attributeId: String): String {
+    return this.attributes.get(attributeId).name
   }
 
   getAttackOfWeaponSkill(weaponSkill:Skill): Number{

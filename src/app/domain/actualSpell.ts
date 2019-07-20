@@ -1,14 +1,17 @@
 import { Spell } from "./spell";
 import { SpellService } from "./spells.service";
-import { SpellGroup } from "./spellgroup";
+import { SpellGroup } from "./spellGroup";
 import { Hero } from './hero'
 
 export class ActualSpell {
 
   value: number;
   hero: Hero;
+  isAssignedToHero: Boolean;
+
   constructor(actualSpell: Object, hero: Hero, private spell: Spell, private spellGroup: SpellGroup) {
     this.value = actualSpell ? actualSpell['value'] : -7;
+    this.isAssignedToHero = actualSpell ? true : false;
     this.hero = hero;
   }
 

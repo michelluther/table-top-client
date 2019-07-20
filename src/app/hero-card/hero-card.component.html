@@ -7,11 +7,11 @@
                 <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
             </div>
         </div>
-        <div class="cardContentContainer">
+        <div class="cardContentContainer" (click)="gotoDetail()">
             <ul class="weapons">
                 <li><div class="label">Attacke:</div>{{hero.currentAttack}}</li>
                 <li><div class="label">Parade:</div>{{hero.currentParade}}</li>
-                <li><div class="label">Trefferpunkte:</div>{{hero.currentWeapon.damageText}}</li>
+                <li><div class="label">Trefferpunkte:</div>{{hero.currentWeaponDamageText}}</li>
                 <li><div class="label">Rüstung:</div>3</li>
             </ul>
             <div class="heroAvatar" (click)="gotoDetail()">
