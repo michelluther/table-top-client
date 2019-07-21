@@ -3,12 +3,39 @@
   display: flex;
 }
 
+.page {
+  padding-top: 50px;
+  height: 100%;
+}
+
 .padded {
   padding: 20px;
 }
 
 .skillEntry i {
   margin-right: 5px;
+}
+
+#detailsNavigation {
+  display: flex;
+  justify-content: stretch;
+  justify-items: stretch;
+  margin-bottom: 10px;
+  margin-left: -5px;
+  position: fixed;
+  top:0;
+  width: calc(90% + 10px);
+  max-width: 1210px;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.characterDetailNavButton {
+  color: #fff;
+  font-size: 2rem;
+  flex:1;
+  
+  padding:5px;
 }
 
 label.long {

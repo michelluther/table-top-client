@@ -4,11 +4,6 @@
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-/*$hamburgers-padding-x: 20px;*/
-/*$hamburgers-padding-y: 15px;*/
-/*$hamburger-types     : (spin);*/
-
-@import "~hamburgers/dist/hamburgers.min.css";
 
 body {
   background: #343434 url('/assets/the_huntsman_by_inkyh-d8m6ypt.jpg') top center no-repeat;

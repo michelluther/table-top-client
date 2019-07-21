@@ -1,26 +1,34 @@
 <mat-card class="heroes-entry">
-    <mat-card-content>
-        <div class="headerContainer" (click)="gotoDetail()">
-            <!--  -->
-            <div class="headerContent">
-                <mat-card-title>{{hero.name}}</mat-card-title>
-                <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
-            </div>
-        </div>
-        <div class="cardContentContainer" (click)="gotoDetail()">
-            <ul class="weapons">
-                <li><div class="label">Attacke:</div>{{hero.currentAttack}}</li>
-                <li><div class="label">Parade:</div>{{hero.currentParade}}</li>
-                <li><div class="label">Trefferpunkte:</div>{{hero.currentWeaponDamageText}}</li>
-                <li><div class="label">Rüstung:</div>3</li>
-            </ul>
-            <div class="heroAvatar" (click)="gotoDetail()">
-                <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" height="100%" />
-            </div>
-        </div>
-        <div class="actionsContainer">
-            <hero-controls [hero]="hero">
-            </hero-controls>
-        </div>
-    </mat-card-content>
+  <mat-card-content>
+    <div class="headerContainer" (click)="gotoDetail()">
+      <!--  -->
+      <div class="headerContent">
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
+      </div>
+    </div>
+    <div class="cardContentContainer" (click)="gotoDetail()">
+      <ul class="weapons">
+        <li>
+          <div class="label">Attacke:</div>{{hero.currentAttack}}
+        </li>
+        <li>
+          <div class="label">Parade:</div>{{hero.currentParade}}
+        </li>
+        <li>
+          <div class="label">Trefferpunkte:</div>{{hero.currentWeaponDamageText}}
+        </li>
+        <li>
+          <div class="label">Rüstung:</div>3
+        </li>
+      </ul>
+      <div class="heroAvatar" (click)="gotoDetail()">
+        <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" height="100%" />
+      </div>
+    </div>
+    <div class="actionsContainer">
+      <hero-controls [hero]="hero">
+      </hero-controls>
+    </div>
+  </mat-card-content>
 </mat-card>

@@ -5,7 +5,8 @@ import { OperationFactory, RemoteControlOperation, operationTypes } from './../d
 import { ImagePopupComponent } from './../image-popup/image-popup.component'
 import { MatDialog } from '@angular/material'
 
-import { Lightbox } from 'ngx-lightbox';
+
+// import { Lightbox } from 'ngx-lightbox';
 @Component({
   selector: 'remote-control-receiver',
   templateUrl: './remote-control-receiver.component.html',

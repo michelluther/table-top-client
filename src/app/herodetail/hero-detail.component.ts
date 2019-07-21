@@ -80,6 +80,14 @@ export class HeroDetailComponent implements OnInit {
 		this.hero.currentWeapon = weapon
 	}
 
+	navToAnchor(anchor:string):void {
+		
+	}
+
+	onSectionChange(event):void {
+		console.log('hey');
+	}
+
 	//   filterThings(name: string) {
 	// 	return this.things.filter(thing =>
 	// 	  thing['name'].toLowerCase().indexOf(name.toLowerCase()) === 0);

@@ -1,6 +1,21 @@
-<div class="page flex-col center">
+<div class="page flex-col center" >
 
-  <div class="pageContent">
+  <div class="pageContent"  >
+    <div id="detailsNavigation" *ngIf="hero">
+      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#propertiesBox')">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </button>
+      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#propertiesContainer')">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+      </button>
+      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#talentHeader')">
+        <i class="fa fa-grav" aria-hidden="true"></i>
+      </button>
+      <button *ngIf="hero.knowsMagic" mat-button class="characterDetailNavButton navButtonIcon"
+        (click)="navToAnchor('#magicHeader')">
+        <i class="fa fa-magic" aria-hidden="true"></i>
+      </button>
+    </div>
     <!--<form class="search">
            
         <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
@@ -14,7 +29,7 @@
         </mat-autocomplete>
       </form>
       -->
-    <div *ngIf="hero">
+    <div *ngIf="hero" scrollSpy [spiedTags]="['A']"  (sectionChange)="onSectionChange($event)" style="flex: 1; overflow-y: scroll;">
       <div class="headerContainer">
         <!--  -->
         <div class="headerContent">
@@ -22,11 +37,12 @@
           <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
         </div>
       </div>
+      <a id="headerContent"></a>
       <div class="flex-col">
-        <div class="contentBox Grid Grid--cols-2">
+        <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
           <div id="propertiesContainer" class="container Grid-cell">
             <div class="padded">
-             <!-- <h4>Eigenschaften</h4>
+              <!-- <h4>Eigenschaften</h4>
               <div class="flex-row">
                 <div class="label">
                   <label>id: </label>
@@ -65,100 +81,101 @@
                 <div class="value">{{hero.magieresistenz}}</div>
               </div>
             </div>
-          </div>
-          <div id="attributesContainer" class="container Grid-cell">
-            <div class="padded">
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('MU')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('MU')}}</div>
+        </div>
+        <a id="attributesContainerAnchor"></a>
+        <div id="attributesContainer" class="container Grid-cell">
+          <div class="padded">
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('MU')}}</label>
               </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('KL')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('KL')}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('IN')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('IN')}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('CH')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('CH')}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('MU')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('FF')}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('GE')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('GE')}}</div>
-              </div>
-               <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('KO')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('KO')}}</div>
-              </div>
-               <div class="flex-row">
-                <div class="label">
-                  <label>{{hero.getAttributeName('KK')}}</label>
-                </div>
-                <div class="value">{{hero.getAttributeValue('KK')}}</div>
-              </div>
+              <div class="value">{{hero.getAttributeValue('MU')}}</div>
             </div>
-          </div>
-          <div id="avatarContainer" class="Grid-cell flex-col center">
-            <div class="heroAvatar large flex-item">
-              <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('KL')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('KL')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('IN')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('IN')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('CH')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('CH')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('MU')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('FF')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('GE')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('GE')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('KO')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('KO')}}</div>
+            </div>
+            <div class="flex-row">
+              <div class="label">
+                <label>{{hero.getAttributeName('KK')}}</label>
+              </div>
+              <div class="value">{{hero.getAttributeValue('KK')}}</div>
             </div>
           </div>
         </div>
-        <div class="Grid Grid--full Grid-cell">
-          <div class="actionsContainer Grid-cell">
-            <hero-controls [hero]="hero">
-            </hero-controls>
+        <div id="avatarContainer" class="Grid-cell flex-col center">
+          <div class="heroAvatar large flex-item">
+            <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
           </div>
         </div>
       </div>
-      <div class="contentBox flex-item flex-col">
-        <div class="kampfwerte padded flex-item flex-col">
-          <h4>Kampfwerte</h4>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Basiswerte</h5>
-             </div>
-          </div> 
-          <div class="flex-row">
-            <div class="flex-item">
-              <label class="long">Attacke: </label>
-              <label class="short">AT: </label>{{hero.attack_basis}}
-            </div>
-            <div class="flex-item">
-              <label class="long">Parade: </label>
-              <label class="short">PA: </label>{{hero.parade_basis}}
-            </div>
-            <div class="flex-item">
-              <label class="long">Fernkampf: </label>
-              <label class="short">FK: </label>{{hero.fernkampf_basis}}
-            </div>
+      <div class="Grid Grid--full Grid-cell">
+        <div class="actionsContainer Grid-cell">
+          <hero-controls [hero]="hero">
+          </hero-controls>
+        </div>
+      </div>
+    </div>
+    <div class="contentBox flex-item flex-col">
+      <div class="kampfwerte padded flex-item flex-col">
+        <h4>Kampfwerte</h4>
+        <div class="flex-row">
+          <div class="flex-item">
+            <h5>Basiswerte</h5>
           </div>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Aktuelle Werte</h5>
-             </div>
-          </div>  
-          <div class="kampfwerte">
+        </div>
+        <div class="flex-row">
+          <div class="flex-item">
+            <label class="long">Attacke: </label>
+            <label class="short">AT: </label>{{hero.attack_basis}}
+          </div>
+          <div class="flex-item">
+            <label class="long">Parade: </label>
+            <label class="short">PA: </label>{{hero.parade_basis}}
+          </div>
+          <div class="flex-item">
+            <label class="long">Fernkampf: </label>
+            <label class="short">FK: </label>{{hero.fernkampf_basis}}
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item">
+            <h5>Aktuelle Werte</h5>
+          </div>
+        </div>
+        <div class="kampfwerte">
 
           <div class="flex-row">
             <label>Attacke: </label>{{hero.currentAttack}}
@@ -168,57 +185,57 @@
           </div>
 
         </div>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Waffe</h5>
-             </div>
-          </div>          
-          <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
-            <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
-              <mat-card class="weaponEntry flex-item">
-                <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
-                  <div class="weaponChoiceLabel">
-                    <div class="weaponName">{{weapon.name}}</div>
-                    <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
-                  </div>
-                </mat-radio-button>
-              </mat-card>
-            </div>
-          </mat-radio-group>
-
+        <div class="flex-row">
+          <div class="flex-item">
+            <h5>Waffe</h5>
+          </div>
         </div>
+        <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
+          <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
+            <mat-card class="weaponEntry flex-item">
+              <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
+                <div class="weaponChoiceLabel">
+                  <div class="weaponName">{{weapon.name}}</div>
+                  <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
+                </div>
+              </mat-radio-button>
+            </mat-card>
+          </div>
+        </mat-radio-group>
+
       </div>
-      <div class="contentBox flex-item">
-        <div class="talente padded">
-          <h4>Talente</h4>
-          
-          <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
-          <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
-          <div *ngFor="let skillGroup of hero.skillGroups">
-            <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
-            <div class="skillGroupEntries">
-              <div class="skillEntry" *ngFor="let skill of skillGroup.skills">
-                <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm"> -->
-                <talent-card [skill]="skill"></talent-card>
-              </div>
+    </div>
+    <div class="contentBox flex-item">
+      <div class="talente padded">
+        <h4 id="talentHeader">Talente</h4>
+
+        <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
+        <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
+        <div *ngFor="let skillGroup of hero.skillGroups">
+          <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
+          <div class="skillGroupEntries">
+            <div class="skillEntry" *ngFor="let skill of skillGroup.skills">
+              <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm"> -->
+              <talent-card [skill]="skill"></talent-card>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="hero.knowsMagic" class="contentBox flex-item">
-        <div class="talente padded">
-          <h4>Zaubersprüche</h4>
-          <div *ngFor="let spellGroup of hero.spellGroups">
-            <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
-            <div class="spellGroupEntries">
-              <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
-                <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
-                <spell-card [spell]="spell"></spell-card>
-              </div>
+    </div>
+    <div *ngIf="hero.knowsMagic" class="contentBox flex-item">
+      <div class="talente padded">
+        <h4 id="magicHeader">Zaubersprüche</h4>
+        <div *ngFor="let spellGroup of hero.spellGroups">
+          <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
+          <div class="spellGroupEntries">
+            <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
+              <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
+              <spell-card [spell]="spell"></spell-card>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

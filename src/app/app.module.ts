@@ -60,6 +60,7 @@ import { MasterComponent } from './master/master.component';
 import { ImagePopupComponent } from './image-popup/image-popup.component';
 import { ChooseImageComponent } from './choose-image/choose-image.component';
 import { LifeDisplayComponent } from './life-display/life-display.component';
+import { ScrollSpyDirective } from './scroll-spy.directive';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -141,7 +142,8 @@ const routes: Routes = [
     MasterComponent,
     ImagePopupComponent,
     ChooseImageComponent,
-    LifeDisplayComponent
+    LifeDisplayComponent,
+    ScrollSpyDirective
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent],
