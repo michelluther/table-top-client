@@ -2,6 +2,8 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Hero } from '../domain/hero';
 import { HeroLifeService } from './hero-life.service';
 import { LifeDisplayComponent } from 'app/life-display/life-display.component';
+import { MagicDisplayComponent } from 'app/magic-display/magic-display.component';
+
 
 @Component({
 	selector: 'hero-controls',
@@ -14,7 +16,9 @@ export class HeroControls {
 	private lifeDisplayNumber: Number;
 	private service: HeroLifeService;
 
-	@ViewChild(LifeDisplayComponent) lifeDisplay : LifeDisplayComponent; 
+	@ViewChild(LifeDisplayComponent) lifeDisplay : LifeDisplayComponent;
+	@ViewChild(MagicDisplayComponent) magicDisplay : MagicDisplayComponent; 
+
 
 	constructor(websocketService: HeroLifeService) {
 		this.service = websocketService;

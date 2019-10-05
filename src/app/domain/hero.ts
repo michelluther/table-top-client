@@ -39,6 +39,10 @@ export class Hero {
 
   life: number;
   life_lost: number;
+
+  magicEnergy: number;
+  magicEnergy_lost: number;
+
   experience_used: number;
   hero_type: Object;
   ini_basis: number;
@@ -102,6 +106,8 @@ export class Hero {
     ]);
 
     this.life = dataObject['life'];
+    this.magicEnergy = dataObject['magic_energy'];
+    this.magicEnergy_lost = dataObject['magic_energy_lost'];
     this.magieresistenz = dataObject['magieresistenz'];
     this.name = dataObject['name'];
     this.race = dataObject['race'];
@@ -228,6 +234,10 @@ export class Hero {
 
   get currentLife(): Number {
     return this.life - this.life_lost
+  }
+
+  get currentMagicEnergy(): Number {
+    return this.magicEnergy - this.magicEnergy_lost
   }
 
   getAttributeValue(attributeId: String): number {

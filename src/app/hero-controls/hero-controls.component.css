@@ -38,8 +38,24 @@
 	border-bottom-right-radius: 2px;
 }
 
-life-display {
+life-display, magic-display {
 	position: absolute;
-	z-index: 30;
+	
+}
+life-display {
 	top: -15px;
+	z-index: 30;
+}
+
+magic-display {
+	top: 5px;
+	z-index: 29;
+}
+
+.displaysContainer {
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
 }

@@ -1,6 +1,10 @@
 <div class="container">
-        <life-display currentLife="{{hero.currentLife}}" maxLife="{{hero.life}}">
-        </life-display>
+        <div class="displaysContainer">
+                <life-display currentLife="{{hero.currentLife}}" maxLife="{{hero.life}}">
+                </life-display>
+                <magic-display *ngIf="hero.knowsMagic" currentMagicEnergy="{{hero.currentMagicEnergy}}" maxMagicEnergy="{{hero.magicEnergy}}">
+                </magic-display>
+        </div>
         <div class="buttons">
                 <button mat-button  class="lifeChangerButton" (click)="updateLife(-5)">
                         <i class="fa fa-angle-double-down" aria-hidden="true"></i>
@@ -15,4 +19,5 @@
                         <i class="fa fa-angle-double-up" aria-hidden="true"></i>
                 </button>
         </div>
-</div>
+</div>  
+

@@ -27,7 +27,6 @@
 	padding: 2px 0 0 0;
 	font-size: 1.5rem;
 	position: relative;
-	
 }
 
 .statusValueText {
@@ -38,7 +37,7 @@
 	width: 40px;
 	height: 40px;
 	position: absolute;
-    top: -25px;
+    top: 15px;
     left: 40px;
 	z-index: 200;
 }

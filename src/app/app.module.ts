@@ -61,6 +61,9 @@ import { ImagePopupComponent } from './image-popup/image-popup.component';
 import { ChooseImageComponent } from './choose-image/choose-image.component';
 import { LifeDisplayComponent } from './life-display/life-display.component';
 import { ScrollSpyDirective } from './scroll-spy.directive';
+import { MagicDisplayComponent } from './magic-display/magic-display.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -104,7 +107,8 @@ const routes: Routes = [
     FormsModule,
     MatRadioModule,
     MatSelectModule,
-    MatRippleModule
+    MatRippleModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [
     MatDialogModule
@@ -143,7 +147,8 @@ const routes: Routes = [
     ImagePopupComponent,
     ChooseImageComponent,
     LifeDisplayComponent,
-    ScrollSpyDirective
+    ScrollSpyDirective,
+    MagicDisplayComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent],
