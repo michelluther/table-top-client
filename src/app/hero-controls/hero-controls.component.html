@@ -1,8 +1,8 @@
 <div class="container">
         <div class="displaysContainer">
-                <life-display currentLife="{{hero.currentLife}}" maxLife="{{hero.life}}">
+                <life-display currentLife="{{hero.currentLife}}" maxLife="{{hero.life}}" (click)="focusLife()">
                 </life-display>
-                <magic-display *ngIf="hero.knowsMagic" currentMagicEnergy="{{hero.currentMagicEnergy}}" maxMagicEnergy="{{hero.magicEnergy}}">
+                <magic-display *ngIf="hero.knowsMagic" currentMagicEnergy="{{hero.currentMagicEnergy}}" maxMagicEnergy="{{hero.magicEnergy}}" (click)="focusMagic()">
                 </magic-display>
         </div>
         <div class="buttons">
