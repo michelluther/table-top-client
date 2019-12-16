@@ -42,14 +42,23 @@ life-display, magic-display {
 	position: absolute;
 	
 }
+
 life-display {
 	top: -15px;
-	z-index: 30;
+	transition: all .3s ease-out;
 }
 
 magic-display {
 	top: 5px;
-	z-index: 29;
+	transition: all .3s ease-out;
+}
+
+magic-display.displayActive, life-display.displayActive {
+	z-index: 60;
+}
+magic-display.displayInactive, life-display.displayInactive {
+	z-index: 30;
+	transform: scale(0.7)
 }
 
 .displaysContainer {

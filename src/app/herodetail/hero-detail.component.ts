@@ -30,12 +30,13 @@ export class HeroDetailComponent implements OnInit {
 	public things: Promise<Object[]>;
 	// public filteredThings: Observable<Any[]>;
 	public filteredSkills: Observable<ActualSkill[]>;
+	breakpoint: number;
 
 
 	constructor(
 		private heroService: HeroService,
 		private route: ActivatedRoute,
-		private location: Location,
+		private location: Location
 
 	) {
 
@@ -69,7 +70,8 @@ export class HeroDetailComponent implements OnInit {
 			.subscribe(hero => {
 				this.hero = hero;
 			});;
-	}
+			this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
+		}
 
 	filterSkills(name: string) {
 		return this.hero.skills.filter(skill =>

@@ -15,6 +15,10 @@ export class HeroControls {
 	private _hero: Hero;
 	private lifeDisplayNumber: Number;
 	private service: HeroLifeService;
+	private _lifeClass: string;
+	private _magicClass: string;
+	private _activeDisplayComponent: Component;
+	
 
 	@ViewChild(LifeDisplayComponent) lifeDisplay : LifeDisplayComponent;
 	@ViewChild(MagicDisplayComponent) magicDisplay : MagicDisplayComponent; 
@@ -22,6 +26,8 @@ export class HeroControls {
 
 	constructor(websocketService: HeroLifeService) {
 		this.service = websocketService;
+		this._lifeClass = 'displayActive';
+		this._magicClass = 'displayInactive';
 	}
 
 	@Input()
@@ -37,21 +43,44 @@ export class HeroControls {
 		return this.lifeDisplayNumber;
 	}
 
+	@Input()
+	get magicClass() {
+		return this._magicClass;
+	}
+
+	@Input()
+	get lifeClass() {
+		return this._lifeClass;
+	}
+
 	focusLife(): void {
-		let element = 
+		this._magicClass = 'displayInactive';
+		this._lifeClass = 'displayActive';
 	}
 
 	focusMagic(): void {
-		console.log('magic is important')
+		this._magicClass = 'displayActive';
+		this._lifeClass = 'displayInactive';
 	}
 
-	updateLife(value: number): void {
-		this.lifeDisplay.rippleDisplay(value)
-		this.service.sendLifeUpate({
-			heroId: this._hero.id,
-			oldLive: this.hero.currentLife,
-			value: value
-		});
+	updateValue(value: number): void {
+		if(this._magicClass === 'displayInactive'){
+			this.lifeDisplay.rippleDisplay(value)
+			this.service.sendUpate({
+				heroId: this._hero.id,
+				type: 'lifeUpdate',
+				oldLive: this.hero.currentLife,
+				value: value
+			});
+		} else {
+			this.magicDisplay.rippleDisplay(value)
+			this.service.sendUpate({
+				heroId: this._hero.id,
+				type: 'magicUpdate',
+				oldLive: this.hero.currentLife,
+				value: value
+			});
+		}
 	}
 
 }

@@ -30,14 +30,23 @@ export class HeroLifeService {
         return ws;
     }
 
-    public sendLifeUpate(data): void {
+    public sendUpate(data): void {
         this.socket.send(JSON.stringify(data));
     }
 
     public updateHeroLife(message): void {
         let messageData = JSON.parse(message.data);
         this.heroService.getHero(messageData.heroId).then(hero => {
-            hero.life_lost = hero.life_lost - messageData.value;
+            switch (messageData.type) {
+                case 'lifeUpdate':
+                    hero.life_lost = hero.life_lost - messageData.value;
+                    break;
+                case 'magicUpdate':
+                        hero.magicEnergy_lost = hero.magicEnergy_lost - messageData.value;
+                        break;
+                default:
+                    break;
+            }
         })
     }
 

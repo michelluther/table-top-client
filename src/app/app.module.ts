@@ -36,12 +36,14 @@ import {
   MatButtonModule,
   MatRippleModule,
   MatIcon,
-
+  MatGridList,
   MatDialogModule,
   MatDialogContent,
   MatDialog,
   MatSelectTrigger,
-  MatSelectModule
+  MatSelectModule,
+  MatGridTile,
+  MatGridTileText
 } from '@angular/material';
 
 import 'hammerjs';
@@ -130,6 +132,9 @@ const routes: Routes = [
     MatCardTitle,
     MatCardContent,
     MatInput,
+    MatGridList,
+    MatGridTile,
+    MatGridTileText,
     // MatFormField,
     // MatSelectionList,
     AdminOverviewComponent,

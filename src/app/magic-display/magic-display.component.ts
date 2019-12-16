@@ -27,6 +27,8 @@ export class MagicDisplayComponent implements OnInit {
   private _maxMagicEnergy: Number
   private magicDisplay: Number
 
+	private _isFocused: boolean;
+
   @ViewChild(MatRipple) ripple: MatRipple;
 
   constructor(private websocketService: HeroLifeService) {}
@@ -38,7 +40,6 @@ export class MagicDisplayComponent implements OnInit {
     return this._currentMagicEnergy;
   }
   set currentMagicEnergy(currentMagicEnergy: Number) {
-
     this._currentMagicEnergy = currentMagicEnergy
   }
 
@@ -62,6 +63,7 @@ export class MagicDisplayComponent implements OnInit {
       color: rippleColor
     })
   }
+
 
   // Test stuff
   public rippleText(text: String): void {
