@@ -66,6 +66,7 @@ import { ScrollSpyDirective } from './scroll-spy.directive';
 import { MagicDisplayComponent } from './magic-display/magic-display.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TalentSearchComponent } from './talent-search/talent-search.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -153,7 +154,8 @@ const routes: Routes = [
     ChooseImageComponent,
     LifeDisplayComponent,
     ScrollSpyDirective,
-    MagicDisplayComponent
+    MagicDisplayComponent,
+    TalentSearchComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent],

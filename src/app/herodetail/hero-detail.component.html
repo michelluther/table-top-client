@@ -1,7 +1,7 @@
 <div class="page flex-col center" >
 
   <div class="pageContent"  >
-    <div id="detailsNavigation" *ngIf="hero">
+    <!-- <div id="detailsNavigation" *ngIf="hero">
       <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#propertiesBox')">
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </button>
@@ -15,7 +15,10 @@
         (click)="navToAnchor('#magicHeader')">
         <i class="fa fa-magic" aria-hidden="true"></i>
       </button>
-    </div>
+    </div> -->
+    <talent-search>
+      
+    </talent-search>
     <!--<form class="search">
            
         <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
@@ -148,7 +151,7 @@
         </div>
       </div>
     </div>
-    <div class="contentBox flex-item flex-col">
+    <div class="contentBox flex-item">
       <div class="kampfwerte padded flex-item flex-col">
         <h4>Kampfwerte</h4>
         <div class="flex-row">
@@ -205,7 +208,7 @@
 
       </div>
     </div>
-    <div class="contentBox flex-item">
+    <div class="contentBox flex-item flex-row">
       <div class="talente padded">
         <h4 id="talentHeader">Talente</h4>
 
@@ -215,19 +218,20 @@
           <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
           <div class="skillGroupEntries">
             <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills"> -->
-              <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm"> -->
-            <mat-grid-list [cols]="breakpoint" rowHeight="80px">
-              <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" >
-               
-                <talent-card [skill]="skill"></talent-card>
-              </mat-grid-tile>
-            <!-- </div> -->
-            </mat-grid-list>
+            <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
+              <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
+                <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
+                
+                  <talent-card [skill]="skill"></talent-card>
+                <!-- </mat-grid-tile> -->
+              <!-- </div> -->
+              <!-- </mat-grid-list> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="hero.knowsMagic" class="contentBox flex-item">
+    <div *ngIf="hero.knowsMagic" class="contentBox flex-row">
       <div class="talente padded">
         <h4 id="magicHeader">Zaubersprüche</h4>
         <div *ngFor="let spellGroup of hero.spellGroups">

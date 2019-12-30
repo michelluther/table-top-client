@@ -6,7 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../domain/hero.service';
 import { SkillService } from '../domain/skills.service';
-import { MatchesSearchTerm } from './skill.pipe';
+
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { MatInput, MatInputModule, MatOptgroup, MatOption, MatFormFieldControl, MatCard, MatCardSubtitle } from '@angular/material';
 import { map, startWith } from 'rxjs/operators';
