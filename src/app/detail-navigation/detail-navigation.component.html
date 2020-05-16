@@ -1,0 +1,10 @@
+<div class="detailNavigation">
+  <ul>
+    <li (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
+      {{menuItem.title}}
+    </li>
+    <li *ngFor="let skillGroup of hero.skillGroups; index as i; keyvalue" (click)="navToSkillGroup(skillGroup)">
+      {{skillGroup.getSkillGroup().name}}
+    </li>
+  </ul>
+</div>

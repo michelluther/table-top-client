@@ -13,6 +13,7 @@ import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 import { SpellService } from "./spells.service";
 import { AttributeService } from './attribute.service'
 import { SpellGroup } from "./spellGroup";
+import { HeroType } from "./heroType";
 
 export class Hero {
 
@@ -44,7 +45,7 @@ export class Hero {
   magicEnergy_lost: number;
 
   experience_used: number;
-  hero_type: Object;
+  hero_type: HeroType;
   ini_basis: number;
   klugheit: number;
   magieresistenz: number;
@@ -59,7 +60,7 @@ export class Hero {
   currentAttack: number;
   currentParade: number;
 
-  attributes: Map<String, ActualAttribute>;
+  attributes: Array<ActualAttribute>;
   
   skills: Array<ActualSkill>;
   skillGroups: ActualSkillGroup[];
@@ -94,16 +95,16 @@ export class Hero {
     this.ini_basis = dataObject['ini_basis'];
     this.knowsMagic = dataObject['knows_magic'];
 
-    this.attributes = new Map<String, ActualAttribute>([
-      ['MU', new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ],
-      ['CH', new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ],
-      ['GE', new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ],
-      ['IN', new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ],
-      ['KK', new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK')) ],
-      ['KL', new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ],
-      ['FF', new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ],
-      ['KO', new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')) ]
-    ]);
+    this.attributes = [
+      new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ,
+      new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ,
+      new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ,
+      new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ,
+      new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK')) ,
+      new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ,
+      new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ,
+      new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO'))
+    ];
 
     this.life = dataObject['life'];
     this.magicEnergy = dataObject['magic_energy'];
@@ -220,6 +221,10 @@ export class Hero {
     })
   }
 
+  getAttribute(id: String){
+    return this.attributes.find(attribute => attribute.attribute.id === id)
+  }
+
   set currentWeapon(weapon: Weapon) {
     this._currentWeapon = weapon
     const skillDistribution = this._getDistributionOfSkill(weapon.skill)
@@ -238,14 +243,6 @@ export class Hero {
 
   get currentMagicEnergy(): Number {
     return this.magicEnergy - this.magicEnergy_lost
-  }
-
-  getAttributeValue(attributeId: String): number {
-    return this.attributes.get(attributeId).value
-  }
-
-  getAttributeName(attributeId: String): String {
-    return this.attributes.get(attributeId).name
   }
 
   getAttackOfWeaponSkill(weaponSkill:Skill): Number{

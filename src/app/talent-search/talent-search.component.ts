@@ -10,6 +10,7 @@ import { Hero } from '../domain/hero';
 export class TalentSearchComponent implements OnInit {
 
   hero: Hero;
+  talentSearchTerm: String;
 
   constructor() { }
 

@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HeroCard implements OnInit {
 
 	heroProperty: Hero;
-	private baseUrl: String;
+	public baseUrl: String;
 
 	constructor(
 		private heroService: HeroService,

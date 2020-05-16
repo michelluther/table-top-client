@@ -8,13 +8,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - fight display
     - maybe through an open street map?
-- make magic available:
-    - domain objects (Spell, ActualSpell, SpellService)
 - Interface for increasing values
  
 
 
 # Done 
+- make magic available:
+    - domain objects (Spell, ActualSpell, SpellService)
 - Read all available skills and mix them with the skills available for a character
 - Master view
     - Send images 

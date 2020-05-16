@@ -206,13 +206,13 @@ h4 {
 .Grid--cols-12>.Grid-cell {
   flex: 0 0 calc(33.3333% - #{$gutter});
 }
-
+/* 
 .Grid--holly-grail {
   .aside,
   .main {
     flex: 1 100%;
   }
-}
+} */
 
 
 /* One of -- columns*/
@@ -248,11 +248,11 @@ h4 {
   .Grid--cols-12>.Grid-cell {
     flex: 0 0 calc(16.6666% - #{$gutter});
   }
-  .Grid--holly-grail {
+  /* .Grid--holly-grail {
     .aside {
       flex: 1 calc(25% - #{$gutter});
     }
-  }
+  } */
   .Grid--1of2>.Grid-cell {
     flex: 0 0 50%;
   }

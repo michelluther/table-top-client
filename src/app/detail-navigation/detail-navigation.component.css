@@ -1,0 +1,8 @@
+.detailNavigation {
+    position: fixed;
+}
+
+li {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}

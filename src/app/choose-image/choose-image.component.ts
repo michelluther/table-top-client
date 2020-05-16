@@ -19,7 +19,7 @@ export class ImagePopupData {
 })
 export class ChooseImageComponent implements OnInit {
 
-  private images: Array<Image>
+  public images: Array<Image>
   private adventures: Array<Adventure>
   private baseUrl: string
 

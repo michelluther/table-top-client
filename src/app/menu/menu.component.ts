@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
 export class Menu implements OnInit {
 
 	private baseUrl: String;
-	private open: boolean;
+	public open: boolean;
 
 	constructor(
 		private router: Router
