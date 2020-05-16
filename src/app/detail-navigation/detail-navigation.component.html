@@ -1,0 +1,16 @@
+<div class="detailNavigation">
+  
+
+  <ul *ngIf="menuVisible === true">
+    <li (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
+      {{menuItem.title}}
+    </li>
+    <li *ngFor="let skillGroup of hero.skillGroups; index as i; keyvalue" (click)="navToSkillGroup(skillGroup)">
+      {{skillGroup.getSkillGroup().name}}
+    </li>
+  </ul>
+
+  <div class="viewToggle" (click)="toggleVisible()">
+    <i [ngClass]="{menuToggleIcon: true, fa:true, 'fa-chevron-down': true, 'menuShown': menuVisible}"></i>
+  </div>
+</div>

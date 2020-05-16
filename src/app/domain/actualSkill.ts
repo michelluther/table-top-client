@@ -32,14 +32,15 @@ export class ActualSkill {
   }
 
   get dice1Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice1.id)
+    return this.hero.getAttribute(this.getSkill().dice1.id).value
   }
-
+  
   get dice2Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice2.id)
+    return this.hero.getAttribute(this.getSkill().dice2.id).value
   }
-
+  
   get dice3Value(): Number {
-    return this.hero.getAttributeValue(this.getSkill().dice3.id)
+    return this.hero.getAttribute(this.getSkill().dice3.id).value
+    
   }
 }

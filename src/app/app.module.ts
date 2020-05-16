@@ -43,13 +43,17 @@ import {
   MatSelectTrigger,
   MatSelectModule,
   MatGridTile,
-  MatGridTileText
+  MatGridTileText,
+  MatFormFieldModule,
+  MatCardModule,
+  MatGridListModule,
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 
 import 'hammerjs';
 
 import { HeroService } from './domain/hero.service';
-import { MatchesSearchTerm, MatchesSearchTermChildren } from './herodetail/skill.pipe';
 import { TalentCard } from './talent-card/talent-card.component';
 import { SpellCard } from './spell-card/spell-card.component';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
@@ -67,6 +71,8 @@ import { MagicDisplayComponent } from './magic-display/magic-display.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
+import { MatchesSearchTerm, MatchesSearchTermChildren } from './talent-search/skill.pipe';
+import { DetailNavigationComponent } from './detail-navigation/detail-navigation.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -111,6 +117,14 @@ const routes: Routes = [
     MatRadioModule,
     MatSelectModule,
     MatRippleModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    MatListModule,
+    MatSidenavModule,
+    MatIconModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [
@@ -123,29 +137,16 @@ const routes: Routes = [
     HeroControls,
     HeroCard,
     Menu,
-    MatchesSearchTerm,
-    MatchesSearchTermChildren,
     TalentCard,
     SpellCard,
-    // MatAutocomplete,
-    MatCard,
-    MatCardSubtitle,
-    MatCardTitle,
-    MatCardContent,
-    MatInput,
-    MatGridList,
-    MatGridTile,
-    MatGridTileText,
-    // MatFormField,
-    // MatSelectionList,
     AdminOverviewComponent,
     FightSetupComponent,
     FightDisplayComponent,
-    MatSidenavContainer,
-    MatSidenav,
-    MatSidenavContent,
-    MatButton,
-    MatIcon,
+    // MatSidenavContainer,
+    // MatSidenav,
+    // MatSidenavContent,
+    // MatButton,
+    // MatIcon,
     RemoteControlComponent,
     RemoteControlReceiverComponent,
     PlayerComponent,
@@ -155,7 +156,10 @@ const routes: Routes = [
     LifeDisplayComponent,
     ScrollSpyDirective,
     MagicDisplayComponent,
-    TalentSearchComponent
+    TalentSearchComponent,
+    MatchesSearchTerm,
+    MatchesSearchTermChildren,
+    DetailNavigationComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent],

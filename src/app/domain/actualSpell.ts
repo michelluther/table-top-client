@@ -24,14 +24,14 @@ export class ActualSpell {
   }
 
   get dice1Value(): Number {
-    return this.hero.getAttributeValue(this.getSpell().dice1)
+    return this.hero.getAttribute(this.getSpell().dice1).value
   }
 
   get dice2Value(): Number {
-    return this.hero.getAttributeValue(this.getSpell().dice2)
+    return this.hero.getAttribute(this.getSpell().dice2).value
   }
 
   get dice3Value(): Number {
-    return this.hero.getAttributeValue(this.getSpell().dice3)
+    return this.hero.getAttribute(this.getSpell().dice3).value
   }
 }

@@ -8,6 +8,7 @@ export class Spell {
   dice1: String;
   dice2: String;
   dice3: String;
+  be: String;
   
   constructor(dataObject: Object) {
 
@@ -18,6 +19,7 @@ export class Spell {
     this.dice1 = dataObject['dice1'];
     this.dice2 = dataObject['dice2'];
     this.dice3 = dataObject['dice3'];
+    this.be = dataObject['be']
 
   }
 }

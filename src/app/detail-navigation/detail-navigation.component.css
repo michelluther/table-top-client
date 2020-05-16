@@ -1,0 +1,45 @@
+.detailNavigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    flex-direction: column;
+    z-index: 1000;
+    width: 100%;
+    /*  
+    transition: height 10s ease-out;
+    */
+}
+ul {
+    margin: 0;
+    padding: 0;
+    box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.5);
+}
+
+li {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.viewToggle {
+    box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.5);
+    background-color: #fff;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menuToggleIcon {
+    transition: transform 0.5s ease-in-out;
+}
+
+.menuToggleIcon.menuShown {
+    transform: rotate(180deg);
+}
