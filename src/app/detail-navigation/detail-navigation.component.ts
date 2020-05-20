@@ -64,5 +64,10 @@ export class DetailNavigationComponent implements OnInit {
     menuTarget.scrollIntoView()
   }
 
+  navToSpellGroup(target) {
+    let menuTarget = this.elRef.nativeElement.parentElement.getElementsByClassName('menuItem')[target.spellGroup.name]
+    menuTarget.scrollIntoView()
+  }
+
   
 }

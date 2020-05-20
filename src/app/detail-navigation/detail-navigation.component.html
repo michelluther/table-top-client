@@ -1,15 +1,22 @@
 <div class="detailNavigation">
   
 
-  <ul *ngIf="menuVisible === true">
-    <li (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
-      {{menuItem.title}}
-    </li>
-    <li *ngFor="let skillGroup of hero.skillGroups; index as i; keyvalue" (click)="navToSkillGroup(skillGroup)">
-      {{skillGroup.getSkillGroup().name}}
-    </li>
-  </ul>
-
+  <div class="menuContainer" >
+    <div class="menuItems" *ngIf="menuVisible === true">
+      <div class="menuItem" (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
+        {{menuItem.title}}
+      </div>
+      <h4>Talente</h4>
+      <div class="menuItem" *ngFor="let skillGroup of hero.skillGroups; index as i; keyvalue" (click)="navToSkillGroup(skillGroup)">
+        {{skillGroup.getSkillGroup().name}}
+      </div>
+      <h4 *ngIf="hero.knowsMagic">Zauber</h4>
+      <div class="menuItem" *ngFor="let spellGroup of hero.spellGroups; index as i; keyvalue" (click)="navToSpellGroup(spellGroup)">
+        {{spellGroup.getSpellGroup().name}}
+      </div>
+    </div>
+    
+  </div>
   <div class="viewToggle" (click)="toggleVisible()">
     <i [ngClass]="{menuToggleIcon: true, fa:true, 'fa-chevron-down': true, 'menuShown': menuVisible}"></i>
   </div>

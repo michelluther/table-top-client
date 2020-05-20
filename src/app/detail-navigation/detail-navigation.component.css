@@ -10,26 +10,40 @@
     transition: height 10s ease-out;
     */
 }
-ul {
+.menuContainer {
     margin: 0;
-    padding: 0;
-    box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.5);
+    padding: 0 0 10px 0;
+    box-shadow: 0px 2px 5px rgba(70, 70, 70, 0.5);
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #eee;
+    background-color: snow;
+    width: 600px
 }
 
-li {
-    border: 1px solid #ccc;
-    background-color: #fff;
+h4 {
+    color: snow;
+    padding: 15px 10px 5px 10px;
+    margin:0;
+    background-color: rgb(139, 50, 50);
+}
+
+.menuItems {
+
+}
+.menuItem {
+    border-bottom: 1px solid #eee;
     cursor: pointer;
+    margin:0;
     padding: 10px;
-    list-style-type: none;
 }
 
 .viewToggle {
-    box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.5);
+    box-shadow: 0px 2px 5px rgba(70, 70, 70, 0.5);
     background-color: #fff;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     width: 40px;
     height: 30px;
     display: flex;

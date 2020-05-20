@@ -185,7 +185,7 @@
               <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
                 <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
                 <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
-
+                  
                 <talent-card [skill]="skill"></talent-card>
                 <!-- </mat-grid-tile> -->
                 <!-- </div> -->
@@ -199,6 +199,7 @@
         <div class="talente padded">
           <h4 id="magicHeader">Zaubersprüche</h4>
           <div *ngFor="let spellGroup of hero.spellGroups">
+            <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
             <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
             <div class="spellGroupEntries">
               <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
