@@ -233,6 +233,10 @@ export class Hero {
     this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
   }
 
+  get currentWeapon() {
+    return this._currentWeapon
+  }
+
   get currentWeaponDamageText(): string {
     return this._currentWeapon ? this._currentWeapon.damageText : '0'
   }
