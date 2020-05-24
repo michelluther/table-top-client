@@ -9,6 +9,7 @@ import { ActualSpellGroup } from "./actualSpellGroup";
 import { ActualAttribute } from "./actualAttribute";
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Weapon } from './weapon'
+import { Armor } from './armor'
 import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 import { SpellService } from "./spells.service";
 import { AttributeService } from './attribute.service'
@@ -71,6 +72,8 @@ export class Hero {
   weapons: Array<Weapon>
   _currentWeapon: Weapon
 
+  armor: Array<Armor>
+
   weaponSkillDistributions: Array<WeaponSkillDistribution>
 
   constructor(private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
@@ -116,19 +119,20 @@ export class Hero {
     this.social_rank = dataObject['social_rank']
 
     this.weapons = []
+    this.armor = []
 
     this.weaponSkillDistributions = dataObject['weaponSkillDistributions'].map(weaponSkillDistribution => {
       return new WeaponSkillDistribution(weaponSkillDistribution.skill, weaponSkillDistribution.attack, weaponSkillDistribution.parade)
     })
 
-    this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons']);
+    this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons'], dataObject['armor']);
     if(this.knowsMagic){
       this.structureSpells(dataObject['spells']);
     }
     return this;
   }
 
-  structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>): void {
+  structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>, armor: Array<Object>): void {
 
     
     let skillsPromise = Promise.all([
@@ -167,6 +171,13 @@ export class Hero {
           })))
       })
       this.currentWeapon = this.weapons[0]
+
+      armor.forEach(armor => {
+        this.armor.push(new Armor(armor['name'],
+        armor['rs'],
+        armor['be'])
+        )
+      })
     });
 
   }

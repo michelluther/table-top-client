@@ -222,6 +222,26 @@ mat-radio-button {
   width: 120px
 } 
 
+.inventorySection {
+  display: flex;
+  flex-direction: column;
+}
+.inventoryWeaponItem {
+  display: flex;
+  
+}
+
+.inventoryItemName {
+  width: 200px
+}
+
+.weaponDamage {
+  width: 80px
+}
+
+.inventoryItemAction {
+  width: 40px
+}
 
 @media (min-width: 48em) {
   #avatarContainer {

@@ -29,6 +29,7 @@ export class HeroDetailComponent implements OnInit {
 	@Input()
 	_detailArea: String;
 	showCharacter: boolean;
+	showInventory: boolean;
 	private baseUrl: String;
 	public things: Promise<Object[]>;
 	// public filteredThings: Observable<Any[]>;
@@ -99,10 +100,18 @@ export class HeroDetailComponent implements OnInit {
 
 	set detailArea(target) {
 		this._detailArea = target
-		if(this._detailArea === 'character')
+		if(this._detailArea === 'character') {
 			this.showCharacter = true
-		else
+			this.showInventory = false
+
+		} else {
 			this.showCharacter = false
+			this.showInventory = true
+		}
+	}
+
+	removeWeaponFromInventory(weapon):void {
+		debugger;
 	}
 
 

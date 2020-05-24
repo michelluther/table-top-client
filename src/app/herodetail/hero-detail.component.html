@@ -173,6 +173,32 @@
           </div>
         </div>
       </div>
+      <div *ngIf="showInventory" class="characterDetails">
+        <div class="flex-col">
+          <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
+        <!-- <div id="attributesContainer" class="container Grid-cell">
+          <div class="padded">
+         --> 
+            <div class="inventorySection padded">   
+              <h4>Waffen</h4>
+              <div *ngFor="let weapon of hero.weapons" class="inventoryWeaponItem">
+                <div class="inventoryItemName">{{weapon.name}}</div>
+                <div class="weaponDamage">{{weapon.damageText}}</div>
+                <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
+              </div> 
+            </div>
+            <div class="inventorySection padded">   
+              <h4>Rüstung</h4>
+              <div *ngFor="let armor of hero.armor" class="inventoryWeaponItem">
+                <div class="inventoryItemName">{{armor.name}}</div>
+                <div class="armorDamage">{{armor.rs}}</div>
+                <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
