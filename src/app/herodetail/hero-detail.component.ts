@@ -1,7 +1,7 @@
 
 import { Hero } from '../domain/hero';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../domain/hero.service';
@@ -26,6 +26,9 @@ export class HeroDetailComponent implements OnInit {
 	// autoSearchTerm: Observable<String> = '';
 	searchCtrl: FormControl;
 	hero: Hero;
+	@Input()
+	_detailArea: String;
+	showCharacter: boolean;
 	private baseUrl: String;
 	public things: Promise<Object[]>;
 	// public filteredThings: Observable<Any[]>;
@@ -39,7 +42,7 @@ export class HeroDetailComponent implements OnInit {
 		private location: Location
 
 	) {
-
+		this.detailArea = 'character';
 		this.searchCtrl = new FormControl();
 		this.baseUrl = 'http://' + window.location.hostname + ':8000';
 		let that = this;
@@ -90,9 +93,17 @@ export class HeroDetailComponent implements OnInit {
 		console.log('hey');
 	}
 
-	//   filterThings(name: string) {
-	// 	return this.things.filter(thing =>
-	// 	  thing['name'].toLowerCase().indexOf(name.toLowerCase()) === 0);
-	//   }
+	showArea(areaTarget):void {
+		this.detailArea = areaTarget
+	}
+
+	set detailArea(target) {
+		this._detailArea = target
+		if(this._detailArea === 'character')
+			this.showCharacter = true
+		else
+			this.showCharacter = false
+	}
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from 'app/domain/hero';
 import { SkillGroup } from 'app/domain/skillgroup';
 import { SpellGroup } from 'app/domain/spellGroup';
@@ -8,6 +8,7 @@ class MenuItem {
 
   title: String
   target: String
+  detailArea: String
 
 
   constructor(config){
@@ -29,10 +30,18 @@ export class DetailNavigationComponent implements OnInit {
   spellGroups: Array<SpellGroup>
   menuVisible: boolean
 
+  @Input()
+  detailArea: String;
+
+  @Output()
+  navToArea: EventEmitter<String> = new EventEmitter<String>();
+  
+
   menu: Array<Object>
 
   constructor(private elRef: ElementRef) { 
     this.elRef = elRef
+    this.detailArea = 'character'
   }
 
   ngOnInit() {
@@ -68,6 +77,13 @@ export class DetailNavigationComponent implements OnInit {
     let menuTarget = this.elRef.nativeElement.parentElement.getElementsByClassName('menuItem')[target.spellGroup.name]
     menuTarget.scrollIntoView()
   }
+
+  updateDetailView(detailTarget) {
+    this.detailArea = detailTarget
+    this.navToArea.emit(detailTarget)
+  }
+
+
 
   
 }

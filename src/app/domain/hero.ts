@@ -167,8 +167,6 @@ export class Hero {
           })))
       })
       this.currentWeapon = this.weapons[0]
-
-
     });
 
   }
@@ -202,15 +200,6 @@ export class Hero {
         this.spells.push(actualSpell)
         spellGroupOfSpell.getSpells().push(actualSpell)
       });
-      // allSpells.forEach(spell => {
-      //   let actualSpell = new ActualSpell(spells.find(actualSpell => {
-      //     return actualSpell['id'] === spell.id
-      //   }), this, spell,);
-      //   let spellGroupOfSkill = this.spellGroups.find((spellGroup => {
-      //     return spellGroup.getSpellGroup().id === spell.spellGroupId;
-      //   })
-        
-      // })
 
     })
   }

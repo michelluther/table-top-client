@@ -48,7 +48,9 @@ import {
   MatCardModule,
   MatGridListModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatButtonToggleGroup,
+  MatButtonToggle
 } from '@angular/material';
 
 import 'hammerjs';
@@ -145,7 +147,9 @@ const routes: Routes = [
     // MatSidenavContainer,
     // MatSidenav,
     // MatSidenavContent,
-    // MatButton,
+    MatButton,
+    MatButtonToggleGroup,
+    MatButtonToggle,
     // MatIcon,
     RemoteControlComponent,
     RemoteControlReceiverComponent,

@@ -21,6 +21,17 @@
     width: 600px
 }
 
+.navigationToggle {
+    display:flex;
+    justify-content: stretch
+}
+
+.navigationToggle mat-button-toggle {
+    display: flex;
+    justify-content: center;
+    flex: 1
+}
+
 h4 {
     color: snow;
     padding: 15px 10px 5px 10px;

@@ -1,39 +1,8 @@
-<detail-navigation [hero]="hero">
+<detail-navigation [hero]="hero" (navToArea)="showArea($event)">
 
 </detail-navigation>
 <div class="page flex-col center"> 
   <div class="pageContent">
-    <!-- <div id="detailsNavigation" *ngIf="hero">
-      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#propertiesBox')">
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-      </button>
-      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#propertiesContainer')">
-        <i class="fa fa-cutlery" aria-hidden="true"></i>
-      </button>
-      <button mat-button class="characterDetailNavButton navButtonIcon" (click)="navToAnchor('#talentHeader')">
-        <i class="fa fa-grav" aria-hidden="true"></i>
-      </button>
-      <button *ngIf="hero.knowsMagic" mat-button class="characterDetailNavButton navButtonIcon"
-        (click)="navToAnchor('#magicHeader')">
-        <i class="fa fa-magic" aria-hidden="true"></i>
-      </button>
-    </div> -->
-    <!-- <talent-search>
-      
-    </talent-search> -->
-    <!--<form class="search">
-           
-        <input class="talentSearchInbox text-center" placeholder="Talentsuche" [matAutocomplete]="auto"
-          [formControl]="searchCtrl" [value]="autoSearchTerm">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let skill of filteredSkills | async" [value]="autoSearchTerm" class="skillOption">
-            <div class="skillEntry">
-              <talent-card [skill]="skill"></talent-card>
-            </div>
-          </mat-option>
-        </mat-autocomplete>
-      </form>
-      -->
     <div *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
       style="flex: 1; overflow-y: scroll;">
       <div class="headerContainer">
@@ -44,167 +13,161 @@
           <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
         </div>
       </div>
-      <div class="flex-col">
-        <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-          <div id="propertiesContainer" class="container Grid-cell">
-            <div class="padded">
-              <!-- <h4>Eigenschaften</h4>
-              <div class="flex-row">
-                <div class="label">
-                  <label>id: </label>
-                </div>
-                <div class="value">{{hero.id}}</div>
-              </div>
-              -->
-              <div class="flex-row">
-                <div class="label">
-                  <label>Größe: </label>
-                </div>
-                <div class="value">{{hero.size}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>Rasse: </label>
-                </div>
-                <div class="value">{{hero.race.name}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>Kultur: </label>
-                </div>
-                <div class="value">{{hero.culture}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>Sozialrang: </label>
-                </div>
-                <div class="value">{{hero.social_rank}}</div>
-              </div>
-              <div class="flex-row">
-                <div class="label">
-                  <label>Magieresistenz: </label>
-                </div>
-                <div class="value">{{hero.magieresistenz}}</div>
-              </div>
-            </div>
-          </div>
-          <a id="attributesContainerAnchor"></a>
-          <div id="attributesContainer" class="container Grid-cell">
-            <div class="padded">
-              <div *ngFor="let attribute of hero.attributes; index as i; keyvalue" class="flex-row">
-                <div class="label">
-                  <label>{{attribute.name}}</label>
-                </div>
-                <div class="value">{{attribute.value}}</div>
-              </div>
-            </div>
-          </div>
-          <div id="avatarContainer" class="Grid-cell flex-col center">
-            <div class="heroAvatar large flex-item">
-              <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
-            </div>
-          </div>
-        </div>
-        <div class="Grid Grid--full Grid-cell">
-          <div class="actionsContainer Grid-cell">
-            <hero-controls [hero]="hero">
-            </hero-controls>
-          </div>
-        </div>
-      </div>
-      <div class="contentBox flex-item">
-        <a id="fightValueContainerAnchor"></a>
-        <div class="kampfwerte padded flex-item flex-col">
-          <h4>Kampfwerte</h4>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Basiswerte</h5>
-            </div>
-          </div>
-          <div class="flex-row">
-            <div class="flex-item">
-              <label class="long">Attacke: </label>
-              <label class="short">AT: </label>{{hero.attack_basis}}
-            </div>
-            <div class="flex-item">
-              <label class="long">Parade: </label>
-              <label class="short">PA: </label>{{hero.parade_basis}}
-            </div>
-            <div class="flex-item">
-              <label class="long">Fernkampf: </label>
-              <label class="short">FK: </label>{{hero.fernkampf_basis}}
-            </div>
-          </div>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Aktuelle Werte</h5>
-            </div>
-          </div>
-          <div class="kampfwerte">
-
-            <div class="flex-row">
-              <label>Attacke: </label>{{hero.currentAttack}}
-            </div>
-            <div class="flex-row">
-              <label>Parade: </label>{{hero.currentParade}}
-            </div>
-
-          </div>
-          <div class="flex-row">
-            <div class="flex-item">
-              <h5>Waffe</h5>
-            </div>
-          </div>
-          <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
-            <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
-              <mat-card class="weaponEntry flex-item">
-                <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
-                  <div class="weaponChoiceLabel">
-                    <div class="weaponName">{{weapon.name}}</div>
-                    <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
+      <div *ngIf="showCharacter" class="characterDetails">       
+        <div class="flex-col">
+          <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
+            <div id="propertiesContainer" class="container Grid-cell">
+              <div class="padded">
+                <div class="flex-row">
+                  <div class="label">
+                    <label>Größe: </label>
                   </div>
-                </mat-radio-button>
-              </mat-card>
+                  <div class="value">{{hero.size}}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="label">
+                    <label>Rasse: </label>
+                  </div>
+                  <div class="value">{{hero.race.name}}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="label">
+                    <label>Kultur: </label>
+                  </div>
+                  <div class="value">{{hero.culture}}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="label">
+                    <label>Sozialrang: </label>
+                  </div>
+                  <div class="value">{{hero.social_rank}}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="label">
+                    <label>Magieresistenz: </label>
+                  </div>
+                  <div class="value">{{hero.magieresistenz}}</div>
+                </div>
+              </div>
             </div>
-          </mat-radio-group>
-
+            <a id="attributesContainerAnchor"></a>
+            <div id="attributesContainer" class="container Grid-cell">
+              <div class="padded">
+                <div *ngFor="let attribute of hero.attributes; index as i; keyvalue" class="flex-row">
+                  <div class="label">
+                    <label>{{attribute.name}}</label>
+                  </div>
+                  <div class="value">{{attribute.value}}</div>
+                </div>
+              </div>
+            </div>
+            <div id="avatarContainer" class="Grid-cell flex-col center">
+              <div class="heroAvatar large flex-item">
+                <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
+              </div>
+            </div>
+          </div>
+          <div class="Grid Grid--full Grid-cell">
+            <div class="actionsContainer Grid-cell">
+              <hero-controls [hero]="hero">
+              </hero-controls>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="contentBox flex-item flex-row">
-        <div class="talente padded">
-          <a name="Talente"></a>
-          <h4 id="talentHeader">Talente</h4>
+        <div class="contentBox flex-item">
+          <a id="fightValueContainerAnchor"></a>
+          <div class="kampfwerte padded flex-item flex-col">
+            <h4>Kampfwerte</h4>
+            <div class="flex-row">
+              <div class="flex-item">
+                <h5>Basiswerte</h5>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="flex-item">
+                <label class="long">Attacke: </label>
+                <label class="short">AT: </label>{{hero.attack_basis}}
+              </div>
+              <div class="flex-item">
+                <label class="long">Parade: </label>
+                <label class="short">PA: </label>{{hero.parade_basis}}
+              </div>
+              <div class="flex-item">
+                <label class="long">Fernkampf: </label>
+                <label class="short">FK: </label>{{hero.fernkampf_basis}}
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="flex-item">
+                <h5>Aktuelle Werte</h5>
+              </div>
+            </div>
+            <div class="kampfwerte">
 
-          <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
-          <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
-          <div *ngFor="let skillGroup of hero.skillGroups">
-            <a class="menuItem" name="{{skillGroup.skillGroup.name}}"></a>
-            <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
-            <div class="skillGroupEntries">
-              <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills"> -->
-              <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
-                <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
-                <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
-                  
-                <talent-card [skill]="skill"></talent-card>
-                <!-- </mat-grid-tile> -->
-                <!-- </div> -->
-                <!-- </mat-grid-list> -->
+              <div class="flex-row">
+                <label>Attacke: </label>{{hero.currentAttack}}
+              </div>
+              <div class="flex-row">
+                <label>Parade: </label>{{hero.currentParade}}
+              </div>
+
+            </div>
+            <div class="flex-row">
+              <div class="flex-item">
+                <h5>Waffe</h5>
+              </div>
+            </div>
+            <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
+              <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
+                <mat-card class="weaponEntry flex-item">
+                  <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
+                    <div class="weaponChoiceLabel">
+                      <div class="weaponName">{{weapon.name}}</div>
+                      <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
+                    </div>
+                  </mat-radio-button>
+                </mat-card>
+              </div>
+            </mat-radio-group>
+
+          </div>
+        </div>
+        <div class="contentBox flex-item flex-row">
+          <div class="talente padded">
+            <a name="Talente"></a>
+            <h4 id="talentHeader">Talente</h4>
+
+            <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
+            <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
+            <div *ngFor="let skillGroup of hero.skillGroups">
+              <a class="menuItem" name="{{skillGroup.skillGroup.name}}"></a>
+              <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
+              <div class="skillGroupEntries">
+                <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills"> -->
+                <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
+                  <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
+                  <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
+                    
+                  <talent-card [skill]="skill"></talent-card>
+                  <!-- </mat-grid-tile> -->
+                  <!-- </div> -->
+                  <!-- </mat-grid-list> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div *ngIf="hero.knowsMagic" class="contentBox flex-row">
-        <div class="talente padded">
-          <h4 id="magicHeader">Zaubersprüche</h4>
-          <div *ngFor="let spellGroup of hero.spellGroups">
-            <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
-            <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
-            <div class="spellGroupEntries">
-              <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
-                <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
-                <spell-card [spell]="spell"></spell-card>
+        <div *ngIf="hero.knowsMagic" class="contentBox flex-row">
+          <div class="talente padded">
+            <h4 id="magicHeader">Zaubersprüche</h4>
+            <div *ngFor="let spellGroup of hero.spellGroups">
+              <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
+              <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
+              <div class="spellGroupEntries">
+                <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
+                  <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
+                  <spell-card [spell]="spell"></spell-card>
+                </div>
               </div>
             </div>
           </div>
