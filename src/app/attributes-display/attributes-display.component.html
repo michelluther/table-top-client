@@ -1,0 +1,14 @@
+<div class="container Grid-cell propertiesContainer">
+  <div class="padded">
+    <div *ngFor="let attribute of hero.attributes; index as i; keyvalue" class="flex-row">
+      <div class="label">
+        <label>{{attribute.name}}</label>
+      </div>
+      <div *ngIf="!editMode" class="value">{{attribute.value}}</div>
+      <!-- <div *ngIf="editMode" class="editValue"><input [value]="attribute.value" /></div> -->
+      <div *ngIf="editMode" class="editValue">
+        <button (click)="editAttribute(attribute)">edit</button> 
+      </div>
+    </div>
+  </div>
+</div>

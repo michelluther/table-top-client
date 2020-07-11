@@ -60,3 +60,7 @@ h1 {
 	margin-left: -10px;
 	background-color: #ccc;
 }
+
+.padded {
+	padding: 20px;
+  }

@@ -11,8 +11,6 @@ mat-card-title {
 	margin-bottom: 0;
 }
 
-
-
 .cardContentContainer {
 	height: 100px;
 	position: relative;
@@ -30,13 +28,6 @@ mat-card-title {
 	right: 0;
 	height: 190px;
 	display: block;
-}
-
-.heroAvatarImage {
-	/*position: absolute;
-	bottom: 0;
-	right: 0;*/
-	/*height: 180px;*/
 }
 
 ul.weapons {

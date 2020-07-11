@@ -52,6 +52,8 @@ export class Hero {
   magieresistenz: number;
   social_rank: number;
 
+  abenteuer_punkte: number;
+
   knowsMagic: Boolean;
 
   attack_basis: number;
@@ -60,6 +62,7 @@ export class Hero {
 
   currentAttack: number;
   currentParade: number;
+  level: number;
 
   attributes: Array<ActualAttribute>;
   
@@ -91,12 +94,16 @@ export class Hero {
 
     this.culture = dataObject['culture'];
     this.experience = dataObject['experience'];
+
+    this.level = Math.floor(Math.sqrt(this.experience/50+0.25)+0.5)
+
     this.experience_used = dataObject['experience_used'];
     this.gender = dataObject['gender'];
     this.hero_type = dataObject['hero_type'];
     this.id = dataObject['id'];
     this.ini_basis = dataObject['ini_basis'];
     this.knowsMagic = dataObject['knows_magic'];
+
 
     this.attributes = [
       new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ,

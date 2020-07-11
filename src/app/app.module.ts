@@ -75,6 +75,13 @@ import { environment } from '../environments/environment';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
 import { MatchesSearchTerm, MatchesSearchTermChildren } from './talent-search/skill.pipe';
 import { DetailNavigationComponent } from './detail-navigation/detail-navigation.component';
+import { AttributesDisplayComponent } from './attributes-display/attributes-display.component';
+import { BasicDataDisplayComponent } from './basic-data-display/basic-data-display.component';
+import { CombatDataDisplayComponent } from './combat-data-display/combat-data-display.component';
+import { InventoryDisplayComponent } from './inventory-display/inventory-display.component';
+import { AbenteuerPunkteDisplayComponent } from './abenteuer-punkte-display/abenteuer-punkte-display.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -163,9 +170,16 @@ const routes: Routes = [
     TalentSearchComponent,
     MatchesSearchTerm,
     MatchesSearchTermChildren,
-    DetailNavigationComponent
+    DetailNavigationComponent,
+    AttributesDisplayComponent,
+    BasicDataDisplayComponent,
+    CombatDataDisplayComponent,
+    InventoryDisplayComponent,
+    AbenteuerPunkteDisplayComponent,
+    EditDialogComponent,
+    EditAttributeComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ImagePopupComponent, ChooseImageComponent],
+  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditAttributeComponent],
 })
 export class AppModule { }

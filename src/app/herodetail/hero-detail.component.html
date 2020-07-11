@@ -16,50 +16,11 @@
       <div *ngIf="showCharacter" class="characterDetails">       
         <div class="flex-col">
           <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-            <div id="propertiesContainer" class="container Grid-cell">
-              <div class="padded">
-                <div class="flex-row">
-                  <div class="label">
-                    <label>Größe: </label>
-                  </div>
-                  <div class="value">{{hero.size}}</div>
-                </div>
-                <div class="flex-row">
-                  <div class="label">
-                    <label>Rasse: </label>
-                  </div>
-                  <div class="value">{{hero.race.name}}</div>
-                </div>
-                <div class="flex-row">
-                  <div class="label">
-                    <label>Kultur: </label>
-                  </div>
-                  <div class="value">{{hero.culture}}</div>
-                </div>
-                <div class="flex-row">
-                  <div class="label">
-                    <label>Sozialrang: </label>
-                  </div>
-                  <div class="value">{{hero.social_rank}}</div>
-                </div>
-                <div class="flex-row">
-                  <div class="label">
-                    <label>Magieresistenz: </label>
-                  </div>
-                  <div class="value">{{hero.magieresistenz}}</div>
-                </div>
-              </div>
-            </div>
-            <a id="attributesContainerAnchor"></a>
-            <div id="attributesContainer" class="container Grid-cell">
-              <div class="padded">
-                <div *ngFor="let attribute of hero.attributes; index as i; keyvalue" class="flex-row">
-                  <div class="label">
-                    <label>{{attribute.name}}</label>
-                  </div>
-                  <div class="value">{{attribute.value}}</div>
-                </div>
-              </div>
+            <div class="Grid-cell flex-row">
+              <basic-data-display [hero]="hero" class="container"></basic-data-display>
+              
+              <a id="attributesContainerAnchor"></a>
+              <attributes-display [hero]="hero" class="container"></attributes-display>
             </div>
             <div id="avatarContainer" class="Grid-cell flex-col center">
               <div class="heroAvatar large flex-item">
@@ -76,82 +37,18 @@
         </div>
         <div class="contentBox flex-item">
           <a id="fightValueContainerAnchor"></a>
-          <div class="kampfwerte padded flex-item flex-col">
-            <h4>Kampfwerte</h4>
-            <div class="flex-row">
-              <div class="flex-item">
-                <h5>Basiswerte</h5>
-              </div>
-            </div>
-            <div class="flex-row">
-              <div class="flex-item">
-                <label class="long">Attacke: </label>
-                <label class="short">AT: </label>{{hero.attack_basis}}
-              </div>
-              <div class="flex-item">
-                <label class="long">Parade: </label>
-                <label class="short">PA: </label>{{hero.parade_basis}}
-              </div>
-              <div class="flex-item">
-                <label class="long">Fernkampf: </label>
-                <label class="short">FK: </label>{{hero.fernkampf_basis}}
-              </div>
-            </div>
-            <div class="flex-row">
-              <div class="flex-item">
-                <h5>Aktuelle Werte</h5>
-              </div>
-            </div>
-            <div class="kampfwerte">
-
-              <div class="flex-row">
-                <label>Attacke: </label>{{hero.currentAttack}}
-              </div>
-              <div class="flex-row">
-                <label>Parade: </label>{{hero.currentParade}}
-              </div>
-
-            </div>
-            <div class="flex-row">
-              <div class="flex-item">
-                <h5>Waffe</h5>
-              </div>
-            </div>
-            <mat-radio-group *ngIf="hero.currentWeapon" [value]="hero.currentWeapon.name">
-              <div class="skillGroupEntries flex-row" *ngFor="let weapon of hero.weapons">
-                <mat-card class="weaponEntry flex-item">
-                  <mat-radio-button value="{{weapon.name}}" (change)="updateCurrentWeapon(weapon)">
-                    <div class="weaponChoiceLabel">
-                      <div class="weaponName">{{weapon.name}}</div>
-                      <div class="weaponDices">{{weapon.damageDice}}W6+{{weapon.damageAddPoints}}</div>
-                    </div>
-                  </mat-radio-button>
-                </mat-card>
-              </div>
-            </mat-radio-group>
-
-          </div>
+          <combat-data-display [hero]="hero"></combat-data-display>
         </div>
         <div class="contentBox flex-item flex-row">
           <div class="talente padded">
             <a name="Talente"></a>
             <h4 id="talentHeader">Talente</h4>
-
-            <!-- <input type="search" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" /> -->
-            <!-- <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm"> -->
             <div *ngFor="let skillGroup of hero.skillGroups">
               <a class="menuItem" name="{{skillGroup.skillGroup.name}}"></a>
               <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
               <div class="skillGroupEntries">
-                <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills"> -->
                 <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
-                  <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
-                  <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
-                    
                   <talent-card [skill]="skill"></talent-card>
-                  <!-- </mat-grid-tile> -->
-                  <!-- </div> -->
-                  <!-- </mat-grid-list> -->
                 </div>
               </div>
             </div>
@@ -165,7 +62,6 @@
               <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
               <div class="spellGroupEntries">
                 <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
-                  <!-- <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSearchTerm:talentSearchTerm"> -->
                   <spell-card [spell]="spell"></spell-card>
                 </div>
               </div>
@@ -176,28 +72,9 @@
       <div *ngIf="showInventory" class="characterDetails">
         <div class="flex-col">
           <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-        <!-- <div id="attributesContainer" class="container Grid-cell">
-          <div class="padded">
-         --> 
-            <div class="inventorySection padded">   
-              <h4>Waffen</h4>
-              <div *ngFor="let weapon of hero.weapons" class="inventoryWeaponItem">
-                <div class="inventoryItemName">{{weapon.name}}</div>
-                <div class="weaponDamage">{{weapon.damageText}}</div>
-                <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
-              </div> 
-            </div>
-            <div class="inventorySection padded">   
-              <h4>Rüstung</h4>
-              <div *ngFor="let armor of hero.armor" class="inventoryWeaponItem">
-                <div class="inventoryItemName">{{armor.name}}</div>
-                <div class="armorDamage">{{armor.rs}}</div>
-                <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
-              </div> 
-            </div>
+            <inventory-display [hero]="hero"></inventory-display>
           </div>
         </div>
-
       </div>
     </div>
   </div>

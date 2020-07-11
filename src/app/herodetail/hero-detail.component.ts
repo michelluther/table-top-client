@@ -82,10 +82,6 @@ export class HeroDetailComponent implements OnInit {
 			skill.getSkill().name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
 	}
 
-	updateCurrentWeapon(weapon: Weapon) {
-		this.hero.currentWeapon = weapon
-	}
-
 	navToAnchor(anchor:string):void {
 		
 	}
@@ -103,7 +99,6 @@ export class HeroDetailComponent implements OnInit {
 		if(this._detailArea === 'character') {
 			this.showCharacter = true
 			this.showInventory = false
-
 		} else {
 			this.showCharacter = false
 			this.showInventory = true
