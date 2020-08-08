@@ -320,3 +320,13 @@ h4 {
   }
  
 }
+
+
+.myapp-edit-dialog {
+  padding: 0;
+  /* background-color: blue; */
+}
+
+.myapp-edit-dialog .mat-dialog-container {
+  padding:0;
+}

@@ -1,5 +1,4 @@
 import { Skill } from "./skill";
-import { SkillGroup } from "./skillgroup";
 import { SkillService } from "./skills.service";
 import * as _ from 'lodash';
 import { ActualSkill } from "./actualSkill";
@@ -7,13 +6,11 @@ import { ActualSkillGroup } from "./actualSkillGroup";
 import { ActualSpell } from "./actualSpell";
 import { ActualSpellGroup } from "./actualSpellGroup";
 import { ActualAttribute } from "./actualAttribute";
-import { Component, ChangeDetectorRef } from '@angular/core';
 import { Weapon } from './weapon'
 import { Armor } from './armor'
 import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 import { SpellService } from "./spells.service";
 import { AttributeService } from './attribute.service'
-import { SpellGroup } from "./spellGroup";
 import { HeroType } from "./heroType";
 
 export class Hero {

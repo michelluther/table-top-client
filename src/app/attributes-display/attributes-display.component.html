@@ -4,7 +4,7 @@
       <div class="label">
         <label>{{attribute.name}}</label>
       </div>
-      <div *ngIf="!editMode" class="value">{{attribute.value}}</div>
+      <div class="value">{{attribute.value}}</div>
       <!-- <div *ngIf="editMode" class="editValue"><input [value]="attribute.value" /></div> -->
       <div *ngIf="editMode" class="editValue">
         <button (click)="editAttribute(attribute)">edit</button> 

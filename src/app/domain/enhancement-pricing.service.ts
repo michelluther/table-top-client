@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AscensionPricing } from './ascensionPricing'
 import { Http, Response } from '@angular/http';
+import { resolve } from 'url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnhancementPricingService {
 
-  private ascensionsUrl: String = 'http://' + window.location.hostname + ':8000/ascensions/';
+  private ascensionsUrl: string = 'http://' + window.location.hostname + ':8000/ascensions/';
   private ascensionsPromise: Promise<AscensionPricing[]>;
-  private ascensionPricing = []
+  private ascensionPricing: Array<AscensionPricing>;
   constructor(private http: Http) { }
 
   public getAscensionPricing(): Promise<AscensionPricing[]> {
@@ -17,13 +18,18 @@ export class EnhancementPricingService {
       this.ascensionsPromise = this.http.get(this.ascensionsUrl)
         .toPromise()
         .then(response => {
-          return this.extractAscensions(response);
+          this.ascensionPricing = this.extractAscensions(response.json());
+          return this.ascensionPricing;
         })
+        return this.ascensionsPromise;
+    } else {
+      return new Promise(resolve => {
+        resolve(this.ascensionPricing)
+      })
     }
-    return this.ascensionsPromise;
   }
 
-  private extractAscensions(response: Array<any>): Array<AscensionPricing> {
+  private extractAscensions(response: any): Array<AscensionPricing> {
     return response.map((ascensionResponse, index) => {
       return new AscensionPricing(ascensionResponse, index)
     })

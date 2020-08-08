@@ -12,10 +12,10 @@ import { EnhancementPricingService } from 'app/domain/enhancement-pricing.servic
 export class EditAttributeComponent implements OnInit {
 
   private costOfRaise:number
-  private pricingTable: AscensionPricing
+  
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private enhancementPricingService:EnhancementPricingService) { 
-    this.pricingTable = enhancementPricingService.getAscensionPricing()
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
+    
   }
 
   ngOnInit() {

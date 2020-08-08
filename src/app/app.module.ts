@@ -82,6 +82,7 @@ import { InventoryDisplayComponent } from './inventory-display/inventory-display
 import { AbenteuerPunkteDisplayComponent } from './abenteuer-punkte-display/abenteuer-punkte-display.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
+import { ExperienceDisplayComponent } from './experience-display/experience-display.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -177,7 +178,8 @@ const routes: Routes = [
     InventoryDisplayComponent,
     AbenteuerPunkteDisplayComponent,
     EditDialogComponent,
-    EditAttributeComponent
+    EditAttributeComponent,
+    ExperienceDisplayComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [ImagePopupComponent, ChooseImageComponent, EditAttributeComponent],

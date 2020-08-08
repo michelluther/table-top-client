@@ -13,7 +13,10 @@
           <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
         </div>
       </div>
-      <div *ngIf="showCharacter" class="characterDetails">       
+      <div *ngIf="showCharacter" class="characterDetails">  
+        <div class="experienceContainer">
+          <experience-display [experience]="hero.experience" ></experience-display>
+        </div>
         <div class="flex-col">
           <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
             <div class="Grid-cell flex-row">
