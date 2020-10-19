@@ -1,84 +1,100 @@
-<detail-navigation [hero]="hero" (navToArea)="showArea($event)">
 
-</detail-navigation>
-<div class="page flex-col center"> 
-  <div class="pageContent">
-    <div *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
-      style="flex: 1; overflow-y: scroll;">
-      <div class="headerContainer">
-        <a class="menuItem" name="Allgemein"></a>
-        <!--  -->
-        <div class="headerContent">
-          <h1>{{hero.name}}</h1>
-          <mat-card-subtitle>{{hero.hero_type.name}}</mat-card-subtitle>
-        </div>
-      </div>
-      <div *ngIf="showCharacter" class="characterDetails">  
-        <div class="experienceContainer">
-          <experience-display [experience]="hero.experience" ></experience-display>
-        </div>
-        <div class="flex-col">
-          <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-            <div class="Grid-cell flex-row">
-              <basic-data-display [hero]="hero" class="container"></basic-data-display>
-              
+<mat-sidenav-container
+    class="example-container" (backdropClick)="close('backdrop')" >
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <!-- <detail-navigation [hero]="hero" (navToArea)="showArea($event)">
+
+    </detail-navigation> -->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="page flex-col center"> 
+      <div class="pageContent shadow">
+        <div *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
+          style="flex: 1; ">
+          <div class="headerContainer">
+            <a class="menuItem" name="Allgemein"></a>
+            <!--  -->
+            <div class="headerContent">
+              <div class="flex-row">
+                <div class="flex-item flex-col">
+                  <h1>{{hero.name}}</h1>
+                  <p>{{hero.hero_type.name}}</p>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showCharacter" class="characterDetails">  
+            <!-- <div class="experienceContainer">
+              <experience-display [experience]="hero.experience" ></experience-display>
+            </div> -->
+            <div class="flex-col">
+              <div id="propertiesBox" id="mainAttributes" class="contentBox Grid Grid--cols-2">
+                <div class="Grid-cell flex-item flex-col">
+                  <basic-data-display [hero]="hero" class=""></basic-data-display>
+                <!-- </div>
+                <div class="Grid-cell flex-row"> -->
+                  
+                  <attributes-display [hero]="hero" class=""></attributes-display>
+                </div>
+                <div id="avatarContainer" class="Grid-cell flex-col center">
+                  <div class="heroAvatar large flex-item">
+                    <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
+                  </div>
+                </div>
+              </div>
               <a id="attributesContainerAnchor"></a>
-              <attributes-display [hero]="hero" class="container"></attributes-display>
-            </div>
-            <div id="avatarContainer" class="Grid-cell flex-col center">
-              <div class="heroAvatar large flex-item">
-                <img class="heroAvatarImage" src="{{baseUrl}}{{hero.avatar_small}}" />
+              <div class="Grid Grid--full Grid-cell">
+                <div class="actionsContainer Grid-cell">
+                  <hero-controls [hero]="hero">
+                  </hero-controls>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="Grid Grid--full Grid-cell">
-            <div class="actionsContainer Grid-cell">
-              <hero-controls [hero]="hero">
-              </hero-controls>
+            <div class="contentBox flex-item" id="combatAttributes">
+              <a id="fightValueContainerAnchor"></a>
+              <combat-data-display [hero]="hero"></combat-data-display>
             </div>
-          </div>
-        </div>
-        <div class="contentBox flex-item">
-          <a id="fightValueContainerAnchor"></a>
-          <combat-data-display [hero]="hero"></combat-data-display>
-        </div>
-        <div class="contentBox flex-item flex-row">
-          <div class="talente padded">
-            <a name="Talente"></a>
-            <h4 id="talentHeader">Talente</h4>
-            <div *ngFor="let skillGroup of hero.skillGroups">
-              <a class="menuItem" name="{{skillGroup.skillGroup.name}}"></a>
-              <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
-              <div class="skillGroupEntries">
-                <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
-                  <talent-card [skill]="skill"></talent-card>
+            <div class="contentBox flex-item flex-row">
+              <div class="talente padded">
+                <a name="Talente"></a>
+                <h4 id="talentHeader">Talente</h4>
+                <div *ngFor="let skillGroup of hero.skillGroups">
+                  <a class="menuItem" name="{{skillGroup.skillGroup.name}}"></a>
+                  <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
+                  <div class="skillGroupEntries">
+                    <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
+                      <talent-card [skill]="skill"></talent-card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="hero.knowsMagic" class="contentBox flex-row">
+              <div class="talente padded">
+                <h4 id="magicHeader">Zaubersprüche</h4>
+                <div *ngFor="let spellGroup of hero.spellGroups">
+                  <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
+                  <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
+                  <div class="spellGroupEntries">
+                    <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
+                      <spell-card [spell]="spell"></spell-card>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div *ngIf="hero.knowsMagic" class="contentBox flex-row">
-          <div class="talente padded">
-            <h4 id="magicHeader">Zaubersprüche</h4>
-            <div *ngFor="let spellGroup of hero.spellGroups">
-              <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
-              <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
-              <div class="spellGroupEntries">
-                <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
-                  <spell-card [spell]="spell"></spell-card>
-                </div>
+          <div *ngIf="showInventory" class="characterDetails">
+            <div class="flex-col">
+              <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
+                <inventory-display [hero]="hero"></inventory-display>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="showInventory" class="characterDetails">
-        <div class="flex-col">
-          <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-            <inventory-display [hero]="hero"></inventory-display>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

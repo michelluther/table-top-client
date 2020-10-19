@@ -17,7 +17,7 @@ export class AttributesDisplayComponent implements OnInit {
   editMode: boolean
 
   constructor(public editDialog: EditDialogComponent) { 
-    this.editMode = true
+    this.editMode = false
   }
 
   editAttribute(attribute:ActualAttribute) {

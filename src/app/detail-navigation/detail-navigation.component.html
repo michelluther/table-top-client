@@ -1,11 +1,16 @@
 <div class="detailNavigation">
   
   <div class="menuContainer" >
-    <mat-button-toggle-group name="detailArea" class="navigationToggle" >
-      <mat-button-toggle [checked]="detailArea === 'character'" value="character" (click)="updateDetailView('character')">Character</mat-button-toggle>
-      <mat-button-toggle [checked]="detailArea === 'inventory'" value="inventory" (click)="updateDetailView('inventory')">Inventar</mat-button-toggle>
-    </mat-button-toggle-group>
-    <div class="menuItems" *ngIf="menuVisible === true && detailArea === 'character'">
+    
+    <div class="menuItems">
+      <div class="menuItem" (click)="updateDetailView('character')" >
+        Character
+      </div>
+      <div class="menuItem" (click)="updateDetailView('inventory')" >
+        Inventar
+      </div>
+    </div>
+    <div class="menuItems">
       <div class="menuItem" (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
         {{menuItem.title}}
       </div>
@@ -19,21 +24,18 @@
       </div>
     </div>
     <div class="menuItems" *ngIf="menuVisible === true && detailArea === 'inventory'">
-      <div class="menuItem" (click)="navTo('weapons')" *ngFor="let menuItem of menu; index as i; keyvalue">
+      <div class="menuItem" (click)="navTo('weapons')">
         Waffen
       </div>
-      <div class="menuItem" (click)="navTo('armor')" *ngFor="let menuItem of menu; index as i; keyvalue">
+      <div class="menuItem" (click)="navTo('armor')">
         Rüstung
       </div>
-      <div class="menuItem" (click)="navTo('')" *ngFor="let menuItem of menu; index as i; keyvalue">
+      <div class="menuItem" (click)="navTo('')">
         Rüstung
       </div>
     </div>
     
   </div>
-  
-  <div class="viewToggle" (click)="toggleVisible()">
-    <i [ngClass]="{menuToggleIcon: true, fa:true, 'fa-chevron-down': true, 'menuShown': menuVisible}"></i>
-  </div>
 
 </div>
+

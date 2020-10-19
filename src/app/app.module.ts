@@ -79,7 +79,6 @@ import { AttributesDisplayComponent } from './attributes-display/attributes-disp
 import { BasicDataDisplayComponent } from './basic-data-display/basic-data-display.component';
 import { CombatDataDisplayComponent } from './combat-data-display/combat-data-display.component';
 import { InventoryDisplayComponent } from './inventory-display/inventory-display.component';
-import { AbenteuerPunkteDisplayComponent } from './abenteuer-punkte-display/abenteuer-punkte-display.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
 import { ExperienceDisplayComponent } from './experience-display/experience-display.component';
@@ -176,7 +175,6 @@ const routes: Routes = [
     BasicDataDisplayComponent,
     CombatDataDisplayComponent,
     InventoryDisplayComponent,
-    AbenteuerPunkteDisplayComponent,
     EditDialogComponent,
     EditAttributeComponent,
     ExperienceDisplayComponent

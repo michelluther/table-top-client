@@ -18,6 +18,8 @@ mat-card-title {
 	padding: 0px;
 }
 
+h2 {margin:0}
+
 .heroValues {
 	height: 50px;
 }
@@ -30,12 +32,20 @@ mat-card-title {
 	display: block;
 }
 
-ul.weapons {
+.heroAvatar img {
+	height: 100%;
+}
+
+ul {
 	list-style-type: none;
 	color: #4b4b4b;
-	/* padding-left: 0; */
-	/* border-bottom: 1px solid #ccc; */
+	margin-left: 20px;
 	padding: 0 0 5px 10px;
+	font-family: Neucha,sans-serif;
+}
+
+li::before {
+	content: none;
 }
 
 div.label {
