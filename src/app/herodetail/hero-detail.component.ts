@@ -23,13 +23,12 @@ import { Weapon } from 'app/domain/weapon';
 export class HeroDetailComponent implements OnInit {
 
 	talentSearchTerm: String = '';
+	talentSearchActive: Boolean = false;
 	// autoSearchTerm: Observable<String> = '';
 	searchCtrl: FormControl;
 	hero: Hero;
 	@Input()
 	_detailArea: String;
-	showCharacter: boolean;
-	showInventory: boolean;
 	private baseUrl: String;
 	public things: Promise<Object[]>;
 	// public filteredThings: Observable<Any[]>;
@@ -96,13 +95,10 @@ export class HeroDetailComponent implements OnInit {
 
 	set detailArea(target) {
 		this._detailArea = target
-		if(this._detailArea === 'character') {
-			this.showCharacter = true
-			this.showInventory = false
-		} else {
-			this.showCharacter = false
-			this.showInventory = true
-		}
+	}
+
+	get detailArea() {
+		return this._detailArea
 	}
 
 	removeWeaponFromInventory(weapon):void {

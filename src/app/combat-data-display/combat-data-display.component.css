@@ -7,3 +7,13 @@
   align-items: center;
   justify-content: stretch;
 }
+
+.form-group .paper-check input+span, .form-group .paper-radio input+span {
+  display: flex;
+}
+
+.currentValues.flex-col {
+  /* background-color: #fffffa; */
+  font-size: x-large;
+  justify-content: flex-start;
+}

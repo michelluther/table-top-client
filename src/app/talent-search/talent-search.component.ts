@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatchesSearchTerm } from './skill.pipe';
 import { Hero } from '../domain/hero';
 
@@ -9,12 +9,21 @@ import { Hero } from '../domain/hero';
 })
 export class TalentSearchComponent implements OnInit {
 
+  @Input()
   hero: Hero;
-  talentSearchTerm: String;
+  @Input()
+  searchActive: Boolean;
+  talentSearchTerm: String = '';
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  // @Input()
+  // set talentSearchTerm (searchTerm){
+  //   this.talentSearchTerm = searchTerm
+  //   if(this.talentSearchTerm !== undefined && this.talentSearchTerm !== '') this.searchActive = true
+  // }
 
 }

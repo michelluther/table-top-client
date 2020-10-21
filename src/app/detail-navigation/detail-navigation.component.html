@@ -1,6 +1,23 @@
-<div class="detailNavigation">
-  
-  <div class="menuContainer" >
+<div class="detailNavigation flex-item flex-row">
+  <button class="backButton" (click)="navTo('overiew')">
+    <i class="fa fa-arrow-left"></i> Übersicht
+  </button>
+  <div class="detailNavButtons">
+    <button (click)="updateDetailView('character')" [ngClass]="detailArea === 'character' ? 'paper-btn btn-primary' : 'paper-btn'">
+      Character
+    </button>
+    <button (click)="updateDetailView('talents')" [ngClass]="detailArea === 'talents' ? 'paper-btn btn-primary' : 'paper-btn'">
+      Talente
+    </button>
+    <button *ngIf="hero.knowsMagic" (click)="updateDetailView('spells')" [ngClass]="detailArea === 'spells' ? 'paper-btn btn-primary' : 'paper-btn'">
+      Zauber
+    </button>
+    <button (click)="updateDetailView('inventory')" [ngClass]="detailArea === 'inventory' ? 'paper-btn btn-primary' : 'paper-btn'">
+      Inventar
+    </button>
+  </div>
+
+  <!-- <div class="menuContainer" >
     
     <div class="menuItems">
       <div class="menuItem" (click)="updateDetailView('character')" >
@@ -35,7 +52,7 @@
       </div>
     </div>
     
-  </div>
+  </div> -->
 
 </div>
 

@@ -1,16 +1,18 @@
-mat-card {
+.flex-row.skill {
     display: flex;
     flex-wrap: wrap;
     margin: 2px;
     padding: 12px;
+    font-size: 16px;
 }
 
 .skillTitle {
-    width: 120px;
+    width: 140px;
+    font-weight: 600;
 }
 
 .skillBe, .skillValue {
-    width: 50px;
+    width: 60px;
 }
 
 .fightDices {
@@ -28,7 +30,7 @@ mat-card {
 }
 
 .dice {
-    width: 40px
+    width: 50px
 }
 
 i {
