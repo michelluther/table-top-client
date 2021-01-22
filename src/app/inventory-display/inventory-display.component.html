@@ -3,17 +3,25 @@
   <div class="addIcon">
     <i class="fa fa-plus-square"></i>
   </div>
-  <div *ngFor="let weapon of hero.weapons" class="inventoryWeaponItem">
+  <div *ngFor="let weapon of hero.weapons" class="inventoryItem">
     <div class="inventoryItemName">{{weapon.name}}</div>
-    <div class="weaponDamage">{{weapon.damageText}}</div>
+    <div class="inventoryDamage">{{weapon.damageText}}</div>
     <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
   </div> 
 </div>
 <div class="inventorySection padded">   
   <h4>Rüstung</h4>
-  <div *ngFor="let armor of hero.armor" class="inventoryWeaponItem">
+  <div *ngFor="let armor of hero.armor" class="inventoryItem">
     <div class="inventoryItemName">{{armor.name}}</div>
-    <div class="armorDamage">{{armor.rs}}</div>
+    <div class="inventoryDamage">{{armor.rs}}</div>
     <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
+  </div> 
+</div>
+
+<div class="inventorySection padded">   
+  <h4>Inventar</h4>
+  <div *ngFor="let inventoryItem of hero.inventory" class="inventoryItem">
+    <div class="inventoryItemName">{{inventoryItem.name}}</div>
+    
   </div> 
 </div>

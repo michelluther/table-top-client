@@ -2,17 +2,17 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from '../domain/hero';
 
 @Component({
-  selector: 'talent-search',
-  templateUrl: './talent-search.component.html',
-  styleUrls: ['./talent-search.component.css']
+  selector: 'spell-search',
+  templateUrl: './spell-search.component.html',
+  styleUrls: ['./spell-search.component.css']
 })
-export class TalentSearchComponent implements OnInit {
+export class SpellSearchComponent implements OnInit {
 
   @Input()
   hero: Hero;
   @Input()
   searchActive: Boolean;
-  talentSearchTerm: String = '';
+  spellSearchTerm: String = '';
 
   constructor() { }
 

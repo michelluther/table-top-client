@@ -5,10 +5,16 @@
 .shadow {
   box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75);
   margin-bottom: 40px !important;
+  background-color: rgba(255, 255, 255, 1);
+  min-height: 500px;
 }
 .page {
   padding-top: 10px;
   height: 100%;
+}
+.sheet {
+  padding-bottom: 60px;
+  min-height: 100%;
 }
 
 .skillEntry i {
@@ -19,7 +25,6 @@
   color: #fff;
   font-size: 2rem;
   flex:1;
-  
   padding:5px;
 }
 
@@ -27,32 +32,43 @@
   margin-top: 0;
 }
 
-
+/** content sections **/
 #mainAttributes {
-  background-image:
-    /* linear-gradient(rgba(255, 255, 255,.8), rgba(255, 255, 255,.9)), */
-    url('/assets/hero-background_desaturated.jpg');
-    /* linear-gradient(#f8f8f8, #f8f8f8); */
-
+  background-image: url('/assets/hero-background_desaturated.jpg');
   background-size:300px;
   background-position: 100px 0;
   background-repeat: no-repeat;
 }
 
 #combatAttributes {
-  background-image:
-    /* linear-gradient(rgba(255, 255, 255,.8), rgba(255, 255, 255,.9)), */
-    url('/assets/sword_drawn_desaturated.jpg');
-    /* linear-gradient(#f8f8f8, #f8f8f8); */
-
+  background-image: url('/assets/sword_drawn_desaturated.jpg');
   background-size:200px;
   background-position: right 100px top 50px;
   background-repeat: no-repeat;
 }
 
-.sheet {
-  padding-bottom: 60px;
+.heroTalents {
+  background-image: url('/assets/hero-tavern_desaturated.jpg');
+  background-size:300px;
+  background-position: right 100px top 50px;
+  background-repeat: no-repeat;
 }
+
+.heroSpells {
+  background-image: url('/assets/wizard_desaturated.jpg');
+  background-size:500px;
+  background-position: right 10px top 10px;
+  background-repeat: no-repeat;
+}
+
+.inventory {
+  background-image: url('/assets/inventory-desaturated.jpg');
+  background-size:500px;
+  background-position: right 10px top 10px;
+  background-repeat: no-repeat;
+}
+/** end content sections **/
+
 
 label.long {
   width: 150px;
@@ -61,10 +77,6 @@ label.long {
 
 label.short {
   width: 40px;
-}
-
-.pageContent {
-  /* margin-bottom: 80px; */
 }
 
 #avatarContainer {
@@ -153,6 +165,7 @@ combat-data-display {
   font-size: 0.8rem;
   align-items: center;
   justify-content: stretch;
+  float:left;
 }
 
 talent-card {

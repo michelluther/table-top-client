@@ -1,0 +1,17 @@
+.inventoryItem {
+    display: flex;
+    min-height: 30px;
+    align-items: center;
+}
+
+.inventoryItemName {
+    width: 200px;
+}
+
+.inventoryDamage {
+    width: 100px;
+}
+
+.inventoryItemAction {
+    padding-left: 20px;
+}

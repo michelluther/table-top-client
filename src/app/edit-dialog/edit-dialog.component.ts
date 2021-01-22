@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ActualAttribute } from 'app/domain/actualAttribute';
 import { Hero } from 'app/domain/hero';
 import { EditAttributeComponent } from 'app/edit-attribute/edit-attribute.component';
@@ -9,7 +9,10 @@ import { EnhancementPricingService } from 'app/domain/enhancement-pricing.servic
 
 @Component({
   selector: 'edit-dialog',
-  providers: [EditAttributeComponent],
+  providers: [
+    EditAttributeComponent
+    // MatDialogRef
+  ],
   templateUrl: './edit-dialog.component.html',
   styleUrls: ['./edit-dialog.component.css']
 })
@@ -17,10 +20,12 @@ export class EditDialogComponent implements OnInit {
 
   private pricingTable: Array<AscensionPricing>
 
-  constructor(public dialog: MatDialog, private enhancementPricingService:EnhancementPricingService) { 
-    enhancementPricingService.getAscensionPricing().then(pricing => {
-      this.pricingTable = pricing
-    })
+  constructor(
+    public dialogRef: MatDialogRef<EditAttributeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { 
+    // enhancementPricingService.getAscensionPricing().then(pricing => {
+    //   this.pricingTable = pricing
+    // })
   }
 
 
@@ -33,14 +38,7 @@ export class EditDialogComponent implements OnInit {
       return ascensionPricing.levelFrom === attribute.valueNumber
     }).priceH
     
-    this.dialog.open(EditAttributeComponent, {
-      data: {
-        attribute: attribute,
-        costOfAscension: price,
-        hero: hero
-      },
-      panelClass: 'myapp-edit-dialog'
-    })
+    
   }
 
 }

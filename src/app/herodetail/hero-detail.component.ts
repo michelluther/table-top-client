@@ -8,12 +8,13 @@ import { HeroService } from '../domain/hero.service';
 import { SkillService } from '../domain/skills.service';
 
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { MatInput, MatInputModule, MatOptgroup, MatOption, MatFormFieldControl, MatCard, MatCardSubtitle } from '@angular/material';
+import { MatInput, MatInputModule, MatOptgroup, MatOption, MatFormFieldControl, MatCard, MatCardSubtitle, MatDialog } from '@angular/material';
 import { map, startWith } from 'rxjs/operators';
 
 import 'rxjs/add/operator/switchMap';
 import { ActualSkill } from '../domain/actualSkill';
 import { Weapon } from 'app/domain/weapon';
+import { EditDialogComponent } from 'app/edit-dialog/edit-dialog.component';
 
 @Component({
 	selector: 'hero-details',
@@ -39,7 +40,8 @@ export class HeroDetailComponent implements OnInit {
 	constructor(
 		private heroService: HeroService,
 		private route: ActivatedRoute,
-		private location: Location
+		private location: Location,
+		private dialog: MatDialog
 
 	) {
 		this.detailArea = 'character';
@@ -79,6 +81,14 @@ export class HeroDetailComponent implements OnInit {
 	filterSkills(name: string) {
 		return this.hero.skills.filter(skill =>
 			skill.getSkill().name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
+	}
+
+	openExperienceOptions():void {
+			const dialogRef = this.dialog.open(EditDialogComponent, {
+			  width: '250px',
+			  data: {hero: this.hero}
+			});
+		
 	}
 
 	navToAnchor(anchor:string):void {

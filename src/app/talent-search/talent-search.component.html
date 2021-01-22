@@ -4,19 +4,11 @@
     <input placeholder="Suchbegriff" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" />
   </div>
   <div class="talente padded">
-    <div *ngFor="let skillGroup of hero.skillGroups | MatchesSearchTermChildren:talentSearchTerm">
-    <!-- <div *ngFor="let skillGroup of hero.skillGroups"> -->
+    <div *ngFor="let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm">
       <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
       <div class="skillGroupEntries">
-        <!-- <div class="skillEntry" *ngFor="let skill of skillGroup.skills"> -->
-          <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesSearchTerm:talentSearchTerm">
-        <!-- <mat-grid-list [cols]="breakpoint" rowHeight="80px"> -->
-          <!-- <mat-grid-tile *ngFor="let skill of skillGroup.skills" colspan="1" rowspan="1" > -->
-            
+          <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm">
             <talent-card [skill]="skill"></talent-card>
-          <!-- </mat-grid-tile> -->
-        <!-- </div> -->
-        <!-- </mat-grid-list> -->
       </div>
     </div>
   </div>

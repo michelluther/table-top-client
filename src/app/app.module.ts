@@ -37,8 +37,6 @@ import {
   MatRippleModule,
   MatIcon,
   MatGridList,
-  MatDialogModule,
-  MatDialogContent,
   MatDialog,
   MatSelectTrigger,
   MatSelectModule,
@@ -50,9 +48,16 @@ import {
   MatListModule,
   MatIconModule,
   MatButtonToggleGroup,
-  MatButtonToggle
-} from '@angular/material';
+  MatButtonToggle,
+  
+} from '@angular/material/';
 
+
+import {
+  MatDialogModule,
+  MatDialogContent,
+  MatDialogRef, 
+  MAT_DIALOG_DATA} from '@angular/material/dialog'
 import 'hammerjs';
 
 import { HeroService } from './domain/hero.service';
@@ -73,7 +78,8 @@ import { MagicDisplayComponent } from './magic-display/magic-display.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
-import { MatchesSearchTerm, MatchesSearchTermChildren } from './talent-search/skill.pipe';
+import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
+import { MatchesSpellSearchTerm, MatchesSpellSearchTermChildren } from './spell-search/spell.pipe';
 import { DetailNavigationComponent } from './detail-navigation/detail-navigation.component';
 import { AttributesDisplayComponent } from './attributes-display/attributes-display.component';
 import { BasicDataDisplayComponent } from './basic-data-display/basic-data-display.component';
@@ -82,6 +88,7 @@ import { InventoryDisplayComponent } from './inventory-display/inventory-display
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
 import { ExperienceDisplayComponent } from './experience-display/experience-display.component';
+import { SpellSearchComponent } from './spell-search/spell-search.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -126,6 +133,7 @@ const routes: Routes = [
     MatRadioModule,
     MatSelectModule,
     MatRippleModule,
+    MatDialogModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatCardModule,
@@ -168,8 +176,10 @@ const routes: Routes = [
     ScrollSpyDirective,
     MagicDisplayComponent,
     TalentSearchComponent,
-    MatchesSearchTerm,
-    MatchesSearchTermChildren,
+    MatchesTalentSearchTerm,
+    MatchesTalentSearchTermChildren,
+    MatchesSpellSearchTerm,
+    MatchesSpellSearchTermChildren,
     DetailNavigationComponent,
     AttributesDisplayComponent,
     BasicDataDisplayComponent,
@@ -177,9 +187,15 @@ const routes: Routes = [
     InventoryDisplayComponent,
     EditDialogComponent,
     EditAttributeComponent,
-    ExperienceDisplayComponent
+    ExperienceDisplayComponent,
+    SpellSearchComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditAttributeComponent],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  },
+  {provide:MAT_DIALOG_DATA,useValue:{}}],
+  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent],
 })
 export class AppModule { }

@@ -12,6 +12,7 @@ import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 import { SpellService } from "./spells.service";
 import { AttributeService } from './attribute.service'
 import { HeroType } from "./heroType";
+import { InventoryItem } from "./inventoryItem";
 
 export class Hero {
 
@@ -61,6 +62,7 @@ export class Hero {
   currentParade: number;
   level: number;
 
+
   attributes: Array<ActualAttribute>;
   
   skills: Array<ActualSkill>;
@@ -73,6 +75,7 @@ export class Hero {
   _currentWeapon: Weapon
 
   armor: Array<Armor>
+  inventory: Array<InventoryItem>
 
   weaponSkillDistributions: Array<WeaponSkillDistribution>
 
@@ -133,6 +136,10 @@ export class Hero {
     if(this.knowsMagic){
       this.structureSpells(dataObject['spells']);
     }
+
+    this.inventory = dataObject['inventoryItems'].map(inventoryItem => {
+      return new InventoryItem(inventoryItem.name, inventoryItem.amount, inventoryItem.weight)
+    });
     return this;
   }
 

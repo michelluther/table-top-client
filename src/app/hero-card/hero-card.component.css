@@ -18,7 +18,10 @@ mat-card-title {
 	padding: 0px;
 }
 
-h2 {margin:0}
+h2 {
+	margin:0;
+	font-size: 1.75rem;
+}
 
 .heroValues {
 	height: 50px;

@@ -31,16 +31,13 @@
               </div>
             </div>
             <div *ngIf="detailArea === 'character'" class="characterDetails">  
-              <!-- <div class="experienceContainer">
-                <experience-display [experience]="hero.experience" ></experience-display>
-              </div> -->
+              <div class="experienceContainer">
+                <experience-display (click)="openExperienceOptions()" [experience]="hero.experience" ></experience-display>
+              </div>
               <div class="flex-col">
                 <div id="propertiesBox" id="mainAttributes" class="contentBox Grid Grid--cols-2">
                   <div class="Grid-cell flex-item flex-col">
-                    <basic-data-display [hero]="hero" class=""></basic-data-display>
-                  <!-- </div>
-                  <div class="Grid-cell flex-row"> -->
-                    
+                    <basic-data-display [hero]="hero" class=""></basic-data-display>                    
                     <attributes-display [hero]="hero" class=""></attributes-display>
                   </div>
                   <div id="avatarContainer" class="Grid-cell flex-col center">
@@ -49,38 +46,20 @@
                     </div>
                   </div>
                 </div>
-                <a id="attributesContainerAnchor"></a>
-                
               </div>
               <div class="contentBox flex-item" id="combatAttributes">
                 <a id="fightValueContainerAnchor"></a>
                 <combat-data-display [hero]="hero"></combat-data-display>
               </div>
-              
             </div>
-            <div *ngIf="detailArea === 'talents'" class="contentBox flex-item flex-row">
+            <div *ngIf="detailArea === 'talents'" class="contentBox flex-item flex-row heroTalents">
               <talent-search [hero]="hero" [searchActive]="searchActive" class="flex-item"></talent-search>
             </div>
-            <div *ngIf="hero.knowsMagic && detailArea === 'spells'" class="contentBox flex-row">
-              <div class="talente padded">
-                <h4 id="magicHeader">Zaubersprüche</h4>
-                <div *ngFor="let spellGroup of hero.spellGroups">
-                  <a class="menuItem" name="{{spellGroup.spellGroup.name}}"></a>
-                  <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
-                  <div class="spellGroupEntries">
-                    <div class="spellEntry" *ngFor="let spell of spellGroup.spells">
-                      <spell-card [spell]="spell"></spell-card>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div *ngIf="hero.knowsMagic && detailArea === 'spells'" class="contentBox flex-row heroSpells">
+              <spell-search [hero]="hero" class="flex-item"></spell-search>
             </div>
-            <div *ngIf="detailArea === 'inventory'" class="characterDetails">
-              <div class="flex-col">
-                <div id="propertiesBox" class="contentBox Grid Grid--cols-2">
-                  <inventory-display [hero]="hero"></inventory-display>
-                </div>
-              </div>
+            <div *ngIf="detailArea === 'inventory'" class="inventory">
+              <inventory-display [hero]="hero"></inventory-display>
             </div>
           </div>
         </div>

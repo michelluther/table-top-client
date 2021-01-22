@@ -1,13 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ActualSkill } from '../domain/actualSkill';
 import { ActualSkillGroup } from '../domain/actualSkillGroup';
-import { SkillGroup } from '../domain/skillgroup';
 
 @Pipe({
-    name: 'MatchesSearchTerm'
+    name: 'MatchesTalentSearchTerm'
 })
 
-export class MatchesSearchTerm implements PipeTransform {
+export class MatchesTalentSearchTerm implements PipeTransform {
 
     transform(skills: Array<ActualSkill>, searchTerm: string): Array<ActualSkill> {
         if (searchTerm != '' && searchTerm !== undefined) {
@@ -21,10 +20,10 @@ export class MatchesSearchTerm implements PipeTransform {
 }
 
 @Pipe({
-    name: 'MatchesSearchTermChildren'
+    name: 'MatchesTalentSearchTermChildren'
 })
 
-export class MatchesSearchTermChildren implements PipeTransform {
+export class MatchesTalentSearchTermChildren implements PipeTransform {
 
     transform(skillGroups: Array<ActualSkillGroup>, searchTerm: string): Array<ActualSkillGroup> {
         if (searchTerm != '' && searchTerm !== undefined) {

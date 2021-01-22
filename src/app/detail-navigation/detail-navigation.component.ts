@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@ang
 import { Hero } from 'app/domain/hero';
 import { SkillGroup } from 'app/domain/skillgroup';
 import { SpellGroup } from 'app/domain/spellGroup';
+import { Router } from '@angular/router';
 
 
 class MenuItem {
@@ -39,8 +40,7 @@ export class DetailNavigationComponent implements OnInit {
 
   menu: Array<Object>
 
-  constructor(private elRef: ElementRef) { 
-    this.elRef = elRef
+  constructor(private elRef: ElementRef, private router: Router) { 
     this.detailArea = 'character'
   }
 
@@ -61,6 +61,10 @@ export class DetailNavigationComponent implements OnInit {
 
   toggleVisible() {
     this.menuVisible = !this.menuVisible
+  }
+
+  navToOverview() {
+    this.router.navigate(['/player/heroes']);
   }
 
   navTo(target) {
