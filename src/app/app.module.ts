@@ -113,7 +113,10 @@ const routes: Routes = [
       {
         path: 'hero/:id',
         component: HeroDetailComponent
-      }
+      },
+      { 
+        path: 'hero/:id/editStuff', 
+        component: EditDialogComponent }
     ]
   },
 ];

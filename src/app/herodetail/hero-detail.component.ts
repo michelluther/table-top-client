@@ -85,7 +85,7 @@ export class HeroDetailComponent implements OnInit {
 
 	openExperienceOptions():void {
 			const dialogRef = this.dialog.open(EditDialogComponent, {
-			  width: '250px',
+			  width: '450px',
 			  data: {hero: this.hero}
 			});
 		
