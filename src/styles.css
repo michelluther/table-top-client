@@ -8,10 +8,9 @@
 
 body {
   background-image:
-    linear-gradient(rgba(40, 40, 40,.2), rgba(00, 00, 00,.5)),
-    url('/assets/wood_tile.jpg');
+    url('/assets/so-white.png');
   background-attachment: fixed, scroll;
-  background-size: 100% auto, 300px;
+  
   /*background-color: #ababab;*/
   /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
@@ -48,7 +47,7 @@ md-sidenav {
   height: 70px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  border-bottom: 2px solid #5F0609;
+  /* border-bottom: 2px solid #5F0609; */
 }
 
 .headerContainer h1 {
