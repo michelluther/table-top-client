@@ -1,3 +1,17 @@
-<p>
-  edit-dialog works!
-</p>
+<div class="page flex-col center"> 
+  <div class="pageContent">
+    <div class="sheet">
+      <div  class="shadow"  >
+        <h2>Punkte einsetzen</h2>
+        <div *ngIf="state === 'initial'">
+          Was möchtest Du tun?
+          <ul class="navList">
+            <li><button >Eigenschaft Steigern</button></li>
+            <li><button >Talent Steigern</button></li>
+            <li *ngIf="hero.knowsMagic === true"><button >Zauberfertigkeit Steigern</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -19,13 +19,23 @@ import { EnhancementPricingService } from 'app/domain/enhancement-pricing.servic
 export class EditDialogComponent implements OnInit {
 
   private pricingTable: Array<AscensionPricing>
+  private enhancementPricingService: EnhancementPricingService
+  private state: String
+  private hero: Hero
 
   constructor(
     public dialogRef: MatDialogRef<EditAttributeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { 
-    // enhancementPricingService.getAscensionPricing().then(pricing => {
+      // this.enhancementPricingService = new EnhancementPricingService()
+    //   this.enhancementPricingService.getAscensionPricing().then(pricing => {
     //   this.pricingTable = pricing
     // })
+    this.hero = data.hero
+    this.state = 'initial'
+  }
+
+  public getState(): String {
+    return 'initial'
   }
 
 

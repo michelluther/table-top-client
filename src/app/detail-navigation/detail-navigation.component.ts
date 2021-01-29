@@ -67,6 +67,10 @@ export class DetailNavigationComponent implements OnInit {
     this.router.navigate(['/player/heroes']);
   }
 
+  navToEdit() {
+    this.router.navigate([`/player/hero/${this.hero.id}/editStuff`]);
+  }
+
   navTo(target) {
     let menuTarget = this.elRef.nativeElement.parentElement.getElementsByClassName('menuItem')[target]
     menuTarget.scrollIntoView()

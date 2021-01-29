@@ -1,0 +1,4 @@
+ul.navList li::before{
+    content: none;
+    
+}
