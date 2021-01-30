@@ -35,6 +35,11 @@ md-sidenav {
   padding-top: 60px;
 }
 
+.sheet {
+  padding-bottom: 60px;
+  min-height: 100%;
+}
+
 .mat-sidenav-container {
   background-color: transparent !important;
 }

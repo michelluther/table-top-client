@@ -1,11 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ActualAttribute } from 'app/domain/actualAttribute';
 import { Hero } from 'app/domain/hero';
+import { HeroService } from '../domain/hero.service';
 import { EditAttributeComponent } from 'app/edit-attribute/edit-attribute.component';
 import { AscensionPricing } from 'app/domain/ascensionPricing';
 import { EnhancementPricingService } from 'app/domain/enhancement-pricing.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'edit-dialog',
@@ -21,28 +23,56 @@ export class EditDialogComponent implements OnInit {
   private pricingTable: Array<AscensionPricing>
   private enhancementPricingService: EnhancementPricingService
   private state: String
-  private hero: Hero
+  private _hero: Hero
 
   constructor(
-    public dialogRef: MatDialogRef<EditAttributeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { 
-      // this.enhancementPricingService = new EnhancementPricingService()
-    //   this.enhancementPricingService.getAscensionPricing().then(pricing => {
-    //   this.pricingTable = pricing
-    // })
-    this.hero = data.hero
+    private heroService: HeroService,
+    private route: ActivatedRoute,
+    enhancementPricingService: EnhancementPricingService,
+    public dialogRef: MatDialogRef<EditAttributeComponent>
+  ){
+    this.enhancementPricingService = enhancementPricingService
+    this.enhancementPricingService.getAscensionPricing().then(pricing => {
+      this.pricingTable = pricing })
     this.state = 'initial'
+  }
+
+  ngOnInit(): void {
+
+		this.route.params
+			.switchMap((params: Params) => this.heroService.getHero(+params['id']))
+			.subscribe(hero => {
+				this._hero = hero;
+			});
+	}
+
+  public setState(state):void {
+    this.state = state;
   }
 
   public getState(): String {
     return 'initial'
   }
 
+  get hero():Hero {
+    return this._hero
+  }
 
-  ngOnInit() {
+  @Input()
+  set hero(hero){
+    this._hero = hero
+  }
+
+
+  public getCostOfAscension(attribute: ActualAttribute): Number {
+    const price = this.pricingTable.find(ascensionPricing => {
+      return ascensionPricing.levelFrom === attribute.valueNumber
+    }).priceH
+
+    return price
   }
   
-  public editAttribute(attribute: ActualAttribute, hero:Hero) {
+  public increaseAttribute(attribute: ActualAttribute) {
     
     const price = this.pricingTable.find(ascensionPricing => {
       return ascensionPricing.levelFrom === attribute.valueNumber

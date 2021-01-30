@@ -9,9 +9,9 @@
     <div class="page flex-col center"> 
       <div class="pageContent">
         <div class="sheet">
-          <div  class="shadow" *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
+          <div  class="" *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
             style="flex: 1; ">
-            <div class="headerContainer">
+            <div class="headerContainer contentBox">
               <a class="menuItem" name="Allgemein"></a>
               <!--  -->
               <div class="headerContent">
@@ -32,7 +32,7 @@
             </div>
             <div *ngIf="detailArea === 'character'" class="characterDetails">  
               <div class="experienceContainer">
-                <experience-display (click)="openExperienceOptions()" [experience]="hero.experience" ></experience-display>
+                <experience-display  [experience]="hero.experience" ></experience-display>
               </div>
               <div class="flex-col">
                 <div id="propertiesBox" id="mainAttributes" class="contentBox Grid Grid--cols-2">

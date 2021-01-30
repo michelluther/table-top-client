@@ -20,10 +20,6 @@ export class AttributesDisplayComponent implements OnInit {
     this.editMode = false
   }
 
-  editAttribute(attribute:ActualAttribute) {
-    this.editDialog.editAttribute(attribute, this.hero)
-  }
-
   ngOnInit() {
   }
 

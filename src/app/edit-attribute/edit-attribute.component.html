@@ -1,9 +1,20 @@
-<div class="editAttributeContainer">
-    <h2>{{data.attribute.name}}</h2>
-    <div class="editContainer">
-        <div class="currentValue">{{data.attribute.valueNumber}}</div>
-        <div class="costOfRaise">{{data.costOfAscension}}</div>
-        <div class="costOfRaise">{{data.hero.experience}}</div>
-        <button mat-button>+</button>
+<div class="flex-col center">
+    <button (click)="increaseAttribute()">
+        <div class="editAttributeContainer flex-row container-xs" >
+            <div class="attributeName">{{attribute.name}}</div>
+            <div class="currentValue"><i class="fa fa-tachometer"></i> {{targetValue}}</div>
+            <div class="costOfRaise"><i class="fa fa-dollar"></i> {{costOfAscension}}</div>
+        </div>
+    </button>
+    <div *ngIf="state === 'toBeConfirmed'" class="confirmationButtons flex-col center" >
+        <div class="messageToConfirm">Zahle {{costOfAscension}} um {{attribute.name}} zu steigern?</div>
+        <div class="flex-row">
+            <div class="flex-item flex-col confirmationButton center accept" (click)="confirmIncrease()">
+                <i class="fa fa-check"></i>
+            </div>
+            <div class="flex-item flex-col confirmationButton center reject" (click)="cancelIncrease()">
+                <i class="fa fa-window-close"></i>
+            </div>
+        </div>
     </div>
 </div>

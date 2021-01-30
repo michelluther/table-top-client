@@ -32,7 +32,7 @@
               </label>
       </fieldset>
     </div>
-    <div class="currentValues flex-item flex-col border border-3 padded">
+    <div class="currentValues flex-item flex-col border border-3 padded" *ngIf="hero.currentWeapon">
       <h6>Werte</h6>
       <div class="flex-row">
         <label>Attacke:&nbsp;</label> {{hero.currentAttack}}

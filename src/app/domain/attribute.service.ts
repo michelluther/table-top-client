@@ -9,14 +9,14 @@ export class AttributeService {
 
 	constructor() { 
 		this.attributesConfigured = new Map<String, Attribute>([
-		['KK', new Attribute('KK', 'Körperkraft')],
-        ['KO', new Attribute('KO', 'Konstitution')],
-        ['KL', new Attribute('KL', 'Klugheit')],
-		['CH', new Attribute('CH', 'Charisma')],
-        ['FF', new Attribute('FF', 'Fingerfertigkeit')],
-        ['GE', new Attribute('GE', 'Gewandheit')],
-        ['MU', new Attribute('MU', 'Mut')],
-        ['IN', new Attribute('IN', 'Intuition')]
+		['mut', new Attribute('mut', 'Mut', 'MU')],
+        ['klugheit', new Attribute('klugheit', 'Klugheit', 'KL')],
+        ['intuition', new Attribute('intuition', 'Intuition', 'IN')],
+		['charisma', new Attribute('charisma', 'Charisma', 'CH')],
+		['fingerfertigkeit', new Attribute('fingerfertigkeit', 'Fingerfertigkeit', 'FF')],
+        ['gewandheit', new Attribute('gewandheit', 'Gewandheit', 'GE')],
+        ['konstitution', new Attribute('konstitution', 'Konstitution', 'KO')],
+        ['koerperkraft', new Attribute('koerperkraft', 'Körperkraft', 'KK')]
     ])
 	}
 

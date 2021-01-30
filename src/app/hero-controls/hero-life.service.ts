@@ -44,6 +44,10 @@ export class HeroLifeService {
                 case 'magicUpdate':
                         hero.magicEnergy_lost = hero.magicEnergy_lost - messageData.value;
                         break;
+                case 'updateAttribute':
+                    // TODO: update hero's attribute
+                    break;
+                                                    
                 default:
                     break;
             }

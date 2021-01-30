@@ -75,8 +75,8 @@ export class HeroDetailComponent implements OnInit {
 			.subscribe(hero => {
 				this.hero = hero;
 			});;
-			this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
-		}
+		this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
+	}
 
 	filterSkills(name: string) {
 		return this.hero.skills.filter(skill =>

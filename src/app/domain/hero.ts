@@ -106,14 +106,14 @@ export class Hero {
 
 
     this.attributes = [
-      new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ,
-      new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ,
-      new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ,
-      new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ,
-      new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK')) ,
-      new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ,
-      new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ,
-      new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO'))
+      new ActualAttribute(dataObject['mut'], this.attributeService.attributes.get('mut')) ,
+      new ActualAttribute(dataObject['klugheit'], this.attributeService.attributes.get('klugheit')) ,
+      new ActualAttribute(dataObject['intuition'], this.attributeService.attributes.get('intuition')) ,
+      new ActualAttribute(dataObject['charisma'], this.attributeService.attributes.get('charisma')) ,
+      new ActualAttribute(dataObject['fingerfertigkeit'], this.attributeService.attributes.get('fingerfertigkeit')) ,
+      new ActualAttribute(dataObject['gewandheit'], this.attributeService.attributes.get('gewandheit')) ,
+      new ActualAttribute(dataObject['konstitution'], this.attributeService.attributes.get('konstitution')) ,
+      new ActualAttribute(dataObject['koerperkraft'], this.attributeService.attributes.get('koerperkraft'))
     ];
 
     this.life = dataObject['life'];
@@ -265,6 +265,9 @@ export class Hero {
     return skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
   }
 
+  get availablePoints(): Number {
+    return this.experience - this.experience_used;
+  }
   
   getParadeOfWeaponSkill(weaponSkill:Skill): Number{
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)

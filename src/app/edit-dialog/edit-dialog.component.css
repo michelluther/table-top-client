@@ -1,4 +1,8 @@
-ul.navList li::before{
-    content: none;
-    
+.navigationButton {
+    width: 250px;
+    margin-bottom: 5px;
+}
+
+.attributeContainer {
+    margin-bottom: 10px;
 }
