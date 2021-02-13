@@ -13,7 +13,7 @@ import { MagicDisplayComponent } from 'app/magic-display/magic-display.component
 export class HeroControls {
 
 	private _hero: Hero;
-	private lifeDisplayNumber: Number;
+	private lifeDisplayNumber: number;
 	private service: HeroLifeService;
 	private _lifeClass: string;
 	private _magicClass: string;

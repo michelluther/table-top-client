@@ -7,9 +7,10 @@ export class SkillGroup {
   id: number;
   name: String;
   skills: Skill[];
-  hasThreeDices: Boolean;
-  hasAttackParade: Boolean;
-  isLongRangeWeaponSkill: Boolean;
+  hasThreeDices: boolean;
+  hasAttackParade: boolean;
+  isLongRangeWeaponSkill: boolean;
+  skillType: String;
 
   constructor(dataObject: Object, private chRef: ChangeDetectorRef) {
     this.name = dataObject['name'];
@@ -29,6 +30,7 @@ export class SkillGroup {
     } else {
       this.isLongRangeWeaponSkill = false;
     }
+    this.skillType = dataObject['skill_group']['name']
   }
 
   setSkills(skills: Skill[]) {
@@ -37,6 +39,10 @@ export class SkillGroup {
 
   getSkills(): Skill[] {
     return this.skills;
+  }
+
+  getAscensionPricingTableColumn():string {
+    return `price${this.skillType}`
   }
 
   getSkillsPromise(): Promise<Object[]> {

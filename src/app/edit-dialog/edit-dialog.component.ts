@@ -8,6 +8,7 @@ import { EditAttributeComponent } from 'app/edit-attribute/edit-attribute.compon
 import { AscensionPricing } from 'app/domain/ascensionPricing';
 import { EnhancementPricingService } from 'app/domain/enhancement-pricing.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ActualSkill } from 'app/domain/actualSkill';
 
 @Component({
   selector: 'edit-dialog',
@@ -24,6 +25,7 @@ export class EditDialogComponent implements OnInit {
   private enhancementPricingService: EnhancementPricingService
   private state: String
   private _hero: Hero
+  talentSearchTerm: String = '';
 
   constructor(
     private heroService: HeroService,
@@ -64,21 +66,23 @@ export class EditDialogComponent implements OnInit {
   }
 
 
-  public getCostOfAscension(attribute: ActualAttribute): Number {
+  public getCostOfAttributeAscension(attribute: ActualAttribute): number {
     const price = this.pricingTable.find(ascensionPricing => {
       return ascensionPricing.levelFrom === attribute.valueNumber
     }).priceH
 
     return price
   }
-  
-  public increaseAttribute(attribute: ActualAttribute) {
-    
+
+  public getCostOfSkillAscension(skill: ActualSkill): number {
+    let rowValue = skill.value
+    if(rowValue === -7) rowValue = 0
     const price = this.pricingTable.find(ascensionPricing => {
-      return ascensionPricing.levelFrom === attribute.valueNumber
-    }).priceH
-    
-    
+      return ascensionPricing.levelFrom === rowValue
+    })[skill.getSkillGroup().getAscensionPricingTableColumn()]
+
+    return price
   }
+  
 
 }

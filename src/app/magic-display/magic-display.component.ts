@@ -23,9 +23,9 @@ const rippleColors = {
 })
 export class MagicDisplayComponent implements OnInit {
 
-  private _currentMagicEnergy: Number
-  private _maxMagicEnergy: Number
-  private magicDisplay: Number
+  private _currentMagicEnergy: number
+  private _maxMagicEnergy: number
+  private magicDisplay: number
 
 	private _isFocused: boolean;
 
@@ -36,19 +36,19 @@ export class MagicDisplayComponent implements OnInit {
   ngOnInit() {}
 
   @Input()
-  get currentMagicEnergy(): Number {
+  get currentMagicEnergy(): number {
     return this._currentMagicEnergy;
   }
-  set currentMagicEnergy(currentMagicEnergy: Number) {
+  set currentMagicEnergy(currentMagicEnergy: number) {
     this._currentMagicEnergy = currentMagicEnergy
   }
 
 
   @Input()
-  get maxMagicEnergy(): Number {
+  get maxMagicEnergy(): number {
     return this._maxMagicEnergy
   }
-  set maxMagicEnergy(maxMagicEnergy: Number) {
+  set maxMagicEnergy(maxMagicEnergy: number) {
     this._maxMagicEnergy = maxMagicEnergy
   }
 
@@ -57,7 +57,7 @@ export class MagicDisplayComponent implements OnInit {
     return this.magicDisplay;
   }
 
-  public rippleDisplay(valueUpdate: Number): void {
+  public rippleDisplay(valueUpdate: number): void {
     const rippleColor = valueUpdate < 0 ? rippleColors.bad : rippleColors.good
     this.ripple.launch({
       color: rippleColor

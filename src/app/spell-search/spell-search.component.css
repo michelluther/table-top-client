@@ -1,3 +1,13 @@
 .searchContainer {
     justify-content: center;
 }
+
+.spellGroupTitle {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    
+}
+.spellEntry {
+    margin-bottom: 8px;
+}

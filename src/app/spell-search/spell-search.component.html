@@ -1,10 +1,10 @@
 
 <div class="flex-col flex-item">
-  <div class="flex-row padded searchContainer" >
+  <div class="flex-row padded searchContainer center" >
     <input placeholder="Suchbegriff" [value]="spellSearchTerm" (input)="spellSearchTerm  = $event.target.value" />
   </div>
   <div class="talente padded">
-    <div *ngFor="let spellGroup of hero.spellGroups | MatchesSpellSearchTermChildren:spellSearchTerm">
+    <div class="flex-col center" *ngFor="let spellGroup of hero.spellGroups | MatchesSpellSearchTermChildren:spellSearchTerm">
       <div class="spellGroupTitle">{{spellGroup.spellGroup.name}}</div>
       <div class="spellGroupEntries">
           <div class="spellEntry" *ngFor="let spell of spellGroup.spells | MatchesSpellSearchTerm:spellSearchTerm">

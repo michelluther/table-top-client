@@ -65,7 +65,7 @@ export class HeroService {
 		return Observable.throw(errMsg);
 	}
 
-	getHero(id: Number): Promise<Hero> {
+	getHero(id: number): Promise<Hero> {
 
 		return new Promise((resolve, reject) => this.getHeroes()
 			.then(heroes =>

@@ -29,13 +29,13 @@ export class Hero {
 
   experience: number;
 
-  mut: number;
-  charisma: number;
-  fingerfertigkeit: number;
-  gewandheit: number;
-  intuition: number;
-  koerperkraft: number;
-  konstitution: number;
+  MU: number;
+  CH: number;
+  FF: number;
+  GE: number;
+  IN: number;
+  KK: number;
+  KO: number;
 
   life: number;
   life_lost: number;
@@ -46,13 +46,13 @@ export class Hero {
   experience_used: number;
   hero_type: HeroType;
   ini_basis: number;
-  klugheit: number;
+  KL: number;
   magieresistenz: number;
   social_rank: number;
 
   abenteuer_punkte: number;
 
-  knowsMagic: Boolean;
+  knowsMagic: boolean;
 
   attack_basis: number;
   parade_basis: number;
@@ -106,14 +106,14 @@ export class Hero {
 
 
     this.attributes = [
-      new ActualAttribute(dataObject['mut'], this.attributeService.attributes.get('mut')) ,
-      new ActualAttribute(dataObject['klugheit'], this.attributeService.attributes.get('klugheit')) ,
-      new ActualAttribute(dataObject['intuition'], this.attributeService.attributes.get('intuition')) ,
-      new ActualAttribute(dataObject['charisma'], this.attributeService.attributes.get('charisma')) ,
-      new ActualAttribute(dataObject['fingerfertigkeit'], this.attributeService.attributes.get('fingerfertigkeit')) ,
-      new ActualAttribute(dataObject['gewandheit'], this.attributeService.attributes.get('gewandheit')) ,
-      new ActualAttribute(dataObject['konstitution'], this.attributeService.attributes.get('konstitution')) ,
-      new ActualAttribute(dataObject['koerperkraft'], this.attributeService.attributes.get('koerperkraft'))
+      new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ,
+      new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ,
+      new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ,
+      new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ,
+      new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ,
+      new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ,
+      new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')) ,
+      new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK'))
     ];
 
     this.life = dataObject['life'];
@@ -174,12 +174,16 @@ export class Hero {
       })
 
       weapons.forEach(weapon => {
-        this.weapons.push(new Weapon(weapon['name'],
+        this.weapons.push(new Weapon(
+          weapon['name'],
           weapon['tp_dice'],
           weapon['tp_add_points'],
+          weapon['extra_tp_from_kk'],
           _.find(allSkills, skill => {
             return skill.id === weapon['skill']
-          })))
+          }),
+          this.getAttribute('KK').valueNumber
+          ))
       })
       this.currentWeapon = this.weapons[0]
 
@@ -252,24 +256,24 @@ export class Hero {
     return this._currentWeapon ? this._currentWeapon.damageText : '0'
   }
 
-  get currentLife(): Number {
+  get currentLife(): number {
     return this.life - this.life_lost
   }
 
-  get currentMagicEnergy(): Number {
+  get currentMagicEnergy(): number {
     return this.magicEnergy - this.magicEnergy_lost
   }
 
-  getAttackOfWeaponSkill(weaponSkill:Skill): Number{
+  getAttackOfWeaponSkill(weaponSkill:Skill): number{
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)
     return skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
   }
 
-  get availablePoints(): Number {
+  get availablePoints(): number {
     return this.experience - this.experience_used;
   }
   
-  getParadeOfWeaponSkill(weaponSkill:Skill): Number{
+  getParadeOfWeaponSkill(weaponSkill:Skill): number{
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)
     return skillDistribution ? this.parade_basis + skillDistribution.attack : this.parade_basis
   }

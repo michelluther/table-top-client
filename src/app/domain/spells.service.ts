@@ -64,14 +64,14 @@ export class SpellService {
     return spellTypes;
   }
 
-  getSpell(id: Number): Promise<Spell> {
+  getSpell(id: number): Promise<Spell> {
 		return this.getSpells()
 			.then(spells => 
 				spells.find(spell => spell.id === id)
 			);
   }
   
-  getSpellGroup(id: Number):Promise<SpellGroup> {
+  getSpellGroup(id: number):Promise<SpellGroup> {
     return this.getSpellGroups().then(
       spellGroups =>
         spellGroups.find(spellGroup => spellGroup.id === id)

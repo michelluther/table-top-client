@@ -9,7 +9,7 @@
     <div class="page flex-col center"> 
       <div class="pageContent">
         <div class="sheet">
-          <div  class="" *ngIf="hero" scrollSpy [spiedTags]="['A']" (sectionChange)="onSectionChange($event)"
+          <div  class="" *ngIf="hero"
             style="flex: 1; ">
             <div class="headerContainer contentBox">
               <a class="menuItem" name="Allgemein"></a>
@@ -53,7 +53,7 @@
               </div>
             </div>
             <div *ngIf="detailArea === 'talents'" class="contentBox flex-item flex-row heroTalents">
-              <talent-search [hero]="hero" [searchActive]="searchActive" class="flex-item"></talent-search>
+              <talent-search mode="viewTalents" [hero]="hero" [searchActive]="searchActive" class="flex-item"></talent-search>
             </div>
             <div *ngIf="hero.knowsMagic && detailArea === 'spells'" class="contentBox flex-row heroSpells">
               <spell-search [hero]="hero" class="flex-item"></spell-search>

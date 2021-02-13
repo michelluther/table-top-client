@@ -3,6 +3,7 @@
     margin-bottom: 5px;
 }
 
-.attributeContainer {
+.attributeContainer, .skillEntry {
     margin-bottom: 10px;
 }
+

@@ -9,6 +9,7 @@
 .skillTitle {
     width: 140px;
     font-weight: 600;
+    text-align: left;
 }
 
 .skillBe, .skillValue {

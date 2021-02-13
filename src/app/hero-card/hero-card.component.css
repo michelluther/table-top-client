@@ -29,9 +29,10 @@ h2 {
 
 .heroAvatar {
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	bottom: 53px;
+	right: 10px;
 	height: 190px;
+	z-index: 10;
 	display: block;
 }
 
@@ -58,4 +59,12 @@ div.label {
 
 .headerContent {
 	cursor: pointer;
+}
+
+.hero-entry-container {
+	position: relative
+}
+
+.heroes-entry {
+	overflow: hidden;
 }

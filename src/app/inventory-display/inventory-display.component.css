@@ -1,17 +1,41 @@
 .inventoryItem {
-    display: flex;
-    min-height: 30px;
-    align-items: center;
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+}
+
+.spellGroupTitle {
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+confirmation-sheet {
+  margin-top: -20px;
+  display: block;
+}
+button {
+  margin-bottom: 8px;
+  z-index: 100;
+}
+
+.addWeaponForm span {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.addButton {
+  width: 300px;
 }
 
 .inventoryItemName {
-    width: 200px;
+  width: 200px;
 }
 
 .inventoryDamage {
-    width: 100px;
+  width: 100px;
 }
 
 .inventoryItemAction {
-    padding-left: 20px;
+  padding-left: 20px;
 }

@@ -11,7 +11,7 @@ export class SpellSearchComponent implements OnInit {
   @Input()
   hero: Hero;
   @Input()
-  searchActive: Boolean;
+  searchActive: boolean;
   spellSearchTerm: String = '';
 
   constructor() { }

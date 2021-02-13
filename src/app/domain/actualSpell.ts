@@ -7,7 +7,7 @@ export class ActualSpell {
 
   value: number;
   hero: Hero;
-  isAssignedToHero: Boolean;
+  isAssignedToHero: boolean;
 
   constructor(actualSpell: Object, hero: Hero, private spell: Spell, private spellGroup: SpellGroup) {
     this.value = actualSpell ? actualSpell['value'] : -7;
@@ -23,15 +23,15 @@ export class ActualSpell {
     return this.spellGroup;
   }
 
-  get dice1Value(): Number {
+  get dice1Value(): number {
     return this.hero.getAttribute(this.getSpell().dice1).value
   }
 
-  get dice2Value(): Number {
+  get dice2Value(): number {
     return this.hero.getAttribute(this.getSpell().dice2).value
   }
 
-  get dice3Value(): Number {
+  get dice3Value(): number {
     return this.hero.getAttribute(this.getSpell().dice3).value
   }
 }

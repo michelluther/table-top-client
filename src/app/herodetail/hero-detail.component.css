@@ -3,9 +3,9 @@
   display: flex;
 }
 .shadow {
-  box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75);
+  /* box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75); */
   margin-bottom: 40px !important;
-  background-color: rgba(255, 255, 255, 1);
+  /* background-color: rgba(255, 255, 255, 1); */
   min-height: 500px;
 }
 .page {
@@ -59,7 +59,7 @@
 }
 
 .inventory {
-  background-image: url('/assets/inventory-desaturated.jpg');
+  /* background-image: url('/assets/inventory-desaturated.jpg'); */
   background-size:500px;
   background-position: right 10px top 10px;
   background-repeat: no-repeat;
@@ -271,10 +271,6 @@ mat-radio-button {
   width: 120px
 } 
 
-.inventorySection {
-  display: flex;
-  flex-direction: column;
-}
 .inventoryWeaponItem {
   display: flex;
   

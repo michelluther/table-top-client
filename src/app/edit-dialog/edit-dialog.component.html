@@ -14,13 +14,26 @@
       <div id="raiseAttribute" *ngIf="state === 'raiseAttribute'" class="flex-col center">
         <h3>Welche Eigenschaft möchtest Du steigern?</h3>
         <div class="navigationButton flex-item" *ngFor="let attribute of hero.attributes; index as i; keyvalue">
-          <edit-attribute [attribute]="attribute" [costOfAscension]="getCostOfAscension(attribute)" [hero]="hero"></edit-attribute>
+          <edit-attribute [attribute]="attribute" [costOfAscension]="getCostOfAttributeAscension(attribute)" [hero]="hero"></edit-attribute>
         </div>
         
       </div>
       <div id="raiseTalent" *ngIf="state === 'raiseTalent'" class="flex-col center">
         <h3>Welches Talent möchtest Du steigern?</h3>
-        <talent-search [hero]="hero" [searchActive]="searchActive" class="flex-item"></talent-search>
+        <div class="flex-col flex-item center">
+          <div class="flex-row padded searchContainer center" >
+            <input placeholder="Suchbegriff" [value]="talentSearchTerm" (input)="talentSearchTerm  = $event.target.value" />
+          </div>
+          <div class="talente padded">
+            <div class="flex-col center" *ngFor="let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm">
+              <div class="skillGroupTitle">{{skillGroup.skillGroup.name}}</div>
+              <div class="skillGroupEntries">
+                  <div class="skillEntry" *ngFor="let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm">
+                    <edit-talent [skill]="skill" [hero]="hero" [costOfAscension]="getCostOfSkillAscension(skill)"></edit-talent>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

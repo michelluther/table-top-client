@@ -61,7 +61,7 @@ export class AdventureService {
 export class Adventure {
 
     public id: string
-    public active: Boolean
+    public active: boolean
     public name: string
 
     public images: Array<Image>

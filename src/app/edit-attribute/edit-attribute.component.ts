@@ -14,7 +14,7 @@ import { HeroLifeService } from './../hero-controls/hero-life.service';
 })
 export class EditAttributeComponent implements OnInit {
 
-  private _costOfAscension:Number
+  private _costOfAscension:number
   private _attribute: ActualAttribute
   private _hero:Hero
   private _state:String
@@ -48,11 +48,11 @@ export class EditAttributeComponent implements OnInit {
   }
 
   @Input()
-  set costOfAscension(costOfAscension:Number){
+  set costOfAscension(costOfAscension:number){
     this._costOfAscension = costOfAscension
   }
 
-  get costOfAscension():Number {
+  get costOfAscension():number {
     return this._costOfAscension
   }
 
@@ -74,9 +74,11 @@ export class EditAttributeComponent implements OnInit {
     });
     // this.heroMU
     this._state = ''
+    this._attribute.valueNumber = this.targetValue;
+    this.hero.experience_used += this.costOfAscension;
   }
 
-  get targetValue(): Number {
+  get targetValue(): number {
     return this._attribute.valueNumber + 1
   }
 

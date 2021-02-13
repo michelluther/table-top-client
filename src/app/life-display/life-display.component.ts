@@ -24,9 +24,9 @@ const rippleColors = {
 
 export class LifeDisplayComponent implements OnInit {
 
-  private _currentLife: Number
-  private _maxLife: Number
-  private lifeDisplay: Number
+  private _currentLife: number
+  private _maxLife: number
+  private lifeDisplay: number
 
   @ViewChild(MatRipple) ripple: MatRipple;
 
@@ -35,20 +35,20 @@ export class LifeDisplayComponent implements OnInit {
   ngOnInit() {}
 
   @Input()
-  get currentLife(): Number {
+  get currentLife(): number {
     return this._currentLife;
   }
-  set currentLife(currentLife: Number) {
+  set currentLife(currentLife: number) {
 
     this._currentLife = currentLife
   }
 
 
   @Input()
-  get maxLife(): Number {
+  get maxLife(): number {
     return this._maxLife
   }
-  set maxLife(maxLife: Number) {
+  set maxLife(maxLife: number) {
     this._maxLife = maxLife
   }
 
@@ -57,7 +57,7 @@ export class LifeDisplayComponent implements OnInit {
     return this.lifeDisplay;
   }
 
-  public rippleDisplay(valueUpdate: Number): void {
+  public rippleDisplay(valueUpdate: number): void {
     const rippleColor = valueUpdate < 0 ? rippleColors.bad : rippleColors.good
     this.ripple.launch({
       color: rippleColor

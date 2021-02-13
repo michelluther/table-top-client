@@ -1,6 +1,6 @@
 export class Armor {
 
-    constructor(public name: string, public rs: Number, public behinderung: Number) {
+    constructor(public name: string, public rs: number, public behinderung: number) {
 
     }
 

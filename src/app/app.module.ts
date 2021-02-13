@@ -90,6 +90,7 @@ import { EditAttributeComponent } from './edit-attribute/edit-attribute.componen
 import { ExperienceDisplayComponent } from './experience-display/experience-display.component';
 import { SpellSearchComponent } from './spell-search/spell-search.component';
 import { EditTalentComponent } from './edit-talent/edit-talent.component';
+import { ConfirmationSheetComponent } from './confirmation-sheet/confirmation-sheet.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -193,7 +194,8 @@ const routes: Routes = [
     EditAttributeComponent,
     ExperienceDisplayComponent,
     SpellSearchComponent,
-    EditTalentComponent
+    EditTalentComponent,
+    ConfirmationSheetComponent
   ],
   bootstrap: [AppComponent],
   providers: [{

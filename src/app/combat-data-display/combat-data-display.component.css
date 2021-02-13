@@ -12,6 +12,11 @@
   display: flex;
 }
 
+
+.currentValues {
+  background-color: #fff;
+}
+
 .currentValues.flex-col {
   /* background-color: #fffffa; */
   font-size: x-large;

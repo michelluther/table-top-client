@@ -1,20 +1,12 @@
 <div class="flex-col center">
     <button (click)="increaseAttribute()">
-        <div class="editAttributeContainer flex-row container-xs" >
+        <div class="editAttributeContainer flex-row" >
             <div class="attributeName">{{attribute.name}}</div>
-            <div class="currentValue"><i class="fa fa-tachometer"></i> {{targetValue}}</div>
+            <div class="targetValue"><i class="fa fa-tachometer"></i> {{targetValue}}</div>
             <div class="costOfRaise"><i class="fa fa-dollar"></i> {{costOfAscension}}</div>
         </div>
     </button>
-    <div *ngIf="state === 'toBeConfirmed'" class="confirmationButtons flex-col center" >
-        <div class="messageToConfirm">Zahle {{costOfAscension}} um {{attribute.name}} zu steigern?</div>
-        <div class="flex-row">
-            <div class="flex-item flex-col confirmationButton center accept" (click)="confirmIncrease()">
-                <i class="fa fa-check"></i>
-            </div>
-            <div class="flex-item flex-col confirmationButton center reject" (click)="cancelIncrease()">
-                <i class="fa fa-window-close"></i>
-            </div>
-        </div>
-    </div>
+    
+    <confirmation-sheet *ngIf="state === 'toBeConfirmed'" confirmationText="Zahle {{costOfAscension}} um {{attribute.name}} zu steigern?" (confirm)="confirmIncrease()" (cancel)="cancelIncrease()"></confirmation-sheet>
+    
 </div>

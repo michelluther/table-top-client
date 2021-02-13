@@ -1,25 +1,48 @@
-<div class="inventorySection padded">   
-  <h4>Waffen</h4>
-  <div class="addIcon">
-    <i class="fa fa-plus-square"></i>
+<div class="padded flex-col center">   
+  <h4 class="spellGroupTitle">Waffen</h4>
+  <button (click)="addWeaponToInventory()" class="addButton">
+    <i class="fa fa-plus-square"></i> Waffe hinzufügen
+  </button>
+  <div class="addInventoryItem" *ngIf="showAddWeaponSheet === true">
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addWeapon()">
+      <div class="addWeaponForm">
+        <div>Neue Waffe</div>
+        <span>Name</span>
+        <input value="{{newWeapon.name}}" />
+        <span>Trefferpunkte Würfel</span>
+        <input value="{{newWeapon.damageDice}}" />
+        <span>Trefferpunkte Zusatzpunkte</span>
+        <input value="{{newWeapon.damageAddPoints}}" />
+        <span>Körperkraft Zuschlag</span>
+        <input value="{{newWeapon.extraPointsFromKk}}" />
+      </div>
+    </confirmation-sheet>
   </div>
   <div *ngFor="let weapon of hero.weapons" class="inventoryItem">
     <div class="inventoryItemName">{{weapon.name}}</div>
-    <div class="inventoryDamage">{{weapon.damageText}}</div>
-    <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
+    <div class="inventoryDamage">{{weapon.damageTextGeneral}}</div>
+    <button (click)="removeWeaponFromInventory(weapon)"><i class="fa fa-trash"></i></button>
   </div> 
+
+
 </div>
-<div class="inventorySection padded">   
-  <h4>Rüstung</h4>
+<div class="padded flex-col center">
+  <h4 class="spellGroupTitle">Rüstung</h4>
+  <button class="addButton">
+    <i class="fa fa-plus-square"></i> Rüstung hinzufügen
+  </button>
   <div *ngFor="let armor of hero.armor" class="inventoryItem">
     <div class="inventoryItemName">{{armor.name}}</div>
     <div class="inventoryDamage">{{armor.rs}}</div>
-    <div (click)="removeWeaponFromInventory(weapon)" class="inventoryItemAction"><i class="fa fa-trash"></i></div>
+    <button (click)="removeArmorFromInventory(weapon)"><i class="fa fa-trash"></i></button>
   </div> 
 </div>
 
-<div class="inventorySection padded">   
-  <h4>Inventar</h4>
+<div class="padded flex-col center">   
+  <h4  class="spellGroupTitle">Inventar</h4>
+  <button class="addButton">
+    <i class="fa fa-plus-square"></i> Inventar hinzufügen
+  </button>
   <div *ngFor="let inventoryItem of hero.inventory" class="inventoryItem">
     <div class="inventoryItemName">{{inventoryItem.name}}</div>
     

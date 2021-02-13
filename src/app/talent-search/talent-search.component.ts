@@ -11,8 +11,10 @@ export class TalentSearchComponent implements OnInit {
   @Input()
   hero: Hero;
   @Input()
-  searchActive: Boolean;
+  searchActive: boolean;
   talentSearchTerm: String = '';
+  @Input() 
+  editMode: boolean
 
   constructor() { }
 

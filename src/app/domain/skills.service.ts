@@ -65,14 +65,14 @@ export class SkillService {
     return skillTypes;
   }
 
-  getSkill(id: Number): Promise<Skill> {
+  getSkill(id: number): Promise<Skill> {
 		return this.getSkills()
 			.then(skills => 
 				skills.find(skill => skill.id === id)
 			);
   }
   
-  getSkillGroup(id: Number):Promise<SkillGroup> {
+  getSkillGroup(id: number):Promise<SkillGroup> {
     return this.getSkillGroups().then(
       skillGroups =>
         skillGroups.find(skillGroup => skillGroup.id === id)

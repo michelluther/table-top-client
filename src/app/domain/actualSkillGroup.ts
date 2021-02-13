@@ -1,5 +1,4 @@
-import { Skill } from "./skill";
-import { SkillService } from "./skills.service";
+
 import { SkillGroup } from "./skillgroup";
 import { ActualSkill } from "./actualSkill";
 

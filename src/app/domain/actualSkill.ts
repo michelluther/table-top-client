@@ -5,11 +5,13 @@ import { Hero } from './hero'
 
 export class ActualSkill {
 
+  assignmentId: number;
   value: number;
   hero: Hero;
-  isAssignedToHero: Boolean;
+  isAssignedToHero: boolean;
 
   constructor(actualSkill: Object, hero: Hero, private skill: Skill, private skillGroup: SkillGroup) {
+    this.assignmentId = actualSkill ? actualSkill['assignmentId'] : null;
     this.value = actualSkill ? actualSkill['value'] : -7;
     this.isAssignedToHero = actualSkill ? true : false;
     this.hero = hero;
@@ -19,11 +21,11 @@ export class ActualSkill {
     return this.skill;
   };
 
-  getAttack(): Number {
+  getAttack(): number {
     return this.hero.getAttackOfWeaponSkill(this.skill);
   };
 
-  getParade(): Number {
+  getParade(): number {
     return this.hero.getParadeOfWeaponSkill(this.skill);
   };
 
@@ -31,15 +33,15 @@ export class ActualSkill {
     return this.skillGroup;
   }
 
-  get dice1Value(): Number {
+  get dice1Value(): number {
     return this.hero.getAttribute(this.getSkill().dice1.id).value
   }
   
-  get dice2Value(): Number {
+  get dice2Value(): number {
     return this.hero.getAttribute(this.getSkill().dice2.id).value
   }
   
-  get dice3Value(): Number {
+  get dice3Value(): number {
     return this.hero.getAttribute(this.getSkill().dice3.id).value
     
   }

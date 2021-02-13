@@ -45,7 +45,7 @@ md-sidenav {
 }
 
 .headerContainer {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   flex-grow: 1;
   width: 100%;
   /* color: #EEEBE3; */
@@ -111,10 +111,10 @@ mat-card {
 
 .contentBox {
   /* background-color: rgba(255,255,250,1); */
-  background-color: #fff;
+  /* background-color: #fff; */
   width: 100%;
   margin-bottom:2px;
-  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  /* box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12); */
 }
 
 .label {
