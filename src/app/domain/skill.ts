@@ -5,6 +5,7 @@ export class Skill {
 
   id: number;
   name: String;
+  isWeaponSkill: boolean;
   skillGroupId: number;
   be: String;
 
@@ -17,6 +18,7 @@ export class Skill {
     this.id = dataObject['id'];
     this.name = dataObject['name'];
     this.be = dataObject['behinderung'];
+    this.isWeaponSkill = dataObject['isWeaponSkill']
     if (dataObject['dice1']) {
       this.dice1 = this.attributeService.attributes.get(dataObject['dice1'].id);
       this.dice2 = this.attributeService.attributes.get(dataObject['dice2'].id);

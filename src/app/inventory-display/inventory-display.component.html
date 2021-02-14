@@ -8,13 +8,17 @@
       <div class="addWeaponForm">
         <div>Neue Waffe</div>
         <span>Name</span>
-        <input value="{{newWeapon.name}}" />
+        <input [(ngModel)]="newWeapon.name" />
         <span>Trefferpunkte Würfel</span>
-        <input value="{{newWeapon.damageDice}}" />
+        <input [(ngModel)]="newWeapon.damageDice" />
         <span>Trefferpunkte Zusatzpunkte</span>
-        <input value="{{newWeapon.damageAddPoints}}" />
+        <input [(ngModel)]="newWeapon.damageAddPoints" />
         <span>Körperkraft Zuschlag</span>
-        <input value="{{newWeapon.extraPointsFromKk}}" />
+        <input [(ngModel)]="newWeapon.extraPointsFromKk" />
+        <span>Kampftalent</span>
+        <select [(ngModel)]="selectedSkillId">
+          <option *ngFor="let weaponSkill of weaponSkills" [value]="weaponSkill.id" >{{weaponSkill.name}}</option>
+        </select>
       </div>
     </confirmation-sheet>
   </div>

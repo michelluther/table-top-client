@@ -18,24 +18,37 @@ export class InventoryDisplayComponent implements OnInit {
   hero: Hero
   @Input()
   newWeapon: Weapon
+
+  public selectedSkillId: number
+
   public showAddWeaponSheet: boolean = false
   private _addWeapon: Weapon
+
+
+  public weaponSkills: Skill[]
 
   constructor(private skillService: SkillService, private weaponService: WeaponService) { 
     
   }
 
   ngOnInit() {
-    this.skillService.getSkill(5).then(skill =>{
-    this.newWeapon = new Weapon('new weapon', 1, 4, 14, skill)
-  })}
+    this.skillService.getWeaponSkills().then(weaponSkills => {
+      this.weaponSkills = weaponSkills;
+      this.newWeapon = new Weapon('new weapon', 1, 4, 14, this.weaponSkills[0])
+    })
+    
+  }
 
-  addWeaponToInventory(): void {
+  public addWeaponToInventory(): void {
     this.showAddWeaponSheet = true
     
   }
 
   addWeapon(): void {
+    const skill = this.weaponSkills.find(weaponSkill => {
+      return skill.id === this.selectedSkillId
+    })
+    this.newWeapon.skill = skill;
     this.weaponService.addWeapon(this.newWeapon, this.hero)
   }
 

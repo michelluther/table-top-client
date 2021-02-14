@@ -79,4 +79,14 @@ export class SkillService {
     )
   }
 
+  getWeaponSkills():Promise<Skill[]> {
+    return new Promise((resolve, reject) => {
+      this.getSkills().then(skills => {
+        resolve(skills.filter(skill => {
+          return skill.isWeaponSkill === true
+        }))
+      })
+    })
+  }
+
 }
