@@ -175,6 +175,7 @@ export class Hero {
 
       weapons.forEach(weapon => {
         this.weapons.push(new Weapon(
+          weapon['id'],
           weapon['name'],
           weapon['tp_dice'],
           weapon['tp_add_points'],
@@ -188,9 +189,11 @@ export class Hero {
       this.currentWeapon = this.weapons[0]
 
       armor.forEach(armor => {
-        this.armor.push(new Armor(armor['name'],
-        armor['rs'],
-        armor['be'])
+        this.armor.push(new Armor(
+          armor['id'],
+          armor['name'],
+          armor['rs'],
+          armor['be'])
         )
       })
     });

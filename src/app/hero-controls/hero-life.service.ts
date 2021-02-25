@@ -7,6 +7,7 @@ import { Subject, Observer, Observable, Subscription } from 'rxjs/Rx';
 // import { Rx } from 'rxjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class HeroLifeService {
@@ -17,7 +18,7 @@ export class HeroLifeService {
     public lifeSubject: Subject<MessageEvent>;
     private heroService: HeroService;
 
-    constructor(private http: Http, heroService: HeroService) {
+    constructor(private http: Http, heroService: HeroService, private toastr: ToastrService) {
         this.heroService = heroService;
         this.socket = this.createWebsocket();
         this.lifeSubject = new Subject();
@@ -36,7 +37,9 @@ export class HeroLifeService {
 
     public updateHeroLife(message): void {
         let messageData = JSON.parse(message.data);
+        
         this.heroService.getHero(messageData.heroId).then(hero => {
+            this.toastr.success('Waffe wurde entfernt', 'Super')
             switch (messageData.type) {
                 case 'lifeUpdate':
                     hero.life_lost = hero.life_lost - messageData.value;

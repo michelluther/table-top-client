@@ -4,7 +4,7 @@
     <i class="fa fa-plus-square"></i> Waffe hinzufügen
   </button>
   <div class="addInventoryItem" *ngIf="showAddWeaponSheet === true">
-    <confirmation-sheet showExternalTemplate="true" (confirm)="addWeapon()">
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addWeapon()" (cancel)="cancelAddWeaponToInventory()">
       <div class="addWeaponForm">
         <div>Neue Waffe</div>
         <span>Name</span>
@@ -25,20 +25,37 @@
   <div *ngFor="let weapon of hero.weapons" class="inventoryItem">
     <div class="inventoryItemName">{{weapon.name}}</div>
     <div class="inventoryDamage">{{weapon.damageTextGeneral}}</div>
-    <button (click)="removeWeaponFromInventory(weapon)"><i class="fa fa-trash"></i></button>
+    
+    <div class="row flex-spaces child-borders">
+      <button class="paper-btn margin" (click)="removeWeaponFromInventory(weapon)"><i class="fa fa-trash"></i></button>
+    </div>
+    <input class="modal-state" id="modal-{{weapon.id}}" type="checkbox">
+    
   </div> 
-
 
 </div>
 <div class="padded flex-col center">
   <h4 class="spellGroupTitle">Rüstung</h4>
-  <button class="addButton">
+  <button class="addButton" (click)="addArmorToInventory()">
     <i class="fa fa-plus-square"></i> Rüstung hinzufügen
   </button>
+  <div class="addInventoryItem" *ngIf="showAddArmorSheet === true">
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addArmor()" (cancel)="cancelAddArmorToInventory()">
+      <div class="addWeaponForm">
+        <div>Neue Rüstung</div>
+        <span>Name</span>
+        <input [(ngModel)]="newArmor.name" />
+        <span>Rüstungsschutz</span>
+        <input [(ngModel)]="newArmor.rs" />
+        <span>Behinderung</span>
+        <input [(ngModel)]="newArmor.behinderung" />
+      </div>
+    </confirmation-sheet>
+  </div>
   <div *ngFor="let armor of hero.armor" class="inventoryItem">
     <div class="inventoryItemName">{{armor.name}}</div>
     <div class="inventoryDamage">{{armor.rs}}</div>
-    <button (click)="removeArmorFromInventory(weapon)"><i class="fa fa-trash"></i></button>
+    <button (click)="removeArmorFromInventory(armor)"><i class="fa fa-trash"></i></button>
   </div> 
 </div>
 

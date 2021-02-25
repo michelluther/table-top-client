@@ -13,9 +13,9 @@ confirmation-sheet {
   margin-top: -20px;
   display: block;
 }
-button {
+button.addButton {
   margin-bottom: 8px;
-  z-index: 100;
+  z-index: 10;
 }
 
 .addWeaponForm span {

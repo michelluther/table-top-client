@@ -91,6 +91,9 @@ import { ExperienceDisplayComponent } from './experience-display/experience-disp
 import { SpellSearchComponent } from './spell-search/spell-search.component';
 import { EditTalentComponent } from './edit-talent/edit-talent.component';
 import { ConfirmationSheetComponent } from './confirmation-sheet/confirmation-sheet.component';
+import { ConfirmDeletionComponent } from './confirm-deletion/confirm-deletion.component';
+
+import { ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'player', pathMatch: 'full' },
@@ -131,6 +134,11 @@ const routes: Routes = [
       scrollPositionRestoration: 'top'
     }),
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     HttpModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
@@ -195,7 +203,8 @@ const routes: Routes = [
     ExperienceDisplayComponent,
     SpellSearchComponent,
     EditTalentComponent,
-    ConfirmationSheetComponent
+    ConfirmationSheetComponent,
+    ConfirmDeletionComponent
   ],
   bootstrap: [AppComponent],
   providers: [{
@@ -203,6 +212,6 @@ const routes: Routes = [
     useValue: {}
   },
   {provide:MAT_DIALOG_DATA,useValue:{}}],
-  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent],
+  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent, ConfirmDeletionComponent],
 })
 export class AppModule { }
