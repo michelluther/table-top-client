@@ -138,7 +138,7 @@ export class Hero {
     }
 
     this.inventory = dataObject['inventoryItems'].map(inventoryItem => {
-      return new InventoryItem(inventoryItem.name, inventoryItem.amount, inventoryItem.weight)
+      return new InventoryItem(inventoryItem.id, inventoryItem.name, inventoryItem.amount, inventoryItem.weight)
     });
     return this;
   }
@@ -174,7 +174,7 @@ export class Hero {
       })
 
       weapons.forEach(weapon => {
-        this.weapons.push(new Weapon(
+        this.addWeapon(new Weapon(
           weapon['id'],
           weapon['name'],
           weapon['tp_dice'],
@@ -186,10 +186,11 @@ export class Hero {
           this.getAttribute('KK').valueNumber
           ))
       })
-      this.currentWeapon = this.weapons[0]
+      if(this.weapons.length > 0)
+        this.currentWeapon = this.weapons[0]
 
       armor.forEach(armor => {
-        this.armor.push(new Armor(
+        this.addArmor(new Armor(
           armor['id'],
           armor['name'],
           armor['rs'],
@@ -198,6 +199,39 @@ export class Hero {
       })
     });
 
+  }
+
+  addArmor(armor:Armor): void {
+    this.armor.push(armor)
+  }
+
+  deleteArmorById(armorId:string): void {
+    const armorIndex = this.armor.findIndex(armorItem => {
+      return armorItem.id === armorId;
+    })
+    this.armor.splice(armorIndex, 1)
+  }
+
+  addWeapon(weapon:Weapon): void {
+    this.weapons.push(weapon)
+  }
+
+  deleteWeaponById(weaponId:string): void {
+    const weaponIndex = this.weapons.findIndex(weapon => {
+      return weapon.id === weaponId;
+    })
+    this.weapons.splice(weaponIndex, 1)
+  }
+
+  addInventoryItem(inventoryItem:InventoryItem): void {
+    this.inventory.push(inventoryItem)
+  }
+
+  deleteInventoryItemById(inventoryItemId:number): void {
+    const inventoryIndex = this.inventory.findIndex(InventoryItem => {
+      return InventoryItem.id === inventoryItemId;
+    })
+    this.inventory.splice(inventoryIndex, 1)
   }
 
   structureSpells(actualSpellsOfHero: Array<Object>) : void {

@@ -61,11 +61,26 @@
 
 <div class="padded flex-col center">   
   <h4  class="spellGroupTitle">Inventar</h4>
-  <button class="addButton">
+  <button class="addButton" (click)="addInventoryToInventory()">
     <i class="fa fa-plus-square"></i> Inventar hinzufügen
   </button>
+  <div class="addInventoryItem" *ngIf="showAddInventorySheet === true">
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addInventory()" (cancel)="cancelAddInventoryToInventory()">
+      <div class="addWeaponForm">
+        <div>Neues Ding</div>
+        <span>Name</span>
+        <input [(ngModel)]="newInventoryItem.name" />
+        <span>Menge</span>
+        <input [(ngModel)]="newInventoryItem.amount" />
+        <span>Gewicht</span>
+        <input [(ngModel)]="newInventoryItem.weight" />
+      </div>
+    </confirmation-sheet>
+  </div>
   <div *ngFor="let inventoryItem of hero.inventory" class="inventoryItem">
     <div class="inventoryItemName">{{inventoryItem.name}}</div>
-    
+    <div class="inventoryItemName">{{inventoryItem.amount}}</div>
+    <div class="inventoryItemName">{{inventoryItem.weight}}</div>
+    <button (click)="removeInventoryItemFromInventory(inventoryItem)"><i class="fa fa-trash"></i></button>
   </div> 
 </div>
