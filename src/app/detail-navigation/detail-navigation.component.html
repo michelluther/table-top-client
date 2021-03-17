@@ -15,7 +15,7 @@
     <button (click)="updateDetailView('inventory')" [ngClass]="detailArea === 'inventory' ? 'paper-btn btn-primary' : 'paper-btn'">
       Inventar
     </button>
-    <button (click)="navToEdit()">
+    <button (click)="updateDetailView('edit')" [ngClass]="detailArea === 'edit' ? 'paper-btn btn-primary' : 'paper-btn'">
       Steigern
     </button>
   </div>

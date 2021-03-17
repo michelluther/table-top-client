@@ -60,6 +60,9 @@ export class Hero {
 
   currentAttack: number;
   currentParade: number;
+
+  currentLongRangeValue: number;
+
   level: number;
 
 
@@ -234,6 +237,14 @@ export class Hero {
     this.inventory.splice(inventoryIndex, 1)
   }
 
+  updateInventoryItemAmount(inventoryItemId:number, amount){
+    const inventoryIndex = this.inventory.findIndex(InventoryItem => {
+      return InventoryItem.id === inventoryItemId;
+    })
+    const inventoryItem = this.inventory[inventoryIndex];
+    inventoryItem.amount = amount
+  }
+
   structureSpells(actualSpellsOfHero: Array<Object>) : void {
     const spellsPromise = Promise.all([
       this.spellService.getSpells(),
@@ -281,12 +292,29 @@ export class Hero {
     this._currentWeapon = weapon
     const skillDistribution = this._getDistributionOfSkill(weapon.skill)
 
-    this.currentAttack = skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
-    this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
+    if(this._currentWeapon.skill.skillGroupId === 1){
+      this.currentAttack = skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
+      this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
+    }
+    if(this._currentWeapon.skill.skillGroupId === 8){
+      const actualSkill = this.skills.find((skill) => {
+        return skill.getSkill().id === this._currentWeapon.skill.id
+      })
+      this.currentLongRangeValue = this.fernkampf_basis + actualSkill.value
+    }
+    
   }
 
   get currentWeapon() {
     return this._currentWeapon
+  }
+
+  currentWeaponSkillIsMelee():boolean {
+    return this._currentWeapon.skill.skillGroupId === 1
+  }
+
+  currentWeaponSkillIsLongRange():boolean {
+    return this._currentWeapon.skill.skillGroupId === 8
   }
 
   get currentWeaponDamageText(): string {

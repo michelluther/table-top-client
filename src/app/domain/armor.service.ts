@@ -13,10 +13,8 @@ import { Armor } from './armor';
 @Injectable()
 export class ArmorService {
   
-
   constructor(private service:HeroLifeService) {
   }
-
 
   addArmor(armor: Armor, hero: Hero): Promise<Armor> {
     return new Promise((resolve, reject) => {

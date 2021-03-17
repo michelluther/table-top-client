@@ -144,6 +144,14 @@ export class InventoryDisplayComponent implements OnInit {
     this.deletionDialogRef.close();
   }
 
+  subtractFromInventoryAmount(inventoryItem:InventoryItem):void{
+    if(inventoryItem.amount > 0) this.inventoryService.setInventoryItemAmount(inventoryItem, this.hero, inventoryItem.amount - 1)
+  }
+
+  addToInventoryAmount(inventoryItem:InventoryItem):void{
+    this.inventoryService.setInventoryItemAmount(inventoryItem, this.hero, inventoryItem.amount + 1)
+  }
+
   cancelDeletion():void {
     this.deletionDialogRef.close();
   }

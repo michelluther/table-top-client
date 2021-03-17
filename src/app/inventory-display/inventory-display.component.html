@@ -12,7 +12,7 @@
         <span>Trefferpunkte Würfel</span>
         <input [(ngModel)]="newWeapon.damageDice" />
         <span>Trefferpunkte Zusatzpunkte</span>
-        <input [(ngModel)]="newWeapon.damageAddPoints" />
+        <input [(ngModel)]="newWeapon._damageAddPoints" />
         <span>Körperkraft Zuschlag</span>
         <input [(ngModel)]="newWeapon.extraPointsFromKk" />
         <span>Kampftalent</span>
@@ -81,6 +81,8 @@
     <div class="inventoryItemName">{{inventoryItem.name}}</div>
     <div class="inventoryItemName">{{inventoryItem.amount}}</div>
     <div class="inventoryItemName">{{inventoryItem.weight}}</div>
+    <button (click)="addToInventoryAmount(inventoryItem)"><i class="fa fa-plus"></i></button>
+    <button (click)="subtractFromInventoryAmount(inventoryItem)" [class.disabled]="inventoryItem.amount < 1"><i class="fa fa-minus"></i></button>
     <button (click)="removeInventoryItemFromInventory(inventoryItem)"><i class="fa fa-trash"></i></button>
   </div> 
 </div>

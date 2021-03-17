@@ -6,10 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Todos
 
-## Icons
-
-- [x] Include Font-awesome Icon set
-
 ## Navigation
 
 - [ ] Overall Layout
@@ -17,29 +13,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Character Details
 
-### Display of Basic attributes
-
-- [x] Make sense of grid layout
-- [x] Get it to work
-
-### Display of Attributes
-
-- [ ] Layout
-
 ### Display of Experience Points
 
 - [x] Show experience points
 - [ ] Styling
 - [ ] Consider mobile view
+- [ ] How to add experience points?
 
-### Display of inventory
 
-- [ ] General Layout
 
-- fight display
-    - maybe through an open street map?
-- Interface for increasing values
- 
+## fight display
+  
+- [ ] how to manage initiative
+- [ ] how to show combatants?
+  - [ ] friends and
+  - [ ] foes
+- [ ] how to add combatants?
+  - [ ] adventure management needed? 
 
 
 # Done 

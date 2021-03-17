@@ -29,8 +29,6 @@ export class MagicDisplayComponent implements OnInit {
 
 	private _isFocused: boolean;
 
-  @ViewChild(MatRipple) ripple: MatRipple;
-
   constructor(private websocketService: HeroLifeService) {}
 
   ngOnInit() {}
@@ -59,9 +57,6 @@ export class MagicDisplayComponent implements OnInit {
 
   public rippleDisplay(valueUpdate: number): void {
     const rippleColor = valueUpdate < 0 ? rippleColors.bad : rippleColors.good
-    this.ripple.launch({
-      color: rippleColor
-    })
   }
 
 

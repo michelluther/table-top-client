@@ -41,7 +41,7 @@ export class HeroLifeService {
             console.log('hey')
             event.stopPropagation()
             }
-            )
+        )
         this.socket.addEventListener('close', event => {
             this.connectionInterval = window.setInterval(this.createWebsocket.bind(this), 2000)
         })
@@ -58,7 +58,6 @@ export class HeroLifeService {
     private createWebsocket(): void {
         this.socket = new WebSocket(this.wsUrl);
         if(this.socket) clearInterval(this.connectionInterval)
-        
     }
 
     public sendUpate(data): void {
@@ -78,6 +77,7 @@ export class HeroLifeService {
                     break;
                 case 'updateAttribute':
                     // TODO: update hero's attribute
+                    hero.getAttribute(messageData['attribute']).value = messageData['value']
                     break;
                 case 'addWeapon':
                     this.skillService.getSkill(messageData['skill']).then(skill=>{
@@ -106,12 +106,16 @@ export class HeroLifeService {
                     break;
                 case 'deleteArmor':
                     hero.deleteArmorById(messageData['armorId']);
+                    this.toastr.success(`${hero.name} muss nun aufpassen, er hat weniger Schutz!`, 'Zack!')
                     break;
                 case 'addInventoryItem':
                     hero.addInventoryItem(new InventoryItem(messageData['inventoryId'], messageData['name'], messageData['amount'], messageData['weight']))
                     break;
                 case 'deleteInventoryItem':
                     hero.deleteInventoryItemById(messageData['inventoryItemId']);
+                    break;
+                case 'updateInventoryItem':
+                    hero.updateInventoryItemAmount(messageData['inventoryItemId'], messageData['amount']);
                     break;
                 default:
                     break;

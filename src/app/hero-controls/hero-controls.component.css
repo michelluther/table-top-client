@@ -6,6 +6,20 @@
 	justify-content: space-between;
 	width: 100%;
 	height: 50px;
+	
+} 
+
+.buttons button {
+	border:none;
+}
+
+.buttons.transparent button {
+	background-color: transparent;
+}
+
+.buttons button:hover {
+	box-shadow: none;
+	background-color: transparent;
 } 
 
 .container {
@@ -27,14 +41,14 @@
 	justify-content: center;
 }
 
-.lifeChangerButton:not(:last-child) {
+.buttons .lifeChangerButton:not(:last-child) {
 	border-right: 1px solid #bbb;
 }
 
-.lifeChangerButton:first-child  {
+.buttons .lifeChangerButton:first-child  {
 	border-bottom-left-radius: 2px;
 }
-.lifeChangerButton:last-child  {
+.buttons .lifeChangerButton:last-child  {
 	border-bottom-right-radius: 2px;
 }
 

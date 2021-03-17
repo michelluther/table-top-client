@@ -13,6 +13,10 @@ export class ActualAttribute {
     this.attribute = attribute;
   }
 
+  set value(value: number) {
+    this.valueNumber = value;
+  }
+
 
   get value(): number {
     return this.valueNumber
