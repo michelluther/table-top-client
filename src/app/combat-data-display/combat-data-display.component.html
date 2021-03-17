@@ -32,13 +32,22 @@
               </label>
       </fieldset>
     </div>
-    <div class="currentValues flex-item flex-col border border-3 padded" *ngIf="hero.currentWeapon">
+    <div class="currentValues flex-item flex-col border border-3 padded" *ngIf="hero.currentWeapon && hero.currentWeaponSkillIsMelee()">
       <h6>Werte</h6>
       <div class="flex-row">
         <label>Attacke:&nbsp;</label> {{hero.currentAttack}}
       </div>
       <div class="flex-row">
         <label>Parade:&nbsp;</label> {{hero.currentParade}}
+      </div>
+      <div class="flex-row">
+        <label>Trefferpunkte:&nbsp;</label> {{hero.currentWeapon.damageDice}}W6+{{hero.currentWeapon.damageAddPoints}}
+      </div>
+    </div>
+    <div class="currentValues flex-item flex-col border border-3 padded" *ngIf="hero.currentWeapon && hero.currentWeaponSkillIsLongRange()">
+      <h6>Werte</h6>
+      <div class="flex-row">
+        <label>Fernkampfwert:&nbsp;</label> {{hero.currentLongRangeValue}}
       </div>
       <div class="flex-row">
         <label>Trefferpunkte:&nbsp;</label> {{hero.currentWeapon.damageDice}}W6+{{hero.currentWeapon.damageAddPoints}}

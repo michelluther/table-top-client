@@ -9,10 +9,14 @@ export class ExperienceDisplayComponent implements OnInit {
 
   @Input()
   experience: string
+  
+  @Input()
+  availablePoints: number
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  
 }

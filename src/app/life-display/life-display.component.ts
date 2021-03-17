@@ -28,7 +28,6 @@ export class LifeDisplayComponent implements OnInit {
   private _maxLife: number
   private lifeDisplay: number
 
-  @ViewChild(MatRipple) ripple: MatRipple;
 
   constructor(private websocketService: HeroLifeService) {}
 
@@ -59,9 +58,7 @@ export class LifeDisplayComponent implements OnInit {
 
   public rippleDisplay(valueUpdate: number): void {
     const rippleColor = valueUpdate < 0 ? rippleColors.bad : rippleColors.good
-    this.ripple.launch({
-      color: rippleColor
-    })
+    
   }
 
   // Test stuff

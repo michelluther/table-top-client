@@ -69,3 +69,6 @@ div.label {
 	overflow: hidden;
 	background-color: #fff;
 }
+.actionsContainer {
+	overflow: visible;
+}

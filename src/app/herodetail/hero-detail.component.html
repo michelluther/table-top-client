@@ -32,7 +32,7 @@
             </div>
             <div *ngIf="detailArea === 'character'" class="characterDetails">  
               <div class="experienceContainer">
-                <experience-display  [experience]="hero.experience" ></experience-display>
+                <experience-display  [experience]="hero.experience" [availablePoints]="hero.availablePoints"></experience-display>
               </div>
               <div class="flex-col">
                 <div id="propertiesBox" id="mainAttributes" class="contentBox Grid Grid--cols-2">
@@ -60,6 +60,9 @@
             </div>
             <div *ngIf="detailArea === 'inventory'" class="inventory">
               <inventory-display [hero]="hero"></inventory-display>
+            </div>
+            <div *ngIf="detailArea === 'edit'" class="editHeroValues">
+              <edit-dialog [hero]="hero"></edit-dialog>
             </div>
           </div>
         </div>

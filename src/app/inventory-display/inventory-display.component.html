@@ -81,6 +81,8 @@
     <div class="inventoryItemName">{{inventoryItem.name}}</div>
     <div class="inventoryItemName">{{inventoryItem.amount}}</div>
     <div class="inventoryItemName">{{inventoryItem.weight}}</div>
+    <button (click)="addToInventoryAmount(inventoryItem)"><i class="fa fa-plus"></i></button>
+    <button (click)="subtractFromInventoryAmount(inventoryItem)" [class.disabled]="inventoryItem.amount < 1"><i class="fa fa-minus"></i></button>
     <button (click)="removeInventoryItemFromInventory(inventoryItem)"><i class="fa fa-trash"></i></button>
   </div> 
 </div>

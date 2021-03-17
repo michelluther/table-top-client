@@ -106,12 +106,16 @@ export class HeroLifeService {
                     break;
                 case 'deleteArmor':
                     hero.deleteArmorById(messageData['armorId']);
+                    this.toastr.success(`${hero.name} muss nun aufpassen, er hat weniger Schutz!`, 'Zack!')
                     break;
                 case 'addInventoryItem':
                     hero.addInventoryItem(new InventoryItem(messageData['inventoryId'], messageData['name'], messageData['amount'], messageData['weight']))
                     break;
                 case 'deleteInventoryItem':
                     hero.deleteInventoryItemById(messageData['inventoryItemId']);
+                    break;
+                case 'updateInventoryItem':
+                    hero.updateInventoryItemAmount(messageData['inventoryItemId'], messageData['amount']);
                     break;
                 default:
                     break;

@@ -83,7 +83,7 @@ export class SkillService {
     return new Promise((resolve, reject) => {
       this.getSkills().then(skills => {
         resolve(skills.filter(skill => {
-          return skill.isWeaponSkill === true
+          return skill.skillGroupId === 1 || skill.skillGroupId === 8
         }))
       })
     })
