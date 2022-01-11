@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Hero } from './hero';
-import { Attribute } from './attribute'
-import { AttributeService } from './attribute.service'
-
 import { Http, Response } from '@angular/http';
-
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-
+import { Observable } from 'rxjs/Observable';
+import { Attribute } from './attribute';
+import { AttributeService } from './attribute.service';
+import { Hero } from './hero';
 import { SkillService } from './skills.service';
-
 import { SpellService } from './spells.service';
+
+
+
+
 
 @Injectable()
 export class HeroService {
@@ -21,7 +21,7 @@ export class HeroService {
 	private heroes: Hero[];
 	private attributesConfigured: Attribute[]
 
-	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) { 
+	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
 
 	}
 
@@ -31,13 +31,18 @@ export class HeroService {
 				resolve(this.heroes)
 			})
 		} else {
-			return this.http.get(this.heroesUrl)
+			const characterGetPromise = this.http.get(this.heroesUrl)
 				.toPromise()
 				.then(response => {
 					this.heroes = this.extractData(response);
 					return this.heroes
 				}
 				)
+
+			characterGetPromise.catch(error => {
+				console.log('error getting characters')
+			})
+			return characterGetPromise
 		}
 	}
 
@@ -45,7 +50,7 @@ export class HeroService {
 		let body = res.json();
 		let heroes = [];
 		body.forEach(function (hero) {
-			var newHero = new Hero(this.skillService, this.spellService, 
+			var newHero = new Hero(this.skillService, this.spellService,
 				this.attributeService).setData(hero);
 			heroes.push(newHero);
 		}.bind(this));
@@ -73,7 +78,7 @@ export class HeroService {
 			));
 	}
 
-	get attributes():Array<Attribute> {
+	get attributes(): Array<Attribute> {
 		return this.attributesConfigured
 	}
 

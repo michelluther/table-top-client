@@ -1,18 +1,19 @@
-import { Skill } from "./skill";
-import { SkillService } from "./skills.service";
 import * as _ from 'lodash';
+import { ActualAttribute } from "./actualAttribute";
 import { ActualSkill } from "./actualSkill";
 import { ActualSkillGroup } from "./actualSkillGroup";
 import { ActualSpell } from "./actualSpell";
 import { ActualSpellGroup } from "./actualSpellGroup";
-import { ActualAttribute } from "./actualAttribute";
-import { Weapon } from './weapon'
-import { Armor } from './armor'
-import { WeaponSkillDistribution } from "./weaponSkillDistribution";
-import { SpellService } from "./spells.service";
-import { AttributeService } from './attribute.service'
+import { Armor } from './armor';
+import { AttributeService } from './attribute.service';
 import { HeroType } from "./heroType";
 import { InventoryItem } from "./inventoryItem";
+import { MoneyInventory } from './moneyInventory';
+import { Skill } from "./skill";
+import { SkillService } from "./skills.service";
+import { SpellService } from "./spells.service";
+import { Weapon } from './weapon';
+import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 
 export class Hero {
 
@@ -28,6 +29,8 @@ export class Hero {
   avatar_small: String;
 
   experience: number;
+
+  money: MoneyInventory;
 
   MU: number;
   CH: number;
@@ -45,7 +48,7 @@ export class Hero {
 
   experience_used: number;
   hero_type: HeroType;
-  ini_basis: number;
+  initiative: number;
   KL: number;
   magieresistenz: number;
   social_rank: number;
@@ -67,7 +70,7 @@ export class Hero {
 
 
   attributes: Array<ActualAttribute>;
-  
+
   skills: Array<ActualSkill>;
   skillGroups: ActualSkillGroup[];
 
@@ -79,6 +82,9 @@ export class Hero {
 
   armor: Array<Armor>
   inventory: Array<InventoryItem>
+  hairColor: string
+  eyeColor: string
+  weight: number
 
   weaponSkillDistributions: Array<WeaponSkillDistribution>
 
@@ -98,24 +104,28 @@ export class Hero {
     this.culture = dataObject['culture'];
     this.experience = dataObject['experience'];
 
-    this.level = Math.floor(Math.sqrt(this.experience/50+0.25)+0.5)
+    this.level = Math.floor(Math.sqrt(this.experience / 50 + 0.25) + 0.5)
 
     this.experience_used = dataObject['experience_used'];
     this.gender = dataObject['gender'];
     this.hero_type = dataObject['hero_type'];
     this.id = dataObject['id'];
-    this.ini_basis = dataObject['ini_basis'];
+    this.initiative = dataObject['ini_basis'];
     this.knowsMagic = dataObject['knows_magic'];
 
+    this.money = new MoneyInventory(dataObject['money_dukaten'], dataObject['money_silbertaler'], dataObject['money_kreuzer'], dataObject['money_heller'])
+    this.hairColor = dataObject['hair_color']
+    this.eyeColor = dataObject['eye_color']
+    this.weight = dataObject['weight']
 
     this.attributes = [
-      new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')) ,
-      new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')) ,
-      new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')) ,
-      new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')) ,
-      new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')) ,
-      new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')) ,
-      new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')) ,
+      new ActualAttribute(dataObject['MU'], this.attributeService.attributes.get('MU')),
+      new ActualAttribute(dataObject['KL'], this.attributeService.attributes.get('KL')),
+      new ActualAttribute(dataObject['IN'], this.attributeService.attributes.get('IN')),
+      new ActualAttribute(dataObject['CH'], this.attributeService.attributes.get('CH')),
+      new ActualAttribute(dataObject['FF'], this.attributeService.attributes.get('FF')),
+      new ActualAttribute(dataObject['GE'], this.attributeService.attributes.get('GE')),
+      new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')),
       new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK'))
     ];
 
@@ -136,7 +146,7 @@ export class Hero {
     })
 
     this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons'], dataObject['armor']);
-    if(this.knowsMagic){
+    if (this.knowsMagic) {
       this.structureSpells(dataObject['spells']);
     }
 
@@ -148,7 +158,7 @@ export class Hero {
 
   structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>, armor: Array<Object>): void {
 
-    
+
     let skillsPromise = Promise.all([
       this.skillService.getSkillGroups(),
       this.skillService.getSkills()
@@ -186,10 +196,10 @@ export class Hero {
           _.find(allSkills, skill => {
             return skill.id === weapon['skill']
           }),
-          this.getAttribute('KK').valueNumber
-          ))
+          this.getAttribute('KK').value
+        ))
       })
-      if(this.weapons.length > 0)
+      if (this.weapons.length > 0)
         this.currentWeapon = this.weapons[0]
 
       armor.forEach(armor => {
@@ -204,48 +214,51 @@ export class Hero {
 
   }
 
-  addArmor(armor:Armor): void {
+  addArmor(armor: Armor): void {
     this.armor.push(armor)
   }
 
-  deleteArmorById(armorId:string): void {
+  deleteArmorById(armorId: string): void {
     const armorIndex = this.armor.findIndex(armorItem => {
       return armorItem.id === armorId;
     })
     this.armor.splice(armorIndex, 1)
   }
 
-  addWeapon(weapon:Weapon): void {
+  addWeapon(weapon: Weapon): void {
     this.weapons.push(weapon)
   }
 
-  deleteWeaponById(weaponId:string): void {
+  deleteWeaponById(weaponId: string): void {
     const weaponIndex = this.weapons.findIndex(weapon => {
       return weapon.id === weaponId;
     })
     this.weapons.splice(weaponIndex, 1)
   }
 
-  addInventoryItem(inventoryItem:InventoryItem): void {
+  addInventoryItem(inventoryItem: InventoryItem): void {
     this.inventory.push(inventoryItem)
   }
 
-  deleteInventoryItemById(inventoryItemId:number): void {
+  getInventoryItemById(inventoryItemId: number): InventoryItem {
+    const inventoryIndex = this.inventory.findIndex(InventoryItem => {
+      return InventoryItem.id === inventoryItemId;
+    })
+    return this.inventory[inventoryIndex];
+  }
+
+  deleteInventoryItemById(inventoryItemId: number): void {
     const inventoryIndex = this.inventory.findIndex(InventoryItem => {
       return InventoryItem.id === inventoryItemId;
     })
     this.inventory.splice(inventoryIndex, 1)
   }
 
-  updateInventoryItemAmount(inventoryItemId:number, amount){
-    const inventoryIndex = this.inventory.findIndex(InventoryItem => {
-      return InventoryItem.id === inventoryItemId;
-    })
-    const inventoryItem = this.inventory[inventoryIndex];
-    inventoryItem.amount = amount
+  updateInventoryItemAmount(inventoryItemId: number, amount) {
+    this.getInventoryItemById(inventoryItemId).amount = amount
   }
 
-  structureSpells(actualSpellsOfHero: Array<Object>) : void {
+  structureSpells(actualSpellsOfHero: Array<Object>): void {
     const spellsPromise = Promise.all([
       this.spellService.getSpells(),
       this.spellService.getSpellGroups()
@@ -253,7 +266,7 @@ export class Hero {
 
       this.spellGroups = new Array<ActualSpellGroup>();
       this.spells = new Array<ActualSpell>();
-      
+
       const allSpells = spellsAndSpellGroups[0]
       const spellGroups = spellsAndSpellGroups[1]
 
@@ -284,7 +297,7 @@ export class Hero {
     })
   }
 
-  getAttribute(id: String){
+  getAttribute(id: String) {
     return this.attributes.find(attribute => attribute.attribute.id === id)
   }
 
@@ -292,29 +305,33 @@ export class Hero {
     this._currentWeapon = weapon
     const skillDistribution = this._getDistributionOfSkill(weapon.skill)
 
-    if(this._currentWeapon.skill.skillGroupId === 1){
+    if (this._currentWeapon.skill.skillGroupId === 1) {
       this.currentAttack = skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
       this.currentParade = skillDistribution ? this.parade_basis + skillDistribution.parade : this.parade_basis
     }
-    if(this._currentWeapon.skill.skillGroupId === 8){
+    if (this._currentWeapon.skill.skillGroupId === 8) {
       const actualSkill = this.skills.find((skill) => {
         return skill.getSkill().id === this._currentWeapon.skill.id
       })
       this.currentLongRangeValue = this.fernkampf_basis + actualSkill.value
     }
-    
+
   }
 
   get currentWeapon() {
     return this._currentWeapon
   }
 
-  currentWeaponSkillIsMelee():boolean {
-    return this._currentWeapon.skill.skillGroupId === 1
+  currentWeaponSkillIsMelee(): boolean {
+    if (this._currentWeapon)
+      return this._currentWeapon.skill.skillGroupId === 1
+    else return false
   }
 
-  currentWeaponSkillIsLongRange():boolean {
-    return this._currentWeapon.skill.skillGroupId === 8
+  currentWeaponSkillIsLongRange(): boolean {
+    if (this._currentWeapon)
+      return this._currentWeapon.skill.skillGroupId === 8
+    else return false
   }
 
   get currentWeaponDamageText(): string {
@@ -329,7 +346,7 @@ export class Hero {
     return this.magicEnergy - this.magicEnergy_lost
   }
 
-  getAttackOfWeaponSkill(weaponSkill:Skill): number{
+  getAttackOfWeaponSkill(weaponSkill: Skill): number {
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)
     return skillDistribution ? this.attack_basis + skillDistribution.attack : this.attack_basis
   }
@@ -337,8 +354,8 @@ export class Hero {
   get availablePoints(): number {
     return this.experience - this.experience_used;
   }
-  
-  getParadeOfWeaponSkill(weaponSkill:Skill): number{
+
+  getParadeOfWeaponSkill(weaponSkill: Skill): number {
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)
     return skillDistribution ? this.parade_basis + skillDistribution.attack : this.parade_basis
   }

@@ -1,5 +1,8 @@
-.badge {
-    font-size: 30px;
-    position: absolute;
-    margin-top: -60px;
+.overalContainer {
+  /* position: absolute; */
+  overflow: visible;
+}
+
+.experienceContainer {
+  font-size: 1.5rem;
 }

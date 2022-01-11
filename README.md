@@ -1,7 +1,4 @@
-# TableTopClient
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
-
+# TableTopClient 
 
 
 # Todos
@@ -13,12 +10,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Character Details
 
+- [ ] Display Money
+- [x] Display Level
+
+## Inventory
+
+- [x] show which skill group a weapon needs
+
 ### Display of Experience Points
 
 - [x] Show experience points
-- [ ] Styling
-- [ ] Consider mobile view
-- [ ] How to add experience points?
+- [x] Styling
+- [x] Consider mobile view
+- [x] How to add experience points?
 
 
 

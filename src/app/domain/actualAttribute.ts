@@ -5,12 +5,12 @@ import { Attribute } from './attribute'
 
 export class ActualAttribute {
 
-  valueNumber: number;
-  attribute: Attribute;
+  private valueNumber: number;
+  private _attribute: Attribute;
 
   constructor(actualValue: number, attribute: Attribute) {
     this.valueNumber = actualValue;
-    this.attribute = attribute;
+    this._attribute = attribute;
   }
 
   set value(value: number) {
@@ -28,5 +28,9 @@ export class ActualAttribute {
 
   get short(): String {
     return this.attribute.short
+  }
+
+  get attribute(): Attribute {
+    return this._attribute;
   }
 }

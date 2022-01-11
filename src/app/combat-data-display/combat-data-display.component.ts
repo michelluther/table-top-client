@@ -25,9 +25,9 @@ export class CombatDataDisplayComponent implements OnInit {
           type: 'setCurrentWeapon',
           weaponId: weapon.id
       })
+      this.hero.currentWeapon = weapon
       resolve(weapon)
-		this.hero.currentWeapon = weapon
-    }
+    })
   }
 
 }

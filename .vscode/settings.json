@@ -1,2 +1,9 @@
 {
+    "standard.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
+    "editor.formatOnSave": true
+
 }

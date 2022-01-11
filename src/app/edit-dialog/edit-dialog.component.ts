@@ -68,7 +68,7 @@ export class EditDialogComponent implements OnInit {
 
   public getCostOfAttributeAscension(attribute: ActualAttribute): number {
     const price = this.pricingTable.find(ascensionPricing => {
-      return ascensionPricing.levelFrom === attribute.valueNumber
+      return ascensionPricing.levelFrom === attribute.value
     }).priceH
 
     return price

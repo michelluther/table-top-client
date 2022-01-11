@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../domain/hero';
-import { Skill } from '../domain/skill';
-
 import { HeroService } from '../domain/hero.service';
+import { Skill } from '../domain/skill';
 import { SkillService } from '../domain/skills.service';
 
-import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -18,23 +18,31 @@ export class HeroesComponent implements OnInit {
 	heroes: Hero[];
 	skills: Skill[];
 	selectedHero: Hero;
+	currentlyLoading: boolean = false;
+	successfullyLoaded: boolean = false;
 
 	constructor(
 		private heroService: HeroService,
 		private skillService: SkillService,
 		private router: Router
 	) {
-		this.getHeroes();
-		this.getSkills();
+		this.loadBasicData();
 	}
 
-	getHeroes(): void {
-		this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+	loadBasicData(): void {
+		this.currentlyLoading = true;
+		const heroesPromise = this.heroService.getHeroes()
+		const skillsPromise = this.skillService.getSkills()
+		Promise.all([heroesPromise, skillsPromise]).then(results => {
+			this.heroes = results[0];
+			this.skills = results[1];
+			this.currentlyLoading = false;
+			this.successfullyLoaded = true;
+		}).catch(error => {
+			this.currentlyLoading = false;
+		})
 	}
 
-	getSkills(): void {
-		this.skillService.getSkills().then(skills => this.skills = skills);
-	}
 	ngOnInit(): void {
 
 	}

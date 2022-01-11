@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
-
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-
+import { AttributeService } from './attribute.service';
 import { Skill } from './skill';
 import { SkillGroup } from './skillgroup';
 
-import {Component, ChangeDetectorRef} from '@angular/core';
-import { AttributeService } from './attribute.service';
+
+
 
 @Injectable()
 export class SkillService {
@@ -21,7 +20,7 @@ export class SkillService {
   private skillGroupsPromise: Promise<SkillGroup[]>;
   private skillsPromise: Promise<Skill[]>;
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef, private attributeService:AttributeService) {
+  constructor(private http: Http, private chRef: ChangeDetectorRef, private attributeService: AttributeService) {
   }
 
   getSkills(): Promise<Skill[]> {
@@ -31,6 +30,10 @@ export class SkillService {
         .then(response => {
           return this.extractSkills(response);
         })
+      this.skillsPromise.catch(error => {
+        console.log('error getting skills')
+        this.skillsPromise = null;
+      })
     }
     return this.skillsPromise;
   }
@@ -43,6 +46,9 @@ export class SkillService {
           this.skillGroups = this.extractSkillTypes(response);
           return this.skillGroups;
         })
+      this.skillGroupsPromise.catch(error => {
+        console.log('error getting skill groups')
+      })
     }
     return this.skillGroupsPromise;
   }
@@ -66,20 +72,20 @@ export class SkillService {
   }
 
   getSkill(id: number): Promise<Skill> {
-		return this.getSkills()
-			.then(skills => 
-				skills.find(skill => skill.id === id)
-			);
+    return this.getSkills()
+      .then(skills =>
+        skills.find(skill => skill.id === id)
+      );
   }
-  
-  getSkillGroup(id: number):Promise<SkillGroup> {
+
+  getSkillGroup(id: number): Promise<SkillGroup> {
     return this.getSkillGroups().then(
       skillGroups =>
         skillGroups.find(skillGroup => skillGroup.id === id)
     )
   }
 
-  getWeaponSkills():Promise<Skill[]> {
+  getWeaponSkills(): Promise<Skill[]> {
     return new Promise((resolve, reject) => {
       this.getSkills().then(skills => {
         resolve(skills.filter(skill => {

@@ -1,9 +1,16 @@
 <div class="page heroes-container">
-    <div>
-        
-    </div>
-    <div class="heroes-list">
-        <hero-card *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" [hero]="hero">
-        </hero-card>
-    </div>
+  <div *ngIf="successfullyLoaded === false">
+    <p>Ich lade Deine Helden ....</p>
+    <button [disabled]="currentlyLoading" (click)="loadBasicData()">
+      Hier clicken um es noch mal zu versuchen
+    </button>
+  </div>
+  <div class="heroes-list">
+    <hero-card
+      *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      [hero]="hero"
+    >
+    </hero-card>
+  </div>
 </div>

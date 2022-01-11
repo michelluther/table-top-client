@@ -1,6 +1,7 @@
 .inventoryItem {
   display: flex;
   min-height: 30px;
+  max-width: 100%;
   align-items: center;
 }
 
@@ -26,14 +27,17 @@ button.addButton {
 
 .addButton {
   width: 300px;
+  max-width: 100%;
 }
 
 .inventoryItemName {
   width: 200px;
 }
 
-.inventoryDamage {
+.inventoryDamage,
+.inventoryItemAmount {
   width: 100px;
+  font-weight: 600;
 }
 
 .inventoryItemAction {

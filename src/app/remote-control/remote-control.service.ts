@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-
-import { Http, Response } from '@angular/http';
-import { RemoteControlOperation } from './../domain/remoteControlOperation'
-
-import { Subject, Observer, Observable, Subscription } from 'rxjs/Rx';
+import { Http } from '@angular/http';
 // import { Rx } from 'rxjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Rx';
+import { RemoteControlOperation } from './../domain/remoteControlOperation';
+
+
 
 @Injectable()
 export class RemoteControlService {
@@ -17,14 +17,19 @@ export class RemoteControlService {
     public remoteControlSubject: Subject<MessageEvent>;
 
     constructor(private http: Http) {
-        this.socket = this.createWebsocket();
-        let subject = this.remoteControlSubject = new Subject();
-        this.socket.onmessage = (evt => subject.next(evt));
+        // this.socket = this.createWebsocket();
+        // let subject = this.remoteControlSubject = new Subject();
+        // this.socket.onmessage = (evt => subject.next(evt));
     }
 
     private createWebsocket(): WebSocket {
-        let ws = new WebSocket(this.wsUrl);
-        return ws;
+        try {
+
+            let ws = new WebSocket(this.wsUrl);
+            return ws;
+        } catch (error) {
+            console.log('error setting up web socket to remote control sender')
+        }
     }
 
     public sendRemoteControlInstruction(instruction: RemoteControlOperation): void {

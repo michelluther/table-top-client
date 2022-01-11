@@ -1,12 +1,12 @@
 import { Skill } from "./skill";
 export class Weapon {
 
-    constructor(public id: string, public name: string, public damageDice: number, private _damageAddPoints: number, public extraPointsFromKk: number, public skill: Skill = null,  public heroKk : number = null) {
+    constructor(public id: string, public name: string, public damageDice: number, private _damageAddPoints: number, public extraPointsFromKk: number, public skill: Skill = null, public heroKk: number = null) {
 
     }
 
     get damageAddPoints(): number {
-        if(this.extraPointsFromKk < this.heroKk)
+        if (this.extraPointsFromKk < this.heroKk)
             return this._damageAddPoints + this.heroKk - this.extraPointsFromKk
         else
             return this._damageAddPoints

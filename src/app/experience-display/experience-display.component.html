@@ -1,6 +1,10 @@
-<div class="badge">
-   {{experience}} Abenteuerpunkte
-</div>
-<div class="smallerBadge">
-   {{availablePoints}} übrig
+<div
+  class="overalContainer flex flex-col center"
+  (click)="openAddExperiencePointsDialog()"
+>
+  <div class="experienceContainer">{{ experience }} Abenteuerpunkte</div>
+
+  <div class="experienceLeftContainer flex-item">
+    {{ availablePoints }} übrig
+  </div>
 </div>

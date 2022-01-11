@@ -74,12 +74,12 @@ export class EditAttributeComponent implements OnInit {
     });
     // this.heroMU
     this._state = ''
-    this._attribute.valueNumber = this.targetValue;
+    this._attribute.value = this.targetValue;
     this.hero.experience_used += this.costOfAscension;
   }
 
   get targetValue(): number {
-    return this._attribute.valueNumber + 1
+    return this._attribute.value + 1
   }
 
   get state(): String {
