@@ -1,16 +1,13 @@
 <div class="flex-col center">
-  <h4><i class="fa fa-hand-peace-o"></i></h4>
-  <h4 class="titleText">Du bekommst neue Abenteuerpunkte!!!</h4>
+  <img src="/assets/money-icon.png" class="dialogHeroImage no-border" />
   <p>
-    Aktuell hast Du {{ accountEntry.amount }} {{ accountEntry.unit }}. Wie viele
-    kommen jetzt dazu?
+    Aktuell hast Du <span style="font-weight: 700;">{{ accountEntry.amount }} {{ accountEntry.unit }}</span>.
+  </p>
+  <p>
+    Auf welchen Wert möchtest Du es setzen?
   </p>
 
-  <input
-    type="number"
-    placeholder="Die Anzahl deiner {{ accountEntry.unit }}"
-    [(ngModel)]="newAmount"
-  />
+  <input type="number" placeholder="Die Anzahl deiner {{ accountEntry.unit }}" [(ngModel)]="newAmount" />
 </div>
 <hr />
 <div class="buttonRow row">

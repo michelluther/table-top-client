@@ -13,6 +13,7 @@
 .page {
   padding-top: 10px;
   height: 100%;
+  font-size: 1.5rem;
 }
 
 .skillEntry i {
@@ -30,20 +31,29 @@
   margin-top: 0;
 }
 
-.heroName {
-  position: relative;
-  display: block;
-  margin: 0px -200px;
-  width: 400px;
-  height: 60px;
-  /* z-index: 100; */
-  border: 1px solid #8a1;
-  font: normal 30px/60px "Rye";
-  text-align: center;
-  color: #451;
-  background: #9b2;
-  border-radius: 4px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15) inset, 0 6px 10px rgba(0, 0, 0, 0.15);
+.heroBanner {
+  background-image: url("/assets/banner-hero.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 600px;
+  width: 100%;
+  height: 160px;
+  padding: 20px 0;
+  margin-bottom: -40px;
+}
+
+.heroType {
+  font-size: 1rem;
+}
+
+.heroLevel {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+#combatAttributes {
+  padding-top: 2rem;
 }
 
 .heroName::before,
@@ -80,29 +90,40 @@
 }
 
 /** content sections **/
-#mainAttributes {
-  background-image: url("/assets/hero-background_desaturated.jpg");
-  background-size: 300px;
-  background-position: 100px 0;
+basic-data-display {
+  background-image: url("/assets/hero-icon.png");
+  /* background-image: url("/assets/hero-background_desaturated.jpg"); */
+  background-size: 5.5rem;
+  padding-left: 5rem;
+  background-position: 0 2rem;
+  background-repeat: no-repeat;
+}
+
+attributes-display {
+  background-image: url("/assets/properties-icon.png");
+  /* background-image: url("/assets/hero-background_desaturated.jpg"); */
+  background-size: 5.5rem;
+  padding-left: 5rem;
+  background-position: 0 2rem;
   background-repeat: no-repeat;
 }
 
 #combatAttributes {
-  background-image: url("/assets/sword_drawn_desaturated.jpg");
+  /* background-image: url("/assets/sword_drawn_desaturated.jpg"); */
   background-size: 200px;
   background-position: right 100px top 50px;
   background-repeat: no-repeat;
 }
 
 .heroTalents {
-  background-image: url("/assets/hero-tavern_desaturated.jpg");
+  /* background-image: url("/assets/hero-tavern_desaturated.jpg"); */
   background-size: 300px;
   background-position: right 100px top 50px;
   background-repeat: no-repeat;
 }
 
 .heroSpells {
-  background-image: url("/assets/wizard_desaturated.jpg");
+  /* background-image: url("/assets/wizard_desaturated.jpg"); */
   background-size: 500px;
   background-position: right 10px top 10px;
   background-repeat: no-repeat;
@@ -180,10 +201,6 @@ label.short {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-experience-display {
-  width: 300px;
 }
 
 .talentSearchBox {
@@ -336,7 +353,7 @@ mat-radio-button {
 
 @media (min-width: 48em) {
   #avatarContainer {
-    order: 3;
+    order: 0;
     background-color: transparent;
     border-bottom: none;
   }

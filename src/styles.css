@@ -30,7 +30,7 @@ md-sidenav {
 }
 
 .page {
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 .sheet {
@@ -58,10 +58,6 @@ md-sidenav {
   margin: 0;
   font-size: 24px;
   font-weight: 400;
-}
-
-mat-card {
-  box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.5) !important;
 }
 
 .pageContent {
@@ -102,6 +98,14 @@ mat-card {
   padding: 10px 20px;
 }
 
+.borderTop {
+  border-top: 1px solid #afafaf;
+}
+
+.borderBottom {
+  border-bottom: 1px solid #afafaf;
+}
+
 .contentContainer {
   padding: 10px 20px;
 }
@@ -115,7 +119,19 @@ mat-card {
 }
 
 .label {
-  width: 100px;
+  width: 10em;
+}
+
+button,
+[type="button"],
+button.comic-shadow,
+.comic-shadow {
+  box-shadow: 8px 8px #bfbfbf;
+}
+button:hover,
+[type="button"]:hover,
+button.comic-shadow:hover {
+  box-shadow: 2px 2px #bfbfbf;
 }
 
 h4,
@@ -125,7 +141,6 @@ h5 {
 
 h5 {
   padding-top: 10px;
-  border-top: 1px solid #999;
 }
 
 h6 {
@@ -311,6 +326,16 @@ h6 {
 .mat-radio-inner-circle,
 .mat-radio-outer-circle {
   width: 15px;
+}
+
+.dialogHeroImage {
+  height: 8rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: black;
 }
 
 /* Large screens */

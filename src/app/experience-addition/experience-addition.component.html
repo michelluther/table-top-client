@@ -1,14 +1,11 @@
 <div class="flex-col center">
-  <h4><i class="fa fa-hand-peace-o"></i></h4>
+  <img src="/assets/scroll.png" class="dialogHeroImage no-border" />
   <h4 class="titleText">
-     Du bekommst neue Abenteuerpunkte!!!
+    Neue Abenteuerpunkte
   </h4>
-  <p>Aktuell hast Du {{data.currentPoints}} Abenteuerpunkte. Wie viele kommen jetzt dazu?</p>
-  
-  <input type="number" placeholder="Die Anzahl deiner neuen Abenteuerpunkte" [(ngModel)]="newPointsToAdd"/>
+  <input type="number" placeholder="Die Anzahl deiner neuen Abenteuerpunkte" [(ngModel)]="newPointsToAdd" />
 </div>
-  <hr>
-  <div class="buttonRow row">
-    <button (click)="raiseCancel()">Aaah, Quatsch, kommt doch nichts dazu.</button>
-    <button class="background-danger" (click)="raiseAccept()"><i class="fa fa-magic"></i> Her mit den Punkten!</button>
-  </div>
+<div class="buttonRow row">
+  <button (click)="raiseCancel()">Aaah, Quatsch, kommt doch nichts dazu.</button>
+  <button class="" (click)="raiseAccept()"><i class="fa fa-magic"></i> Her mit den Punkten!</button>
+</div>

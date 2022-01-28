@@ -3,27 +3,39 @@
 
 # Todos
 
-## Navigation
+## Grafiken
 
-- [ ] Overall Layout
-- [ ] Navigation to Skill Groups is currently broken
+- [ ] Experience Points
+  - [ ] Scroll?
 
-## Character Details
+- [x] Remove watermarks
 
-- [ ] Display Money
-- [x] Display Level
+- [x] Landingpage
+- [x] Heldenübersicht
 
-## Inventory
+- [x] Heldenbanner noch mal machen
+- [x] Kampfwerte - gekreuzte Schwerter
+- [x] Basiswerte - 
+- [x] Eigenschaften
+- [ ] Talente
+- [ ] Zauber
+- [x] Inventory
+  - [x] Geld
+  - [x] Waffen
+  - [x] Rüstung
+  - [x] Misc
+  
 
-- [x] show which skill group a weapon needs
+## Scrolling
 
-### Display of Experience Points
+- [ ] Warum scrollen diese Hero-Controls mit nach oben, wenn das iPad im Porträtmodus ist?
 
-- [x] Show experience points
-- [x] Styling
-- [x] Consider mobile view
-- [x] How to add experience points?
+## Dialoge
 
+- [ ] Geld-Dialog
+- [ ] Abenteuerpunktedialog
+- [ ] Inventar wegwerfen-Dialoge
+- [ ] vielleicht auch das Hinzufügen von Dingen in einen Dialog setzen?
 
 
 ## fight display
@@ -37,14 +49,3 @@
 
 
 # Done 
-- make magic available:
-    - domain objects (Spell, ActualSpell, SpellService)
-- Read all available skills and mix them with the skills available for a character
-- Master view
-    - Send images 
-- image viewer remote controlled
-    + create a new websocket connection
-        * can this be done via a new path? Certainly it can in the client via `new WebSocket(ws://...:.../remoteControl);`
-        * But what about the django app?
-    + display
-    + hide

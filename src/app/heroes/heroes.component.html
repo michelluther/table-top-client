@@ -1,16 +1,26 @@
-<div class="page heroes-container">
-  <div *ngIf="successfullyLoaded === false">
-    <p>Ich lade Deine Helden ....</p>
-    <button [disabled]="currentlyLoading" (click)="loadBasicData()">
-      Hier clicken um es noch mal zu versuchen
-    </button>
-  </div>
-  <div class="heroes-list">
-    <hero-card
-      *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      [hero]="hero"
-    >
-    </hero-card>
+<div class="page ">
+  <div class="flex-col center heroes-container">
+    <div class="heroes-banner-container flex-col center  flex-item" [ngClass]="{'landingPage': gameStarted === false}">
+      <h1 *ngIf="gameStarted === true">Die Helden</h1>
+      <img src="/assets/winged-shield.png" class="no-border heroes-banner">
+    </div>
+
+    <div class="flex-col center flex-item" *ngIf="successfullyLoaded === false">
+      <p>Ich lade Deine Helden ....</p>
+      <button [disabled]="currentlyLoading" (click)="loadBasicData()">
+        Hier clicken um es noch mal zu versuchen
+      </button>
+    </div>
+    <div class="flex-col center" *ngIf="gameStarted === false && successfullyLoaded === true">
+      <p>Das Spiel ist bereit ...</p>
+      <button (click)="startGame()">
+        Los geht's!
+      </button>
+    </div>
+    <div class="heroes-list flex-col flex-item" *ngIf="successfullyLoaded === true && gameStarted === true"
+      [@inOutAnimation]>
+      <hero-card *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" [hero]="hero">
+      </hero-card>
+    </div>
   </div>
 </div>

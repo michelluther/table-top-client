@@ -1,5 +1,5 @@
 <div class="hero-entry-container">
-  <div class="heroes-entry border border-3">
+  <div class="heroes-entry comic-shadow border border-3">
     <div class="headerContainer" (click)="gotoDetail()">
       <!--  -->
       <div class="headerContent">
@@ -22,7 +22,7 @@
           {{ hero.currentWeaponDamageText }}
         </li>
         <li>
-          <p>Rüstung: 3</p>
+          <p>Rüstung: {{hero.armorValue}}</p>
         </li>
       </ul>
       <ul *ngIf="hero.currentWeapon && hero.currentWeaponSkillIsLongRange()">
@@ -35,7 +35,7 @@
           {{ hero.currentWeaponDamageText }}
         </li>
         <li>
-          <p>Rüstung: 3</p>
+          <p>Rüstung: {{hero.armorValue}}</p>
         </li>
       </ul>
     </div>
@@ -44,10 +44,6 @@
     </div>
   </div>
   <div class="heroAvatar" (click)="gotoDetail()">
-    <img
-      class="heroAvatarImage no-border"
-      src="{{ baseUrl }}{{ hero.avatar_small }}"
-      height="100%"
-    />
+    <img class="heroAvatarImage no-border" src="{{ baseUrl }}{{ hero.avatar_small }}" height="100%" />
   </div>
 </div>

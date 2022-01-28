@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Armor } from 'app/domain/armor';
 import { Hero } from 'app/domain/hero';
 import { Weapon } from 'app/domain/weapon';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
@@ -29,5 +30,18 @@ export class CombatDataDisplayComponent implements OnInit {
       resolve(weapon)
     })
   }
+
+  updateEquippedArmor(armor: Armor) {
+    return new Promise((resolve, reject) => {
+      armor.isEquipped = !armor.isEquipped;
+      this.service.sendUpate({
+          heroId: this.hero.id,
+          type: 'equipArmor',
+          weaponId: armor.id,
+          isEquipped: armor.isEquipped
+      })
+      resolve(armor)
+  })
+}
 
 }

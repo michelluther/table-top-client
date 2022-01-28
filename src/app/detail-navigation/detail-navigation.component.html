@@ -1,21 +1,26 @@
 <div class="detailNavigation flex-item flex-row" *ngIf="hero">
-  <button class="backButton" (click)="navToOverview()">
+  <button class="comic-shadow" (click)="navToOverview()">
     <i class="fa fa-arrow-left"></i> Übersicht
   </button>
   <div class="detailNavButtons">
-    <button (click)="updateDetailView('character')" [ngClass]="detailArea === 'character' ? 'paper-btn btn-primary' : 'paper-btn'">
+    <button (click)="updateDetailView('character')"
+      [ngClass]="detailArea === 'character' ? 'comic-shadow btn-primary' : 'comic-shadow '">
       Character
     </button>
-    <button (click)="updateDetailView('talents')" [ngClass]="detailArea === 'talents' ? 'paper-btn btn-primary' : 'paper-btn'">
+    <button (click)="updateDetailView('talents')"
+      [ngClass]="detailArea === 'talents' ? 'comic-shadow btn-primary' : 'comic-shadow '">
       Talente
     </button>
-    <button *ngIf="hero.knowsMagic" (click)="updateDetailView('spells')" [ngClass]="detailArea === 'spells' ? 'paper-btn btn-primary' : 'paper-btn'">
+    <button *ngIf="hero.knowsMagic" (click)="updateDetailView('spells')"
+      [ngClass]="detailArea === 'spells' ? 'comic-shadow btn-primary' : 'comic-shadow '">
       Zauber
     </button>
-    <button (click)="updateDetailView('inventory')" [ngClass]="detailArea === 'inventory' ? 'paper-btn btn-primary' : 'paper-btn'">
+    <button (click)="updateDetailView('inventory')"
+      [ngClass]="detailArea === 'inventory' ? 'comic-shadow btn-primary' : 'comic-shadow '">
       Inventar
     </button>
-    <button (click)="updateDetailView('edit')" [ngClass]="detailArea === 'edit' ? 'paper-btn btn-primary' : 'paper-btn'">
+    <button (click)="updateDetailView('edit')"
+      [ngClass]="detailArea === 'edit' ? 'comic-shadow btn-primary' : 'comic-shadow '">
       Steigern
     </button>
   </div>
@@ -58,4 +63,3 @@
   </div> -->
 
 </div>
-

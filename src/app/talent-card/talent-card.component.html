@@ -1,15 +1,16 @@
 <div class="flex-col center">
-  <button>
+  <button class="comic-shadow">
     <div class="flex-row skill">
       <div class="skillTitle">{{skill.getSkill().name}}</div>
       <div class="skillBe">
         <i class="fa fa-wheelchair"></i>{{skill.getSkill().be}}
       </div>
-      
+
       <div class="skillValue">
-        <i class="fa fa-tachometer"></i>{{skill.value}}</div>
+        <i class="fa fa-tachometer"></i>{{skill.value}}
+      </div>
       <div class="fightDices" *ngIf="skillGroup.hasAttackParade">
-        <i class="fa fa-cube"></i> 
+        <i class="fa fa-cube"></i>
         <div class="fightDice">AT: {{skill.getAttack()}}</div>
         <div class="fightDice">PA: {{skill.getParade()}}</div>
       </div>
@@ -21,15 +22,15 @@
       </div>
     </div>
   </button>
-  <div *ngIf="state === 'rollDice'" class="confirmationButtons flex-col center" >
+  <div *ngIf="state === 'rollDice'" class="confirmationButtons flex-col center">
     <div class="messageToConfirm">Würfeln</div>
     <div class="flex-row">
-        <div class="flex-item flex-col confirmationButton center accept" (click)="confirmIncrease()">
-            <i class="fa fa-check"></i>
-        </div>
-        <div class="flex-item flex-col confirmationButton center reject" (click)="cancelIncrease()">
-            <i class="fa fa-window-close"></i>
-        </div>
+      <div class="flex-item flex-col confirmationButton center accept" (click)="confirmIncrease()">
+        <i class="fa fa-check"></i>
+      </div>
+      <div class="flex-item flex-col confirmationButton center reject" (click)="cancelIncrease()">
+        <i class="fa fa-window-close"></i>
+      </div>
     </div>
   </div>
 </div>

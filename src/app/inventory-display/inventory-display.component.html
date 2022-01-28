@@ -1,28 +1,28 @@
 <div class="padded flex-col center">
-  <h4 class="inventoryGroupTitle">Geld</h4>
+  <h4 class="inventoryGroupTitle inventoryMoneyTitle">Geld</h4>
   <div class="flex-col">
-    <div class="inventoryItem">
+    <div class="row inventoryItem">
       <div class="inventoryItemName">Dukaten:</div>
       <div class="inventoryItemAmount">{{ hero.money.dukaten }}</div>
       <button (click)="editMoney(hero.money.entries[0])">
         <i class="fa fa-pencil"></i>
       </button>
     </div>
-    <div class="inventoryItem">
+    <div class="row inventoryItem">
       <div class="inventoryItemName">Silbertaler:</div>
       <div class="inventoryItemAmount">{{ hero.money.silbertaler }}</div>
       <button (click)="editMoney(hero.money.entries[1])">
         <i class="fa fa-pencil"></i>
       </button>
     </div>
-    <div class="inventoryItem">
+    <div class="row inventoryItem">
       <div class="inventoryItemName">Kreuzer:</div>
       <div class="inventoryItemAmount">{{ hero.money.kreuzer }}</div>
       <button (click)="editMoney(hero.money.entries[2])">
         <i class="fa fa-pencil"></i>
       </button>
     </div>
-    <div class="inventoryItem">
+    <div class="row inventoryItem">
       <div class="inventoryItemName">Heller:</div>
       <div class="inventoryItemAmount">{{ hero.money.heller }}</div>
       <button (click)="editMoney(hero.money.entries[3])">
@@ -31,16 +31,12 @@
     </div>
   </div>
   <hr />
-  <h4 class="inventoryGroupTitle">Waffen</h4>
+  <h4 class="inventoryGroupTitle inventoryWeaponsTitle">Waffen</h4>
   <button (click)="addWeaponToInventory()" class="addButton">
     <i class="fa fa-plus-square"></i> Waffe hinzufügen
   </button>
   <div class="addInventoryItem" *ngIf="showAddWeaponSheet === true">
-    <confirmation-sheet
-      showExternalTemplate="true"
-      (confirm)="addWeapon()"
-      (cancel)="cancelAddWeaponToInventory()"
-    >
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addWeapon()" (cancel)="cancelAddWeaponToInventory()">
       <div class="addWeaponForm">
         <div>Neue Waffe</div>
         <span>Name</span>
@@ -53,26 +49,20 @@
         <input [(ngModel)]="newWeapon.extraPointsFromKk" />
         <span>Kampftalent</span>
         <select [(ngModel)]="selectedSkillId">
-          <option
-            *ngFor="let weaponSkill of weaponSkills"
-            [value]="weaponSkill.id"
-          >
+          <option *ngFor="let weaponSkill of weaponSkills" [value]="weaponSkill.id">
             {{ weaponSkill.name }}
           </option>
         </select>
       </div>
     </confirmation-sheet>
   </div>
-  <div *ngFor="let weapon of hero.weapons" class="inventoryItem">
+  <div *ngFor="let weapon of hero.weapons" class="row inventoryItem">
     <div class="inventoryItemName">{{ weapon.name }}</div>
     <div class="inventoryDamage">{{ weapon.damageTextGeneral }}</div>
     <div class="inventoryDamage">{{ weapon.skill.name }}</div>
 
-    <div class="row flex-spaces child-borders">
-      <button
-        class="paper-btn margin"
-        (click)="removeWeaponFromInventory(weapon)"
-      >
+    <div class="flex-spaces child-borders">
+      <button (click)="removeWeaponFromInventory(weapon)">
         <i class="fa fa-trash"></i>
       </button>
     </div>
@@ -81,16 +71,12 @@
 </div>
 <hr />
 <div class="padded flex-col center">
-  <h4 class="inventoryGroupTitle">Rüstung</h4>
+  <h4 class="inventoryGroupTitle inventoryArmorTitle">Rüstung</h4>
   <button class="addButton" (click)="addArmorToInventory()">
     <i class="fa fa-plus-square"></i> Rüstung hinzufügen
   </button>
   <div class="addInventoryItem" *ngIf="showAddArmorSheet === true">
-    <confirmation-sheet
-      showExternalTemplate="true"
-      (confirm)="addArmor()"
-      (cancel)="cancelAddArmorToInventory()"
-    >
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addArmor()" (cancel)="cancelAddArmorToInventory()">
       <div class="addWeaponForm">
         <div>Neue Rüstung</div>
         <span>Name</span>
@@ -102,7 +88,7 @@
       </div>
     </confirmation-sheet>
   </div>
-  <div *ngFor="let armor of hero.armor" class="inventoryItem">
+  <div *ngFor="let armor of hero.armor" class="row inventoryItem">
     <div class="inventoryItemName">{{ armor.name }}</div>
     <div class="inventoryDamage">{{ armor.rs }}</div>
     <button (click)="removeArmorFromInventory(armor)">
@@ -112,16 +98,13 @@
 </div>
 <hr />
 <div class="padded flex-col center">
-  <h4 class="inventoryGroupTitle">Inventar</h4>
+  <h4 class="inventoryGroupTitle inventoryMiscTitle">Anderes</h4>
   <button class="addButton" (click)="addInventoryToInventory()">
     <i class="fa fa-plus-square"></i> Inventar hinzufügen
   </button>
   <div class="addInventoryItem" *ngIf="showAddInventorySheet === true">
-    <confirmation-sheet
-      showExternalTemplate="true"
-      (confirm)="addInventory()"
-      (cancel)="cancelAddInventoryToInventory()"
-    >
+    <confirmation-sheet showExternalTemplate="true" (confirm)="addInventory()"
+      (cancel)="cancelAddInventoryToInventory()">
       <div class="addWeaponForm">
         <div>Neues Ding</div>
         <span>Name</span>
@@ -133,17 +116,14 @@
       </div>
     </confirmation-sheet>
   </div>
-  <div *ngFor="let inventoryItem of hero.inventory" class="inventoryItem">
+  <div *ngFor="let inventoryItem of hero.inventory" class="row inventoryItem">
     <div class="inventoryItemName">{{ inventoryItem.name }}</div>
-    <div class="inventoryItemName">{{ inventoryItem.amount }}</div>
-    <div class="inventoryItemName">{{ inventoryItem.weight }}</div>
+    <div class="inventoryItemAmount">{{ inventoryItem.amount }}</div>
+    <div class="inventoryItemAmount">{{ inventoryItem.weight }}</div>
     <button (click)="addToInventoryAmount(inventoryItem)">
       <i class="fa fa-plus"></i>
     </button>
-    <button
-      (click)="subtractFromInventoryAmount(inventoryItem)"
-      [class.disabled]="inventoryItem.amount < 1"
-    >
+    <button (click)="subtractFromInventoryAmount(inventoryItem)" [class.disabled]="inventoryItem.amount < 1">
       <i class="fa fa-minus"></i>
     </button>
     <button (click)="removeInventoryItemFromInventory(inventoryItem)">

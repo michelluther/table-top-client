@@ -158,7 +158,6 @@ export class Hero {
 
   structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>, armor: Array<Object>): void {
 
-
     let skillsPromise = Promise.all([
       this.skillService.getSkillGroups(),
       this.skillService.getSkills()
@@ -223,6 +222,24 @@ export class Hero {
       return armorItem.id === armorId;
     })
     this.armor.splice(armorIndex, 1)
+  }
+
+  getArmorById(armorId:string): Armor {
+    return this.armor.find(armorItem => {
+      return armorItem.id === armorId;
+    })
+  }
+
+  get armorValue(): number {
+    return this.armor.reduce((previousArmorValue, armorEntry) => {
+      if(armorEntry.isEquipped)
+        return previousArmorValue + armorEntry.rs
+      else return previousArmorValue
+    }, 0)
+  }
+
+  equipArmorById(armorId:string, isEquipped:boolean): void {
+    this.getArmorById(armorId).isEquipped = isEquipped
   }
 
   addWeapon(weapon: Weapon): void {

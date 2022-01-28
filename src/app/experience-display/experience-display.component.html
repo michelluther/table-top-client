@@ -1,10 +1,7 @@
-<div
-  class="overalContainer flex flex-col center"
-  (click)="openAddExperiencePointsDialog()"
->
+<div class="overalContainer flex flex-col center">
   <div class="experienceContainer">{{ experience }} Abenteuerpunkte</div>
-
-  <div class="experienceLeftContainer flex-item">
+  <button (click)="openAddExperiencePointsDialog()"><i class="fa fa-plus"></i></button>
+  <!-- <div class="experienceLeftContainer flex-item">
     {{ availablePoints }} übrig
-  </div>
+  </div> -->
 </div>

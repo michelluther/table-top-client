@@ -1,25 +1,40 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { gameState } from 'app/domain/applicationState';
 import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
 import { Skill } from '../domain/skill';
 import { SkillService } from '../domain/skills.service';
 
-
-
-
 @Component({
 	selector: 'heroes-list',
 	templateUrl: './heroes.component.html',
-	styleUrls: ['./heroes.component.css']
+	styleUrls: ['./heroes.component.css'],
+	animations: [
+		trigger(
+		  'inOutAnimation', 
+		  [
+			transition(
+			  ':enter', 
+			  [
+				style({ opacity: 0 }),
+				animate('0.5s 1s ease-out', 
+						style({ opacity: 1 }))
+			  ]
+			)
+		  ]
+		)],
 })
+
 export class HeroesComponent implements OnInit {
 
 	heroes: Hero[];
 	skills: Skill[];
 	selectedHero: Hero;
+
+	
 	currentlyLoading: boolean = false;
-	successfullyLoaded: boolean = false;
 
 	constructor(
 		private heroService: HeroService,
@@ -37,15 +52,20 @@ export class HeroesComponent implements OnInit {
 			this.heroes = results[0];
 			this.skills = results[1];
 			this.currentlyLoading = false;
-			this.successfullyLoaded = true;
+			gameState.dataInitialized = true;
 		}).catch(error => {
 			this.currentlyLoading = false;
 		})
 	}
 
+	startGame(): void {
+		gameState.gameStarted = true;
+	}
+
 	ngOnInit(): void {
 
 	}
+	
 	onSelect(hero: Hero): void {
 		this.selectedHero = hero;
 		this.gotoDetail();
@@ -53,5 +73,13 @@ export class HeroesComponent implements OnInit {
 
 	gotoDetail(): void {
 		this.router.navigate(['/hero', this.selectedHero.id]);
+	}
+
+	get gameStarted(): boolean {
+		return gameState.gameStarted;
+	}
+
+	get successfullyLoaded(): boolean {
+		return gameState.dataInitialized;
 	}
 }

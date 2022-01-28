@@ -35,7 +35,11 @@ export class HeroService {
 				.toPromise()
 				.then(response => {
 					this.heroes = this.extractData(response);
-					return this.heroes
+					return this.heroes.sort((heroA, heroB) => {
+						if(heroA.name > heroB.name)
+							return 1
+						else return -1
+					})
 				}
 				)
 
