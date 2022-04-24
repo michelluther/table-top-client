@@ -91,6 +91,7 @@
   <div *ngFor="let armor of hero.armor" class="row inventoryItem">
     <div class="inventoryItemName">{{ armor.name }}</div>
     <div class="inventoryDamage">{{ armor.rs }}</div>
+    <div class="inventoryDamage">{{ armor.behinderung }}</div>
     <button (click)="removeArmorFromInventory(armor)">
       <i class="fa fa-trash"></i>
     </button>

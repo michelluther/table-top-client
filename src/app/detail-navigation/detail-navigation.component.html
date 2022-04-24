@@ -5,7 +5,7 @@
   <div class="detailNavButtons">
     <button (click)="updateDetailView('character')"
       [ngClass]="detailArea === 'character' ? 'comic-shadow btn-primary' : 'comic-shadow '">
-      Character
+      Charakter
     </button>
     <button (click)="updateDetailView('talents')"
       [ngClass]="detailArea === 'talents' ? 'comic-shadow btn-primary' : 'comic-shadow '">
@@ -25,41 +25,5 @@
     </button>
   </div>
 
-  <!-- <div class="menuContainer" >
-    
-    <div class="menuItems">
-      <div class="menuItem" (click)="updateDetailView('character')" >
-        Character
-      </div>
-      <div class="menuItem" (click)="updateDetailView('inventory')" >
-        Inventar
-      </div>
-    </div>
-    <div class="menuItems">
-      <div class="menuItem" (click)="navTo(menuItem.target)" *ngFor="let menuItem of menu; index as i; keyvalue">
-        {{menuItem.title}}
-      </div>
-      <h4>Talente</h4>
-      <div class="menuItem" *ngFor="let skillGroup of hero.skillGroups; index as i; keyvalue" (click)="navToSkillGroup(skillGroup)">
-        {{skillGroup.getSkillGroup().name}}
-      </div>
-      <h4 *ngIf="hero.knowsMagic">Zauber</h4>
-      <div class="menuItem" *ngFor="let spellGroup of hero.spellGroups; index as i; keyvalue" (click)="navToSpellGroup(spellGroup)">
-        {{spellGroup.getSpellGroup().name}}
-      </div>
-    </div>
-    <div class="menuItems" *ngIf="menuVisible === true && detailArea === 'inventory'">
-      <div class="menuItem" (click)="navTo('weapons')">
-        Waffen
-      </div>
-      <div class="menuItem" (click)="navTo('armor')">
-        Rüstung
-      </div>
-      <div class="menuItem" (click)="navTo('')">
-        Rüstung
-      </div>
-    </div>
-    
-  </div> -->
 
 </div>

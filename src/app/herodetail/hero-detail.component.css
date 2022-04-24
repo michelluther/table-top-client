@@ -4,12 +4,14 @@
   /*padding: 20px 20px 0 20px;*/
   display: flex;
 }
+
 .shadow {
   /* box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75); */
   margin-bottom: 40px !important;
   /* background-color: rgba(255, 255, 255, 1); */
   min-height: 500px;
 }
+
 .page {
   padding-top: 10px;
   height: 100%;
@@ -135,6 +137,7 @@ attributes-display {
   background-position: right 10px top 10px;
   background-repeat: no-repeat;
 }
+
 /** end content sections **/
 
 label.long {
@@ -154,6 +157,10 @@ label.short {
   margin-right: 5px;
 }
 
+experience-display {
+  margin-top: 5rem;
+}
+
 #propertiesContainer {
   order: 2;
 }
@@ -166,6 +173,7 @@ label.short {
 .heroAvatar {
   height: 150px;
 }
+
 .heroAvatarImage {
   background-color: white;
   border-color: #999;
@@ -353,13 +361,13 @@ mat-radio-button {
 
 @media (min-width: 48em) {
   #avatarContainer {
-    order: 0;
+    order: 1;
     background-color: transparent;
     border-bottom: none;
   }
 
   #propertiesContainer {
-    order: 1;
+    order: 0;
   }
 
   #attributesContainer {

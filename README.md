@@ -1,7 +1,40 @@
 # TableTopClient 
 
+# Fragen
+
+- Modred hat aktuell mehr Astralenenergie als er maximal haben kann
+- Selbstbeherrschung ist auf dem mutmaßlich neueren Bogen kleiner als auf dem mutmaßlich älteren
+- Modred hat Magiekunde 3 ... Golini hat 10, vielleicht sollten die sich mal miteinander unterhalten ...
+
+- Torgal hat weniger FF als vorher?
+- Torgal hat verrückte Werte bei Astralenenergie und Magieresistenz
+- Torgal Wert bei Hiebwaffen?
+- Torgal Wert beim Klettern
+- Torgal Wert bei Kriegskunst
+
+- Thore Wert in Sich verstecken
+- Thore hat Richtungssinn mit einem Wert. Ich habe das jetzt nur als "Vorteil" gefunden, der sich auf Orientierungsproben auswirkt
+- Was ist mit der Streitaxt?
+
+# Feedback
+
+- Einsortierung der Talente
+- Woher kommen die -7?
+- Ende der Steigerungsfähigkeit merken: Ausgangswert
+- Umgang mit Schildkampf
+- Einberechnung von Behinderung
+- Überschriften für die Inventarspalten
 
 # Todos
+
+## Basics
+
+- Anzeige "Weapon-skill distribution"
+- Berücksichtigung der Behinderung?
+- Fehler wenn Inventaritems gerade hinzugefügt wurden und dann die Menge geändert wird
+
+
+
 
 ## Grafiken
 
