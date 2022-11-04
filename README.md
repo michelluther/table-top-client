@@ -19,11 +19,11 @@
 # Feedback
 
 - Einsortierung der Talente
-- Woher kommen die -7?
+- Woher kommen die -7? - das war, wenn man einen Skill aktuell gar nicht zugeordnet hat. Da steht nun 0
 - Ende der Steigerungsfähigkeit merken: Ausgangswert
 - Umgang mit Schildkampf
 - Einberechnung von Behinderung
-- Überschriften für die Inventarspalten
+- Überschriften für die Inventarspalten - done
 
 # Todos
 

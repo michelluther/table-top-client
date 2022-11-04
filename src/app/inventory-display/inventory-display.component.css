@@ -15,6 +15,29 @@
   padding-top: 0.8rem;
 }
 
+table {
+  position: relative;
+}
+
+th {
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+tr th:first-of-type {
+  text-align: left;
+}
+
+tr td:not(:first-of-type) {
+  text-align: center;
+}
+
+tr td:last-of-type {
+  text-align: right;
+}
+
 .inventoryMoneyTitle {
   background-image: url("/assets/money-icon.png");
 }

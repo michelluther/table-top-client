@@ -1,7 +1,6 @@
+import { Hero } from './hero';
 import { Skill } from "./skill";
-import { SkillService } from "./skills.service";
 import { SkillGroup } from "./skillgroup";
-import { Hero } from './hero'
 
 export class ActualSkill {
 
@@ -12,7 +11,7 @@ export class ActualSkill {
 
   constructor(actualSkill: Object, hero: Hero, private skill: Skill, private skillGroup: SkillGroup) {
     this.assignmentId = actualSkill ? actualSkill['assignmentId'] : null;
-    this.value = actualSkill ? actualSkill['value'] : -7;
+    this.value = actualSkill ? actualSkill['value'] : 0;
     this.isAssignedToHero = actualSkill ? true : false;
     this.hero = hero;
   }
