@@ -172,11 +172,12 @@ export class Hero {
         let skillSkillGroup = _.find(skillGroups, skillGroup => { return skill.skillGroupId == skillGroup.id });
         this.skills.push(new ActualSkill(actualSkill, this, skill, skillSkillGroup));
       })
-      // skills.forEach(actualSkill => {
-      //   let generalSkill = _.find(allSkills, finder => { return finder.id === actualSkill['id'] })
-      //   let skillSkillGroup = _.find(skillGroups, skillGroup => { return generalSkill.skillGroupId == skillGroup.id });
-      //   this.skills.push(new ActualSkill(actualSkill, this, generalSkill, skillSkillGroup));
-      // })
+
+      this.skills.sort((skillA, skillB) => {
+        if (skillA.getSkill().name < skillB.getSkill().name) { return -1; }
+        if (skillA.getSkill().name > skillB.getSkill().name) { return 1; }
+        return 0;
+      })
 
       skillGroups.forEach(skillGroup => {
         let skills = _.filter(this.skills, actualSkill => {
@@ -224,7 +225,7 @@ export class Hero {
     this.armor.splice(armorIndex, 1)
   }
 
-  getArmorById(armorId:string): Armor {
+  getArmorById(armorId: string): Armor {
     return this.armor.find(armorItem => {
       return armorItem.id === armorId;
     })
@@ -232,13 +233,21 @@ export class Hero {
 
   get armorValue(): number {
     return this.armor.reduce((previousArmorValue, armorEntry) => {
-      if(armorEntry.isEquipped)
+      if (armorEntry.isEquipped)
         return previousArmorValue + armorEntry.rs
       else return previousArmorValue
     }, 0)
   }
 
-  equipArmorById(armorId:string, isEquipped:boolean): void {
+  get behinderung(): number {
+    return this.armor.reduce((previousBehinderungValue, armorEntry) => {
+      if (armorEntry.isEquipped)
+        return previousBehinderungValue + armorEntry.behinderung
+      else return previousBehinderungValue
+    }, 0)
+  }
+
+  equipArmorById(armorId: string, isEquipped: boolean): void {
     this.getArmorById(armorId).isEquipped = isEquipped
   }
 
@@ -293,6 +302,12 @@ export class Hero {
         this.spellGroups.push(new ActualSpellGroup(spellGroup, []));
       })
 
+      allSpells.sort((spellA, spellB) => {
+        if (spellA.name < spellB.name) { return -1; }
+        if (spellA.name > spellB.name) { return 1; }
+        return 0;
+      })
+
       allSpells.forEach(spell => {
         let actualSpellDataObject = actualSpellsOfHero.find(actualSpellData => {
           return spell.id === actualSpellData['id']
@@ -304,6 +319,8 @@ export class Hero {
         this.spells.push(actualSpell)
         spellGroupOfSpell.getSpells().push(actualSpell)
       });
+
+
 
     })
   }

@@ -4,6 +4,7 @@ mat-card {
   box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0px 4px 20px 2px rgba(0, 0, 0, 0.48) !important;
 }
+
 mat-card-content {
   display: block;
 }
@@ -13,6 +14,8 @@ mat-card-title {
 }
 
 .cardContentContainer {
+  margin-right: 2rem;
+  margin-left: 2rem;
   height: 100px;
   position: relative;
   overflow: visible;
@@ -60,6 +63,8 @@ div.label {
 
 .headerContent {
   cursor: pointer;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .hero-entry-container {
@@ -70,6 +75,7 @@ div.label {
   overflow: hidden;
   background-color: #fff;
 }
+
 .actionsContainer {
   overflow: visible;
 }
