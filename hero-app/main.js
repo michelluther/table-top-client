@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navButton {\n    width:100%;text-align:left\n}\n\n.navIcon {\n    font-size: 20px\n\n}"
+module.exports = ".navButton {\r\n    width:100%;text-align:left\r\n}\r\n\r\n.navIcon {\r\n    font-size: 20px\r\n\r\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".navButton {\n    width:100%;text-align:left\n}\n\n.navIcon {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<remote-control #remoteControlMaster></remote-control>\n<mat-sidenav-container class=\"example-container\">\n  <mat-sidenav mode=\"side\" style=\"width:200px\" opened>\n    <button mat-button class=\"navButton\" (click)=\"remoteControlMaster.sendImage('')\">\n      <mat-icon class=\"navIcon\">burst_mode</mat-icon>\n      Send Image to Clients\n    </button>\n    <button mat-button class=\"navButton\" (click)=\"startFight()\">\n      <mat-icon class=\"navIcon\">whatshot</mat-icon>Start Fight!\n    </button>\n    <button mat-button class=\"navButton\">\n      <mat-icon class=\"navIcon\">library_music</mat-icon>Music and Sounds\n    </button>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <router-outlet></router-outlet>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
+module.exports = "<remote-control #remoteControlMaster></remote-control>\r\n<mat-sidenav-container class=\"example-container\">\r\n  <mat-sidenav mode=\"side\" style=\"width:200px\" opened>\r\n    <button mat-button class=\"navButton\" (click)=\"remoteControlMaster.sendImage('')\">\r\n      <mat-icon class=\"navIcon\">burst_mode</mat-icon>\r\n      Send Image to Clients\r\n    </button>\r\n    <button mat-button class=\"navButton\" (click)=\"startFight()\">\r\n      <mat-icon class=\"navIcon\">whatshot</mat-icon>Start Fight!\r\n    </button>\r\n    <button mat-button class=\"navButton\">\r\n      <mat-icon class=\"navIcon\">library_music</mat-icon>Music and Sounds\r\n    </button>\r\n  </mat-sidenav>\r\n  <mat-sidenav-content>\r\n    <router-outlet></router-outlet>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -110,7 +110,7 @@ var AdminOverviewComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n.pageContainer {\n\twidth: 100%;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;/*\n\talign-items: center;*/\n}\n\n.wrapper {\n\theight: 100%;\n}\n\n.toolbarCenter {\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n}\n\n.logo {\n\twidth: 40px;\n}\n\nh1 {\n\tcolor: #999;\n\tfont-size: 1rem;\n\tmargin: 5px;\n}\n\n#appMenuButton {\n\tposition: fixed;\n\ttop:20px;\n\tleft:calc(50%);\n\tmargin-left: -10px;\n\tbackground-color: #ccc;\n}\n\n.padded {\n\tpadding: 20px;\n  }\n"
+module.exports = "\r\n.pageContainer {\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;/*\r\n\talign-items: center;*/\r\n}\r\n\r\n.wrapper {\r\n\theight: 100%;\r\n}\r\n\r\n.toolbarCenter {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n}\r\n\r\n.logo {\r\n\twidth: 40px;\r\n}\r\n\r\nh1 {\r\n\tcolor: #999;\r\n\tfont-size: 1rem;\r\n\tmargin: 5px;\r\n}\r\n\r\n#appMenuButton {\r\n\tposition: fixed;\r\n\ttop:20px;\r\n\tleft:calc(50%);\r\n\tmargin-left: -10px;\r\n\tbackground-color: #ccc;\r\n}\r\n\r\n.padded {\r\n\tpadding: 20px;\r\n  }\r\n"
 
 /***/ }),
 
@@ -121,7 +121,7 @@ module.exports = "\n.pageContainer {\n\twidth: 100%;\n\tdisplay: flex;\n\tflex-d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-content container\">\n  <div class=\"wrapper\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+module.exports = "<div class=\"my-content container\">\r\n  <div class=\"wrapper\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -199,53 +199,55 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
-/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
-/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
-/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
-/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material___WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/ */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
-/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
-/* harmony import */ var _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin-overview/admin-overview.component */ "./src/app/admin-overview/admin-overview.component.ts");
-/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
-/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
-/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
-/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
-/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
-/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
-/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
-/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
-/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
-/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
-/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
-/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
-/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
-/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
-/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
-/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
-/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
-/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
-/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
-/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
-/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
-/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
-/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
-/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
-/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_material___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/ */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin-overview/admin-overview.component */ "./src/app/admin-overview/admin-overview.component.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
+/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
+/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
+/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
+/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
+/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
+/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
+/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
+/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
+/* harmony import */ var _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
+/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
+/* harmony import */ var _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
+/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
+/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
+/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
+/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
+/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
+/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
+/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
+/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
+/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
+/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
+/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
+/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
+/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
+/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
+/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
+/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
+/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
+/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
+/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
+/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
+/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
+/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -299,33 +301,35 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     // { path: '', redirectTo: 'player', pathMatch: 'full' },
     // { path: 'player/hero/:id', component: HeroDetailComponent },
     // { path: 'player', component: PlayerComponent, outlet: 'appRouter' },
     { path: '', redirectTo: 'player/heroes', pathMatch: 'full' },
     {
-        path: 'master', component: _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_17__["AdminOverviewComponent"],
+        path: 'master', component: _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
         children: [
-            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_6__["HeroesComponent"] },
-            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_7__["HeroDetailComponent"] },
-            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_18__["FightSetupComponent"] }
+            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"] },
+            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"] },
+            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__["FightSetupComponent"] }
         ]
     },
     {
-        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_22__["PlayerComponent"],
+        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_39__["PlayerComponent"],
         children: [
             {
                 path: 'heroes',
-                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_6__["HeroesComponent"]
+                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"]
             },
             {
                 path: 'hero/:id',
-                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_7__["HeroDetailComponent"]
+                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"]
             },
             {
                 path: 'hero/:id/editStuff',
-                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_39__["EditDialogComponent"]
+                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"]
             }
         ]
     },
@@ -336,90 +340,92 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes, {
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes, {
                     scrollPositionRestoration: 'top'
                 }),
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-                ngx_toastr__WEBPACK_IMPORTED_MODULE_46__["ToastrModule"].forRoot({
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
+                ngx_toastr__WEBPACK_IMPORTED_MODULE_10__["ToastrModule"].forRoot({
                     timeOut: 3000,
                     positionClass: 'toast-bottom-right',
                     preventDuplicates: true,
                 }),
-                _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatAutocompleteModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatRadioModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatSelectModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatRippleModule"],
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialogModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatAutocompleteModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatFormFieldModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatGridListModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatInputModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatListModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatSidenavModule"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatIconModule"],
-                _angular_service_worker__WEBPACK_IMPORTED_MODULE_29__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_30__["environment"].production })
+                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatAutocompleteModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatRadioModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatSelectModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatRippleModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatAutocompleteModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatFormFieldModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatGridListModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatListModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatSidenavModule"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
+                _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].production })
             ],
             exports: [
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialogModule"]
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_6__["HeroesComponent"],
-                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_7__["HeroDetailComponent"],
-                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_8__["HeroControls"],
-                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_9__["HeroCard"],
-                _menu_menu_component__WEBPACK_IMPORTED_MODULE_10__["Menu"],
-                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_15__["TalentCard"],
-                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_16__["SpellCard"],
-                _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_17__["AdminOverviewComponent"],
-                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_18__["FightSetupComponent"],
-                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_19__["FightDisplayComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
+                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"],
+                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"],
+                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_30__["HeroControls"],
+                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_29__["HeroCard"],
+                _menu_menu_component__WEBPACK_IMPORTED_MODULE_38__["Menu"],
+                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_46__["TalentCard"],
+                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_43__["SpellCard"],
+                _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
+                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__["FightSetupComponent"],
+                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_27__["FightDisplayComponent"],
                 // MatSidenavContainer,
                 // MatSidenav,
                 // MatSidenavContent,
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatButton"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatButtonToggleGroup"],
-                _angular_material___WEBPACK_IMPORTED_MODULE_12__["MatButtonToggle"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButton"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggleGroup"],
+                _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggle"],
                 // MatIcon,
-                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_20__["RemoteControlComponent"],
-                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_21__["RemoteControlReceiverComponent"],
-                _player_player_component__WEBPACK_IMPORTED_MODULE_22__["PlayerComponent"],
-                _master_master_component__WEBPACK_IMPORTED_MODULE_23__["MasterComponent"],
-                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_24__["ImagePopupComponent"],
-                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_25__["ChooseImageComponent"],
-                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_26__["LifeDisplayComponent"],
-                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_27__["ScrollSpyDirective"],
-                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_28__["MagicDisplayComponent"],
-                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_31__["TalentSearchComponent"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_32__["MatchesTalentSearchTerm"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_32__["MatchesTalentSearchTermChildren"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_33__["MatchesSpellSearchTerm"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_33__["MatchesSpellSearchTermChildren"],
-                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_34__["DetailNavigationComponent"],
-                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_35__["AttributesDisplayComponent"],
-                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_36__["BasicDataDisplayComponent"],
-                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_37__["CombatDataDisplayComponent"],
-                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_38__["InventoryDisplayComponent"],
-                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_39__["EditDialogComponent"],
-                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_40__["EditAttributeComponent"],
-                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_41__["ExperienceDisplayComponent"],
-                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_42__["SpellSearchComponent"],
-                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_43__["EditTalentComponent"],
-                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_44__["ConfirmationSheetComponent"],
-                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_45__["ConfirmDeletionComponent"]
+                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_41__["RemoteControlComponent"],
+                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_40__["RemoteControlReceiverComponent"],
+                _player_player_component__WEBPACK_IMPORTED_MODULE_39__["PlayerComponent"],
+                _master_master_component__WEBPACK_IMPORTED_MODULE_37__["MasterComponent"],
+                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__["ImagePopupComponent"],
+                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__["ChooseImageComponent"],
+                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_35__["LifeDisplayComponent"],
+                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_42__["ScrollSpyDirective"],
+                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_36__["MagicDisplayComponent"],
+                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_48__["TalentSearchComponent"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__["MatchesTalentSearchTerm"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__["MatchesTalentSearchTermChildren"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__["MatchesSpellSearchTerm"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__["MatchesSpellSearchTermChildren"],
+                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_20__["DetailNavigationComponent"],
+                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_14__["AttributesDisplayComponent"],
+                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_15__["BasicDataDisplayComponent"],
+                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_17__["CombatDataDisplayComponent"],
+                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_34__["InventoryDisplayComponent"],
+                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"],
+                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_21__["EditAttributeComponent"],
+                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_26__["ExperienceDisplayComponent"],
+                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_44__["SpellSearchComponent"],
+                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_24__["EditTalentComponent"],
+                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_19__["ConfirmationSheetComponent"],
+                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmDeletionComponent"],
+                _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__["ExperienceAdditionComponent"],
+                _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__["EditMoneyComponent"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]],
             providers: [{
-                    provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialogRef"],
+                    provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"],
                     useValue: {}
                 },
-                { provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MAT_DIALOG_DATA"], useValue: {} }],
-            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_24__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_25__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_39__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_45__["ConfirmDeletionComponent"]],
+                { provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"], useValue: {} }],
+            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmDeletionComponent"], _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__["ExperienceAdditionComponent"], _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__["EditMoneyComponent"]],
         })
     ], AppModule);
     return AppModule;
@@ -436,7 +442,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n.border-top {\n    border-top: 1px solid #999;\n}\n\n.attributeLabel {\n   border: 1px solid #aaa;\n   display: flex;\n   background-color: #ffffff;\n   align-items: center;\n   padding: 4px 0;\n   justify-content: center;\n}\n\n.value {\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    background-color: rgba(255, 255, 250, .8);\n}\n\n.attribute {\n    width: 35px\n    /* padding: 5px; */\n}"
+module.exports = ".flex-row {\r\n  margin: 0.2rem 0;\r\n  padding-bottom: 0.2rem;\r\n}\r\n\r\n.attributeLabel {\r\n  border: 1px solid #aaa;\r\n  display: flex;\r\n  background-color: #ffffff;\r\n  align-items: center;\r\n  padding: 4px 0;\r\n  justify-content: center;\r\n}\r\n\r\n.value {\r\n  padding: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  background-color: rgba(255, 255, 250, 0.8);\r\n}\r\n\r\n.attribute {\r\n  width: 35px;\r\n  /* padding: 5px; */\r\n}\r\n"
 
 /***/ }),
 
@@ -447,7 +453,7 @@ module.exports = "\n.border-top {\n    border-top: 1px solid #999;\n}\n\n.attrib
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"Grid-cell padded border-top\">\n  <div class=\"attributesContainer flex-row\">\n    <div *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\" class=\"attribute flex-col\">\n      <div class=\"attributeLabel flex-item\">\n        <label>{{attribute.short}}</label>\n      </div>\n      <div class=\"value flex-item\">{{attribute.value}}</div>\n      <!-- <div *ngIf=\"editMode\" class=\"editValue\"><input [value]=\"attribute.value\" /></div> -->\n      \n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"Grid-cell padded\">\r\n  <div class=\"attributesContainer flex-col\">\r\n    <div *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\" class=\"flex-row borderBottom\">\r\n      <div class=\"label\">\r\n        <label>{{attribute.name}}</label>\r\n      </div>\r\n      <div class=\"flex-item\">{{attribute.value}}</div>\r\n      <!-- <div *ngIf=\"editMode\" class=\"editValue\"><input [value]=\"attribute.value\" /></div> -->\r\n\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -521,7 +527,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"propertiesContainer\" >\n  <div class=\"padded\">\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Rasse: </label>\n      </div>\n      <div class=\"value\">{{hero.race.name}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Kultur: </label>\n      </div>\n      <div class=\"value\">{{hero.culture}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Sozialrang: </label>\n      </div>\n      <div class=\"value\">{{hero.social_rank}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Größe: </label>\n      </div>\n      <div class=\"value\">{{hero.size}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Gewicht: </label>\n      </div>\n      <div class=\"value\">{{hero.weight}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Haarfarbe: </label>\n      </div>\n      <div class=\"value\">{{hero.weight}}</div>\n    </div><div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Augenfarbe: </label>\n      </div>\n      <div class=\"value\">{{hero.weight}}</div>\n    </div>\n    <div class=\"flex-row\">\n      <div class=\"label\">\n        <label>Magieresistenz: </label>\n      </div>\n      <div class=\"value\">{{hero.magieresistenz}}</div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"propertiesContainer\">\r\n  <div class=\"padded\">\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Rasse: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.race.name }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Kultur: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.culture }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Sozialrang: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.social_rank }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Größe: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.size }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Gewicht: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.weight }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Haarfarbe: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.hairColor }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Augenfarbe: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.eyeColor }}</div>\r\n    </div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"label\">\r\n        <label>Magieresistenz: </label>\r\n      </div>\r\n      <div class=\"value\">{{ hero.magieresistenz }}</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -579,7 +585,7 @@ var BasicDataDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#imageSelector {\n    min-width: 200px;\n}"
+module.exports = "#imageSelector {\r\n    min-width: 200px;\r\n}"
 
 /***/ }),
 
@@ -590,7 +596,7 @@ module.exports = "#imageSelector {\n    min-width: 200px;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-select placeholder=\"Image\" #imageSelector>\n  <mat-option *ngFor=\"let image of images\" [value]=\"image\">\n    {{image.caption}}\n  </mat-option>\n</mat-select>\n<button mat-button class=\"navButton\" (click)=\"sendImage(imageSelector.value)\">Send</button>"
+module.exports = "\r\n<mat-select placeholder=\"Image\" #imageSelector>\r\n  <mat-option *ngFor=\"let image of images\" [value]=\"image\">\r\n    {{image.caption}}\r\n  </mat-option>\r\n</mat-select>\r\n<button mat-button class=\"navButton\" (click)=\"sendImage(imageSelector.value)\">Send</button>"
 
 /***/ }),
 
@@ -683,7 +689,7 @@ var ChooseImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".weaponEntry {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  flex-wrap: wrap;\n  font-size: 0.8rem;\n  align-items: center;\n  justify-content: stretch;\n}\n\n.form-group .paper-check input+span, .form-group .paper-radio input+span {\n  display: flex;\n}\n\n.currentValues {\n  background-color: #fff;\n}\n\n.currentValues.flex-col {\n  /* background-color: #fffffa; */\n  font-size: x-large;\n  justify-content: flex-start;\n}"
+module.exports = ".weaponEntry {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  flex-wrap: wrap;\r\n  font-size: 0.8rem;\r\n  align-items: center;\r\n  justify-content: stretch;\r\n}\r\n\r\n.weaponName {\r\n  margin-right: 1rem;\r\n}\r\n\r\n.weaponDices {\r\n  font-weight: 600;\r\n}\r\n\r\n.form-group .paper-check input + span,\r\n.form-group .paper-radio input + span {\r\n  display: flex;\r\n}\r\n\r\n.currentValues {\r\n  font-weight: 700;\r\n  padding: 1rem 0;\r\n}\r\n\r\n.currentValues label {\r\n  /* background-color: #fff; */\r\n  /* min-width: 4rem; */\r\n  margin-right: 1rem;\r\n}\r\n\r\n.armor-entry,\r\n.weapon-entry {\r\n  padding: 0.875rem;\r\n}\r\n\r\n.currentValues span {\r\n  margin-right: 3rem;\r\n}\r\n\r\n.currentValues.flex-col {\r\n  /* background-color: #fffffa; */\r\n  font-size: x-large;\r\n  justify-content: flex-start;\r\n  min-width: 400px;\r\n}\r\n\r\n.kampfwerte {\r\n  background-image: url(\"/assets/fight-icon.png\");\r\n  /* background-image: url(\"/assets/hero-background_desaturated.jpg\"); */\r\n  background-size: 5.5rem;\r\n  padding-top: 4rem;\r\n  background-position: top center;\r\n  background-repeat: no-repeat;\r\n}\r\n"
 
 /***/ }),
 
@@ -694,7 +700,7 @@ module.exports = ".weaponEntry {\n  display: flex;\n  flex-direction: row;\n  wi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"kampfwerte padded flex-item flex-col\">\n  <h4>Kampfwerte</h4>\n  <h5>Basiswerte</h5>\n    \n  <div class=\"flex-row\">\n    <div class=\"flex-item\">\n      <label class=\"long\">Attacke:&nbsp;</label> {{hero.attack_basis}}\n    </div>\n    <div class=\"flex-item\">\n      <label class=\"long\">Parade:&nbsp;</label> {{hero.parade_basis}}\n    </div>\n    <div class=\"flex-item\">\n      <label class=\"long\">Fernkampf:&nbsp;</label> {{hero.fernkampf_basis}}\n    </div>\n  </div>\n  <h5>Aktuelle Werte</h5>\n  <div class=\"kampfwerte flex-row\">\n    <div class=\"flex-item flex-col\">\n      <h6>Waffen</h6>\n      \n        <fieldset class=\"form-group\" *ngFor=\"let weapon of hero.weapons\">\n              <label class=\"paper-radio\">\n                <div class=\"flex-row\">\n                  <input type=\"radio\" name=\"selectedWeapon\" class=\"flex-item\" [checked]=\"weapon.name === hero.currentWeapon.name\" value=\"{{weapon.name}}\" (change)=\"updateCurrentWeapon(weapon)\" />\n                  <span class=\"weaponChoiceLabel flex-row\">\n                    <div class=\"flex-col\">\n                      <div class=\"weaponName\">{{weapon.name}}</div>\n                      <div class=\"weaponDices\">{{weapon.damageText}}</div>\n                    </div>\n                  </span>\n                </div>\n              </label>\n      </fieldset>\n    </div>\n    <div class=\"currentValues flex-item flex-col border border-3 padded\" *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsMelee()\">\n      <h6>Werte</h6>\n      <div class=\"flex-row\">\n        <label>Attacke:&nbsp;</label> {{hero.currentAttack}}\n      </div>\n      <div class=\"flex-row\">\n        <label>Parade:&nbsp;</label> {{hero.currentParade}}\n      </div>\n      <div class=\"flex-row\">\n        <label>Trefferpunkte:&nbsp;</label> {{hero.currentWeapon.damageDice}}W6+{{hero.currentWeapon.damageAddPoints}}\n      </div>\n    </div>\n    <div class=\"currentValues flex-item flex-col border border-3 padded\" *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsLongRange()\">\n      <h6>Werte</h6>\n      <div class=\"flex-row\">\n        <label>Fernkampfwert:&nbsp;</label> {{hero.currentLongRangeValue}}\n      </div>\n      <div class=\"flex-row\">\n        <label>Trefferpunkte:&nbsp;</label> {{hero.currentWeapon.damageDice}}W6+{{hero.currentWeapon.damageAddPoints}}\n      </div>\n    </div>\n  </div>\n  \n</div>"
+module.exports = "<div class=\"kampfwerte flex-item flex-col flex-top\">\r\n  <div class=\"padded flex-item flex-col\">\r\n    <h4>Basiswerte</h4>\r\n\r\n    <div class=\"flex-row\">\r\n      <div class=\"flex-item\">\r\n        <label class=\"long\">Attacke:&nbsp;</label> {{ hero.attack_basis }}\r\n      </div>\r\n      <div class=\"flex-item\">\r\n        <label class=\"long\">Parade:&nbsp;</label> {{ hero.parade_basis }}\r\n      </div>\r\n      <div class=\"flex-item\">\r\n        <label class=\"long\">Fernkampf:&nbsp;</label> {{ hero.fernkampf_basis }}\r\n      </div>\r\n      <div class=\"flex-item\">\r\n        <label class=\"long\">Initiative:&nbsp;</label> {{ hero.initiative }}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"padded flex-item flex-col\">\r\n    <h4>Aktuelle Werte</h4>\r\n    <div class=\"flex-col\">\r\n\r\n      <div class=\"currentValues flex-item flex-row \" *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsMelee()\">\r\n        <div class=\"flex-row\">\r\n          <label>Attacke:&nbsp;</label><span class=\"currentValue\"> {{ hero.currentAttack }}</span>\r\n        </div>\r\n        <div class=\"flex-row\">\r\n          <label>Parade:&nbsp;</label><span class=\"currentValue\"> {{ hero.currentParade }}</span>\r\n        </div>\r\n        <div class=\"flex-row\">\r\n          <label>Trefferpunkte:&nbsp;</label><span class=\"currentValue\">\r\n            {{ hero.currentWeapon.damageDice }}W6+{{\r\n            hero.currentWeapon.damageAddPoints\r\n            }}</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"currentValues flex-item flex-row\" *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsLongRange()\">\r\n        <div class=\"flex-row\">\r\n          <label>Fernkampfwert:&nbsp;</label><span>{{ hero.currentLongRangeValue }}</span>\r\n        </div>\r\n        <div class=\"flex-row\">\r\n          <label>Trefferpunkte:&nbsp;</label>\r\n          <span>{{ hero.currentWeapon.damageDice }}W6+{{\r\n            hero.currentWeapon.damageAddPoints\r\n            }}</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"currentValues flex-item flex-row\">\r\n        <label>Rüstungsschutz:&nbsp;</label><span class=\"currentValue\"> {{ hero.armorValue }}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-row Grid--top\">\r\n    <div class=\"padded flex-item flex-col\">\r\n      <h4>Waffen</h4>\r\n\r\n      <fieldset class=\"form-group\" *ngFor=\"let weapon of hero.weapons\">\r\n        <label class=\"paper-radio\">\r\n          <div class=\"flex-row border border-primary weapon-entry comic-shadow\">\r\n            <input type=\"radio\" name=\"selectedWeapon\" class=\"flex-item\"\r\n              [checked]=\"weapon.name === hero.currentWeapon.name\" value=\"{{ weapon.name }}\"\r\n              (change)=\"updateCurrentWeapon(weapon)\" />\r\n            <span class=\"weaponChoiceLabel flex-row\">\r\n              <div class=\"flex-row\">\r\n                <div class=\"weaponName\">{{ weapon.name }}</div>\r\n                <div class=\"weaponDices\">{{ weapon.damageText }}</div>\r\n              </div>\r\n            </span>\r\n          </div>\r\n        </label>\r\n      </fieldset>\r\n    </div>\r\n    <div class=\"padded flex-item flex-col \">\r\n      <h4>Rüstung</h4>\r\n\r\n      <fieldset class=\"form-group\" *ngFor=\"let armor of hero.armor\">\r\n        <label class=\"paper-radio\">\r\n          <div class=\"flex-row border border-6 armor-entry comic-shadow\">\r\n            <input type=\"checkbox\" name=\"selectedArmor\" class=\"flex-item\" [checked]=\"armor.isEquipped\"\r\n              value=\"{{ armor.name }}\" (change)=\"updateEquippedArmor(armor)\" />\r\n            <span class=\"weaponChoiceLabel flex-row\">\r\n              <div class=\"flex-row\">\r\n                <div class=\"weaponName\">{{ armor.name }}</div>\r\n                <div class=\"weaponDices\">{{ armor.rs }}</div>\r\n              </div>\r\n            </span>\r\n          </div>\r\n        </label>\r\n      </fieldset>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -710,6 +716,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CombatDataDisplayComponent", function() { return CombatDataDisplayComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -721,13 +728,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var CombatDataDisplayComponent = /** @class */ (function () {
-    function CombatDataDisplayComponent() {
+    function CombatDataDisplayComponent(service) {
+        this.service = service;
     }
     CombatDataDisplayComponent.prototype.ngOnInit = function () {
     };
     CombatDataDisplayComponent.prototype.updateCurrentWeapon = function (weapon) {
-        this.hero.currentWeapon = weapon;
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.service.sendUpate({
+                heroId: _this.hero.id,
+                type: 'setCurrentWeapon',
+                weaponId: weapon.id
+            });
+            _this.hero.currentWeapon = weapon;
+            resolve(weapon);
+        });
+    };
+    CombatDataDisplayComponent.prototype.updateEquippedArmor = function (armor) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            armor.isEquipped = !armor.isEquipped;
+            _this.service.sendUpate({
+                heroId: _this.hero.id,
+                type: 'equipArmor',
+                weaponId: armor.id,
+                isEquipped: armor.isEquipped
+            });
+            resolve(armor);
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -739,7 +770,7 @@ var CombatDataDisplayComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./combat-data-display.component.html */ "./src/app/combat-data-display/combat-data-display.component.html"),
             styles: [__webpack_require__(/*! ./combat-data-display.component.css */ "./src/app/combat-data-display/combat-data-display.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_2__["HeroLifeService"]])
     ], CombatDataDisplayComponent);
     return CombatDataDisplayComponent;
 }());
@@ -755,7 +786,7 @@ var CombatDataDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".buttonRow {\n    margin-top: 30px;\n    justify-content: flex-end;\n}\n\n.titleText {\n    margin-bottom: 20px;\n}"
+module.exports = ".buttonRow {\r\n    margin-top: 30px;\r\n    justify-content: flex-end;\r\n}\r\n\r\n.titleText {\r\n    margin-bottom: 20px;\r\n}"
 
 /***/ }),
 
@@ -766,7 +797,7 @@ module.exports = ".buttonRow {\n    margin-top: 30px;\n    justify-content: flex
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\n<h4><i class=\"fa fa-trash\"></i></h4>\n<h4 class=\"titleText\">\n   {{data.title}}\n</h4>\n</div>\n<p innerHTML={{data.text}}></p>\n<div class=\"buttonRow row\">\n  <button (click)=\"raiseCancel()\">Nee, doch nicht</button>\n  <button class=\"background-danger\" (click)=\"raiseAccept()\"><i class=\"fa fa-trash\"></i> Ja, natürlich</button>\n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n  <h4><i class=\"fa fa-trash\"></i></h4>\r\n  <h4 class=\"titleText\">\r\n    {{ data.title }}\r\n  </h4>\r\n</div>\r\n<p innerHTML=\"{{ data.text }}\"></p>\r\n<div class=\"buttonRow row\">\r\n  <button (click)=\"raiseCancel()\">Nee, doch nicht</button>\r\n  <button class=\"background-danger\" (click)=\"raiseAccept()\">\r\n    <i class=\"fa fa-trash\"></i> Ja, natürlich\r\n  </button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -851,7 +882,7 @@ var ConfirmationData = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".messageToConfirm {\n    margin-bottom: 10px;\n    padding: 10px;\n}\n\n\n.confirmationButtons {\n    background-color: #fff;\n    margin-top: -3px;\n    padding-top: 15px;\n    width: 180px;\n    border: 1px solid #aaa;\n    box-shadow: 1px 2px 0px #999;\n}\n\n\n.confirmationButton {\n    height: 30px;\n    width: 90px;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n}\n\n\n.confirmationButton.accept {\n    background-color: #8DC071;\n    border-right: 1px solid #999;\n}\n\n\n.confirmationButton.reject {\n    background-color: #eee;\n \n}"
+module.exports = ".messageToConfirm {\r\n    margin-bottom: 10px;\r\n    padding: 10px;\r\n}\r\n\r\n\r\n.confirmationButtons {\r\n    background-color: #fff;\r\n    margin-top: -3px;\r\n    padding-top: 15px;\r\n    width: 180px;\r\n    border: 1px solid #aaa;\r\n    box-shadow: 1px 2px 0px #999;\r\n}\r\n\r\n\r\n.confirmationButton {\r\n    height: 30px;\r\n    width: 90px;\r\n    align-items: center;\r\n    justify-content: center;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.confirmationButton.accept {\r\n    background-color: #8DC071;\r\n    border-right: 1px solid #999;\r\n}\r\n\r\n\r\n.confirmationButton.reject {\r\n    background-color: #eee;\r\n \r\n}"
 
 /***/ }),
 
@@ -862,7 +893,7 @@ module.exports = ".messageToConfirm {\n    margin-bottom: 10px;\n    padding: 10
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div  class=\"confirmationButtons flex-col center\" >\n  <div class=\"messageToConfirm\" *ngIf=\"showExternalTemplate !== true\">{{confirmationText}}</div>\n  <div class=\"messageToConfirm\">\n    <ng-content></ng-content>\n  </div>\n  <div class=\"flex-row\">\n      <div class=\"flex-item flex-col confirmationButton center accept\" (click)=\"raiseConfirm()\">\n          <i class=\"fa fa-check\"></i>\n      </div>\n      <div class=\"flex-item flex-col confirmationButton center reject\" (click)=\"raiseCancel()\">\n          <i class=\"fa fa-window-close\"></i>\n      </div>\n  </div>\n</div>"
+module.exports = "<div  class=\"confirmationButtons flex-col center\" >\r\n  <div class=\"messageToConfirm\" *ngIf=\"showExternalTemplate !== true\">{{confirmationText}}</div>\r\n  <div class=\"messageToConfirm\">\r\n    <ng-content></ng-content>\r\n  </div>\r\n  <div class=\"flex-row\">\r\n      <div class=\"flex-item flex-col confirmationButton center accept\" (click)=\"raiseConfirm()\">\r\n          <i class=\"fa fa-check\"></i>\r\n      </div>\r\n      <div class=\"flex-item flex-col confirmationButton center reject\" (click)=\"raiseCancel()\">\r\n          <i class=\"fa fa-window-close\"></i>\r\n      </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -934,7 +965,7 @@ var ConfirmationSheetComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".detailNavigation {\n    padding: 10px;\n    justify-content: space-between\n}"
+module.exports = ".detailNavigation {\r\n  padding: 10px;\r\n  justify-content: space-between;\r\n}\r\n\r\nbutton {\r\n  margin: 0 0.5rem;\r\n}\r\n"
 
 /***/ }),
 
@@ -945,7 +976,7 @@ module.exports = ".detailNavigation {\n    padding: 10px;\n    justify-content: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"detailNavigation flex-item flex-row\" *ngIf=\"hero\">\n  <button class=\"backButton\" (click)=\"navToOverview()\">\n    <i class=\"fa fa-arrow-left\"></i> Übersicht\n  </button>\n  <div class=\"detailNavButtons\">\n    <button (click)=\"updateDetailView('character')\" [ngClass]=\"detailArea === 'character' ? 'paper-btn btn-primary' : 'paper-btn'\">\n      Character\n    </button>\n    <button (click)=\"updateDetailView('talents')\" [ngClass]=\"detailArea === 'talents' ? 'paper-btn btn-primary' : 'paper-btn'\">\n      Talente\n    </button>\n    <button *ngIf=\"hero.knowsMagic\" (click)=\"updateDetailView('spells')\" [ngClass]=\"detailArea === 'spells' ? 'paper-btn btn-primary' : 'paper-btn'\">\n      Zauber\n    </button>\n    <button (click)=\"updateDetailView('inventory')\" [ngClass]=\"detailArea === 'inventory' ? 'paper-btn btn-primary' : 'paper-btn'\">\n      Inventar\n    </button>\n    <button (click)=\"updateDetailView('edit')\" [ngClass]=\"detailArea === 'edit' ? 'paper-btn btn-primary' : 'paper-btn'\">\n      Steigern\n    </button>\n  </div>\n\n  <!-- <div class=\"menuContainer\" >\n    \n    <div class=\"menuItems\">\n      <div class=\"menuItem\" (click)=\"updateDetailView('character')\" >\n        Character\n      </div>\n      <div class=\"menuItem\" (click)=\"updateDetailView('inventory')\" >\n        Inventar\n      </div>\n    </div>\n    <div class=\"menuItems\">\n      <div class=\"menuItem\" (click)=\"navTo(menuItem.target)\" *ngFor=\"let menuItem of menu; index as i; keyvalue\">\n        {{menuItem.title}}\n      </div>\n      <h4>Talente</h4>\n      <div class=\"menuItem\" *ngFor=\"let skillGroup of hero.skillGroups; index as i; keyvalue\" (click)=\"navToSkillGroup(skillGroup)\">\n        {{skillGroup.getSkillGroup().name}}\n      </div>\n      <h4 *ngIf=\"hero.knowsMagic\">Zauber</h4>\n      <div class=\"menuItem\" *ngFor=\"let spellGroup of hero.spellGroups; index as i; keyvalue\" (click)=\"navToSpellGroup(spellGroup)\">\n        {{spellGroup.getSpellGroup().name}}\n      </div>\n    </div>\n    <div class=\"menuItems\" *ngIf=\"menuVisible === true && detailArea === 'inventory'\">\n      <div class=\"menuItem\" (click)=\"navTo('weapons')\">\n        Waffen\n      </div>\n      <div class=\"menuItem\" (click)=\"navTo('armor')\">\n        Rüstung\n      </div>\n      <div class=\"menuItem\" (click)=\"navTo('')\">\n        Rüstung\n      </div>\n    </div>\n    \n  </div> -->\n\n</div>\n\n"
+module.exports = "<div class=\"detailNavigation flex-item flex-row\" *ngIf=\"hero\">\r\n  <button class=\"comic-shadow\" (click)=\"navToOverview()\">\r\n    <i class=\"fa fa-arrow-left\"></i> Übersicht\r\n  </button>\r\n  <div class=\"detailNavButtons\">\r\n    <button (click)=\"updateDetailView('character')\"\r\n      [ngClass]=\"detailArea === 'character' ? 'comic-shadow btn-primary' : 'comic-shadow '\">\r\n      Character\r\n    </button>\r\n    <button (click)=\"updateDetailView('talents')\"\r\n      [ngClass]=\"detailArea === 'talents' ? 'comic-shadow btn-primary' : 'comic-shadow '\">\r\n      Talente\r\n    </button>\r\n    <button *ngIf=\"hero.knowsMagic\" (click)=\"updateDetailView('spells')\"\r\n      [ngClass]=\"detailArea === 'spells' ? 'comic-shadow btn-primary' : 'comic-shadow '\">\r\n      Zauber\r\n    </button>\r\n    <button (click)=\"updateDetailView('inventory')\"\r\n      [ngClass]=\"detailArea === 'inventory' ? 'comic-shadow btn-primary' : 'comic-shadow '\">\r\n      Inventar\r\n    </button>\r\n    <button (click)=\"updateDetailView('edit')\"\r\n      [ngClass]=\"detailArea === 'edit' ? 'comic-shadow btn-primary' : 'comic-shadow '\">\r\n      Steigern\r\n    </button>\r\n  </div>\r\n\r\n  <!-- <div class=\"menuContainer\" >\r\n    \r\n    <div class=\"menuItems\">\r\n      <div class=\"menuItem\" (click)=\"updateDetailView('character')\" >\r\n        Character\r\n      </div>\r\n      <div class=\"menuItem\" (click)=\"updateDetailView('inventory')\" >\r\n        Inventar\r\n      </div>\r\n    </div>\r\n    <div class=\"menuItems\">\r\n      <div class=\"menuItem\" (click)=\"navTo(menuItem.target)\" *ngFor=\"let menuItem of menu; index as i; keyvalue\">\r\n        {{menuItem.title}}\r\n      </div>\r\n      <h4>Talente</h4>\r\n      <div class=\"menuItem\" *ngFor=\"let skillGroup of hero.skillGroups; index as i; keyvalue\" (click)=\"navToSkillGroup(skillGroup)\">\r\n        {{skillGroup.getSkillGroup().name}}\r\n      </div>\r\n      <h4 *ngIf=\"hero.knowsMagic\">Zauber</h4>\r\n      <div class=\"menuItem\" *ngFor=\"let spellGroup of hero.spellGroups; index as i; keyvalue\" (click)=\"navToSpellGroup(spellGroup)\">\r\n        {{spellGroup.getSpellGroup().name}}\r\n      </div>\r\n    </div>\r\n    <div class=\"menuItems\" *ngIf=\"menuVisible === true && detailArea === 'inventory'\">\r\n      <div class=\"menuItem\" (click)=\"navTo('weapons')\">\r\n        Waffen\r\n      </div>\r\n      <div class=\"menuItem\" (click)=\"navTo('armor')\">\r\n        Rüstung\r\n      </div>\r\n      <div class=\"menuItem\" (click)=\"navTo('')\">\r\n        Rüstung\r\n      </div>\r\n    </div>\r\n    \r\n  </div> -->\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1066,11 +1097,14 @@ __webpack_require__.r(__webpack_exports__);
 var ActualAttribute = /** @class */ (function () {
     function ActualAttribute(actualValue, attribute) {
         this.valueNumber = actualValue;
-        this.attribute = attribute;
+        this._attribute = attribute;
     }
     Object.defineProperty(ActualAttribute.prototype, "value", {
         get: function () {
             return this.valueNumber;
+        },
+        set: function (value) {
+            this.valueNumber = value;
         },
         enumerable: true,
         configurable: true
@@ -1085,6 +1119,13 @@ var ActualAttribute = /** @class */ (function () {
     Object.defineProperty(ActualAttribute.prototype, "short", {
         get: function () {
             return this.attribute.short;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActualAttribute.prototype, "attribute", {
+        get: function () {
+            return this._attribute;
         },
         enumerable: true,
         configurable: true
@@ -1381,6 +1422,24 @@ var Image = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/domain/applicationState.ts":
+/*!********************************************!*\
+  !*** ./src/app/domain/applicationState.ts ***!
+  \********************************************/
+/*! exports provided: gameState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gameState", function() { return gameState; });
+var gameState = {
+    gameStarted: false,
+    dataInitialized: false
+};
+
+
+/***/ }),
+
 /***/ "./src/app/domain/armor.service.ts":
 /*!*****************************************!*\
   !*** ./src/app/domain/armor.service.ts ***!
@@ -1454,11 +1513,13 @@ var ArmorService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Armor", function() { return Armor; });
 var Armor = /** @class */ (function () {
-    function Armor(id, name, rs, behinderung) {
+    function Armor(id, name, rs, behinderung, isEquipped) {
+        if (isEquipped === void 0) { isEquipped = false; }
         this.id = id;
         this.name = name;
         this.rs = rs;
         this.behinderung = behinderung;
+        this.isEquipped = isEquipped;
     }
     return Armor;
 }());
@@ -1675,14 +1736,14 @@ var EnhancementPricingService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroService", function() { return HeroService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero */ "./src/app/domain/hero.ts");
-/* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
+/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hero */ "./src/app/domain/hero.ts");
 /* harmony import */ var _skills_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./skills.service */ "./src/app/domain/skills.service.ts");
 /* harmony import */ var _spells_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spells.service */ "./src/app/domain/spells.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -1720,26 +1781,35 @@ var HeroService = /** @class */ (function () {
             });
         }
         else {
-            return this.http.get(this.heroesUrl)
+            var characterGetPromise = this.http.get(this.heroesUrl)
                 .toPromise()
                 .then(function (response) {
                 _this.heroes = _this.extractData(response);
-                return _this.heroes;
+                return _this.heroes.sort(function (heroA, heroB) {
+                    if (heroA.name > heroB.name)
+                        return 1;
+                    else
+                        return -1;
+                });
             });
+            characterGetPromise.catch(function (error) {
+                console.log('error getting characters');
+            });
+            return characterGetPromise;
         }
     };
     HeroService.prototype.extractData = function (res) {
         var body = res.json();
         var heroes = [];
         body.forEach(function (hero) {
-            var newHero = new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](this.skillService, this.spellService, this.attributeService).setData(hero);
+            var newHero = new _hero__WEBPACK_IMPORTED_MODULE_7__["Hero"](this.skillService, this.spellService, this.attributeService).setData(hero);
             heroes.push(newHero);
         }.bind(this));
         return heroes;
     };
     HeroService.prototype.handleError = function (error) {
         var errMsg;
-        if (error instanceof _angular_http__WEBPACK_IMPORTED_MODULE_3__["Response"]) {
+        if (error instanceof _angular_http__WEBPACK_IMPORTED_MODULE_1__["Response"]) {
             var body = error.json() || '';
             var err = body.error || JSON.stringify(body);
             errMsg = error.status + " - " + (error.statusText || '') + " " + err;
@@ -1748,7 +1818,7 @@ var HeroService = /** @class */ (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_4__["Observable"].throw(errMsg);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__["Observable"].throw(errMsg);
     };
     HeroService.prototype.getHero = function (id) {
         var _this = this;
@@ -1766,7 +1836,7 @@ var HeroService = /** @class */ (function () {
     });
     HeroService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_3__["Http"], _skills_service__WEBPACK_IMPORTED_MODULE_8__["SkillService"], _spells_service__WEBPACK_IMPORTED_MODULE_9__["SpellService"], _attribute_service__WEBPACK_IMPORTED_MODULE_2__["AttributeService"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _skills_service__WEBPACK_IMPORTED_MODULE_8__["SkillService"], _spells_service__WEBPACK_IMPORTED_MODULE_9__["SpellService"], _attribute_service__WEBPACK_IMPORTED_MODULE_6__["AttributeService"]])
     ], HeroService);
     return HeroService;
 }());
@@ -1787,15 +1857,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hero", function() { return Hero; });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actualSkill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actualSkill */ "./src/app/domain/actualSkill.ts");
-/* harmony import */ var _actualSkillGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actualSkillGroup */ "./src/app/domain/actualSkillGroup.ts");
-/* harmony import */ var _actualSpell__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actualSpell */ "./src/app/domain/actualSpell.ts");
-/* harmony import */ var _actualSpellGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actualSpellGroup */ "./src/app/domain/actualSpellGroup.ts");
-/* harmony import */ var _actualAttribute__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actualAttribute */ "./src/app/domain/actualAttribute.ts");
-/* harmony import */ var _weapon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./weapon */ "./src/app/domain/weapon.ts");
-/* harmony import */ var _armor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./armor */ "./src/app/domain/armor.ts");
-/* harmony import */ var _weaponSkillDistribution__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./weaponSkillDistribution */ "./src/app/domain/weaponSkillDistribution.ts");
-/* harmony import */ var _inventoryItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./inventoryItem */ "./src/app/domain/inventoryItem.ts");
+/* harmony import */ var _actualAttribute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actualAttribute */ "./src/app/domain/actualAttribute.ts");
+/* harmony import */ var _actualSkill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actualSkill */ "./src/app/domain/actualSkill.ts");
+/* harmony import */ var _actualSkillGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actualSkillGroup */ "./src/app/domain/actualSkillGroup.ts");
+/* harmony import */ var _actualSpell__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actualSpell */ "./src/app/domain/actualSpell.ts");
+/* harmony import */ var _actualSpellGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actualSpellGroup */ "./src/app/domain/actualSpellGroup.ts");
+/* harmony import */ var _armor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./armor */ "./src/app/domain/armor.ts");
+/* harmony import */ var _inventoryItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./inventoryItem */ "./src/app/domain/inventoryItem.ts");
+/* harmony import */ var _moneyInventory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./moneyInventory */ "./src/app/domain/moneyInventory.ts");
+/* harmony import */ var _weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./weapon */ "./src/app/domain/weapon.ts");
+/* harmony import */ var _weaponSkillDistribution__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./weaponSkillDistribution */ "./src/app/domain/weaponSkillDistribution.ts");
+
 
 
 
@@ -1828,17 +1900,21 @@ var Hero = /** @class */ (function () {
         this.gender = dataObject['gender'];
         this.hero_type = dataObject['hero_type'];
         this.id = dataObject['id'];
-        this.ini_basis = dataObject['ini_basis'];
+        this.initiative = dataObject['ini_basis'];
         this.knowsMagic = dataObject['knows_magic'];
+        this.money = new _moneyInventory__WEBPACK_IMPORTED_MODULE_8__["MoneyInventory"](dataObject['money_dukaten'], dataObject['money_silbertaler'], dataObject['money_kreuzer'], dataObject['money_heller']);
+        this.hairColor = dataObject['hair_color'];
+        this.eyeColor = dataObject['eye_color'];
+        this.weight = dataObject['weight'];
         this.attributes = [
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['MU'], this.attributeService.attributes.get('MU')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['KL'], this.attributeService.attributes.get('KL')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['IN'], this.attributeService.attributes.get('IN')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['CH'], this.attributeService.attributes.get('CH')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['FF'], this.attributeService.attributes.get('FF')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['GE'], this.attributeService.attributes.get('GE')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['KO'], this.attributeService.attributes.get('KO')),
-            new _actualAttribute__WEBPACK_IMPORTED_MODULE_5__["ActualAttribute"](dataObject['KK'], this.attributeService.attributes.get('KK'))
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['MU'], this.attributeService.attributes.get('MU')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['KL'], this.attributeService.attributes.get('KL')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['IN'], this.attributeService.attributes.get('IN')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['CH'], this.attributeService.attributes.get('CH')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['FF'], this.attributeService.attributes.get('FF')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['GE'], this.attributeService.attributes.get('GE')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['KO'], this.attributeService.attributes.get('KO')),
+            new _actualAttribute__WEBPACK_IMPORTED_MODULE_1__["ActualAttribute"](dataObject['KK'], this.attributeService.attributes.get('KK'))
         ];
         this.life = dataObject['life'];
         this.magicEnergy = dataObject['magic_energy'];
@@ -1851,14 +1927,14 @@ var Hero = /** @class */ (function () {
         this.weapons = [];
         this.armor = [];
         this.weaponSkillDistributions = dataObject['weaponSkillDistributions'].map(function (weaponSkillDistribution) {
-            return new _weaponSkillDistribution__WEBPACK_IMPORTED_MODULE_8__["WeaponSkillDistribution"](weaponSkillDistribution.skill, weaponSkillDistribution.attack, weaponSkillDistribution.parade);
+            return new _weaponSkillDistribution__WEBPACK_IMPORTED_MODULE_10__["WeaponSkillDistribution"](weaponSkillDistribution.skill, weaponSkillDistribution.attack, weaponSkillDistribution.parade);
         });
         this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons'], dataObject['armor']);
         if (this.knowsMagic) {
             this.structureSpells(dataObject['spells']);
         }
         this.inventory = dataObject['inventoryItems'].map(function (inventoryItem) {
-            return new _inventoryItem__WEBPACK_IMPORTED_MODULE_9__["InventoryItem"](inventoryItem.id, inventoryItem.name, inventoryItem.amount, inventoryItem.weight);
+            return new _inventoryItem__WEBPACK_IMPORTED_MODULE_7__["InventoryItem"](inventoryItem.id, inventoryItem.name, inventoryItem.amount, inventoryItem.weight);
         });
         return this;
     };
@@ -1875,7 +1951,7 @@ var Hero = /** @class */ (function () {
             allSkills.forEach(function (skill) {
                 var actualSkill = lodash__WEBPACK_IMPORTED_MODULE_0__["find"](actualSkillsOfHero, function (actualSkillData) { return skill.id === actualSkillData['id']; }); // can be undefined, the hero does not have the skill
                 var skillSkillGroup = lodash__WEBPACK_IMPORTED_MODULE_0__["find"](skillGroups, function (skillGroup) { return skill.skillGroupId == skillGroup.id; });
-                _this.skills.push(new _actualSkill__WEBPACK_IMPORTED_MODULE_1__["ActualSkill"](actualSkill, _this, skill, skillSkillGroup));
+                _this.skills.push(new _actualSkill__WEBPACK_IMPORTED_MODULE_2__["ActualSkill"](actualSkill, _this, skill, skillSkillGroup));
             });
             // skills.forEach(actualSkill => {
             //   let generalSkill = _.find(allSkills, finder => { return finder.id === actualSkill['id'] })
@@ -1886,17 +1962,17 @@ var Hero = /** @class */ (function () {
                 var skills = lodash__WEBPACK_IMPORTED_MODULE_0__["filter"](_this.skills, function (actualSkill) {
                     return actualSkill.getSkill().skillGroupId == skillGroup.id;
                 });
-                _this.skillGroups.push(new _actualSkillGroup__WEBPACK_IMPORTED_MODULE_2__["ActualSkillGroup"](skillGroup, skills));
+                _this.skillGroups.push(new _actualSkillGroup__WEBPACK_IMPORTED_MODULE_3__["ActualSkillGroup"](skillGroup, skills));
             });
             weapons.forEach(function (weapon) {
-                _this.addWeapon(new _weapon__WEBPACK_IMPORTED_MODULE_6__["Weapon"](weapon['id'], weapon['name'], weapon['tp_dice'], weapon['tp_add_points'], weapon['extra_tp_from_kk'], lodash__WEBPACK_IMPORTED_MODULE_0__["find"](allSkills, function (skill) {
+                _this.addWeapon(new _weapon__WEBPACK_IMPORTED_MODULE_9__["Weapon"](weapon['id'], weapon['name'], weapon['tp_dice'], weapon['tp_add_points'], weapon['extra_tp_from_kk'], lodash__WEBPACK_IMPORTED_MODULE_0__["find"](allSkills, function (skill) {
                     return skill.id === weapon['skill'];
-                }), _this.getAttribute('KK').valueNumber));
+                }), _this.getAttribute('KK').value));
             });
             if (_this.weapons.length > 0)
                 _this.currentWeapon = _this.weapons[0];
             armor.forEach(function (armor) {
-                _this.addArmor(new _armor__WEBPACK_IMPORTED_MODULE_7__["Armor"](armor['id'], armor['name'], armor['rs'], armor['be']));
+                _this.addArmor(new _armor__WEBPACK_IMPORTED_MODULE_6__["Armor"](armor['id'], armor['name'], armor['rs'], armor['be']));
             });
         });
     };
@@ -1908,6 +1984,26 @@ var Hero = /** @class */ (function () {
             return armorItem.id === armorId;
         });
         this.armor.splice(armorIndex, 1);
+    };
+    Hero.prototype.getArmorById = function (armorId) {
+        return this.armor.find(function (armorItem) {
+            return armorItem.id === armorId;
+        });
+    };
+    Object.defineProperty(Hero.prototype, "armorValue", {
+        get: function () {
+            return this.armor.reduce(function (previousArmorValue, armorEntry) {
+                if (armorEntry.isEquipped)
+                    return previousArmorValue + armorEntry.rs;
+                else
+                    return previousArmorValue;
+            }, 0);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Hero.prototype.equipArmorById = function (armorId, isEquipped) {
+        this.getArmorById(armorId).isEquipped = isEquipped;
     };
     Hero.prototype.addWeapon = function (weapon) {
         this.weapons.push(weapon);
@@ -1921,6 +2017,12 @@ var Hero = /** @class */ (function () {
     Hero.prototype.addInventoryItem = function (inventoryItem) {
         this.inventory.push(inventoryItem);
     };
+    Hero.prototype.getInventoryItemById = function (inventoryItemId) {
+        var inventoryIndex = this.inventory.findIndex(function (InventoryItem) {
+            return InventoryItem.id === inventoryItemId;
+        });
+        return this.inventory[inventoryIndex];
+    };
     Hero.prototype.deleteInventoryItemById = function (inventoryItemId) {
         var inventoryIndex = this.inventory.findIndex(function (InventoryItem) {
             return InventoryItem.id === inventoryItemId;
@@ -1928,11 +2030,7 @@ var Hero = /** @class */ (function () {
         this.inventory.splice(inventoryIndex, 1);
     };
     Hero.prototype.updateInventoryItemAmount = function (inventoryItemId, amount) {
-        var inventoryIndex = this.inventory.findIndex(function (InventoryItem) {
-            return InventoryItem.id === inventoryItemId;
-        });
-        var inventoryItem = this.inventory[inventoryIndex];
-        inventoryItem.amount = amount;
+        this.getInventoryItemById(inventoryItemId).amount = amount;
     };
     Hero.prototype.structureSpells = function (actualSpellsOfHero) {
         var _this = this;
@@ -1945,7 +2043,7 @@ var Hero = /** @class */ (function () {
             var allSpells = spellsAndSpellGroups[0];
             var spellGroups = spellsAndSpellGroups[1];
             spellGroups.forEach(function (spellGroup) {
-                _this.spellGroups.push(new _actualSpellGroup__WEBPACK_IMPORTED_MODULE_4__["ActualSpellGroup"](spellGroup, []));
+                _this.spellGroups.push(new _actualSpellGroup__WEBPACK_IMPORTED_MODULE_5__["ActualSpellGroup"](spellGroup, []));
             });
             allSpells.forEach(function (spell) {
                 var actualSpellDataObject = actualSpellsOfHero.find(function (actualSpellData) {
@@ -1954,7 +2052,7 @@ var Hero = /** @class */ (function () {
                 var spellGroupOfSpell = _this.spellGroups.find(function (spellGroup) {
                     return spellGroup.getSpellGroup().id === spell.spellGroupId;
                 });
-                var actualSpell = new _actualSpell__WEBPACK_IMPORTED_MODULE_3__["ActualSpell"](actualSpellDataObject, _this, spell, spellGroupOfSpell.getSpellGroup());
+                var actualSpell = new _actualSpell__WEBPACK_IMPORTED_MODULE_4__["ActualSpell"](actualSpellDataObject, _this, spell, spellGroupOfSpell.getSpellGroup());
                 _this.spells.push(actualSpell);
                 spellGroupOfSpell.getSpells().push(actualSpell);
             });
@@ -1991,10 +2089,16 @@ var Hero = /** @class */ (function () {
         configurable: true
     });
     Hero.prototype.currentWeaponSkillIsMelee = function () {
-        return this._currentWeapon.skill.skillGroupId === 1;
+        if (this._currentWeapon)
+            return this._currentWeapon.skill.skillGroupId === 1;
+        else
+            return false;
     };
     Hero.prototype.currentWeaponSkillIsLongRange = function () {
-        return this._currentWeapon.skill.skillGroupId === 8;
+        if (this._currentWeapon)
+            return this._currentWeapon.skill.skillGroupId === 8;
+        else
+            return false;
     };
     Object.defineProperty(Hero.prototype, "currentWeaponDamageText", {
         get: function () {
@@ -2064,7 +2168,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var InventoryService = /** @class */ (function () {
     function InventoryService(http, chRef, service) {
         this.http = http;
@@ -2072,6 +2175,18 @@ var InventoryService = /** @class */ (function () {
         this.service = service;
         this.inventoryItemsUrl = 'http://' + window.location.hostname + ':8000/inventoryItems/';
     }
+    InventoryService.prototype.updateAccountEntry = function (accountEntry, hero, newAmountValue) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.service.sendUpate({
+                heroId: hero.id,
+                type: 'updateAccountEntry',
+                unit: accountEntry.unit.toLowerCase(),
+                amount: newAmountValue
+            });
+            resolve(accountEntry);
+        });
+    };
     InventoryService.prototype.addInventory = function (inventoryItem, hero) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -2137,6 +2252,96 @@ var InventoryItem = /** @class */ (function () {
         this.weight = weight;
     }
     return InventoryItem;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/domain/moneyInventory.ts":
+/*!******************************************!*\
+  !*** ./src/app/domain/moneyInventory.ts ***!
+  \******************************************/
+/*! exports provided: MoneyInventory, AccountEntry */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoneyInventory", function() { return MoneyInventory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountEntry", function() { return AccountEntry; });
+var MoneyInventory = /** @class */ (function () {
+    function MoneyInventory(dukaten, silbertaler, kreuzer, heller) {
+        this.entries = [];
+        this.entries.push(new AccountEntry('Dukaten', dukaten));
+        this.entries.push(new AccountEntry('Silbertaler', silbertaler));
+        this.entries.push(new AccountEntry('Kreuzer', kreuzer));
+        this.entries.push(new AccountEntry('Heller', heller));
+    }
+    Object.defineProperty(MoneyInventory.prototype, "dukaten", {
+        get: function () {
+            return this.entries.find(function (entry) {
+                return entry.unit === 'Dukaten';
+            }).amount;
+        },
+        set: function (amount) {
+            this.entries.find(function (entry) {
+                return entry.unit === 'Dukaten';
+            }).amount = amount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MoneyInventory.prototype, "silbertaler", {
+        get: function () {
+            return this.entries.find(function (entry) {
+                return entry.unit === 'Silbertaler';
+            }).amount;
+        },
+        set: function (amount) {
+            this.entries.find(function (entry) {
+                return entry.unit === 'Silbertaler';
+            }).amount = amount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MoneyInventory.prototype, "kreuzer", {
+        get: function () {
+            return this.entries.find(function (entry) {
+                return entry.unit === 'Kreuzer';
+            }).amount;
+        },
+        set: function (amount) {
+            this.entries.find(function (entry) {
+                return entry.unit === 'Kreuzer';
+            }).amount = amount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MoneyInventory.prototype, "heller", {
+        get: function () {
+            return this.entries.find(function (entry) {
+                return entry.unit === 'Heller';
+            }).amount;
+        },
+        set: function (amount) {
+            this.entries.find(function (entry) {
+                return entry.unit === 'Heller';
+            }).amount = amount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return MoneyInventory;
+}());
+
+var AccountEntry = /** @class */ (function () {
+    function AccountEntry(unit, amount) {
+        this.unit = unit;
+        this.amount = amount;
+    }
+    return AccountEntry;
 }());
 
 
@@ -2301,9 +2506,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SkillService", function() { return SkillService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _skill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./skill */ "./src/app/domain/skill.ts");
-/* harmony import */ var _skillgroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./skillgroup */ "./src/app/domain/skillgroup.ts");
-/* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
+/* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
+/* harmony import */ var _skill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./skill */ "./src/app/domain/skill.ts");
+/* harmony import */ var _skillgroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./skillgroup */ "./src/app/domain/skillgroup.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2313,7 +2518,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -2335,6 +2539,10 @@ var SkillService = /** @class */ (function () {
                 .then(function (response) {
                 return _this.extractSkills(response);
             });
+            this.skillsPromise.catch(function (error) {
+                console.log('error getting skills');
+                _this.skillsPromise = null;
+            });
         }
         return this.skillsPromise;
     };
@@ -2347,6 +2555,9 @@ var SkillService = /** @class */ (function () {
                 _this.skillGroups = _this.extractSkillTypes(response);
                 return _this.skillGroups;
             });
+            this.skillGroupsPromise.catch(function (error) {
+                console.log('error getting skill groups');
+            });
         }
         return this.skillGroupsPromise;
     };
@@ -2355,7 +2566,7 @@ var SkillService = /** @class */ (function () {
         var skills = [];
         var body = res.json();
         body.forEach(function (skill) {
-            skills.push(new _skill__WEBPACK_IMPORTED_MODULE_2__["Skill"](skill, _this.attributeService));
+            skills.push(new _skill__WEBPACK_IMPORTED_MODULE_3__["Skill"](skill, _this.attributeService));
         });
         return skills;
     };
@@ -2364,7 +2575,7 @@ var SkillService = /** @class */ (function () {
         var skillTypes = [];
         var body = res.json();
         body.forEach(function (skillType) {
-            skillTypes.push(new _skillgroup__WEBPACK_IMPORTED_MODULE_3__["SkillGroup"](skillType, _this.chRef));
+            skillTypes.push(new _skillgroup__WEBPACK_IMPORTED_MODULE_4__["SkillGroup"](skillType, _this.chRef));
         });
         return skillTypes;
     };
@@ -2391,7 +2602,7 @@ var SkillService = /** @class */ (function () {
     };
     SkillService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], _attribute_service__WEBPACK_IMPORTED_MODULE_4__["AttributeService"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], _attribute_service__WEBPACK_IMPORTED_MODULE_2__["AttributeService"]])
     ], SkillService);
     return SkillService;
 }());
@@ -2743,7 +2954,7 @@ var WeaponService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".editAttributeContainer {\n    /* background-color: #D1B99D; */\n    padding: 10px 20px 10px 20px;\n}\n\n.attributeName {\n    width: 100px;\n    text-align: left;\n}\n\n.targetValue, .costOfRaise {\n    width: 40px;\n}\n\nbutton {\n    z-index: 10;\n}"
+module.exports = ".editAttributeContainer {\r\n    /* background-color: #D1B99D; */\r\n    padding: 10px 20px 10px 20px;\r\n}\r\n\r\n.attributeName {\r\n    width: 100px;\r\n    text-align: left;\r\n}\r\n\r\n.targetValue, .costOfRaise {\r\n    width: 40px;\r\n}\r\n\r\nbutton {\r\n    z-index: 10;\r\n}"
 
 /***/ }),
 
@@ -2754,7 +2965,7 @@ module.exports = ".editAttributeContainer {\n    /* background-color: #D1B99D; *
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\n    <button (click)=\"increaseAttribute()\">\n        <div class=\"editAttributeContainer flex-row\" >\n            <div class=\"attributeName\">{{attribute.name}}</div>\n            <div class=\"targetValue\"><i class=\"fa fa-tachometer\"></i> {{targetValue}}</div>\n            <div class=\"costOfRaise\"><i class=\"fa fa-dollar\"></i> {{costOfAscension}}</div>\n        </div>\n    </button>\n    \n    <confirmation-sheet *ngIf=\"state === 'toBeConfirmed'\" confirmationText=\"Zahle {{costOfAscension}} um {{attribute.name}} zu steigern?\" (confirm)=\"confirmIncrease()\" (cancel)=\"cancelIncrease()\"></confirmation-sheet>\n    \n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n    <button (click)=\"increaseAttribute()\">\r\n        <div class=\"editAttributeContainer flex-row\" >\r\n            <div class=\"attributeName\">{{attribute.name}}</div>\r\n            <div class=\"targetValue\"><i class=\"fa fa-tachometer\"></i> {{targetValue}}</div>\r\n            <div class=\"costOfRaise\"><i class=\"fa fa-dollar\"></i> {{costOfAscension}}</div>\r\n        </div>\r\n    </button>\r\n    \r\n    <confirmation-sheet *ngIf=\"state === 'toBeConfirmed'\" confirmationText=\"Zahle {{costOfAscension}} um {{attribute.name}} zu steigern?\" (confirm)=\"confirmIncrease()\" (cancel)=\"cancelIncrease()\"></confirmation-sheet>\r\n    \r\n</div>"
 
 /***/ }),
 
@@ -2834,12 +3045,12 @@ var EditAttributeComponent = /** @class */ (function () {
         });
         // this.heroMU
         this._state = '';
-        this._attribute.valueNumber = this.targetValue;
+        this._attribute.value = this.targetValue;
         this.hero.experience_used += this.costOfAscension;
     };
     Object.defineProperty(EditAttributeComponent.prototype, "targetValue", {
         get: function () {
-            return this._attribute.valueNumber + 1;
+            return this._attribute.value + 1;
         },
         enumerable: true,
         configurable: true
@@ -2888,7 +3099,7 @@ var EditAttributeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navigationButton {\n    width: 250px;\n    margin-bottom: 5px;\n}\n\n.attributeContainer, .skillEntry {\n    margin-bottom: 10px;\n}\n\n"
+module.exports = ".navigationButton {\r\n    width: 250px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.attributeContainer, .skillEntry {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -2899,7 +3110,7 @@ module.exports = ".navigationButton {\n    width: 250px;\n    margin-bottom: 5px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page flex-col center\">\n  <div class=\"pageContent\">\n    <div class=\"sheet flex-col center\" *ngIf=\"hero\">\n      <h2>Punkte einsetzen</h2>\n      <div>{{hero.availablePoints}}</div>\n      <div id=\"firstStep\" *ngIf=\"state === 'initial'\" class=\"flex-col center\">\n        <h3>Was möchtest Du mit {{hero.name}} tun?</h3>\n        <div class=\"flex-col\">\n            <button class=\"navigationButton\" (click)=\"setState('raiseAttribute')\">Eigenschaft steigern</button>\n            <button class=\"navigationButton\" (click)=\"setState('raiseTalent')\">Talent steigern</button>\n            <button class=\"navigationButton\" *ngIf=\"hero.knowsMagic === true\">Zauberfertigkeit steigern</button>\n          </div>\n      </div>\n      <div id=\"raiseAttribute\" *ngIf=\"state === 'raiseAttribute'\" class=\"flex-col center\">\n        <h3>Welche Eigenschaft möchtest Du steigern?</h3>\n        <div class=\"navigationButton flex-item\" *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\">\n          <edit-attribute [attribute]=\"attribute\" [costOfAscension]=\"getCostOfAttributeAscension(attribute)\" [hero]=\"hero\"></edit-attribute>\n        </div>\n        \n      </div>\n      <div id=\"raiseTalent\" *ngIf=\"state === 'raiseTalent'\" class=\"flex-col center\">\n        <h3>Welches Talent möchtest Du steigern?</h3>\n        <div class=\"flex-col flex-item center\">\n          <div class=\"flex-row padded searchContainer center\" >\n            <input placeholder=\"Suchbegriff\" [value]=\"talentSearchTerm\" (input)=\"talentSearchTerm  = $event.target.value\" />\n          </div>\n          <div class=\"talente padded\">\n            <div class=\"flex-col center\" *ngFor=\"let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm\">\n              <div class=\"skillGroupTitle\">{{skillGroup.skillGroup.name}}</div>\n              <div class=\"skillGroupEntries\">\n                  <div class=\"skillEntry\" *ngFor=\"let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm\">\n                    <edit-talent [skill]=\"skill\" [hero]=\"hero\" [costOfAscension]=\"getCostOfSkillAscension(skill)\"></edit-talent>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"page flex-col center\">\r\n  <div class=\"pageContent\">\r\n    <div class=\"sheet flex-col center\" *ngIf=\"hero\">\r\n      <h2>Punkte einsetzen</h2>\r\n      <div>{{hero.availablePoints}}</div>\r\n      <div id=\"firstStep\" *ngIf=\"state === 'initial'\" class=\"flex-col center\">\r\n        <h3>Was möchtest Du mit {{hero.name}} tun?</h3>\r\n        <div class=\"flex-col\">\r\n            <button class=\"navigationButton\" (click)=\"setState('raiseAttribute')\">Eigenschaft steigern</button>\r\n            <button class=\"navigationButton\" (click)=\"setState('raiseTalent')\">Talent steigern</button>\r\n            <button class=\"navigationButton\" *ngIf=\"hero.knowsMagic === true\">Zauberfertigkeit steigern</button>\r\n          </div>\r\n      </div>\r\n      <div id=\"raiseAttribute\" *ngIf=\"state === 'raiseAttribute'\" class=\"flex-col center\">\r\n        <h3>Welche Eigenschaft möchtest Du steigern?</h3>\r\n        <div class=\"navigationButton flex-item\" *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\">\r\n          <edit-attribute [attribute]=\"attribute\" [costOfAscension]=\"getCostOfAttributeAscension(attribute)\" [hero]=\"hero\"></edit-attribute>\r\n        </div>\r\n        \r\n      </div>\r\n      <div id=\"raiseTalent\" *ngIf=\"state === 'raiseTalent'\" class=\"flex-col center\">\r\n        <h3>Welches Talent möchtest Du steigern?</h3>\r\n        <div class=\"flex-col flex-item center\">\r\n          <div class=\"flex-row padded searchContainer center\" >\r\n            <input placeholder=\"Suchbegriff\" [value]=\"talentSearchTerm\" (input)=\"talentSearchTerm  = $event.target.value\" />\r\n          </div>\r\n          <div class=\"talente padded\">\r\n            <div class=\"flex-col center\" *ngFor=\"let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm\">\r\n              <div class=\"skillGroupTitle\">{{skillGroup.skillGroup.name}}</div>\r\n              <div class=\"skillGroupEntries\">\r\n                  <div class=\"skillEntry\" *ngFor=\"let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm\">\r\n                    <edit-talent [skill]=\"skill\" [hero]=\"hero\" [costOfAscension]=\"getCostOfSkillAscension(skill)\"></edit-talent>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2973,7 +3184,7 @@ var EditDialogComponent = /** @class */ (function () {
     });
     EditDialogComponent.prototype.getCostOfAttributeAscension = function (attribute) {
         var price = this.pricingTable.find(function (ascensionPricing) {
-            return ascensionPricing.levelFrom === attribute.valueNumber;
+            return ascensionPricing.levelFrom === attribute.value;
         }).priceH;
         return price;
     };
@@ -3013,6 +3224,106 @@ var EditDialogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/edit-money/edit-money.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/edit-money/edit-money.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\r\n  margin-top: 3rem;\r\n  margin-bottom: 3rem;\r\n  font-size: 3rem;\r\n  text-align: center;\r\n}\r\n\r\np {\r\n  font-size: 1.5rem;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/edit-money/edit-money.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/edit-money/edit-money.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flex-col center\">\r\n  <img src=\"/assets/money-icon.png\" class=\"dialogHeroImage no-border\" />\r\n  <p>\r\n    Aktuell hast Du <span style=\"font-weight: 700;\">{{ accountEntry.amount }} {{ accountEntry.unit }}</span>.\r\n  </p>\r\n  <p>\r\n    Auf welchen Wert möchtest Du es setzen?\r\n  </p>\r\n\r\n  <input type=\"number\" placeholder=\"Die Anzahl deiner {{ accountEntry.unit }}\" [(ngModel)]=\"newAmount\" />\r\n</div>\r\n<hr />\r\n<div class=\"buttonRow row\">\r\n  <button (click)=\"raiseCancel()\">Doch nicht.</button>\r\n  <button class=\"background-danger\" (click)=\"raiseAccept()\">\r\n    <i class=\"fa fa-magic\"></i> So ist das jetzt mit dem Geld\r\n  </button>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/edit-money/edit-money.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/edit-money/edit-money.component.ts ***!
+  \****************************************************/
+/*! exports provided: EditMoneyComponent, EditMoneyData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditMoneyComponent", function() { return EditMoneyComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditMoneyData", function() { return EditMoneyData; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var app_domain_moneyInventory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/moneyInventory */ "./src/app/domain/moneyInventory.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var EditMoneyComponent = /** @class */ (function () {
+    function EditMoneyComponent(dialog, data) {
+        this.dialog = dialog;
+        this.data = data;
+        this.confirm = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.cancel = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.newAmount = data.amount;
+        this.accountEntry = data;
+    }
+    EditMoneyComponent.prototype.ngOnInit = function () {
+    };
+    EditMoneyComponent.prototype.raiseAccept = function () {
+        this.confirm.emit(new EditMoneyData(this.accountEntry, this.newAmount));
+    };
+    EditMoneyComponent.prototype.raiseCancel = function () {
+        this.cancel.emit();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], EditMoneyComponent.prototype, "confirm", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], EditMoneyComponent.prototype, "cancel", void 0);
+    EditMoneyComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-edit-money',
+            template: __webpack_require__(/*! ./edit-money.component.html */ "./src/app/edit-money/edit-money.component.html"),
+            styles: [__webpack_require__(/*! ./edit-money.component.css */ "./src/app/edit-money/edit-money.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], app_domain_moneyInventory__WEBPACK_IMPORTED_MODULE_2__["AccountEntry"]])
+    ], EditMoneyComponent);
+    return EditMoneyComponent;
+}());
+
+var EditMoneyData = /** @class */ (function () {
+    function EditMoneyData(accountEntry, newAmount) {
+        this.accountEntry = accountEntry;
+        this.newAmount = newAmount;
+    }
+    return EditMoneyData;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/edit-talent/edit-talent.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/edit-talent/edit-talent.component.css ***!
@@ -3020,7 +3331,7 @@ var EditDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".skillTitle {\n    width: 140px;\n    font-weight: 600;\n    text-align: left;\n}"
+module.exports = ".skillTitle {\r\n    width: 140px;\r\n    font-weight: 600;\r\n    text-align: left;\r\n}"
 
 /***/ }),
 
@@ -3031,7 +3342,7 @@ module.exports = ".skillTitle {\n    width: 140px;\n    font-weight: 600;\n    t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\n  <button (click)=\"increaseSkill()\">\n    <div class=\"flex-row skill\">\n      <div class=\"skillTitle\">{{skill.getSkill().name}}</div>\n      <div class=\"targetValue\"><i class=\"fa fa-tachometer\"></i> {{targetValue}}</div>\n      <div class=\"costOfRaise\"><i class=\"fa fa-dollar\"></i> {{costOfAscension}}</div>\n    </div>\n  </button>\n  <confirmation-sheet *ngIf=\"state === 'toBeConfirmed'\" confirmationText=\"Zahle {{costOfAscension}} um {{skill.skill.name}} zu steigern?\" (confirm)=\"confirmIncrease()\" (cancel)=\"cancelIncrease()\"></confirmation-sheet>\n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n  <button (click)=\"increaseSkill()\">\r\n    <div class=\"flex-row skill\">\r\n      <div class=\"skillTitle\">{{skill.getSkill().name}}</div>\r\n      <div class=\"targetValue\"><i class=\"fa fa-tachometer\"></i> {{targetValue}}</div>\r\n      <div class=\"costOfRaise\"><i class=\"fa fa-dollar\"></i> {{costOfAscension}}</div>\r\n    </div>\r\n  </button>\r\n  <confirmation-sheet *ngIf=\"state === 'toBeConfirmed'\" confirmationText=\"Zahle {{costOfAscension}} um {{skill.skill.name}} zu steigern?\" (confirm)=\"confirmIncrease()\" (cancel)=\"cancelIncrease()\"></confirmation-sheet>\r\n</div>"
 
 /***/ }),
 
@@ -3133,6 +3444,103 @@ var EditTalentComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/experience-addition/experience-addition.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/experience-addition/experience-addition.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\r\n    margin-top: 3rem;\r\n    margin-bottom: 3rem;\r\n    font-size: 3rem;\r\n    text-align: center;\r\n}\r\n\r\n.buttonRow {\r\n    margin-top: 3rem;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/experience-addition/experience-addition.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/experience-addition/experience-addition.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flex-col center\">\r\n  <img src=\"/assets/scroll.png\" class=\"dialogHeroImage no-border\" />\r\n  <h4 class=\"titleText\">\r\n    Neue Abenteuerpunkte\r\n  </h4>\r\n  <input type=\"number\" placeholder=\"Die Anzahl deiner neuen Abenteuerpunkte\" [(ngModel)]=\"newPointsToAdd\" />\r\n</div>\r\n<div class=\"buttonRow row\">\r\n  <button (click)=\"raiseCancel()\">Aaah, Quatsch, kommt doch nichts dazu.</button>\r\n  <button class=\"\" (click)=\"raiseAccept()\"><i class=\"fa fa-magic\"></i> Her mit den Punkten!</button>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/experience-addition/experience-addition.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/experience-addition/experience-addition.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: ExperienceAdditionComponent, ConfirmationData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExperienceAdditionComponent", function() { return ExperienceAdditionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmationData", function() { return ConfirmationData; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ExperienceAdditionComponent = /** @class */ (function () {
+    function ExperienceAdditionComponent(dialog, data) {
+        this.dialog = dialog;
+        this.data = data;
+        this.confirm = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.cancel = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.newPointsToAdd = 10;
+    }
+    ExperienceAdditionComponent.prototype.ngOnInit = function () {
+    };
+    ExperienceAdditionComponent.prototype.raiseAccept = function () {
+        this.confirm.emit(this.newPointsToAdd);
+    };
+    ExperienceAdditionComponent.prototype.raiseCancel = function () {
+        this.cancel.emit();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ExperienceAdditionComponent.prototype, "confirm", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ExperienceAdditionComponent.prototype, "cancel", void 0);
+    ExperienceAdditionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-experience-addition',
+            template: __webpack_require__(/*! ./experience-addition.component.html */ "./src/app/experience-addition/experience-addition.component.html"),
+            styles: [__webpack_require__(/*! ./experience-addition.component.css */ "./src/app/experience-addition/experience-addition.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], ConfirmationData])
+    ], ExperienceAdditionComponent);
+    return ExperienceAdditionComponent;
+}());
+
+var ConfirmationData = /** @class */ (function () {
+    function ConfirmationData(currentPoints, newPointsToAdd) {
+        this.currentPoints = currentPoints;
+        this.newPointsToAdd = newPointsToAdd;
+    }
+    return ConfirmationData;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/experience-display/experience-display.component.css":
 /*!*********************************************************************!*\
   !*** ./src/app/experience-display/experience-display.component.css ***!
@@ -3140,7 +3548,7 @@ var EditTalentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".badge {\n    font-size: 30px;\n    position: absolute;\n    margin-top: -60px;\n}"
+module.exports = ".overalContainer {\r\n  /* position: absolute; */\r\n  overflow: visible;\r\n}\r\n\r\n.experienceContainer {\r\n  font-size: 2.5rem;\r\n}\r\n\r\n.overalContainer {\r\n  background-image: url(\"/assets/scroll.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 5rem;\r\n  background-position: center 0;\r\n  padding-top: 5rem;\r\n  padding-bottom: 4rem;\r\n}\r\n"
 
 /***/ }),
 
@@ -3151,7 +3559,7 @@ module.exports = ".badge {\n    font-size: 30px;\n    position: absolute;\n    m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"badge\">\n   {{experience}} Abenteuerpunkte\n</div>\n<div class=\"smallerBadge\">\n   {{availablePoints}} übrig\n</div>"
+module.exports = "<div class=\"overalContainer flex flex-col center\">\r\n  <div class=\"experienceContainer\">{{ experience }} Abenteuerpunkte</div>\r\n  <button (click)=\"openAddExperiencePointsDialog()\"><i class=\"fa fa-plus\"></i></button>\r\n  <!-- <div class=\"experienceLeftContainer flex-item\">\r\n    {{ availablePoints }} übrig\r\n  </div> -->\r\n</div>"
 
 /***/ }),
 
@@ -3166,6 +3574,10 @@ module.exports = "<div class=\"badge\">\n   {{experience}} Abenteuerpunkte\n</di
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExperienceDisplayComponent", function() { return ExperienceDisplayComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var app_experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
+/* harmony import */ var app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3176,10 +3588,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var ExperienceDisplayComponent = /** @class */ (function () {
-    function ExperienceDisplayComponent() {
+    function ExperienceDisplayComponent(dialog, lifeService) {
+        this.dialog = dialog;
+        this.lifeService = lifeService;
     }
     ExperienceDisplayComponent.prototype.ngOnInit = function () {
+    };
+    ExperienceDisplayComponent.prototype.openAddExperiencePointsDialog = function () {
+        this.addExperiencePointsDialogRef = this.dialog.open(app_experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_3__["ExperienceAdditionComponent"], { data: new app_experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_3__["ConfirmationData"](this.hero.experience, 0) });
+        this.addExperiencePointsDialogRef.componentInstance.confirm.subscribe(this.addExperiencePoints.bind(this));
+        this.addExperiencePointsDialogRef.componentInstance.cancel.subscribe(this.closeAddExperiencePointsDialog.bind(this));
+    };
+    ExperienceDisplayComponent.prototype.addExperiencePoints = function (additionalPoints) {
+        this.lifeService.sendUpate({
+            type: 'addExperiencePoints',
+            heroId: this.hero.id,
+            additionalPoints: additionalPoints
+        });
+        this.closeAddExperiencePointsDialog();
+    };
+    ExperienceDisplayComponent.prototype.closeAddExperiencePointsDialog = function () {
+        this.addExperiencePointsDialogRef.close();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -3189,13 +3623,17 @@ var ExperienceDisplayComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Number)
     ], ExperienceDisplayComponent.prototype, "availablePoints", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", app_domain_hero__WEBPACK_IMPORTED_MODULE_2__["Hero"])
+    ], ExperienceDisplayComponent.prototype, "hero", void 0);
     ExperienceDisplayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'experience-display',
             template: __webpack_require__(/*! ./experience-display.component.html */ "./src/app/experience-display/experience-display.component.html"),
             styles: [__webpack_require__(/*! ./experience-display.component.css */ "./src/app/experience-display/experience-display.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_4__["HeroLifeService"]])
     ], ExperienceDisplayComponent);
     return ExperienceDisplayComponent;
 }());
@@ -3222,7 +3660,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  fight-display works!\n</p>\n"
+module.exports = "<p>\r\n  fight-display works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -3285,7 +3723,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  fight-setup works!\n</p>\n"
+module.exports = "<p>\r\n  fight-setup works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -3337,7 +3775,7 @@ var FightSetupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-card {\n\tpadding: 0;\n\t/* background-color: #f2f1ed; */\n\tbox-shadow: 0 2px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0px 4px 20px 2px rgba(0,0,0,0.48) !important;\n}\nmat-card-content {\n\tdisplay: block;\n}\nmat-card-title {\n\tmargin-bottom: 0;\n}\n.cardContentContainer {\n\theight: 100px;\n\tposition: relative;\n\toverflow: visible;\n\tpadding: 0px;\n}\nh2 {\n\tmargin:0;\n\tfont-size: 1.75rem;\n}\n.heroValues {\n\theight: 50px;\n}\n.heroAvatar {\n\tposition: absolute;\n\tbottom: 53px;\n\tright: 10px;\n\theight: 190px;\n\tz-index: 10;\n\tdisplay: block;\n}\n.heroAvatar img {\n\theight: 100%;\n}\nul {\n\tlist-style-type: none;\n\tcolor: #4b4b4b;\n\tmargin-left: 20px;\n\tpadding: 0 0 5px 10px;\n\tfont-family: Neucha,sans-serif;\n}\nli::before {\n\tcontent: none;\n}\ndiv.label {\n\twidth: 96px;\n\tfloat:left;\n}\n.headerContent {\n\tcursor: pointer;\n}\n.hero-entry-container {\n\tposition: relative\n}\n.heroes-entry {\n\toverflow: hidden;\n\tbackground-color: #fff;\n}\n.actionsContainer {\n\toverflow: visible;\n}"
+module.exports = "mat-card {\r\n  padding: 0;\r\n  /* background-color: #f2f1ed; */\r\n  box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),\r\n    0px 4px 20px 2px rgba(0, 0, 0, 0.48) !important;\r\n}\r\nmat-card-content {\r\n  display: block;\r\n}\r\nmat-card-title {\r\n  margin-bottom: 0;\r\n}\r\n.cardContentContainer {\r\n  height: 100px;\r\n  position: relative;\r\n  overflow: visible;\r\n  padding: 0px;\r\n}\r\nh2 {\r\n  margin: 0;\r\n  font-size: 1.75rem;\r\n}\r\n.heroValues {\r\n  height: 50px;\r\n}\r\n.heroAvatar {\r\n  position: absolute;\r\n  bottom: 53px;\r\n  right: 10px;\r\n  height: 190px;\r\n  z-index: 10;\r\n  display: block;\r\n}\r\n.heroAvatar img {\r\n  height: 100%;\r\n}\r\nul {\r\n  list-style-type: none;\r\n  color: #4b4b4b;\r\n  margin-left: 20px;\r\n  padding: 0 0 5px 10px;\r\n  font-family: Neucha, sans-serif;\r\n}\r\nli::before {\r\n  content: none;\r\n}\r\ndiv.label {\r\n  width: 96px;\r\n  float: left;\r\n}\r\n.headerContent {\r\n  cursor: pointer;\r\n}\r\n.hero-entry-container {\r\n  position: relative;\r\n}\r\n.heroes-entry {\r\n  overflow: hidden;\r\n  background-color: #fff;\r\n}\r\n.actionsContainer {\r\n  overflow: visible;\r\n}\r\n"
 
 /***/ }),
 
@@ -3348,7 +3786,7 @@ module.exports = "mat-card {\n\tpadding: 0;\n\t/* background-color: #f2f1ed; */\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"hero-entry-container\">\n  <div class=\"heroes-entry border border-3\">\n    \n      <div class=\"headerContainer\" (click)=\"gotoDetail()\">\n        <!--  -->\n        <div class=\"headerContent\">\n          <h2>{{hero.name}}</h2>\n          <span>{{hero.hero_type.name}}, Stufe {{hero.level}}</span>\n        </div>\n      </div>\n      <div class=\"cardContentContainer\" (click)=\"gotoDetail()\">\n        <ul>\n          <li>\n            <div class=\"label\">Attacke:</div>{{hero.currentAttack}}\n          </li>\n          <li>\n            <div class=\"label\">Parade:</div>{{hero.currentParade}}\n          </li>\n          <li>\n            <div class=\"label\">Trefferpunkte:</div>{{hero.currentWeaponDamageText}}\n          </li>\n          <li>\n            <p>Rüstung: 3</p>\n          </li>\n        </ul>\n        \n      </div>\n      <div class=\"actionsContainer\">\n        <hero-controls [hero]=\"hero\">\n        </hero-controls>\n      </div>\n    \n  </div>\n  <div class=\"heroAvatar\" (click)=\"gotoDetail()\">\n    <img class=\"heroAvatarImage no-border\" src=\"{{baseUrl}}{{hero.avatar_small}}\" height=\"100%\" />\n  </div>\n</div>"
+module.exports = "<div class=\"hero-entry-container\">\r\n  <div class=\"heroes-entry comic-shadow border border-3\">\r\n    <div class=\"headerContainer\" (click)=\"gotoDetail()\">\r\n      <!--  -->\r\n      <div class=\"headerContent\">\r\n        <h2>{{ hero.name }}</h2>\r\n        <span>{{ hero.hero_type.name }}, Stufe {{ hero.level }}</span>\r\n      </div>\r\n    </div>\r\n    <div class=\"cardContentContainer\" (click)=\"gotoDetail()\">\r\n      <ul *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsMelee()\">\r\n        <li>\r\n          <div class=\"label\">Attacke:</div>\r\n          {{ hero.currentAttack }}\r\n        </li>\r\n        <li>\r\n          <div class=\"label\">Parade:</div>\r\n          {{ hero.currentParade }}\r\n        </li>\r\n        <li>\r\n          <div class=\"label\">Trefferpunkte:</div>\r\n          {{ hero.currentWeaponDamageText }}\r\n        </li>\r\n        <li>\r\n          <p>Rüstung: {{hero.armorValue}}</p>\r\n        </li>\r\n      </ul>\r\n      <ul *ngIf=\"hero.currentWeapon && hero.currentWeaponSkillIsLongRange()\">\r\n        <li>\r\n          <div class=\"label\">Fernkampfwert:</div>\r\n          {{ hero.currentLongRangeValue }}\r\n        </li>\r\n        <li>\r\n          <div class=\"label\">Trefferpunkte:</div>\r\n          {{ hero.currentWeaponDamageText }}\r\n        </li>\r\n        <li>\r\n          <p>Rüstung: {{hero.armorValue}}</p>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"actionsContainer\">\r\n      <hero-controls [hero]=\"hero\"> </hero-controls>\r\n    </div>\r\n  </div>\r\n  <div class=\"heroAvatar\" (click)=\"gotoDetail()\">\r\n    <img class=\"heroAvatarImage no-border\" src=\"{{ baseUrl }}{{ hero.avatar_small }}\" height=\"100%\" />\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -3432,7 +3870,7 @@ var HeroCard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n.buttons {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: space-between;\n\twidth: 100%;\n\theight: 50px;\n\t\n} \n\n.buttons button {\n\tborder:none;\n} \n\n.buttons.transparent button {\n\tbackground-color: transparent;\n} \n\n.buttons button:hover {\n\tbox-shadow: none;\n\tbackground-color: transparent;\n} \n\n.container {\n\twidth: 100%;\n\tposition: relative;\n\tborder-top: 1px solid #bbb;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n} \n\n.lifeChangerButton {\n\tbackground-color: #fff;\n\tflex: 1;\n\theight: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n} \n\n.buttons .lifeChangerButton:not(:last-child) {\n\tborder-right: 1px solid #bbb;\n} \n\n.buttons .lifeChangerButton:first-child  {\n\tborder-bottom-left-radius: 2px;\n} \n\n.buttons .lifeChangerButton:last-child  {\n\tborder-bottom-right-radius: 2px;\n} \n\nlife-display, magic-display {\n\tposition: absolute;\n\t\n} \n\nlife-display {\n\ttop: -15px;\n\ttransition: all .3s ease-out;\n} \n\nmagic-display {\n\ttop: 5px;\n\ttransition: all .3s ease-out;\n} \n\nmagic-display.displayActive, life-display.displayActive {\n\tz-index: 60;\n} \n\nmagic-display.displayInactive, life-display.displayInactive {\n\tz-index: 30;\n\t-webkit-transform: scale(0.7);\n\t        transform: scale(0.7)\n} \n\n.displaysContainer {\n\twidth: 100%;\n\tdisplay:flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items:center;\n}"
+module.exports = "\r\n\r\n.buttons {\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tjustify-content: space-between;\r\n\twidth: 100%;\r\n\theight: 50px;\r\n\t\r\n} \r\n\r\n.buttons button {\r\n\tborder:none;\r\n} \r\n\r\n.buttons.transparent button {\r\n\tbackground-color: transparent;\r\n} \r\n\r\n.buttons button:hover {\r\n\tbox-shadow: none;\r\n\tbackground-color: transparent;\r\n} \r\n\r\n.container {\r\n\twidth: 100%;\r\n\tposition: relative;\r\n\tborder-top: 1px solid #bbb;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n} \r\n\r\n.lifeChangerButton {\r\n\tbackground-color: #fff;\r\n\tflex: 1;\r\n\theight: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n} \r\n\r\n.buttons .lifeChangerButton:not(:last-child) {\r\n\tborder-right: 1px solid #bbb;\r\n} \r\n\r\n.buttons .lifeChangerButton:first-child  {\r\n\tborder-bottom-left-radius: 2px;\r\n} \r\n\r\n.buttons .lifeChangerButton:last-child  {\r\n\tborder-bottom-right-radius: 2px;\r\n} \r\n\r\nlife-display, magic-display {\r\n\tposition: absolute;\r\n\t\r\n} \r\n\r\nlife-display {\r\n\ttop: -15px;\r\n\ttransition: all .3s ease-out;\r\n} \r\n\r\nmagic-display {\r\n\ttop: 5px;\r\n\ttransition: all .3s ease-out;\r\n} \r\n\r\nmagic-display.displayActive, life-display.displayActive {\r\n\tz-index: 60;\r\n} \r\n\r\nmagic-display.displayInactive, life-display.displayInactive {\r\n\tz-index: 30;\r\n\t-webkit-transform: scale(0.7);\r\n\t        transform: scale(0.7)\r\n} \r\n\r\n.displaysContainer {\r\n\twidth: 100%;\r\n\tdisplay:flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n\talign-items:center;\r\n}"
 
 /***/ }),
 
@@ -3443,7 +3881,7 @@ module.exports = "\n\n.buttons {\n\tdisplay: flex;\n\tflex-direction: row;\n\tju
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"displaysContainer\">\n    <life-display\n      currentLife=\"{{ hero.currentLife }}\"\n      maxLife=\"{{ hero.life }}\"\n      (click)=\"focusLife()\"\n      [ngClass]=\"lifeClass\"\n    >\n    </life-display>\n    <magic-display\n      *ngIf=\"hero.knowsMagic\"\n      currentMagicEnergy=\"{{ hero.currentMagicEnergy }}\"\n      maxMagicEnergy=\"{{ hero.magicEnergy }}\"\n      (click)=\"focusMagic()\"\n      [ngClass]=\"magicClass\"\n    >\n    </magic-display>\n  </div>\n  <div class=\"buttons\" [class.transparent]=\"listMode\">\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(-5)\">\n      <i class=\"fa fa-angle-double-down\" aria-hidden=\"true\"></i>\n    </button>\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(-1)\">\n      <i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>\n    </button>\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(1)\">\n      <i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>\n    </button>\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(5)\">\n      <i class=\"fa fa-angle-double-up\" aria-hidden=\"true\"></i>\n    </button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"displaysContainer\">\r\n    <life-display\r\n      currentLife=\"{{ hero.currentLife }}\"\r\n      maxLife=\"{{ hero.life }}\"\r\n      (click)=\"focusLife()\"\r\n      [ngClass]=\"lifeClass\"\r\n    >\r\n    </life-display>\r\n    <magic-display\r\n      *ngIf=\"hero.knowsMagic\"\r\n      currentMagicEnergy=\"{{ hero.currentMagicEnergy }}\"\r\n      maxMagicEnergy=\"{{ hero.magicEnergy }}\"\r\n      (click)=\"focusMagic()\"\r\n      [ngClass]=\"magicClass\"\r\n    >\r\n    </magic-display>\r\n  </div>\r\n  <div class=\"buttons\" [class.transparent]=\"listMode\">\r\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(-5)\">\r\n      <i class=\"fa fa-angle-double-down\" aria-hidden=\"true\"></i>\r\n    </button>\r\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(-1)\">\r\n      <i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>\r\n    </button>\r\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(1)\">\r\n      <i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>\r\n    </button>\r\n    <button class=\"lifeChangerButton\" (click)=\"updateValue(5)\">\r\n      <i class=\"fa fa-angle-double-up\" aria-hidden=\"true\"></i>\r\n    </button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3594,15 +4032,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroLifeService", function() { return HeroLifeService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../domain/hero.service */ "./src/app/domain/hero.service.ts");
-/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../domain/skills.service */ "./src/app/domain/skills.service.ts");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var app_domain_weapon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/domain/weapon */ "./src/app/domain/weapon.ts");
-/* harmony import */ var app_domain_armor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/domain/armor */ "./src/app/domain/armor.ts");
-/* harmony import */ var app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/domain/inventoryItem */ "./src/app/domain/inventoryItem.ts");
+/* harmony import */ var app_domain_armor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/armor */ "./src/app/domain/armor.ts");
+/* harmony import */ var app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/inventoryItem */ "./src/app/domain/inventoryItem.ts");
+/* harmony import */ var app_domain_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/weapon */ "./src/app/domain/weapon.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../domain/hero.service */ "./src/app/domain/hero.service.ts");
+/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../domain/skills.service */ "./src/app/domain/skills.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3617,8 +4055,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-// import { Rx } from 'rxjs';
 
+// import { Rx } from 'rxjs';
 
 
 
@@ -3626,44 +4064,55 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var HeroLifeService = /** @class */ (function () {
     function HeroLifeService(http, heroService, toastr, skillService) {
-        var _this = this;
         this.http = http;
         this.toastr = toastr;
         this.skillService = skillService;
         this.wsUrl = 'ws://' + window.location.hostname + ':8000/heroes';
         this.wsClientId = Math.random().toString(36).substring(7);
+        this.currentlyConnected = false;
         this.heroService = heroService;
         this.createWebsocket();
-        this.heroSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        this.heroSubject.subscribe(this.handleIncommingMessage.bind(this));
-        this.socket.onmessage = (function (evt) { return _this.heroSubject.next(evt); });
-        this.socket.onopen = function (event) {
-            _this.toastr.success('Du bist online.');
-        };
-        this.socket.onerror = function (error) {
-            console.log('baaaad');
-        };
-        this.socket.addEventListener('error', function (event) {
-            console.log('hey');
-            event.stopPropagation();
-        });
-        this.socket.addEventListener('close', function (event) {
-            _this.connectionInterval = window.setInterval(_this.createWebsocket.bind(_this), 2000);
-        });
     }
-    HeroLifeService.prototype.pollForConnection = function () {
-        this.socket.send(JSON.stringify({ type: 'poll' }));
-    };
-    HeroLifeService.prototype.handleConnectionError = function (error) {
-        this.toastr.error('Ein Fehler bei der Kommunikation!', 'Mist');
-    };
     HeroLifeService.prototype.createWebsocket = function () {
-        this.socket = new WebSocket(this.wsUrl);
-        if (this.socket)
-            clearInterval(this.connectionInterval);
+        var _this = this;
+        try {
+            this.socket = new WebSocket(this.wsUrl);
+            this.heroSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
+            this.heroSubject.subscribe(this.handleIncommingMessage.bind(this));
+            this.socket.onmessage = (function (evt) { return _this.heroSubject.next(evt); });
+            this.socket.onopen = function (event) {
+                _this.currentlyConnected = true;
+                _this.toastr.success('Du bist online.');
+                clearInterval(_this.connectionInterval);
+            };
+            this.socket.onerror = function (error) {
+                if (_this.socket.readyState === _this.socket.OPEN) {
+                    _this.toastr.error('Es gab einen Fehler', 'Wir schließen nun die Verbindung');
+                }
+            };
+            this.socket.addEventListener('error', function (event) {
+                console.log('hey');
+                event.stopPropagation();
+            });
+            this.socket.addEventListener('close', function (event) {
+                if (_this.currentlyConnected) {
+                    _this.currentlyConnected = false;
+                    _this.toastr.error('Du bist nicht mehr mit dem Server verbunden', 'Die Verbindung ist abgebaut worden');
+                    _this.connectionInterval = window.setInterval(_this.createWebsocket.bind(_this), 4000);
+                }
+            });
+        }
+        catch (error) {
+            this.toastr.error('bisher hat es noch nicht geklappt', 'Fehler');
+        }
     };
     HeroLifeService.prototype.sendUpate = function (data) {
-        this.socket.send(JSON.stringify(data));
+        try {
+            this.socket.send(JSON.stringify(data));
+        }
+        catch (error) {
+            this.toastr.error('bisher hat es noch nicht geklappt', 'Fehler');
+        }
     };
     HeroLifeService.prototype.handleIncommingMessage = function (message) {
         var _this = this;
@@ -3678,18 +4127,21 @@ var HeroLifeService = /** @class */ (function () {
                     break;
                 case 'updateAttribute':
                     // TODO: update hero's attribute
+                    hero.getAttribute(messageData['attribute']).value = messageData['value'];
+                    _this.toastr.success(hero.name + " hat die Eigenschaft " + hero.getAttribute(messageData['attribute']).name + " gesteigert!", 'Bäähm!');
                     break;
                 case 'addWeapon':
                     _this.skillService.getSkill(messageData['skill']).then(function (skill) {
-                        hero.addWeapon(new app_domain_weapon__WEBPACK_IMPORTED_MODULE_8__["Weapon"](messageData['weaponId'], messageData['weaponName'], messageData['damageDice'], messageData['damageAddPoints'], messageData['extraPointsFromKk'], skill));
+                        hero.addWeapon(new app_domain_weapon__WEBPACK_IMPORTED_MODULE_4__["Weapon"](messageData['weaponId'], messageData['weaponName'], messageData['damageDice'], messageData['damageAddPoints'], messageData['extraPointsFromKk'], skill));
                         _this.toastr.success(hero.name + " hat eine Waffe mehr!", 'Bäähm!');
                     });
                     break;
                 case 'deleteWeapon':
                     hero.deleteWeaponById(messageData['weaponId']);
+                    _this.toastr.success(hero.name + " hat eine Waffe weniger!", 'Hui!!');
                     break;
                 case 'addArmor':
-                    hero.addArmor(new app_domain_armor__WEBPACK_IMPORTED_MODULE_9__["Armor"](messageData['armorId'], messageData['armorName'], messageData['armorRS'], messageData['armorBE']));
+                    hero.addArmor(new app_domain_armor__WEBPACK_IMPORTED_MODULE_2__["Armor"](messageData['armorId'], messageData['armorName'], messageData['armorRS'], messageData['armorBE']));
                     _this.toastr.success(hero.name + " ist nun besser ger\u00FCstet!", 'Zack!');
                     break;
                 case 'deleteArmor':
@@ -3697,14 +4149,22 @@ var HeroLifeService = /** @class */ (function () {
                     _this.toastr.success(hero.name + " muss nun aufpassen, er hat weniger Schutz!", 'Zack!');
                     break;
                 case 'addInventoryItem':
-                    hero.addInventoryItem(new app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_10__["InventoryItem"](messageData['inventoryId'], messageData['name'], messageData['amount'], messageData['weight']));
+                    hero.addInventoryItem(new app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_3__["InventoryItem"](messageData['inventoryId'], messageData['name'], messageData['amount'], messageData['weight']));
+                    _this.toastr.success(hero.name + " hat was neues: " + messageData['name'] + "!", 'Zack!');
                     break;
                 case 'deleteInventoryItem':
+                    var itemName = hero.getInventoryItemById(messageData['inventoryItemId']).name;
                     hero.deleteInventoryItemById(messageData['inventoryItemId']);
+                    _this.toastr.success(hero.name + " hat etwas abgegeben: " + itemName + "!", 'Zack!');
                     break;
                 case 'updateInventoryItem':
                     hero.updateInventoryItemAmount(messageData['inventoryItemId'], messageData['amount']);
                     break;
+                case 'addExperiencePoints':
+                    hero.experience = hero.experience + messageData['additionalPoints'];
+                    _this.toastr.success(hero.name + " hat " + messageData['additionalPoints'] + " neue Abenteuerpunkte!", 'Hurrrraaaah!');
+                case 'updateAccountEntry':
+                    hero.money[messageData['unit']] = messageData['amount'];
                 default:
                     break;
             }
@@ -3712,7 +4172,7 @@ var HeroLifeService = /** @class */ (function () {
     };
     HeroLifeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _domain_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_3__["SkillService"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _domain_hero_service__WEBPACK_IMPORTED_MODULE_9__["HeroService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_10__["SkillService"]])
     ], HeroLifeService);
     return HeroLifeService;
 }());
@@ -3728,7 +4188,7 @@ var HeroLifeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".heroDetailHeader {\n  /*padding: 20px 20px 0 20px;*/\n  display: flex;\n}\n.shadow {\n  /* box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75); */\n  margin-bottom: 40px !important;\n  /* background-color: rgba(255, 255, 255, 1); */\n  min-height: 500px;\n}\n.page {\n  padding-top: 10px;\n  height: 100%;\n}\n.skillEntry i {\n  margin-right: 5px;\n}\n.characterDetailNavButton {\n  color: #fff;\n  font-size: 2rem;\n  flex:1;\n  padding:5px;\n}\n.headerContent p {\n  margin-top: 0;\n}\n/** content sections **/\n#mainAttributes {\n  background-image: url('/assets/hero-background_desaturated.jpg');\n  background-size:300px;\n  background-position: 100px 0;\n  background-repeat: no-repeat;\n}\n#combatAttributes {\n  background-image: url('/assets/sword_drawn_desaturated.jpg');\n  background-size:200px;\n  background-position: right 100px top 50px;\n  background-repeat: no-repeat;\n}\n.heroTalents {\n  background-image: url('/assets/hero-tavern_desaturated.jpg');\n  background-size:300px;\n  background-position: right 100px top 50px;\n  background-repeat: no-repeat;\n}\n.heroSpells {\n  background-image: url('/assets/wizard_desaturated.jpg');\n  background-size:500px;\n  background-position: right 10px top 10px;\n  background-repeat: no-repeat;\n}\n.inventory {\n  /* background-image: url('/assets/inventory-desaturated.jpg'); */\n  background-size:500px;\n  background-position: right 10px top 10px;\n  background-repeat: no-repeat;\n}\n/** end content sections **/\nlabel.long {\n  width: 150px;\n  display: none;\n}\nlabel.short {\n  width: 40px;\n}\n#avatarContainer {\n  order: 1;\n  border-bottom: 1px solid #999;\n  background-color: #fff;\n  margin-top: -15px;\n  margin-right: 5px;\n}\n#propertiesContainer {\n  order: 2;\n}\n#attributesContainer {\n  order: 3;\n}\n.heroAvatarImage,\n.heroAvatar {\n  height: 150px;\n}\n.heroAvatarImage {\n  background-color: white;\n  border-color: #999;\n}\n.heroAvatar {\n  margin-top: -15px;\n  margin-bottom: -15px;\n  z-index: 100;\n}\n.actionsContainer {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1000;\n}\n.talente {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n}\n.skillGroupEntries {\n  width: 100%;\n  /* display: flex;\n  flex-wrap: wrap; */\n}\n.experienceContainer {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\nexperience-display {\n  width: 300px;\n}\n.talentSearchBox {\n  background-color: rgba(255, 255, 255, 1);\n  border-radius: 4px;\n  margin: -20px 0 10px 0;\n  padding: 10px;\n}\n.skillGroupTitle {\n  padding: 10px 0;\n}\ncombat-data-display {\n  flex: 1\n}\n.skillEntry,\n.weaponEntry {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  flex-wrap: wrap;\n  font-size: 0.8rem;\n  align-items: center;\n  justify-content: stretch;\n  float:left;\n}\ntalent-card {\n  flex: 1;\n}\n.skillContent,\n.weaponEntry {\n  margin: 1px;\n  /* border: 1px solid #ddd; */\n  background-color: #fff;\n  flex: 1;\n  display: flex;\n  flex-wrap: wrap;\n  padding: 4px;\n  align-items: center;\n}\n.weaponEntry {\n  min-height: 30px;\n  padding-left: 10px;\n}\n.skillTitle {\n  width: 150px;\n  padding-left: 10px;\n  font-size: 0.9rem;\n  font-weight: 600;\n}\n.skillBe {\n  width: 60px;\n}\n.skillValue {\n  width: 30px;\n  color: #AD2003;\n}\n.dices,\n.fightDices {\n  display: flex;\n  flex-direction: row;\n  padding: 0 10px;\n  align-items: center\n}\n.dice {\n  width: 30px;\n  text-align: center;\n}\n.fightDice {\n  width: 45px;\n}\n/** Search box **/\n::-webkit-input-placeholder {\n  text-align: center;\n}\n:-moz-placeholder {\n  /* Firefox 18- */\n  text-align: center;\n}\n::-moz-placeholder {\n  /* Firefox 19+ */\n  text-align: center;\n}\n:-ms-input-placeholder {\n  text-align: center;\n}\ninput.talentSearchInbox {\n  text-align: center;\n  height: 30px;\n  width: 100%;\n}\nform.search {\n  width: 100%;\n  max-width: 1200px;\n  display: flex;\n  flex-direction: column;\n\n}\n.mat-option.skillOption {\n  height: auto;\n  line-height: 12px;\n}\nmat-radio-button {\n  width: 100%;\n}\n.weaponChoiceLabel div {\n  float: left;\n  padding-right: 20px;\n}\n.weaponChoiceLabel :nth-child(1) {\n  width: 120px\n}\n.inventoryWeaponItem {\n  display: flex;\n  \n}\n.inventoryItemName {\n  width: 200px\n}\n.weaponDamage {\n  width: 80px\n}\n.inventoryItemAction {\n  width: 40px\n}\n@media (min-width: 48em) {\n\n  #avatarContainer {\n    order: 3;\n    background-color: transparent;\n    border-bottom: none;\n  }\n\n  #propertiesContainer {\n    order: 1;\n  }\n\n  #attributesContainer {\n    order: 2;\n  }\n\n  .heroAvatarImage,\n  .heroAvatar {\n    height: 300px;\n  }\n\n  label.long {\n    display: inline;\n  }\n\n  label.short {\n    display: none;\n  }\n\n  .skillEntry {\n    /* width: 50%; */\n    float: left;\n  }\n}\n"
+module.exports = "/** header **/\r\n\r\n.heroDetailHeader {\r\n  /*padding: 20px 20px 0 20px;*/\r\n  display: flex;\r\n}\r\n\r\n.shadow {\r\n  /* box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.75); */\r\n  margin-bottom: 40px !important;\r\n  /* background-color: rgba(255, 255, 255, 1); */\r\n  min-height: 500px;\r\n}\r\n\r\n.page {\r\n  padding-top: 10px;\r\n  height: 100%;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.skillEntry i {\r\n  margin-right: 5px;\r\n}\r\n\r\n.characterDetailNavButton {\r\n  color: #fff;\r\n  font-size: 2rem;\r\n  flex: 1;\r\n  padding: 5px;\r\n}\r\n\r\n.headerContent p {\r\n  margin-top: 0;\r\n}\r\n\r\n.heroBanner {\r\n  background-image: url(\"/assets/banner-hero.png\");\r\n  background-repeat: no-repeat;\r\n  background-position: top center;\r\n  background-size: 600px;\r\n  width: 100%;\r\n  height: 160px;\r\n  padding: 20px 0;\r\n  margin-bottom: -40px;\r\n}\r\n\r\n.heroType {\r\n  font-size: 1rem;\r\n}\r\n\r\n.heroLevel {\r\n  font-size: 2rem;\r\n  font-weight: 700;\r\n  margin-top: 30px;\r\n}\r\n\r\n#combatAttributes {\r\n  padding-top: 2rem;\r\n}\r\n\r\n.heroName::before,\r\n.heroName::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: -1;\r\n  left: -60px;\r\n  top: 24px;\r\n  display: block;\r\n  width: 80px;\r\n  height: 0px;\r\n  border: 30px solid #9b2;\r\n  border-right: 20px solid #791;\r\n  border-bottom-color: #94b81e;\r\n  border-left-color: transparent;\r\n  -webkit-transform: rotate(-5deg);\r\n          transform: rotate(-5deg);\r\n}\r\n\r\n.heroName::after {\r\n  left: auto;\r\n  right: -60px;\r\n  border-left: 20px solid #791;\r\n  border-right: 30px solid transparent;\r\n  -webkit-transform: rotate(5deg);\r\n          transform: rotate(5deg);\r\n}\r\n\r\n.heroClass {\r\n  background-color: #eee;\r\n  padding: 10px;\r\n  border: 1px solid #aaa;\r\n  margin-top: -3px;\r\n  border-radius: 3px;\r\n}\r\n\r\n/** content sections **/\r\n\r\nbasic-data-display {\r\n  background-image: url(\"/assets/hero-icon.png\");\r\n  /* background-image: url(\"/assets/hero-background_desaturated.jpg\"); */\r\n  background-size: 5.5rem;\r\n  padding-left: 5rem;\r\n  background-position: 0 2rem;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\nattributes-display {\r\n  background-image: url(\"/assets/properties-icon.png\");\r\n  /* background-image: url(\"/assets/hero-background_desaturated.jpg\"); */\r\n  background-size: 5.5rem;\r\n  padding-left: 5rem;\r\n  background-position: 0 2rem;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n#combatAttributes {\r\n  /* background-image: url(\"/assets/sword_drawn_desaturated.jpg\"); */\r\n  background-size: 200px;\r\n  background-position: right 100px top 50px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.heroTalents {\r\n  /* background-image: url(\"/assets/hero-tavern_desaturated.jpg\"); */\r\n  background-size: 300px;\r\n  background-position: right 100px top 50px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.heroSpells {\r\n  /* background-image: url(\"/assets/wizard_desaturated.jpg\"); */\r\n  background-size: 500px;\r\n  background-position: right 10px top 10px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.inventory {\r\n  /* background-image: url('/assets/inventory-desaturated.jpg'); */\r\n  background-size: 500px;\r\n  background-position: right 10px top 10px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n/** end content sections **/\r\n\r\nlabel.long {\r\n  width: 150px;\r\n  display: none;\r\n}\r\n\r\nlabel.short {\r\n  width: 40px;\r\n}\r\n\r\n#avatarContainer {\r\n  order: 1;\r\n  border-bottom: 1px solid #999;\r\n  background-color: #fff;\r\n  /* margin-top: -15px; */\r\n  margin-right: 5px;\r\n}\r\n\r\n#propertiesContainer {\r\n  order: 2;\r\n}\r\n\r\n#attributesContainer {\r\n  order: 3;\r\n}\r\n\r\n.heroAvatarImage,\r\n.heroAvatar {\r\n  height: 150px;\r\n}\r\n\r\n.heroAvatarImage {\r\n  background-color: white;\r\n  border-color: #999;\r\n}\r\n\r\n.heroAvatar {\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  z-index: 100;\r\n}\r\n\r\n.actionsContainer {\r\n  position: fixed;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  z-index: 1000;\r\n}\r\n\r\n.talente {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 100%;\r\n}\r\n\r\n.skillGroupEntries {\r\n  width: 100%;\r\n  /* display: flex;\r\n  flex-wrap: wrap; */\r\n}\r\n\r\n.heroName {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.talentSearchBox {\r\n  background-color: rgba(255, 255, 255, 1);\r\n  border-radius: 4px;\r\n  margin: -20px 0 10px 0;\r\n  padding: 10px;\r\n}\r\n\r\n.skillGroupTitle {\r\n  padding: 10px 0;\r\n}\r\n\r\ncombat-data-display {\r\n  flex: 1;\r\n}\r\n\r\n.skillEntry,\r\n.weaponEntry {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  flex-wrap: wrap;\r\n  font-size: 0.8rem;\r\n  align-items: center;\r\n  justify-content: stretch;\r\n  float: left;\r\n}\r\n\r\ntalent-card {\r\n  flex: 1;\r\n}\r\n\r\n.skillContent,\r\n.weaponEntry {\r\n  margin: 1px;\r\n  /* border: 1px solid #ddd; */\r\n  background-color: #fff;\r\n  flex: 1;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  padding: 4px;\r\n  align-items: center;\r\n}\r\n\r\n.weaponEntry {\r\n  min-height: 30px;\r\n  padding-left: 10px;\r\n}\r\n\r\n.skillTitle {\r\n  width: 150px;\r\n  padding-left: 10px;\r\n  font-size: 0.9rem;\r\n  font-weight: 600;\r\n}\r\n\r\n.skillBe {\r\n  width: 60px;\r\n}\r\n\r\n.skillValue {\r\n  width: 30px;\r\n  color: #ad2003;\r\n}\r\n\r\n.dices,\r\n.fightDices {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 0 10px;\r\n  align-items: center;\r\n}\r\n\r\n.dice {\r\n  width: 30px;\r\n  text-align: center;\r\n}\r\n\r\n.fightDice {\r\n  width: 45px;\r\n}\r\n\r\n/** Search box **/\r\n\r\n::-webkit-input-placeholder {\r\n  text-align: center;\r\n}\r\n\r\n:-moz-placeholder {\r\n  /* Firefox 18- */\r\n  text-align: center;\r\n}\r\n\r\n::-moz-placeholder {\r\n  /* Firefox 19+ */\r\n  text-align: center;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n  text-align: center;\r\n}\r\n\r\ninput.talentSearchInbox {\r\n  text-align: center;\r\n  height: 30px;\r\n  width: 100%;\r\n}\r\n\r\nform.search {\r\n  width: 100%;\r\n  max-width: 1200px;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.mat-option.skillOption {\r\n  height: auto;\r\n  line-height: 12px;\r\n}\r\n\r\nmat-radio-button {\r\n  width: 100%;\r\n}\r\n\r\n.weaponChoiceLabel div {\r\n  float: left;\r\n  padding-right: 20px;\r\n}\r\n\r\n.weaponChoiceLabel :nth-child(1) {\r\n  width: 120px;\r\n}\r\n\r\n.inventoryWeaponItem {\r\n  display: flex;\r\n}\r\n\r\n.inventoryItemName {\r\n  width: 200px;\r\n}\r\n\r\n.weaponDamage {\r\n  width: 80px;\r\n}\r\n\r\n.inventoryItemAction {\r\n  width: 40px;\r\n}\r\n\r\n@media (min-width: 48em) {\r\n  #avatarContainer {\r\n    order: 0;\r\n    background-color: transparent;\r\n    border-bottom: none;\r\n  }\r\n\r\n  #propertiesContainer {\r\n    order: 1;\r\n  }\r\n\r\n  #attributesContainer {\r\n    order: 2;\r\n  }\r\n\r\n  .heroAvatarImage,\r\n  .heroAvatar {\r\n    height: 300px;\r\n  }\r\n\r\n  label.long {\r\n    display: inline;\r\n  }\r\n\r\n  label.short {\r\n    display: none;\r\n  }\r\n\r\n  .skillEntry {\r\n    /* width: 50%; */\r\n    float: left;\r\n  }\r\n}\r\n"
 
 /***/ }),
 
@@ -3739,7 +4199,7 @@ module.exports = ".heroDetailHeader {\n  /*padding: 20px 20px 0 20px;*/\n  displ
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <!-- <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose> -->\n    <detail-navigation [hero]=\"hero\" (navToArea)=\"showArea($event)\">\n\n    </detail-navigation>\n  <!-- </mat-sidenav> -->\n\n\n    <div class=\"page flex-col center\"> \n      <div class=\"pageContent\">\n        <div class=\"sheet\">\n          <div  class=\"\" *ngIf=\"hero\"\n            style=\"flex: 1; \">\n            <div class=\"headerContainer contentBox\">\n              <a class=\"menuItem\" name=\"Allgemein\"></a>\n              <!--  -->\n              <div class=\"headerContent\">\n                <div class=\"flex-row\">\n                  <div class=\"flex-item flex-col\">\n                    <h1>{{hero.name}}</h1>\n                    <p>{{hero.hero_type.name}}</p>\n                  </div>\n                  \n                </div>\n              </div>\n            </div>\n            <div class=\"Grid Grid--full Grid-cell\">\n              <div class=\"actionsContainer Grid-cell\">\n                <hero-controls [hero]=\"hero\">\n                </hero-controls>\n              </div>\n            </div>\n            <div *ngIf=\"detailArea === 'character'\" class=\"characterDetails\">  \n              <div class=\"experienceContainer\">\n                <experience-display  [experience]=\"hero.experience\" [availablePoints]=\"hero.availablePoints\"></experience-display>\n              </div>\n              <div class=\"flex-col\">\n                <div id=\"propertiesBox\" id=\"mainAttributes\" class=\"contentBox Grid Grid--cols-2\">\n                  <div class=\"Grid-cell flex-item flex-col\">\n                    <basic-data-display [hero]=\"hero\" class=\"\"></basic-data-display>                    \n                    <attributes-display [hero]=\"hero\" class=\"\"></attributes-display>\n                  </div>\n                  <div id=\"avatarContainer\" class=\"Grid-cell flex-col center\">\n                    <div class=\"heroAvatar large flex-item\">\n                      <img class=\"heroAvatarImage\" src=\"{{baseUrl}}{{hero.avatar_small}}\" />\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"contentBox flex-item\" id=\"combatAttributes\">\n                <a id=\"fightValueContainerAnchor\"></a>\n                <combat-data-display [hero]=\"hero\"></combat-data-display>\n              </div>\n            </div>\n            <div *ngIf=\"detailArea === 'talents'\" class=\"contentBox flex-item flex-row heroTalents\">\n              <talent-search mode=\"viewTalents\" [hero]=\"hero\" [searchActive]=\"searchActive\" class=\"flex-item\"></talent-search>\n            </div>\n            <div *ngIf=\"hero.knowsMagic && detailArea === 'spells'\" class=\"contentBox flex-row heroSpells\">\n              <spell-search [hero]=\"hero\" class=\"flex-item\"></spell-search>\n            </div>\n            <div *ngIf=\"detailArea === 'inventory'\" class=\"inventory\">\n              <inventory-display [hero]=\"hero\"></inventory-display>\n            </div>\n            <div *ngIf=\"detailArea === 'edit'\" class=\"editHeroValues\">\n              <edit-dialog [hero]=\"hero\"></edit-dialog>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>"
+module.exports = "<!-- <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose> -->\r\n<detail-navigation [hero]=\"hero\" (navToArea)=\"showArea($event)\">\r\n</detail-navigation>\r\n<!-- </mat-sidenav> -->\r\n\r\n<div class=\"page flex-col center\">\r\n  <div class=\"pageContent\">\r\n    <div class=\"sheet\">\r\n      <div class=\"\" *ngIf=\"hero\" style=\"flex: 1\">\r\n        <div class=\"headerContainer contentBox\">\r\n          <a class=\"menuItem\" name=\"Allgemein\"></a>\r\n          <!--  -->\r\n          <div class=\"headerContent\">\r\n            <div class=\"flex-col\">\r\n              <div class=\"heroBanner flex-col center\">\r\n                <h1>{{hero.name}}</h1>\r\n                <div class=\"heroType\">{{ hero.hero_type.name }}</div>\r\n                <div class=\"heroLevel\">{{ hero.level }}</div>\r\n                <!-- <img style=\"width: 600px;\" src=\"/assets/banner-hero.png\" class=\"no-border\" /> -->\r\n                <!-- <h1 class=\"heroName\">{{ hero.name }}</h1>\r\n                <div class=\"flex-item heroClass\">\r\n                  {{ hero.hero_type.name }}, Stufe {{ hero.level }}\r\n                </div> -->\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"Grid Grid--full Grid-cell\">\r\n          <div class=\"actionsContainer Grid-cell\">\r\n            <hero-controls [hero]=\"hero\"> </hero-controls>\r\n          </div>\r\n        </div>\r\n        <div *ngIf=\"detailArea === 'character'\" class=\"characterDetails\">\r\n          <div class=\"experienceContainer contentBox padded\">\r\n\r\n          </div>\r\n          <div class=\"flex-col\">\r\n            <div id=\"propertiesBox\" id=\"mainAttributes\" class=\"contentBox Grid Grid--cols-2\">\r\n              <div class=\"Grid-cell flex-item flex-col\">\r\n                <basic-data-display [hero]=\"hero\" class=\"\"></basic-data-display>\r\n                <attributes-display [hero]=\"hero\" class=\"attributes-display\"></attributes-display>\r\n              </div>\r\n              <div id=\"avatarContainer\" class=\"Grid-cell flex-col center\">\r\n                <div class=\"heroAvatar large flex-item\">\r\n                  <img class=\"heroAvatarImage comic-shadow\" src=\"{{ baseUrl }}{{ hero.avatar_small }}\" />\r\n                </div>\r\n                <experience-display [hero]=\"hero\" [experience]=\"hero.experience\"\r\n                  [availablePoints]=\"hero.availablePoints\">\r\n                </experience-display>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"contentBox flex-item borderTop\" id=\"combatAttributes\">\r\n            <a id=\"fightValueContainerAnchor\"></a>\r\n            <combat-data-display [hero]=\"hero\"></combat-data-display>\r\n          </div>\r\n        </div>\r\n        <div *ngIf=\"detailArea === 'talents'\" class=\"contentBox flex-item flex-row heroTalents\">\r\n          <talent-search mode=\"viewTalents\" [hero]=\"hero\" [searchActive]=\"searchActive\" class=\"flex-item\">\r\n          </talent-search>\r\n        </div>\r\n        <div *ngIf=\"hero.knowsMagic && detailArea === 'spells'\" class=\"contentBox flex-row heroSpells\">\r\n          <spell-search [hero]=\"hero\" class=\"flex-item\"></spell-search>\r\n        </div>\r\n        <div *ngIf=\"detailArea === 'inventory'\" class=\"inventory\">\r\n          <inventory-display [hero]=\"hero\"></inventory-display>\r\n        </div>\r\n        <div *ngIf=\"detailArea === 'edit'\" class=\"editHeroValues\">\r\n          <edit-dialog [hero]=\"hero\"></edit-dialog>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -3864,7 +4324,7 @@ var HeroDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n.heroes-container {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: center;\n}\n\n.heroes-list {\n\tpadding: 0;\n\twidth: 100%;\n\tmax-width: 400px;\n}\n\nhero-card {\n\tmargin-bottom: 15px;\n\tdisplay: block;\n}"
+module.exports = ".heroes-container {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.heroes-list {\r\n  padding: 0;\r\n  width: 100%;\r\n  max-width: 400px;\r\n  transition: visible 1s ease-in;\r\n  -webkit-animation-delay: 2s;\r\n          animation-delay: 2s;\r\n}\r\n\r\nhero-card {\r\n  margin-bottom: 15px;\r\n  display: block;\r\n}\r\n\r\nh1 {\r\n  margin: 2rem 0 -1.6rem 0;\r\n}\r\n\r\n.heroes-banner {\r\n  width: 280px;\r\n  margin-left: 2rem;\r\n  transition: margin-top 0.4s ease-out;\r\n  -webkit-transform: translate3d(0, 0, 1px);\r\n          transform: translate3d(0, 0, 1px);\r\n}\r\n\r\n.landingPage .heroes-banner {\r\n  margin-top: 30rem;\r\n}\r\n\r\n.heroes-banner-container {\r\n  height: 20rem;\r\n}\r\n"
 
 /***/ }),
 
@@ -3875,7 +4335,7 @@ module.exports = "\n.heroes-container {\n\twidth: 100%;\n\tdisplay: flex;\n\tjus
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page heroes-container\">\n    <div>\n        \n    </div>\n    <div class=\"heroes-list\">\n        <hero-card *ngFor=\"let hero of heroes\" [class.selected]=\"hero === selectedHero\" [hero]=\"hero\">\n        </hero-card>\n    </div>\n</div>"
+module.exports = "<div class=\"page \">\r\n  <div class=\"flex-col center heroes-container\">\r\n    <div class=\"heroes-banner-container flex-col center  flex-item\" [ngClass]=\"{'landingPage': gameStarted === false}\">\r\n      <h1 *ngIf=\"gameStarted === true\">Die Helden</h1>\r\n      <img src=\"/assets/winged-shield.png\" class=\"no-border heroes-banner\">\r\n    </div>\r\n\r\n    <div class=\"flex-col center flex-item\" *ngIf=\"successfullyLoaded === false\">\r\n      <p>Ich lade Deine Helden ....</p>\r\n      <button [disabled]=\"currentlyLoading\" (click)=\"loadBasicData()\">\r\n        Hier clicken um es noch mal zu versuchen\r\n      </button>\r\n    </div>\r\n    <div class=\"flex-col center\" *ngIf=\"gameStarted === false && successfullyLoaded === true\">\r\n      <p>Das Spiel ist bereit ...</p>\r\n      <button (click)=\"startGame()\">\r\n        Los geht's!\r\n      </button>\r\n    </div>\r\n    <div class=\"heroes-list flex-col flex-item\" *ngIf=\"successfullyLoaded === true && gameStarted === true\"\r\n      [@inOutAnimation]>\r\n      <hero-card *ngFor=\"let hero of heroes\" [class.selected]=\"hero === selectedHero\" [hero]=\"hero\">\r\n      </hero-card>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -3889,10 +4349,12 @@ module.exports = "<div class=\"page heroes-container\">\n    <div>\n        \n  
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroesComponent", function() { return HeroesComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
-/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../domain/skills.service */ "./src/app/domain/skills.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_domain_applicationState__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/applicationState */ "./src/app/domain/applicationState.ts");
+/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
+/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../domain/skills.service */ "./src/app/domain/skills.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3906,21 +4368,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var HeroesComponent = /** @class */ (function () {
     function HeroesComponent(heroService, skillService, router) {
         this.heroService = heroService;
         this.skillService = skillService;
         this.router = router;
-        this.getHeroes();
-        this.getSkills();
+        this.currentlyLoading = false;
+        this.loadBasicData();
     }
-    HeroesComponent.prototype.getHeroes = function () {
+    HeroesComponent.prototype.loadBasicData = function () {
         var _this = this;
-        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+        this.currentlyLoading = true;
+        var heroesPromise = this.heroService.getHeroes();
+        var skillsPromise = this.skillService.getSkills();
+        Promise.all([heroesPromise, skillsPromise]).then(function (results) {
+            _this.heroes = results[0];
+            _this.skills = results[1];
+            _this.currentlyLoading = false;
+            app_domain_applicationState__WEBPACK_IMPORTED_MODULE_3__["gameState"].dataInitialized = true;
+        }).catch(function (error) {
+            _this.currentlyLoading = false;
+        });
     };
-    HeroesComponent.prototype.getSkills = function () {
-        var _this = this;
-        this.skillService.getSkills().then(function (skills) { return _this.skills = skills; });
+    HeroesComponent.prototype.startGame = function () {
+        app_domain_applicationState__WEBPACK_IMPORTED_MODULE_3__["gameState"].gameStarted = true;
     };
     HeroesComponent.prototype.ngOnInit = function () {
     };
@@ -3931,15 +4404,37 @@ var HeroesComponent = /** @class */ (function () {
     HeroesComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/hero', this.selectedHero.id]);
     };
+    Object.defineProperty(HeroesComponent.prototype, "gameStarted", {
+        get: function () {
+            return app_domain_applicationState__WEBPACK_IMPORTED_MODULE_3__["gameState"].gameStarted;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(HeroesComponent.prototype, "successfullyLoaded", {
+        get: function () {
+            return app_domain_applicationState__WEBPACK_IMPORTED_MODULE_3__["gameState"].dataInitialized;
+        },
+        enumerable: true,
+        configurable: true
+    });
     HeroesComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'heroes-list',
             template: __webpack_require__(/*! ./heroes.component.html */ "./src/app/heroes/heroes.component.html"),
-            styles: [__webpack_require__(/*! ./heroes.component.css */ "./src/app/heroes/heroes.component.css")]
+            styles: [__webpack_require__(/*! ./heroes.component.css */ "./src/app/heroes/heroes.component.css")],
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('inOutAnimation', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])(':enter', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({ opacity: 0 }),
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.5s 1s ease-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({ opacity: 1 }))
+                    ])
+                ])
+            ],
         }),
-        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_1__["HeroService"],
-            _domain_skills_service__WEBPACK_IMPORTED_MODULE_2__["SkillService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_4__["HeroService"],
+            _domain_skills_service__WEBPACK_IMPORTED_MODULE_5__["SkillService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HeroesComponent);
     return HeroesComponent;
 }());
@@ -3966,7 +4461,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div mat-dialog-content>\n <img [src]=\"data.url\">\n</div>"
+module.exports = "<div mat-dialog-content>\r\n <img [src]=\"data.url\">\r\n</div>"
 
 /***/ }),
 
@@ -4026,7 +4521,7 @@ var ImagePopupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".inventoryItem {\n  display: flex;\n  min-height: 30px;\n  align-items: center;\n}\n\n.spellGroupTitle {\n  font-size: 24px;\n  margin-top: 15px;\n  margin-bottom: 10px;\n}\n\nconfirmation-sheet {\n  margin-top: -20px;\n  display: block;\n}\n\nbutton.addButton {\n  margin-bottom: 8px;\n  z-index: 10;\n}\n\n.addWeaponForm span {\n  display: block;\n  padding-top: 15px;\n  padding-bottom: 5px;\n}\n\n.addButton {\n  width: 300px;\n}\n\n.inventoryItemName {\n  width: 200px;\n}\n\n.inventoryDamage {\n  width: 100px;\n}\n\n.inventoryItemAction {\n  padding-left: 20px;\n}\n"
+module.exports = ".inventoryItem {\r\n  display: flex;\r\n  min-height: 30px;\r\n  max-width: 100%;\r\n  align-items: center;\r\n}\r\n\r\n.inventoryGroupTitle {\r\n  margin-top: 3rem;\r\n  background-size: 5.5rem;\r\n  padding-left: 7rem;\r\n  background-position: 0 0;\r\n  background-repeat: no-repeat;\r\n  height: 5rem;\r\n  padding-top: 0.8rem;\r\n}\r\n\r\n.inventoryMoneyTitle {\r\n  background-image: url(\"/assets/money-icon.png\");\r\n}\r\n\r\n.inventoryWeaponsTitle {\r\n  background-image: url(\"/assets/sword-icon.png\");\r\n  background-size: 3rem;\r\n  background-position-x: 0.5rem;\r\n}\r\n\r\n.inventoryArmorTitle {\r\n  background-image: url(\"/assets/armor-icon.png\");\r\n}\r\n\r\n.inventoryMiscTitle {\r\n  background-image: url(\"/assets/bag-icon.png\");\r\n}\r\n\r\n.spellGroupTitle {\r\n  font-size: 24px;\r\n  margin-top: 15px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nconfirmation-sheet {\r\n  margin-top: -20px;\r\n  display: block;\r\n}\r\n\r\nbutton.addButton {\r\n  margin-bottom: 8px;\r\n  z-index: 10;\r\n}\r\n\r\n.addWeaponForm span {\r\n  display: block;\r\n  padding-top: 15px;\r\n  padding-bottom: 5px;\r\n}\r\n\r\n.addButton {\r\n  width: 300px;\r\n  max-width: 100%;\r\n}\r\n\r\n.inventoryItemName {\r\n  width: 200px;\r\n}\r\n\r\n.inventoryDamage,\r\n.inventoryItemAmount {\r\n  width: 100px;\r\n  font-weight: 600;\r\n}\r\n\r\n.inventoryItemAction {\r\n  padding-left: 20px;\r\n}\r\n"
 
 /***/ }),
 
@@ -4037,7 +4532,7 @@ module.exports = ".inventoryItem {\n  display: flex;\n  min-height: 30px;\n  ali
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"padded flex-col center\">   \n  <h4 class=\"spellGroupTitle\">Waffen</h4>\n  <button (click)=\"addWeaponToInventory()\" class=\"addButton\">\n    <i class=\"fa fa-plus-square\"></i> Waffe hinzufügen\n  </button>\n  <div class=\"addInventoryItem\" *ngIf=\"showAddWeaponSheet === true\">\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addWeapon()\" (cancel)=\"cancelAddWeaponToInventory()\">\n      <div class=\"addWeaponForm\">\n        <div>Neue Waffe</div>\n        <span>Name</span>\n        <input [(ngModel)]=\"newWeapon.name\" />\n        <span>Trefferpunkte Würfel</span>\n        <input [(ngModel)]=\"newWeapon.damageDice\" />\n        <span>Trefferpunkte Zusatzpunkte</span>\n        <input [(ngModel)]=\"newWeapon.damageAddPoints\" />\n        <span>Körperkraft Zuschlag</span>\n        <input [(ngModel)]=\"newWeapon.extraPointsFromKk\" />\n        <span>Kampftalent</span>\n        <select [(ngModel)]=\"selectedSkillId\">\n          <option *ngFor=\"let weaponSkill of weaponSkills\" [value]=\"weaponSkill.id\" >{{weaponSkill.name}}</option>\n        </select>\n      </div>\n    </confirmation-sheet>\n  </div>\n  <div *ngFor=\"let weapon of hero.weapons\" class=\"inventoryItem\">\n    <div class=\"inventoryItemName\">{{weapon.name}}</div>\n    <div class=\"inventoryDamage\">{{weapon.damageTextGeneral}}</div>\n    \n    <div class=\"row flex-spaces child-borders\">\n      <button class=\"paper-btn margin\" (click)=\"removeWeaponFromInventory(weapon)\"><i class=\"fa fa-trash\"></i></button>\n    </div>\n    <input class=\"modal-state\" id=\"modal-{{weapon.id}}\" type=\"checkbox\">\n    \n  </div> \n\n</div>\n<div class=\"padded flex-col center\">\n  <h4 class=\"spellGroupTitle\">Rüstung</h4>\n  <button class=\"addButton\" (click)=\"addArmorToInventory()\">\n    <i class=\"fa fa-plus-square\"></i> Rüstung hinzufügen\n  </button>\n  <div class=\"addInventoryItem\" *ngIf=\"showAddArmorSheet === true\">\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addArmor()\" (cancel)=\"cancelAddArmorToInventory()\">\n      <div class=\"addWeaponForm\">\n        <div>Neue Rüstung</div>\n        <span>Name</span>\n        <input [(ngModel)]=\"newArmor.name\" />\n        <span>Rüstungsschutz</span>\n        <input [(ngModel)]=\"newArmor.rs\" />\n        <span>Behinderung</span>\n        <input [(ngModel)]=\"newArmor.behinderung\" />\n      </div>\n    </confirmation-sheet>\n  </div>\n  <div *ngFor=\"let armor of hero.armor\" class=\"inventoryItem\">\n    <div class=\"inventoryItemName\">{{armor.name}}</div>\n    <div class=\"inventoryDamage\">{{armor.rs}}</div>\n    <button (click)=\"removeArmorFromInventory(armor)\"><i class=\"fa fa-trash\"></i></button>\n  </div> \n</div>\n\n<div class=\"padded flex-col center\">   \n  <h4  class=\"spellGroupTitle\">Inventar</h4>\n  <button class=\"addButton\" (click)=\"addInventoryToInventory()\">\n    <i class=\"fa fa-plus-square\"></i> Inventar hinzufügen\n  </button>\n  <div class=\"addInventoryItem\" *ngIf=\"showAddInventorySheet === true\">\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addInventory()\" (cancel)=\"cancelAddInventoryToInventory()\">\n      <div class=\"addWeaponForm\">\n        <div>Neues Ding</div>\n        <span>Name</span>\n        <input [(ngModel)]=\"newInventoryItem.name\" />\n        <span>Menge</span>\n        <input [(ngModel)]=\"newInventoryItem.amount\" />\n        <span>Gewicht</span>\n        <input [(ngModel)]=\"newInventoryItem.weight\" />\n      </div>\n    </confirmation-sheet>\n  </div>\n  <div *ngFor=\"let inventoryItem of hero.inventory\" class=\"inventoryItem\">\n    <div class=\"inventoryItemName\">{{inventoryItem.name}}</div>\n    <div class=\"inventoryItemName\">{{inventoryItem.amount}}</div>\n    <div class=\"inventoryItemName\">{{inventoryItem.weight}}</div>\n    <button (click)=\"addToInventoryAmount(inventoryItem)\"><i class=\"fa fa-plus\"></i></button>\n    <button (click)=\"subtractFromInventoryAmount(inventoryItem)\" [class.disabled]=\"inventoryItem.amount < 1\"><i class=\"fa fa-minus\"></i></button>\n    <button (click)=\"removeInventoryItemFromInventory(inventoryItem)\"><i class=\"fa fa-trash\"></i></button>\n  </div> \n</div>"
+module.exports = "<div class=\"padded flex-col center\">\r\n  <h4 class=\"inventoryGroupTitle inventoryMoneyTitle\">Geld</h4>\r\n  <div class=\"flex-col\">\r\n    <div class=\"row inventoryItem\">\r\n      <div class=\"inventoryItemName\">Dukaten:</div>\r\n      <div class=\"inventoryItemAmount\">{{ hero.money.dukaten }}</div>\r\n      <button (click)=\"editMoney(hero.money.entries[0])\">\r\n        <i class=\"fa fa-pencil\"></i>\r\n      </button>\r\n    </div>\r\n    <div class=\"row inventoryItem\">\r\n      <div class=\"inventoryItemName\">Silbertaler:</div>\r\n      <div class=\"inventoryItemAmount\">{{ hero.money.silbertaler }}</div>\r\n      <button (click)=\"editMoney(hero.money.entries[1])\">\r\n        <i class=\"fa fa-pencil\"></i>\r\n      </button>\r\n    </div>\r\n    <div class=\"row inventoryItem\">\r\n      <div class=\"inventoryItemName\">Kreuzer:</div>\r\n      <div class=\"inventoryItemAmount\">{{ hero.money.kreuzer }}</div>\r\n      <button (click)=\"editMoney(hero.money.entries[2])\">\r\n        <i class=\"fa fa-pencil\"></i>\r\n      </button>\r\n    </div>\r\n    <div class=\"row inventoryItem\">\r\n      <div class=\"inventoryItemName\">Heller:</div>\r\n      <div class=\"inventoryItemAmount\">{{ hero.money.heller }}</div>\r\n      <button (click)=\"editMoney(hero.money.entries[3])\">\r\n        <i class=\"fa fa-pencil\"></i>\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <hr />\r\n  <h4 class=\"inventoryGroupTitle inventoryWeaponsTitle\">Waffen</h4>\r\n  <button (click)=\"addWeaponToInventory()\" class=\"addButton\">\r\n    <i class=\"fa fa-plus-square\"></i> Waffe hinzufügen\r\n  </button>\r\n  <div class=\"addInventoryItem\" *ngIf=\"showAddWeaponSheet === true\">\r\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addWeapon()\" (cancel)=\"cancelAddWeaponToInventory()\">\r\n      <div class=\"addWeaponForm\">\r\n        <div>Neue Waffe</div>\r\n        <span>Name</span>\r\n        <input [(ngModel)]=\"newWeapon.name\" />\r\n        <span>Trefferpunkte Würfel</span>\r\n        <input [(ngModel)]=\"newWeapon.damageDice\" />\r\n        <span>Trefferpunkte Zusatzpunkte</span>\r\n        <input [(ngModel)]=\"newWeapon._damageAddPoints\" />\r\n        <span>Körperkraft Zuschlag</span>\r\n        <input [(ngModel)]=\"newWeapon.extraPointsFromKk\" />\r\n        <span>Kampftalent</span>\r\n        <select [(ngModel)]=\"selectedSkillId\">\r\n          <option *ngFor=\"let weaponSkill of weaponSkills\" [value]=\"weaponSkill.id\">\r\n            {{ weaponSkill.name }}\r\n          </option>\r\n        </select>\r\n      </div>\r\n    </confirmation-sheet>\r\n  </div>\r\n  <div *ngFor=\"let weapon of hero.weapons\" class=\"row inventoryItem\">\r\n    <div class=\"inventoryItemName\">{{ weapon.name }}</div>\r\n    <div class=\"inventoryDamage\">{{ weapon.damageTextGeneral }}</div>\r\n    <div class=\"inventoryDamage\">{{ weapon.skill.name }}</div>\r\n\r\n    <div class=\"flex-spaces child-borders\">\r\n      <button (click)=\"removeWeaponFromInventory(weapon)\">\r\n        <i class=\"fa fa-trash\"></i>\r\n      </button>\r\n    </div>\r\n    <input class=\"modal-state\" id=\"modal-{{ weapon.id }}\" type=\"checkbox\" />\r\n  </div>\r\n</div>\r\n<hr />\r\n<div class=\"padded flex-col center\">\r\n  <h4 class=\"inventoryGroupTitle inventoryArmorTitle\">Rüstung</h4>\r\n  <button class=\"addButton\" (click)=\"addArmorToInventory()\">\r\n    <i class=\"fa fa-plus-square\"></i> Rüstung hinzufügen\r\n  </button>\r\n  <div class=\"addInventoryItem\" *ngIf=\"showAddArmorSheet === true\">\r\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addArmor()\" (cancel)=\"cancelAddArmorToInventory()\">\r\n      <div class=\"addWeaponForm\">\r\n        <div>Neue Rüstung</div>\r\n        <span>Name</span>\r\n        <input [(ngModel)]=\"newArmor.name\" />\r\n        <span>Rüstungsschutz</span>\r\n        <input [(ngModel)]=\"newArmor.rs\" />\r\n        <span>Behinderung</span>\r\n        <input [(ngModel)]=\"newArmor.behinderung\" />\r\n      </div>\r\n    </confirmation-sheet>\r\n  </div>\r\n  <div *ngFor=\"let armor of hero.armor\" class=\"row inventoryItem\">\r\n    <div class=\"inventoryItemName\">{{ armor.name }}</div>\r\n    <div class=\"inventoryDamage\">{{ armor.rs }}</div>\r\n    <button (click)=\"removeArmorFromInventory(armor)\">\r\n      <i class=\"fa fa-trash\"></i>\r\n    </button>\r\n  </div>\r\n</div>\r\n<hr />\r\n<div class=\"padded flex-col center\">\r\n  <h4 class=\"inventoryGroupTitle inventoryMiscTitle\">Anderes</h4>\r\n  <button class=\"addButton\" (click)=\"addInventoryToInventory()\">\r\n    <i class=\"fa fa-plus-square\"></i> Inventar hinzufügen\r\n  </button>\r\n  <div class=\"addInventoryItem\" *ngIf=\"showAddInventorySheet === true\">\r\n    <confirmation-sheet showExternalTemplate=\"true\" (confirm)=\"addInventory()\"\r\n      (cancel)=\"cancelAddInventoryToInventory()\">\r\n      <div class=\"addWeaponForm\">\r\n        <div>Neues Ding</div>\r\n        <span>Name</span>\r\n        <input [(ngModel)]=\"newInventoryItem.name\" />\r\n        <span>Menge</span>\r\n        <input [(ngModel)]=\"newInventoryItem.amount\" />\r\n        <span>Gewicht</span>\r\n        <input [(ngModel)]=\"newInventoryItem.weight\" />\r\n      </div>\r\n    </confirmation-sheet>\r\n  </div>\r\n  <div *ngFor=\"let inventoryItem of hero.inventory\" class=\"row inventoryItem\">\r\n    <div class=\"inventoryItemName\">{{ inventoryItem.name }}</div>\r\n    <div class=\"inventoryItemAmount\">{{ inventoryItem.amount }}</div>\r\n    <div class=\"inventoryItemAmount\">{{ inventoryItem.weight }}</div>\r\n    <button (click)=\"addToInventoryAmount(inventoryItem)\">\r\n      <i class=\"fa fa-plus\"></i>\r\n    </button>\r\n    <button (click)=\"subtractFromInventoryAmount(inventoryItem)\" [class.disabled]=\"inventoryItem.amount < 1\">\r\n      <i class=\"fa fa-minus\"></i>\r\n    </button>\r\n    <button (click)=\"removeInventoryItemFromInventory(inventoryItem)\">\r\n      <i class=\"fa fa-trash\"></i>\r\n    </button>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -4052,16 +4547,17 @@ module.exports = "<div class=\"padded flex-col center\">   \n  <h4 class=\"spell
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InventoryDisplayComponent", function() { return InventoryDisplayComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
-/* harmony import */ var app_domain_skills_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/skills.service */ "./src/app/domain/skills.service.ts");
-/* harmony import */ var app_domain_weapons_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/weapons.service */ "./src/app/domain/weapons.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
+/* harmony import */ var app_domain_armor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/armor */ "./src/app/domain/armor.ts");
 /* harmony import */ var app_domain_armor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/armor.service */ "./src/app/domain/armor.service.ts");
-/* harmony import */ var app_domain_inventory_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/domain/inventory.service */ "./src/app/domain/inventory.service.ts");
-/* harmony import */ var app_domain_weapon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/domain/weapon */ "./src/app/domain/weapon.ts");
+/* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var app_domain_inventory_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/domain/inventory.service */ "./src/app/domain/inventory.service.ts");
 /* harmony import */ var app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/domain/inventoryItem */ "./src/app/domain/inventoryItem.ts");
-/* harmony import */ var app_domain_armor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/domain/armor */ "./src/app/domain/armor.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
+/* harmony import */ var app_domain_skills_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/domain/skills.service */ "./src/app/domain/skills.service.ts");
+/* harmony import */ var app_domain_weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/domain/weapon */ "./src/app/domain/weapon.ts");
+/* harmony import */ var app_domain_weapons_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/domain/weapons.service */ "./src/app/domain/weapons.service.ts");
+/* harmony import */ var app_edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! app/edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4071,6 +4567,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -4097,10 +4594,23 @@ var InventoryDisplayComponent = /** @class */ (function () {
         var _this = this;
         this.skillService.getWeaponSkills().then(function (weaponSkills) {
             _this.weaponSkills = weaponSkills;
-            _this.newWeapon = new app_domain_weapon__WEBPACK_IMPORTED_MODULE_6__["Weapon"](null, 'new weapon', 1, 4, 14, _this.weaponSkills[0]);
-            _this.newArmor = new app_domain_armor__WEBPACK_IMPORTED_MODULE_8__["Armor"](null, 'Neue Rüstung', 2, 2),
+            _this.newWeapon = new app_domain_weapon__WEBPACK_IMPORTED_MODULE_9__["Weapon"](null, 'new weapon', 1, 4, 14, _this.weaponSkills[0]);
+            _this.newArmor = new app_domain_armor__WEBPACK_IMPORTED_MODULE_3__["Armor"](null, 'Neue Rüstung', 2, 2),
                 _this.newInventoryItem = new app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_7__["InventoryItem"](null, 'Neues Ding', 1, 1);
         });
+    };
+    /** money maintenance */
+    InventoryDisplayComponent.prototype.editMoney = function (accountEntry) {
+        this.editModeyDialogRef = this.dialog.open(app_edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_11__["EditMoneyComponent"], { data: accountEntry });
+        this.editModeyDialogRef.componentInstance.confirm.subscribe(this.updateAccountEntry.bind(this));
+        this.editModeyDialogRef.componentInstance.cancel.subscribe(this.closeEditMoneyDialog.bind(this));
+    };
+    InventoryDisplayComponent.prototype.updateAccountEntry = function (updateMoneyData) {
+        this.inventoryService.updateAccountEntry(updateMoneyData.accountEntry, this.hero, updateMoneyData.newAmount);
+        this.editModeyDialogRef.close();
+    };
+    InventoryDisplayComponent.prototype.closeEditMoneyDialog = function () {
+        this.editModeyDialogRef.close();
     };
     /** weapon maintenance */
     InventoryDisplayComponent.prototype.addWeaponToInventory = function () {
@@ -4120,7 +4630,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
     };
     InventoryDisplayComponent.prototype.removeWeaponFromInventory = function (weapon) {
         this._weaponToDelete = weapon;
-        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmationData"]('Möchtest Du das Ding wegwerfen?', 'Es handelt sich dabei um die Waffe <strong>"' + weapon.name + '"</strong>') });
+        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmationData"]('Möchtest Du das Ding wegwerfen?', 'Es handelt sich dabei um die Waffe <strong>"' + weapon.name + '"</strong>') });
         this.deletionDialogRef.componentInstance.confirm.subscribe(this.deleteWeapon.bind(this));
         this.deletionDialogRef.componentInstance.cancel.subscribe(this.cancelDeletion.bind(this));
     };
@@ -4134,7 +4644,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
     };
     InventoryDisplayComponent.prototype.removeArmorFromInventory = function (armor) {
         this._armorToDelete = armor;
-        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmationData"]('Möchtest Du die Rüstung wegwerfen?', 'Es handelt sich dabei um die das Rüstungsteil <strong>"' + armor.name + '"</strong>') });
+        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmationData"]('Möchtest Du die Rüstung wegwerfen?', 'Es handelt sich dabei um die das Rüstungsteil <strong>"' + armor.name + '"</strong>') });
         this.deletionDialogRef.componentInstance.confirm.subscribe(this.deleteArmor.bind(this));
         this.deletionDialogRef.componentInstance.cancel.subscribe(this.cancelDeletion.bind(this));
     };
@@ -4162,7 +4672,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
     };
     InventoryDisplayComponent.prototype.removeInventoryItemFromInventory = function (inventoryItem) {
         this._inventoryItemToDelete = inventoryItem;
-        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmationData"]('Brauchst Du das Stück nicht mehr?', 'Es handelt sich dabei um <strong>"' + inventoryItem.name + '"</strong>') });
+        this.deletionDialogRef = this.dialog.open(app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmDeletionComponent"], { data: new app_confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmationData"]('Brauchst Du das Stück nicht mehr?', 'Es handelt sich dabei um <strong>"' + inventoryItem.name + '"</strong>') });
         this.deletionDialogRef.componentInstance.confirm.subscribe(this.deleteInventory.bind(this));
         this.deletionDialogRef.componentInstance.cancel.subscribe(this.cancelDeletion.bind(this));
     };
@@ -4182,7 +4692,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", app_domain_hero__WEBPACK_IMPORTED_MODULE_1__["Hero"])
+        __metadata("design:type", app_domain_hero__WEBPACK_IMPORTED_MODULE_5__["Hero"])
     ], InventoryDisplayComponent.prototype, "hero", void 0);
     InventoryDisplayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4190,7 +4700,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./inventory-display.component.html */ "./src/app/inventory-display/inventory-display.component.html"),
             styles: [__webpack_require__(/*! ./inventory-display.component.css */ "./src/app/inventory-display/inventory-display.component.css")]
         }),
-        __metadata("design:paramtypes", [app_domain_skills_service__WEBPACK_IMPORTED_MODULE_2__["SkillService"], app_domain_weapons_service__WEBPACK_IMPORTED_MODULE_3__["WeaponService"], app_domain_armor_service__WEBPACK_IMPORTED_MODULE_4__["ArmorService"], app_domain_inventory_service__WEBPACK_IMPORTED_MODULE_5__["InventoryService"], _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])
+        __metadata("design:paramtypes", [app_domain_skills_service__WEBPACK_IMPORTED_MODULE_8__["SkillService"], app_domain_weapons_service__WEBPACK_IMPORTED_MODULE_10__["WeaponService"], app_domain_armor_service__WEBPACK_IMPORTED_MODULE_4__["ArmorService"], app_domain_inventory_service__WEBPACK_IMPORTED_MODULE_6__["InventoryService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], InventoryDisplayComponent);
     return InventoryDisplayComponent;
 }());
@@ -4206,7 +4716,7 @@ var InventoryDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mainStatus {\t\n\t/* ; */\n\t/* top: -16px;\n\tleft: 50%;\n\tz-index: 30; */\n}\n\n.statusValueContainer {\n    height: 30px;\n    width: 120px;\n    display: flex;\n    justify-content: center;\n\tposition: relative;\n    /* left: -50%; */\n}\n\n.mainStatusValue {\n\theight: 30px;\n\twidth: 120px;\n\tborder-radius: 60px;\n\tborder: 1px solid #bbb;\n\tbackground-color: #fff;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: center;\n\tpadding: 2px 0 0 0;\n\tfont-size: 1.5rem;\n\tposition: relative;\n\t\n}\n\n.statusValueText {\n    z-index: 10;\n}\n\n.control-icon {\n\twidth: 40px;\n\theight: 40px;\n\tposition: absolute;\n    top: -25px;\n    left: 40px;\n\tz-index: 200;\n}"
+module.exports = ".mainStatus {\t\r\n\t/* ; */\r\n\t/* top: -16px;\r\n\tleft: 50%;\r\n\tz-index: 30; */\r\n}\r\n\r\n.statusValueContainer {\r\n    height: 30px;\r\n    width: 120px;\r\n    display: flex;\r\n    justify-content: center;\r\n\tposition: relative;\r\n    /* left: -50%; */\r\n}\r\n\r\n.mainStatusValue {\r\n\theight: 30px;\r\n\twidth: 120px;\r\n\tborder-radius: 60px;\r\n\tborder: 1px solid #bbb;\r\n\tbackground-color: #fff;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\tpadding: 2px 0 0 0;\r\n\tfont-size: 1.5rem;\r\n\tposition: relative;\r\n\t\r\n}\r\n\r\n.statusValueText {\r\n    z-index: 10;\r\n}\r\n\r\n.control-icon {\r\n\twidth: 40px;\r\n\theight: 40px;\r\n\tposition: absolute;\r\n    top: -25px;\r\n    left: 40px;\r\n\tz-index: 200;\r\n}"
 
 /***/ }),
 
@@ -4217,7 +4727,7 @@ module.exports = ".mainStatus {\t\n\t/* ; */\n\t/* top: -16px;\n\tleft: 50%;\n\t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mainStatus\">\n  <img class=\"control-icon no-border\" src=\"/assets/icons/heart.png\"/>\n  <div  class=\"mainStatusValue good\">\n    <div matRipple matRipple \n    matRippleColor=\"#ff0000\"\n    matRippleRadius=\"20\" \n    matRippleCentered=\"true\"\n    matRippleDisabled=\"true\"\n    class=\"statusValueContainer\">\n      <div class=\"statusValueText\">{{currentLife}}/{{maxLife}}</div>\n    </div>\n</div>\n</div>"
+module.exports = "<div class=\"mainStatus\">\r\n  <img class=\"control-icon no-border\" src=\"/assets/icons/heart.png\"/>\r\n  <div  class=\"mainStatusValue good\">\r\n    <div matRipple matRipple \r\n    matRippleColor=\"#ff0000\"\r\n    matRippleRadius=\"20\" \r\n    matRippleCentered=\"true\"\r\n    matRippleDisabled=\"true\"\r\n    class=\"statusValueContainer\">\r\n      <div class=\"statusValueText\">{{currentLife}}/{{maxLife}}</div>\r\n    </div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -4325,7 +4835,7 @@ var LifeDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mainStatus {\t\n\t/* ; */\n\t/* top: -16px;\n\tleft: 50%;\n\tz-index: 30; */\n}\n\n.statusValueContainer {\n    height: 30px;\n    width: 120px;\n    display: flex;\n    justify-content: center;\n\tposition: relative;\n    /* left: -50%; */\n}\n\n.mainStatusValue {\n\theight: 30px;\n\twidth: 120px;\n\tborder-radius: 60px;\n\tborder: 1px solid #bbb;\n\tbackground-color: #fff;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: center;\n\tpadding: 2px 0 0 0;\n\tfont-size: 1.5rem;\n\tposition: relative;\n}\n\n.statusValueText {\n    z-index: 10;\n}\n\n.control-icon {\n\twidth: 40px;\n\theight: 40px;\n\tposition: absolute;\n    top: 15px;\n    left: 40px;\n\tz-index: 200;\n}"
+module.exports = ".mainStatus {\t\r\n\t/* ; */\r\n\t/* top: -16px;\r\n\tleft: 50%;\r\n\tz-index: 30; */\r\n}\r\n\r\n.statusValueContainer {\r\n    height: 30px;\r\n    width: 120px;\r\n    display: flex;\r\n    justify-content: center;\r\n\tposition: relative;\r\n    /* left: -50%; */\r\n}\r\n\r\n.mainStatusValue {\r\n\theight: 30px;\r\n\twidth: 120px;\r\n\tborder-radius: 60px;\r\n\tborder: 1px solid #bbb;\r\n\tbackground-color: #fff;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\tpadding: 2px 0 0 0;\r\n\tfont-size: 1.5rem;\r\n\tposition: relative;\r\n}\r\n\r\n.statusValueText {\r\n    z-index: 10;\r\n}\r\n\r\n.control-icon {\r\n\twidth: 40px;\r\n\theight: 40px;\r\n\tposition: absolute;\r\n    top: 15px;\r\n    left: 40px;\r\n\tz-index: 200;\r\n}"
 
 /***/ }),
 
@@ -4336,7 +4846,7 @@ module.exports = ".mainStatus {\t\n\t/* ; */\n\t/* top: -16px;\n\tleft: 50%;\n\t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mainStatus\">\n    <img class=\"control-icon no-border\" src=\"/assets/icons/upg_wand.png\"/>\n    <div  class=\"mainStatusValue good\">\n      <div class=\"statusValueContainer\">\n        <div class=\"statusValueText\">{{currentMagicEnergy}}/{{maxMagicEnergy}}</div>\n      </div>\n  </div>\n  </div>"
+module.exports = "<div class=\"mainStatus\">\r\n    <img class=\"control-icon no-border\" src=\"/assets/icons/upg_wand.png\"/>\r\n    <div  class=\"mainStatusValue good\">\r\n      <div class=\"statusValueContainer\">\r\n        <div class=\"statusValueText\">{{currentMagicEnergy}}/{{maxMagicEnergy}}</div>\r\n      </div>\r\n  </div>\r\n  </div>"
 
 /***/ }),
 
@@ -4455,7 +4965,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  master works!\n</p>\n"
+module.exports = "<p>\r\n  master works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -4507,7 +5017,7 @@ var MasterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  padding: 50px 0;\n  position: fixed;\n  \n}\n\n#menuContainer {\n  display: none;\n}\n\n#menuContainer.open {\n\tdisplay: flex;\n}\n\n.mat-menu-content {\n  background-color: rgba(90, 90, 90, 0.5);\n}\n\n\n"
+module.exports = ":host {\r\n  padding: 50px 0;\r\n  position: fixed;\r\n  \r\n}\r\n\r\n#menuContainer {\r\n  display: none;\r\n}\r\n\r\n#menuContainer.open {\r\n\tdisplay: flex;\r\n}\r\n\r\n.mat-menu-content {\r\n  background-color: rgba(90, 90, 90, 0.5);\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -4518,7 +5028,7 @@ module.exports = ":host {\n  padding: 50px 0;\n  position: fixed;\n  \n}\n\n#men
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"menuContainer\" [ngClass]=\"{'open': open === true }\">\n  <!-- <md-nav-list class=\"modal\">\n    <md-list-item (click)=\"gotoList()\">\n      <a mdLine>Zurück</a>\n    </md-list-item>\n    <md-list-item>Salt </md-list-item>\n    <md-list-item>Paprika </md-list-item>\n  </md-nav-list> -->\n</div>\n"
+module.exports = "<div id=\"menuContainer\" [ngClass]=\"{'open': open === true }\">\r\n  <!-- <md-nav-list class=\"modal\">\r\n    <md-list-item (click)=\"gotoList()\">\r\n      <a mdLine>Zurück</a>\r\n    </md-list-item>\r\n    <md-list-item>Salt </md-list-item>\r\n    <md-list-item>Paprika </md-list-item>\r\n  </md-nav-list> -->\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4595,7 +5105,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<remote-control-receiver></remote-control-receiver>\n<router-outlet></router-outlet>\n"
+module.exports = "<remote-control-receiver></remote-control-receiver>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -4674,9 +5184,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoteControlReceiverComponent", function() { return RemoteControlReceiverComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./remote-control-receiver.service */ "./src/app/remote-control-receiver/remote-control-receiver.service.ts");
-/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4688,34 +5195,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
-
-
 // import { Lightbox } from 'ngx-lightbox';
 var RemoteControlReceiverComponent = /** @class */ (function () {
-    function RemoteControlReceiverComponent(websocketService, dialog) {
-        var _this = this;
-        this.dialog = dialog;
-        this.operationsMap = new Map([
-            [_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["operationTypes"].openImage, function (url) {
-                    var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_3__["ImagePopupComponent"], {
-                        // width: '250px',
-                        data: { url: _this.baseUrl + url }
-                    });
-                    dialogRef.afterClosed().subscribe(function (result) {
-                        console.log('The dialog was closed');
-                    });
-                }
-            ]
-        ]);
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+    function RemoteControlReceiverComponent(websocketService) {
         this.service = websocketService;
-        this.remoteControlReceiverSubject = websocketService.remoteControlReceiverSubject;
-        this.remoteControlReceiverSubscription = websocketService.remoteControlReceiverSubject.subscribe(function (message) {
-            var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["OperationFactory"].createOperationFromJSON(message.data);
-            var parameters = instruction.getParameters();
-            _this.operationsMap.get(instruction.getType()).apply(_this, instruction.getParameters());
-        });
     }
     RemoteControlReceiverComponent.prototype.ngOnInit = function () {
     };
@@ -4725,7 +5208,7 @@ var RemoteControlReceiverComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./remote-control-receiver.component.html */ "./src/app/remote-control-receiver/remote-control-receiver.component.html"),
             styles: [__webpack_require__(/*! ./remote-control-receiver.component.css */ "./src/app/remote-control-receiver/remote-control-receiver.component.css")]
         }),
-        __metadata("design:paramtypes", [_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_1__["RemoteControlReceiverService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
+        __metadata("design:paramtypes", [_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_1__["RemoteControlReceiverService"]])
     ], RemoteControlReceiverComponent);
     return RemoteControlReceiverComponent;
 }());
@@ -4746,9 +5229,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoteControlReceiverService", function() { return RemoteControlReceiverService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4761,25 +5248,77 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 // import { Rx } from 'rxjs';
 
 
+
+
+
 var RemoteControlReceiverService = /** @class */ (function () {
-    function RemoteControlReceiverService(http) {
+    function RemoteControlReceiverService(http, dialog, toastr) {
+        var _this = this;
         this.http = http;
+        this.dialog = dialog;
+        this.toastr = toastr;
+        this.operationsMap = new Map([
+            [_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__["operationTypes"].openImage, function (url) {
+                    var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_8__["ImagePopupComponent"], {
+                        // width: '250px',
+                        data: { url: _this.baseUrl + url }
+                    });
+                    dialogRef.afterClosed().subscribe(function (result) {
+                        console.log('The dialog was closed');
+                    });
+                }
+            ]
+        ]);
         this.wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlReceiver';
         this.wsClientId = Math.random().toString(36).substring(7);
-        this.socket = this.createWebsocket();
-        var subject = this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.socket.onmessage = (function (evt) { return subject.next(evt); });
+        this.currentlyConnected = false;
+        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+        // this.createWebsocket()
     }
     RemoteControlReceiverService.prototype.createWebsocket = function () {
-        var ws = new WebSocket(this.wsUrl);
-        return ws;
+        var _this = this;
+        try {
+            this.socket = new WebSocket(this.wsUrl);
+            this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+            this.socket.onopen = function (event) {
+                _this.currentlyConnected = true;
+                _this.toastr.success('Du bist online.');
+                clearInterval(_this.connectionInterval);
+            };
+            this.socket.onerror = function (error) {
+                if (_this.socket.readyState === _this.socket.OPEN) {
+                    _this.toastr.error('Es gab einen Fehler', 'Wir schließen nun die Verbindung');
+                }
+            };
+            this.socket.addEventListener('error', function (event) {
+                console.log('hey');
+                event.stopPropagation();
+            });
+            this.socket.addEventListener('close', function (event) {
+                if (_this.currentlyConnected) {
+                    _this.currentlyConnected = false;
+                    _this.toastr.error('Du bist nicht mehr mit dem Server verbunden', 'Die Verbindung ist abgebaut worden');
+                    _this.connectionInterval = window.setInterval(_this.createWebsocket.bind(_this), 4000);
+                }
+            });
+            this.remoteControlReceiverSubscription = this.remoteControlReceiverSubject.subscribe(function (message) {
+                var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__["OperationFactory"].createOperationFromJSON(message.data);
+                var parameters = instruction.getParameters();
+                _this.operationsMap.get(instruction.getType()).apply(_this, instruction.getParameters());
+            });
+            this.socket.onmessage = (function (evt) { return _this.remoteControlReceiverSubject.next(evt); });
+        }
+        catch (error) {
+            console.log('error setting up web socket with remote control receiver');
+        }
     };
     RemoteControlReceiverService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], RemoteControlReceiverService);
     return RemoteControlReceiverService;
 }());
@@ -4806,7 +5345,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n"
+module.exports = "\r\n"
 
 /***/ }),
 
@@ -4884,9 +5423,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoteControlService", function() { return RemoteControlService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4898,7 +5436,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 // import { Rx } from 'rxjs';
 
 
@@ -4907,13 +5444,18 @@ var RemoteControlService = /** @class */ (function () {
         this.http = http;
         this.wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlSender';
         this.wsClientId = Math.random().toString(36).substring(7);
-        this.socket = this.createWebsocket();
-        var subject = this.remoteControlSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.socket.onmessage = (function (evt) { return subject.next(evt); });
+        // this.socket = this.createWebsocket();
+        // let subject = this.remoteControlSubject = new Subject();
+        // this.socket.onmessage = (evt => subject.next(evt));
     }
     RemoteControlService.prototype.createWebsocket = function () {
-        var ws = new WebSocket(this.wsUrl);
-        return ws;
+        try {
+            var ws = new WebSocket(this.wsUrl);
+            return ws;
+        }
+        catch (error) {
+            console.log('error setting up web socket to remote control sender');
+        }
     };
     RemoteControlService.prototype.sendRemoteControlInstruction = function (instruction) {
         console.log('will send instruction');
@@ -5017,7 +5559,7 @@ var ScrollSpyDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\n  <button>\n    <div class=\"flex-row skill\">\n      <div class=\"skillTitle\">{{spell.getSpell().name}}</div>\n      <div class=\"skillBe\">\n        <i class=\"fa fa-wheelchair\"></i>{{spell.getSpell().be}}\n      </div>\n      \n      <div class=\"skillValue\">\n        <i class=\"fa fa-tachometer\"></i>{{spell.value}}</div>\n      <div class=\"dices\">\n        <i class=\"fa fa-cubes\"></i>\n        <div class=\"dice\">{{spell.getSpell().dice1}}: {{spell.dice1Value}}</div>\n        <div class=\"dice\">{{spell.getSpell().dice2}}: {{spell.dice2Value}}</div>\n        <div class=\"dice\">{{spell.getSpell().dice3}}: {{spell.dice3Value}}</div>\n      </div>\n    </div>\n  </button>\n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n  <button>\r\n    <div class=\"flex-row skill\">\r\n      <div class=\"skillTitle\">{{spell.getSpell().name}}</div>\r\n      <div class=\"skillBe\">\r\n        <i class=\"fa fa-wheelchair\"></i>{{spell.getSpell().be}}\r\n      </div>\r\n      \r\n      <div class=\"skillValue\">\r\n        <i class=\"fa fa-tachometer\"></i>{{spell.value}}</div>\r\n      <div class=\"dices\">\r\n        <i class=\"fa fa-cubes\"></i>\r\n        <div class=\"dice\">{{spell.getSpell().dice1}}: {{spell.dice1Value}}</div>\r\n        <div class=\"dice\">{{spell.getSpell().dice2}}: {{spell.dice2Value}}</div>\r\n        <div class=\"dice\">{{spell.getSpell().dice3}}: {{spell.dice3Value}}</div>\r\n      </div>\r\n    </div>\r\n  </button>\r\n</div>"
 
 /***/ }),
 
@@ -5087,7 +5629,7 @@ var SpellCard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".searchContainer {\n    justify-content: center;\n}\n\n.spellGroupTitle {\n    font-size: 24px;\n    margin-top: 15px;\n    margin-bottom: 10px;\n    \n}\n\n.spellEntry {\n    margin-bottom: 8px;\n}"
+module.exports = ".searchContainer {\r\n    justify-content: center;\r\n}\r\n\r\n.spellGroupTitle {\r\n    font-size: 24px;\r\n    margin-top: 15px;\r\n    margin-bottom: 10px;\r\n    \r\n}\r\n\r\n.spellEntry {\r\n    margin-bottom: 8px;\r\n}"
 
 /***/ }),
 
@@ -5098,7 +5640,7 @@ module.exports = ".searchContainer {\n    justify-content: center;\n}\n\n.spellG
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"flex-col flex-item\">\n  <div class=\"flex-row padded searchContainer center\" >\n    <input placeholder=\"Suchbegriff\" [value]=\"spellSearchTerm\" (input)=\"spellSearchTerm  = $event.target.value\" />\n  </div>\n  <div class=\"talente padded\">\n    <div class=\"flex-col center\" *ngFor=\"let spellGroup of hero.spellGroups | MatchesSpellSearchTermChildren:spellSearchTerm\">\n      <div class=\"spellGroupTitle\">{{spellGroup.spellGroup.name}}</div>\n      <div class=\"spellGroupEntries\">\n          <div class=\"spellEntry\" *ngFor=\"let spell of spellGroup.spells | MatchesSpellSearchTerm:spellSearchTerm\">\n            <spell-card [spell]=\"spell\"></spell-card>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "\r\n<div class=\"flex-col flex-item\">\r\n  <div class=\"flex-row padded searchContainer center\" >\r\n    <input placeholder=\"Suchbegriff\" [value]=\"spellSearchTerm\" (input)=\"spellSearchTerm  = $event.target.value\" />\r\n  </div>\r\n  <div class=\"talente padded\">\r\n    <div class=\"flex-col center\" *ngFor=\"let spellGroup of hero.spellGroups | MatchesSpellSearchTermChildren:spellSearchTerm\">\r\n      <div class=\"spellGroupTitle\">{{spellGroup.spellGroup.name}}</div>\r\n      <div class=\"spellGroupEntries\">\r\n          <div class=\"spellEntry\" *ngFor=\"let spell of spellGroup.spells | MatchesSpellSearchTerm:spellSearchTerm\">\r\n            <spell-card [spell]=\"spell\"></spell-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -5226,7 +5768,7 @@ var MatchesSpellSearchTermChildren = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".flex-row.skill {\n    display: flex;\n    flex-wrap: wrap;\n    margin: 2px;\n    padding: 12px;\n    font-size: 16px;\n}\n\n.skillTitle {\n    width: 140px;\n    font-weight: 600;\n    text-align: left;\n}\n\n.skillBe, .skillValue {\n    width: 60px;\n}\n\n.fightDices {\n    width: 120px;\n    display:flex;\n}\n\n.fightDice {\n    width: 60px;\n}\n\n.dices {\n    display: flex;\n    width: 200px;\n}\n\n.dice {\n    width: 50px\n}\n\ni {\n    margin-right: 5px;\n}"
+module.exports = ".flex-row.skill {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    margin: 2px;\r\n    padding: 12px;\r\n    font-size: 16px;\r\n}\r\n\r\n.skillTitle {\r\n    width: 140px;\r\n    font-weight: 600;\r\n    text-align: left;\r\n}\r\n\r\n.skillBe, .skillValue {\r\n    width: 60px;\r\n}\r\n\r\n.fightDices {\r\n    width: 120px;\r\n    display:flex;\r\n}\r\n\r\n.fightDice {\r\n    width: 60px;\r\n}\r\n\r\n.dices {\r\n    display: flex;\r\n    width: 200px;\r\n}\r\n\r\n.dice {\r\n    width: 50px\r\n}\r\n\r\ni {\r\n    margin-right: 5px;\r\n}"
 
 /***/ }),
 
@@ -5237,7 +5779,7 @@ module.exports = ".flex-row.skill {\n    display: flex;\n    flex-wrap: wrap;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\n  <button>\n    <div class=\"flex-row skill\">\n      <div class=\"skillTitle\">{{skill.getSkill().name}}</div>\n      <div class=\"skillBe\">\n        <i class=\"fa fa-wheelchair\"></i>{{skill.getSkill().be}}\n      </div>\n      \n      <div class=\"skillValue\">\n        <i class=\"fa fa-tachometer\"></i>{{skill.value}}</div>\n      <div class=\"fightDices\" *ngIf=\"skillGroup.hasAttackParade\">\n        <i class=\"fa fa-cube\"></i> \n        <div class=\"fightDice\">AT: {{skill.getAttack()}}</div>\n        <div class=\"fightDice\">PA: {{skill.getParade()}}</div>\n      </div>\n      <div class=\"dices\" *ngIf=\"skillGroup.hasThreeDices\">\n        <i class=\"fa fa-cubes\"></i>\n        <div class=\"dice\">{{skill.getSkill().dice1.short}}: {{skill.dice1Value}}</div>\n        <div class=\"dice\">{{skill.getSkill().dice2.short}}: {{skill.dice2Value}}</div>\n        <div class=\"dice\">{{skill.getSkill().dice3.short}}: {{skill.dice3Value}}</div>\n      </div>\n    </div>\n  </button>\n  <div *ngIf=\"state === 'rollDice'\" class=\"confirmationButtons flex-col center\" >\n    <div class=\"messageToConfirm\">Würfeln</div>\n    <div class=\"flex-row\">\n        <div class=\"flex-item flex-col confirmationButton center accept\" (click)=\"confirmIncrease()\">\n            <i class=\"fa fa-check\"></i>\n        </div>\n        <div class=\"flex-item flex-col confirmationButton center reject\" (click)=\"cancelIncrease()\">\n            <i class=\"fa fa-window-close\"></i>\n        </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n  <button class=\"comic-shadow\">\r\n    <div class=\"flex-row skill\">\r\n      <div class=\"skillTitle\">{{skill.getSkill().name}}</div>\r\n      <div class=\"skillBe\">\r\n        <i class=\"fa fa-wheelchair\"></i>{{skill.getSkill().be}}\r\n      </div>\r\n\r\n      <div class=\"skillValue\">\r\n        <i class=\"fa fa-tachometer\"></i>{{skill.value}}\r\n      </div>\r\n      <div class=\"fightDices\" *ngIf=\"skillGroup.hasAttackParade\">\r\n        <i class=\"fa fa-cube\"></i>\r\n        <div class=\"fightDice\">AT: {{skill.getAttack()}}</div>\r\n        <div class=\"fightDice\">PA: {{skill.getParade()}}</div>\r\n      </div>\r\n      <div class=\"dices\" *ngIf=\"skillGroup.hasThreeDices\">\r\n        <i class=\"fa fa-cubes\"></i>\r\n        <div class=\"dice\">{{skill.getSkill().dice1.short}}: {{skill.dice1Value}}</div>\r\n        <div class=\"dice\">{{skill.getSkill().dice2.short}}: {{skill.dice2Value}}</div>\r\n        <div class=\"dice\">{{skill.getSkill().dice3.short}}: {{skill.dice3Value}}</div>\r\n      </div>\r\n    </div>\r\n  </button>\r\n  <div *ngIf=\"state === 'rollDice'\" class=\"confirmationButtons flex-col center\">\r\n    <div class=\"messageToConfirm\">Würfeln</div>\r\n    <div class=\"flex-row\">\r\n      <div class=\"flex-item flex-col confirmationButton center accept\" (click)=\"confirmIncrease()\">\r\n        <i class=\"fa fa-check\"></i>\r\n      </div>\r\n      <div class=\"flex-item flex-col confirmationButton center reject\" (click)=\"cancelIncrease()\">\r\n        <i class=\"fa fa-window-close\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -5384,7 +5926,7 @@ var MatchesTalentSearchTermChildren = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".searchContainer {\n    justify-content: center;\n}\n\n.skillGroupTitle {\n    font-size: 24px;\n    margin-top: 15px;\n    margin-bottom: 10px;\n    \n}\n\n.skillEntry {\n    margin-bottom: 8px;\n}"
+module.exports = ".searchContainer {\r\n    justify-content: center;\r\n}\r\n\r\n.skillGroupTitle {\r\n    font-size: 24px;\r\n    margin-top: 15px;\r\n    margin-bottom: 10px;\r\n    \r\n}\r\n\r\n.skillEntry {\r\n    margin-bottom: 8px;\r\n}"
 
 /***/ }),
 
@@ -5395,7 +5937,7 @@ module.exports = ".searchContainer {\n    justify-content: center;\n}\n\n.skillG
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"flex-col flex-item\">\n  <div class=\"flex-row padded searchContainer center\" >\n    <input placeholder=\"Suchbegriff\" [value]=\"talentSearchTerm\" (input)=\"talentSearchTerm  = $event.target.value\" />\n  </div>\n  <div class=\"talente padded\">\n    <div class=\"flex-col center\" *ngFor=\"let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm\">\n      <div class=\"skillGroupTitle\">{{skillGroup.skillGroup.name}}</div>\n      <div class=\"skillGroupEntries\">\n          <div class=\"skillEntry\" *ngFor=\"let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm\">\n            <talent-card [skill]=\"skill\"></talent-card>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "\r\n<div class=\"flex-col flex-item\">\r\n  <div class=\"flex-row padded searchContainer center\" >\r\n    <input placeholder=\"Suchbegriff\" [value]=\"talentSearchTerm\" (input)=\"talentSearchTerm  = $event.target.value\" />\r\n  </div>\r\n  <div class=\"talente padded\">\r\n    <div class=\"flex-col center\" *ngFor=\"let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm\">\r\n      <div class=\"skillGroupTitle\">{{skillGroup.skillGroup.name}}</div>\r\n      <div class=\"skillGroupEntries\">\r\n          <div class=\"skillEntry\" *ngFor=\"let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm\">\r\n            <talent-card [skill]=\"skill\"></talent-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -5508,7 +6050,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/michel/jsWorkspace/table-top-client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\michel\jsWorkspace\table-top-client\src\main.ts */"./src/main.ts");
 
 
 /***/ })
