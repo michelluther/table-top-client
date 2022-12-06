@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AdventureService {
@@ -64,27 +63,109 @@ export class Adventure {
     public active: boolean
     public name: string
 
-    public images: Array<Image>
+    private images: Image[]
+    private characters: Character[]
     constructor() {
         this.images = []
+        this.characters = []
     }
 
     public setData(dataObject) {
         this.id = dataObject.id
         this.name = dataObject.name
         dataObject.images.forEach(image => {
-            let imageObject = new Image(image.url, image.caption)
+            let imageObject = new Image(this.buildImageLink(image.url), image.caption, image.sequence)
             this.images.push(imageObject)
         })
+        dataObject.characters.forEach(character => {
+            this.characters.push(new Character(character.name, this.buildImageLink(character.imageUrl), character.sequence))
+        })
+    }
+
+    get elements():AdventureElement[] {
+        const allElements:Array<AdventureElement> = []
+        for (let i = 0; i <  this.images.length; i++) {
+            allElements.push(this.images[i])
+        }
+        for (let j = 0; j <  this.characters.length; j++) {
+
+            allElements.push(this.characters[j])
+        }
+        allElements.sort((elementA, elementB) => {
+            return elementA.sequence - elementB.sequence
+        })
+
+        const allElementsGrouped = []
+        for (let index = 0; index < allElements.length; index++) {
+            const element = allElements[index];
+            const existingElementWithThatSequenceIndex = allElementsGrouped.findIndex(groupedElement => element.sequence === groupedElement.sequence)
+            if(existingElementWithThatSequenceIndex !== -1) {
+                const existingElementWithThatSequence = allElementsGrouped[existingElementWithThatSequenceIndex]
+                if(existingElementWithThatSequence.type === ElementType.Section) {
+                    (existingElementWithThatSequence as Section).elements.push(element)
+                } else {
+                    const newSection = new Section();
+                    newSection.sequence = element.sequence
+                    newSection.elements.push(existingElementWithThatSequence)
+                    newSection.elements.push(element)
+                    allElementsGrouped[existingElementWithThatSequenceIndex] = newSection;
+
+                }
+            } else {
+                allElementsGrouped.push(element)
+            }
+        }
+        return allElementsGrouped
+    } 
+    
+    buildImageLink(absolutePath:string):string {
+        return `http://${window.location.hostname}:8000${absolutePath}`
+    }
+
+}
+
+export enum ElementType {Image = 'image', Character = 'character', Location = 'location', Section = 'section'}
+
+export interface AdventureElement {
+    title:string;
+    sequence:number;
+    imageUrl:string;
+    type:ElementType;
+}
+
+export class Image implements AdventureElement{
+    constructor(public url: string, public caption: string,public sequence:number) {}
+    
+    get imageUrl(): string {
+        return this.url;
+    }
+
+    get type(): ElementType {
+        return ElementType.Image;
+    }
+
+    get title(): string {
+        return this.caption    
     }
 }
 
-export class Image {
-    public url: string
-    public caption: string
-
-    constructor(url: string, caption: string) {
-        this.url = url
-        this.caption = caption
+export class Character implements AdventureElement {
+    constructor(public name:string, public imageUrl:string,public sequence:number){}
+    
+    get title(): string {
+        return this.name;
     }
+    get type(): ElementType {
+        return ElementType.Character;
+    }
+}
+
+export class Section implements AdventureElement {
+    title: string;
+    sequence: number;
+    imageUrl: string;
+    type: ElementType = ElementType.Section;
+
+    elements: AdventureElement[] = []
+    
 }

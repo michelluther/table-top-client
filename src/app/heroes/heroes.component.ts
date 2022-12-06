@@ -35,6 +35,7 @@ export class HeroesComponent implements OnInit {
 
 	
 	currentlyLoading: boolean = false;
+	_activeMainNavEntry: string = 'heroes';
 
 	constructor(
 		private heroService: HeroService,
@@ -62,6 +63,10 @@ export class HeroesComponent implements OnInit {
 		gameState.gameStarted = true;
 	}
 
+	activateNavEntry(navEntry): void {
+		this._activeMainNavEntry = navEntry
+	}
+
 	ngOnInit(): void {
 
 	}
@@ -81,5 +86,9 @@ export class HeroesComponent implements OnInit {
 
 	get successfullyLoaded(): boolean {
 		return gameState.dataInitialized;
+	}
+
+	get activeMainNavEntry(): string {
+		return this._activeMainNavEntry;
 	}
 }

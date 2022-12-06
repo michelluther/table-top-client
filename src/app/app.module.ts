@@ -52,6 +52,7 @@ import { MatchesSpellSearchTerm, MatchesSpellSearchTermChildren } from './spell-
 import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
+import { AdventureDisplayComponent } from './adventure-display/adventure-display.component';
 
 
 
@@ -66,6 +67,7 @@ const routes: Routes = [
   {
     path: 'master', component: AdminOverviewComponent,
     children: [
+      { path: 'adventure', component: HeroesComponent },
       { path: 'heroes', component: HeroesComponent },
       { path: 'hero/:id', component: HeroDetailComponent },
       { path: 'fight/start', component: FightSetupComponent }
@@ -170,7 +172,8 @@ const routes: Routes = [
     ConfirmationSheetComponent,
     ConfirmDeletionComponent,
     ExperienceAdditionComponent,
-    EditMoneyComponent
+    EditMoneyComponent,
+    AdventureDisplayComponent
   ],
   bootstrap: [AppComponent],
   providers: [{

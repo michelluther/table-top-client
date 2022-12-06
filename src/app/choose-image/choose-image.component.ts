@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
-import { AdventureService, Adventure, Image } from './../domain/adventure.service'
-import { RemoteControlService } from './../remote-control/remote-control.service'
-import { OperationFactory, RemoteControlOperation, operationTypes } from './../domain/remoteControlOperation'
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Adventure, AdventureService, Image } from './../domain/adventure.service';
+import { OperationFactory, operationTypes } from './../domain/remoteControlOperation';
+import { RemoteControlService } from './../remote-control/remote-control.service';
 
 export class ImagePopupData {
   constructor(public image: Image, public imageList: Array<Image>) {
@@ -36,7 +36,7 @@ export class ChooseImageComponent implements OnInit {
     this.adventureService.getAdventures().then(adventures => {
       this.adventures = adventures
       this.adventures.forEach(adventure => {
-        this.images = this.images.concat(adventure.images)
+        // this.images = this.images.concat(adventure.elements)
       })
     })
 
