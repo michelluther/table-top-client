@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AdventureService, Adventure } from './../domain/adventure.service'
+import { Adventure, AdventureService } from './../domain/adventure.service';
 
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-overview',
@@ -29,6 +29,9 @@ export class AdminOverviewComponent implements OnInit {
 
   public startFight(): void {
     this.router.navigate(['master/fight/start']);
+  }
+  public showHeroes(): void {
+    this.router.navigate(['master/heroes']);
   }
 
 }

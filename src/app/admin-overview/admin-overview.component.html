@@ -1,18 +1,14 @@
 <remote-control #remoteControlMaster></remote-control>
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" style="width:200px" opened>
-    <button mat-button class="navButton" (click)="remoteControlMaster.sendImage('')">
-      <mat-icon class="navIcon">burst_mode</mat-icon>
-      Send Image to Clients
+<div id="adminContent">
+  <div id="adminMenu">
+    <button class="comic-shadow" (click)="showHeroes()">Heroes</button>
+    <button class="comic-shadow" (click)="remoteControlMaster.sendImage('')">
+      Images
     </button>
-    <button mat-button class="navButton" (click)="startFight()">
-      <mat-icon class="navIcon">whatshot</mat-icon>Start Fight!
-    </button>
-    <button mat-button class="navButton">
-      <mat-icon class="navIcon">library_music</mat-icon>Music and Sounds
-    </button>
-  </mat-sidenav>
-  <mat-sidenav-content>
+    <button class="comic-shadow" (click)="startFight()">Fight</button>
+    <button class="comic-shadow">Music and Sounds</button>
+  </div>
+  <div id="appContent">
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</div>

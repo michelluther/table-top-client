@@ -27,32 +27,12 @@
 
 # Todos
 
-## Basics
-
-- Anzeige "Weapon-skill distribution"
-- Berücksichtigung der Behinderung?
-- Fehler wenn Inventaritems gerade hinzugefügt wurden und dann die Menge geändert wird
 
 
 
 
-## Grafiken
 
-- [ ] Experience Points
-  - [ ] Scroll?
 
-- [x] Remove watermarks
-
-- [x] Landingpage
-- [x] Heldenübersicht
-
-- [x] Heldenbanner noch mal machen
-- [x] Kampfwerte - gekreuzte Schwerter
-- [x] Basiswerte - 
-- [x] Eigenschaften
-- [ ] Talente
-- [ ] Zauber
-- [x] Inventory
   - [x] Geld
   - [x] Waffen
   - [x] Rüstung
@@ -63,22 +43,55 @@
 
 - [ ] Warum scrollen diese Hero-Controls mit nach oben, wenn das iPad im Porträtmodus ist?
 
-## Dialoge
 
-- [ ] Geld-Dialog
-- [ ] Abenteuerpunktedialog
-- [ ] Inventar wegwerfen-Dialoge
-- [ ] vielleicht auch das Hinzufügen von Dingen in einen Dialog setzen?
+## NPCs
 
+- [ ] integrate name generator
+- [ ] store the generated names so we can reference them later on
+- [ ] use templates
 
 ## fight display
   
+- [ ] set up fight
+  - [ ] choose characters and npcs
+  - [ ] generate combatants
+    - [ ] call
 - [ ] how to manage initiative
 - [ ] how to show combatants?
   - [ ] friends and
   - [ ] foes
-- [ ] how to add combatants?
-  - [ ] adventure management needed? 
+
 
 
 # Done 
+
+## Grafiken
+
+- [x] Experience Points
+  - [x] Scroll?
+
+- [x] Remove watermarks
+
+- [x] Landingpage
+- [x] Heldenübersicht
+
+- [x] Heldenbanner noch mal machen
+- [x] Kampfwerte - gekreuzte Schwerter
+- [x] Basiswerte - 
+- [x] Eigenschaften
+- [x] Talente
+- [x] Zauber
+- [x] Inventory
+
+## Dialoge
+
+- [x] Geld-Dialog
+- [x] Abenteuerpunktedialog
+- [x] Inventar wegwerfen-Dialoge
+- [x] vielleicht auch das Hinzufügen von Dingen in einen Dialog setzen?
+
+## Basics
+
+- Anzeige "Weapon-skill distribution"
+- Berücksichtigung der Behinderung?
+- Fehler wenn Inventaritems gerade hinzugefügt wurden und dann die Menge geändert wird

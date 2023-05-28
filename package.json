@@ -1,6 +1,6 @@
 {
-  "name": "table-top-client",
-  "version": "0.0.0",
+  "name": "@michelluther/table-top-client",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "files": [
+    "hero-app"
+  ],
+  "private": false,
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/cdk": "^6.1.0",
