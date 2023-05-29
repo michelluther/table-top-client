@@ -8,3 +8,20 @@ export class Fight {
         return this._foes
     } 
 }
+
+export interface Combatant {
+
+    isGood: boolean
+    currentLife: number
+    name: string
+    selectedForFight: boolean
+
+    get initiative(): number
+
+    get attack(): number
+
+    get parade(): number
+
+    get damage(): string
+
+}

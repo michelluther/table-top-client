@@ -53,6 +53,7 @@ import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
 import { AdventureDisplayComponent } from './adventure-display/adventure-display.component';
+import { CombatantComponent } from './combatant/combatant.component';
 
 
 
@@ -173,7 +174,8 @@ const routes: Routes = [
     ConfirmDeletionComponent,
     ExperienceAdditionComponent,
     EditMoneyComponent,
-    AdventureDisplayComponent
+    AdventureDisplayComponent,
+    CombatantComponent
   ],
   bootstrap: [AppComponent],
   providers: [{

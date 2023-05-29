@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
 
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { Observable } from 'rxjs/Observable';
+import { NPCType } from './npc';
 
 @Injectable()
 export class AdventureService {
 
     private adventuresUrl = 'http://' + window.location.hostname + ':8000/adventures/';
+    private npcTypesUrl = 'http://' + window.location.hostname + ':8000/npcTypes/';
+    private npcsUrl = 'http://' + window.location.hostname + ':8000/npcTypes/';
     private adventures: Adventure[];
 
     constructor(private http: Http) { }
@@ -19,12 +22,12 @@ export class AdventureService {
         return this.http.get(this.adventuresUrl)
             .toPromise()
             .then(response => {
-                return this.extractData(response);
+                return this.extractAdventures(response);
             }
             )
     }
 
-    extractData(res: Response): Adventure[] {
+    extractAdventures(res: Response): Adventure[] {
         let body = res.json();
         let adventures = [];
         body.forEach(function (adventure) {
@@ -53,6 +56,17 @@ export class AdventureService {
             .then(adventures =>
                 adventures.find(adventure => adventure.id === id)
             );
+    }
+
+    getNPCTypes(): Promise<NPCType[]> {
+        return this.http.get(this.npcTypesUrl)
+        .toPromise()
+        .then(response => {
+            return response.json().map(npcResult => {
+                return new NPCType(npcResult.id, npcResult.name)
+            });
+        }
+        )
     }
 
 }

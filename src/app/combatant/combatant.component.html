@@ -1,0 +1,25 @@
+<div class="border wrapper" [class.added]="combatant.selectedForFight === true">
+  <div class="header">
+    <div>{{ combatant.name }}</div>
+    <div>LE: {{ combatant.currentLife }}</div>
+  </div>
+  k
+  <div class="content">
+    <div class="fightValues">
+      <div>AT: {{ combatant.attack }}</div>
+      <div>PA: {{ combatant.parade }}</div>
+    </div>
+    <div>IN: {{ combatant.initiative }}</div>
+  </div>
+  <div class="actions">
+    <button (click)="addToFight()" *ngIf="combatant.selectedForFight !== true">
+      +
+    </button>
+    <button
+      (click)="removeFromFight()"
+      *ngIf="combatant.selectedForFight !== false"
+    >
+      -
+    </button>
+  </div>
+</div>

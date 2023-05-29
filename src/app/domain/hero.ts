@@ -6,6 +6,7 @@ import { ActualSpell } from "./actualSpell";
 import { ActualSpellGroup } from "./actualSpellGroup";
 import { Armor } from './armor';
 import { AttributeService } from './attribute.service';
+import { Combatant } from './fight';
 import { HeroType } from "./heroType";
 import { InventoryItem } from "./inventoryItem";
 import { MoneyInventory } from './moneyInventory';
@@ -15,18 +16,20 @@ import { SpellService } from "./spells.service";
 import { Weapon } from './weapon';
 import { WeaponSkillDistribution } from "./weaponSkillDistribution";
 
-export class Hero {
+export class Hero implements Combatant {
 
   id: number;
+  isGood: boolean;
+  selectedForFight: boolean;
 
-  name: String;
+  name: string;
   race: Object;
   size: number;
-  gender: String;
+  gender: string;
 
   culture: number;
 
-  avatar_small: String;
+  avatar_small: string;
 
   experience: number;
 
@@ -48,7 +51,7 @@ export class Hero {
 
   experience_used: number;
   hero_type: HeroType;
-  initiative: number;
+  _initiative: number;
   KL: number;
   magieresistenz: number;
   social_rank: number;
@@ -91,9 +94,17 @@ export class Hero {
   constructor(private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
     this.skillService = skillService;
     this.weapons = []
-  };
+  }
+  get damage(): string {
+    throw new Error('Method not implemented.');
+  }
+  
+  get initiative(): number {
+    return this._initiative + Math.floor(Math.random()*6+1);
+  }
 
   setData(dataObject: Object): Hero {
+    this.isGood = true;
     this.attack_basis = dataObject['attack_basis'];
     this.parade_basis = dataObject['parade_basis'];
     this.fernkampf_basis = dataObject['fernkampf_basis']
@@ -110,7 +121,7 @@ export class Hero {
     this.gender = dataObject['gender'];
     this.hero_type = dataObject['hero_type'];
     this.id = dataObject['id'];
-    this.initiative = dataObject['ini_basis'];
+    this._initiative = dataObject['ini_basis'];
     this.knowsMagic = dataObject['knows_magic'];
 
     this.money = new MoneyInventory(dataObject['money_dukaten'], dataObject['money_silbertaler'], dataObject['money_kreuzer'], dataObject['money_heller'])
@@ -350,6 +361,14 @@ export class Hero {
       this.currentLongRangeValue = this.fernkampf_basis + actualSkill.value
     }
 
+  }
+
+  get attack(): number {
+    return this.currentAttack
+  }
+
+  get parade(): number {
+    return this.currentParade
   }
 
   get currentWeapon() {

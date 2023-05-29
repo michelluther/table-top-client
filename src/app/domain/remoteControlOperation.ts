@@ -34,7 +34,7 @@ export class RemoteControlOperation {
 
 export class OperationFactory {
 
-    static createOperation(type: string, target: string, parameters: Array<string>): RemoteControlOperation {
+    static createOperation(type: string, target: string, parameters: any): RemoteControlOperation {
         return new RemoteControlOperation(type, target, parameters)
     }
 

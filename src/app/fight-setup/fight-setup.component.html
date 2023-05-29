@@ -1,3 +1,31 @@
-<p>
-  <button (click)="createNPC()">NPC anlegen</button>
-</p>
+<div *ngIf="state === 'initial'">
+  <button (click)="startNewFight()">Neuen Kampf starten</button>
+</div>
+<div *ngIf="state === 'setup'" class="setupAssistant">
+  <div class="addHeroes">
+    <div class="header">
+      <div>Helden</div>
+      <div class="headerButtons">
+        <button (click)="addAllHeroes()">Alle +</button>
+        <button (click)="removeAllHeroes()">Alle -</button>
+      </div>
+    </div>
+    <div *ngFor="let hero of heroes">
+      <combatant [combatant]="hero"></combatant>
+    </div>
+    <div class="supporters">
+      <div *ngFor="let npc of npcs">
+        <combatant [combatant]="npc"></combatant>
+      </div>
+    </div>
+  </div>
+  <div class="addOpponents">
+    <div class="header">
+      <div>Gegner</div>
+    </div>
+    <button (click)="initNPCGeneration()">NPC anlegen</button>
+    <div *ngFor="let npcType of npcTypes">
+      {{ npcType.name }}
+    </div>
+  </div>
+</div>
