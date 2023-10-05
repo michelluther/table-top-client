@@ -89,6 +89,10 @@ md-sidenav {
   flex-wrap: wrap;
 }
 
+.flex-row.space-between {
+  justify-content: space-between;
+}
+
 .flex-item {
   display: flex;
   flex: 1;
@@ -219,23 +223,23 @@ h6 {
 
 /* Base classes for all media - Mobile first */
 
-.Grid--cols-2>.Grid-cell {
+.Grid--cols-2 > .Grid-cell {
   flex: 0 0 100%;
 }
 
-.Grid--cols-3>.Grid-cell {
+.Grid--cols-3 > .Grid-cell {
   flex: 0 0 100%;
 }
 
-.Grid--cols-4>.Grid-cell {
+.Grid--cols-4 > .Grid-cell {
   flex: 0 0 100%;
 }
 
-.Grid--cols-6>.Grid-cell {
+.Grid--cols-6 > .Grid-cell {
   flex: 0 0 calc(50% - #{$gutter});
 }
 
-.Grid--cols-12>.Grid-cell {
+.Grid--cols-12 > .Grid-cell {
   flex: 0 0 calc(33.3333% - #{$gutter});
 }
 
@@ -249,36 +253,36 @@ h6 {
 
 /* One of -- columns*/
 
-.Grid--1of2>.Grid-cell,
-.Grid--1of4>.Grid-cell:first-of-type,
-.Grid--1of3>.Grid-cell:first-of-type {
+.Grid--1of2 > .Grid-cell,
+.Grid--1of4 > .Grid-cell:first-of-type,
+.Grid--1of3 > .Grid-cell:first-of-type {
   flex: 0 0 100%;
 }
 
-.Grid--1of6>.Grid-cell:first-of-type {
+.Grid--1of6 > .Grid-cell:first-of-type {
   flex: 0 0 50%;
 }
 
-.Grid--fit>.Grid-cell {
+.Grid--fit > .Grid-cell {
   flex: 1;
 }
 
-.Grid--full>.Grid-cell {
+.Grid--full > .Grid-cell {
   flex: 0 0 100%;
 }
 
 /* Tablet (medium) screens */
 
 @media (min-width: 30em) {
-  .Grid--cols-4>.Grid-cell {
+  .Grid--cols-4 > .Grid-cell {
     flex: 0 0 calc(50% - #{$gutter});
   }
 
-  .Grid--cols-6>.Grid-cell {
+  .Grid--cols-6 > .Grid-cell {
     flex: 0 0 calc(33.3333% - #{$gutter});
   }
 
-  .Grid--cols-12>.Grid-cell {
+  .Grid--cols-12 > .Grid-cell {
     flex: 0 0 calc(16.6666% - #{$gutter});
   }
 
@@ -287,19 +291,19 @@ h6 {
       flex: 1 calc(25% - #{$gutter});
     }
   } */
-  .Grid--1of2>.Grid-cell {
+  .Grid--1of2 > .Grid-cell {
     flex: 0 0 50%;
   }
 
-  .Grid--1of6>.Grid-cell:first-of-type {
+  .Grid--1of6 > .Grid-cell:first-of-type {
     flex: 0 0 30%;
   }
 
-  .Grid--1of4>.Grid-cell:first-of-type {
+  .Grid--1of4 > .Grid-cell:first-of-type {
     flex: 0 0 50%;
   }
 
-  .Grid--1of3>.Grid-cell:first-of-type {
+  .Grid--1of3 > .Grid-cell:first-of-type {
     flex: 0 0 100%;
   }
 }
@@ -349,12 +353,11 @@ textarea:focus {
 /* Large screens */
 
 @media (min-width: 48em) {
-
-  .Grid--cols-2>.Grid-cell,
-  .Grid--cols-3>.Grid-cell,
-  .Grid--cols-4>.Grid-cell,
-  .Grid--cols-6>.Grid-cell,
-  .Grid--cols-12>.Grid-cell {
+  .Grid--cols-2 > .Grid-cell,
+  .Grid--cols-3 > .Grid-cell,
+  .Grid--cols-4 > .Grid-cell,
+  .Grid--cols-6 > .Grid-cell,
+  .Grid--cols-12 > .Grid-cell {
     flex: 1;
   }
 }

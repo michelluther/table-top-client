@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AscensionPricing } from './ascensionPricing'
-import { Http, Response } from '@angular/http';
-import { resolve } from 'url';
+import { Http } from '@angular/http';
+import { UrlService } from 'app/url.service';
+import { AscensionPricing } from './ascensionPricing';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnhancementPricingService {
 
-  private ascensionsUrl: string = 'http://' + window.location.hostname + ':8000/ascensions/';
+  private ascensionsUrl: string = UrlService.getBaseUrl() + '/ascensions/';
   private ascensionsPromise: Promise<AscensionPricing[]>;
   private ascensionPricing: Array<AscensionPricing>;
   constructor(private http: Http) { }

@@ -6,14 +6,15 @@ import { Skill } from './skill';
 
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 
-import {ChangeDetectorRef} from '@angular/core';
-import { Weapon } from './weapon';
+import { ChangeDetectorRef } from '@angular/core';
+import { UrlService } from 'app/url.service';
 import { Hero } from './hero';
+import { Weapon } from './weapon';
 
 @Injectable()
 export class WeaponService {
 
-  private weaponsUrl = 'http://' + window.location.hostname + ':8000/weapons/';
+  private weaponsUrl = `${UrlService.getBaseUrl()}/weapons/`;
   
 
   private weapons: Weapon[];

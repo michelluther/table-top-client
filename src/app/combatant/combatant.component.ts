@@ -10,6 +10,12 @@ export class CombatantComponent implements OnInit {
 
   @Input()
   combatant: Combatant
+  @Input()
+  usedForGood: boolean
+  @Input()
+  sequence: number
+  @Input()
+  isActive: boolean
 
   constructor() { }
 
@@ -18,10 +24,17 @@ export class CombatantComponent implements OnInit {
 
   addToFight(){
     this.combatant.selectedForFight = true
+    this.combatant.isGood = this.usedForGood
   }
   
   removeFromFight(){
     this.combatant.selectedForFight = false
+    this.combatant.isGood = null
+    
+  }
+
+  gotHit(hitPoints:number){
+    this.combatant.currentLife =  this.combatant.currentLife - hitPoints
   }
 
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UrlService } from 'app/url.service';
 import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'hero-card',
@@ -20,7 +21,7 @@ export class HeroCard implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute
 	) {
-		this.baseUrl = 'http://' + window.location.hostname + ':8000';
+		this.baseUrl = UrlService.getBaseUrl();
 	}
 
 	ngOnInit(): void {

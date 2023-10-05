@@ -5,14 +5,14 @@ import { Hero } from './hero';
 import { InventoryItem } from './inventoryItem';
 import { AccountEntry } from './moneyInventory';
 
-
+import { UrlService } from 'app/url.service';
 
 
 
 @Injectable()
 export class InventoryService {
 
-  private inventoryItemsUrl = 'http://' + window.location.hostname + ':8000/inventoryItems/';
+  private inventoryItemsUrl = `${UrlService.getBaseUrl()}/inventoryItems/`;
 
 
   private inventoryItems: InventoryItem[];

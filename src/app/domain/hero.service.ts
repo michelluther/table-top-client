@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { Observable } from 'rxjs/Observable';
 import { Attribute } from './attribute';
 import { AttributeService } from './attribute.service';
 import { Hero } from './hero';
 import { SkillService } from './skills.service';
 import { SpellService } from './spells.service';
 
-
+import { UrlService } from 'app/url.service';
 
 
 
 @Injectable()
 export class HeroService {
 
-	private heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
+	private heroesUrl = `${UrlService.getBaseUrl()}/characters/`;
 	private heroes: Hero[];
 	private attributesConfigured: Attribute[]
 

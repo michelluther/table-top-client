@@ -4,14 +4,14 @@ import { AttributeService } from './attribute.service';
 import { Skill } from './skill';
 import { SkillGroup } from './skillgroup';
 
-
+import { UrlService } from 'app/url.service';
 
 
 @Injectable()
 export class SkillService {
 
-  private skillsUrl = 'http://' + window.location.hostname + ':8000/skills/';
-  private skillTypesUrl = 'http://' + window.location.hostname + ':8000/skillTypes/';
+  private skillsUrl = `${UrlService.getBaseUrl()}/skills/`;
+  private skillTypesUrl = `${UrlService.getBaseUrl()}/skillTypes/`;
 
   private skills: Skill[];
 

@@ -1,13 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 
 import { Router } from '@angular/router';
 
@@ -24,13 +15,11 @@ import { Router } from '@angular/router';
 })
 export class Menu implements OnInit {
 
-	private baseUrl: String;
 	public open: boolean;
 
 	constructor(
 		private router: Router
 	) {
-		this.baseUrl = 'http://' + window.location.hostname + ':8000'; 
 	}
 
 

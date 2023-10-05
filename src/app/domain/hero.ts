@@ -52,6 +52,7 @@ export class Hero implements Combatant {
   experience_used: number;
   hero_type: HeroType;
   _initiative: number;
+  _currentInitiative: number;
   KL: number;
   magieresistenz: number;
   social_rank: number;
@@ -95,16 +96,29 @@ export class Hero implements Combatant {
     this.skillService = skillService;
     this.weapons = []
   }
+  isHero: boolean = true;
+  nextUp: boolean;
   get damage(): string {
     throw new Error('Method not implemented.');
   }
   
   get initiative(): number {
-    return this._initiative + Math.floor(Math.random()*6+1);
+    return this._initiative;
+  }
+
+  set initiative(initiative: number) {
+    this._initiative = initiative
+  }
+
+  get currentInitiative():number {
+    return this._currentInitiative
+  }
+
+  set currentInitiative(initiative:number) {
+    this._currentInitiative = initiative
   }
 
   setData(dataObject: Object): Hero {
-    this.isGood = true;
     this.attack_basis = dataObject['attack_basis'];
     this.parade_basis = dataObject['parade_basis'];
     this.fernkampf_basis = dataObject['fernkampf_basis']
@@ -411,5 +425,9 @@ export class Hero implements Combatant {
   getParadeOfWeaponSkill(weaponSkill: Skill): number {
     const skillDistribution = this._getDistributionOfSkill(weaponSkill)
     return skillDistribution ? this.parade_basis + skillDistribution.attack : this.parade_basis
+  }
+
+  get fightTexts(): string[]{
+    return this.currentWeapon ? [`${this.currentWeapon.name}`, `AT: ${this.currentAttack}, PA: ${this.currentParade}`, `TP: ${this.currentWeaponDamageText}`] : ['keine Waffe gesetzt', 'AT:', 'PA:']
   }
 }

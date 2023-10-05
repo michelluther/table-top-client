@@ -3,9 +3,10 @@ import { Http } from '@angular/http';
 import { MatDialog } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
 // import { Rx } from 'rxjs';
+import { UrlService } from 'app/url.service';
+import { Subject, Subscription } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { Subject, Subscription } from 'rxjs/Rx';
 import { OperationFactory, operationTypes } from './../domain/remoteControlOperation';
 import { ImagePopupComponent } from './../image-popup/image-popup.component';
 
@@ -29,7 +30,7 @@ export class RemoteControlReceiverService {
 
 
   private baseUrl: string
-  private wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlReceiver';
+  private wsUrl = `${UrlService.getBaseURLWS()}/remoteControlReceiver`;
   public wsClientId = Math.random().toString(36).substring(7);
   private socket: WebSocket;
   private remoteControlReceiverSubject: Subject<MessageEvent>;
@@ -40,7 +41,7 @@ export class RemoteControlReceiverService {
 
   constructor(private http: Http, public dialog: MatDialog, private toastr: ToastrService) {
 
-    this.baseUrl = 'http://' + window.location.hostname + ':8000';
+    this.baseUrl = UrlService.getBaseUrl();
     // this.createWebsocket()
   }
 

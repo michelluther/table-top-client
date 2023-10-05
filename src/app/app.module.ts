@@ -5,8 +5,8 @@ import {
   MatAutocompleteModule, MatButton, MatButtonToggle, MatButtonToggleGroup, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule
 } from '@angular/material/';
 import {
-  MatDialogModule, MatDialogRef,
-  MAT_DIALOG_DATA
+  MAT_DIALOG_DATA,
+  MatDialogModule, MatDialogRef
 } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,14 +16,17 @@ import 'hammerjs';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
+import { AdventureDisplayComponent } from './adventure-display/adventure-display.component';
 import { AppComponent } from './app.component';
 import { AttributesDisplayComponent } from './attributes-display/attributes-display.component';
 import { BasicDataDisplayComponent } from './basic-data-display/basic-data-display.component';
 import { ChooseImageComponent } from './choose-image/choose-image.component';
 import { CombatDataDisplayComponent } from './combat-data-display/combat-data-display.component';
+import { CombatantComponent } from './combatant/combatant.component';
 import { ConfirmDeletionComponent } from './confirm-deletion/confirm-deletion.component';
 import { ConfirmationSheetComponent } from './confirmation-sheet/confirmation-sheet.component';
 import { DetailNavigationComponent } from './detail-navigation/detail-navigation.component';
+import { IsGoodFighter, MatchesCombatantSearchTerm } from './domain/fight';
 import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { EditMoneyComponent } from './edit-money/edit-money.component';
@@ -52,8 +55,6 @@ import { MatchesSpellSearchTerm, MatchesSpellSearchTermChildren } from './spell-
 import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
-import { AdventureDisplayComponent } from './adventure-display/adventure-display.component';
-import { CombatantComponent } from './combatant/combatant.component';
 
 
 
@@ -139,13 +140,9 @@ const routes: Routes = [
     AdminOverviewComponent,
     FightSetupComponent,
     FightDisplayComponent,
-    // MatSidenavContainer,
-    // MatSidenav,
-    // MatSidenavContent,
     MatButton,
     MatButtonToggleGroup,
     MatButtonToggle,
-    // MatIcon,
     RemoteControlComponent,
     RemoteControlReceiverComponent,
     PlayerComponent,
@@ -175,7 +172,9 @@ const routes: Routes = [
     ExperienceAdditionComponent,
     EditMoneyComponent,
     AdventureDisplayComponent,
-    CombatantComponent
+    CombatantComponent,
+    MatchesCombatantSearchTerm,
+    IsGoodFighter
   ],
   bootstrap: [AppComponent],
   providers: [{

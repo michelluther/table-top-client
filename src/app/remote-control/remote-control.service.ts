@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 // import { Rx } from 'rxjs';
+import { UrlService } from 'app/url.service';
 import { Subject } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -11,7 +12,7 @@ import { RemoteControlOperation } from './../domain/remoteControlOperation';
 @Injectable()
 export class RemoteControlService {
 
-    private wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlSender';
+    private wsUrl = `${UrlService.getBaseURLWS}/remoteControlSender`;
     public wsClientId = Math.random().toString(36).substring(7);
     private socket: WebSocket;
     public remoteControlSubject: Subject<MessageEvent>;

@@ -5,13 +5,14 @@ import { Http, Response } from '@angular/http';
 import { Spell } from './spell';
 import { SpellGroup } from './spellGroup';
 
-import {Component, ChangeDetectorRef} from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
+import { UrlService } from 'app/url.service';
 
 @Injectable()
 export class SpellService {
 
-  private spellsUrl = 'http://' + window.location.hostname + ':8000/spells/';
-  private spellTypesUrl = 'http://' + window.location.hostname + ':8000/spellTypes/';
+  private spellsUrl = `${UrlService.getBaseUrl()}/spells/`;
+  private spellTypesUrl = `${UrlService.getBaseUrl()}/spellTypes/`;
 
   private spells: Spell[];
 

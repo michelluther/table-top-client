@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { UrlService } from 'app/url.service';
 import { Adventure, AdventureService, Image } from './../domain/adventure.service';
 import { OperationFactory, operationTypes } from './../domain/remoteControlOperation';
 import { RemoteControlService } from './../remote-control/remote-control.service';
@@ -29,7 +30,7 @@ export class ChooseImageComponent implements OnInit {
     public dialogRef: MatDialogRef<ChooseImageComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ImagePopupData) {
     this.images = []
-    this.baseUrl = 'http://' + window.location.hostname + ':8000';
+    this.baseUrl = UrlService.getBaseUrl()
   }
 
   ngOnInit() {

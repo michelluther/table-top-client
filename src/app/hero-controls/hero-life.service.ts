@@ -5,19 +5,19 @@ import { InventoryItem } from 'app/domain/inventoryItem';
 import { Weapon } from 'app/domain/weapon';
 import { ToastrService } from 'ngx-toastr';
 // import { Rx } from 'rxjs';
+import { UrlService } from 'app/url.service';
+import { Subject } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { Subject } from 'rxjs/Rx';
 import { HeroService } from "./../domain/hero.service";
 import { SkillService } from "./../domain/skills.service";
-
 
 
 
 @Injectable()
 export class HeroLifeService {
 
-    private wsUrl = 'ws://' + window.location.hostname + ':8000/heroes';
+    private wsUrl = `${UrlService.getBaseURLWS()}/heroes`;
     public wsClientId = Math.random().toString(36).substring(7);
     private socket: WebSocket;
     public heroSubject: Subject<MessageEvent>;

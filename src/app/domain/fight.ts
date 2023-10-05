@@ -1,27 +1,57 @@
+import { Pipe, PipeTransform } from '@angular/core';
 import { Character } from "./adventure.service";
 
 
-export class Fight {
-    private _foes: Array<Character>;
 
-    get foes(): Array<Character> {
-        return this._foes
+export class Fight {
+    private _combatants: Array<Character>;
+
+    constructor(public name:string) {}
+
+    get combatants(): Array<Character> {
+        return this._combatants
     } 
 }
 
 export interface Combatant {
 
+    id: number
     isGood: boolean
     currentLife: number
     name: string
-    selectedForFight: boolean
+    selectedForFight: boolean 
+    initiative: number
+    currentInitiative: number
+    fightTexts: Array<string>
+    nextUp: boolean
+    isHero: boolean
+}
 
-    get initiative(): number
+@Pipe({
+    name: 'MatchesCombatantSearchTerm'
+})
 
-    get attack(): number
+export class MatchesCombatantSearchTerm implements PipeTransform {
 
-    get parade(): number
+    transform(combatants: Array<Combatant>, searchTerm: string): Array<Combatant> {
+        if (searchTerm != '' && searchTerm !== undefined) {
+            return combatants.filter(combatant => {
+                return (combatant.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+            })
+        } else {
+            return combatants;
+        }
+    }
+}
 
-    get damage(): string
+@Pipe({
+    name: 'IsGoodFighter'
+})
 
+export class IsGoodFighter implements PipeTransform {
+
+    transform(combatants: Array<Combatant>, isGood: boolean): Array<Combatant> {
+        return combatants.filter(combatant => combatant.isGood !== !isGood)
+        
+    }
 }

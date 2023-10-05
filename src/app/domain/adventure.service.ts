@@ -6,17 +6,30 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { NPCType } from './npc';
+import { AttributeService } from './attribute.service';
+import { Combatant, Fight } from './fight';
+import { Hero } from './hero';
+import { NPC, NPCType } from './npc';
+
+import { SkillService } from './skills.service';
+import { SpellService } from './spells.service';
+
+import { UrlService } from 'app/url.service';
 
 @Injectable()
 export class AdventureService {
 
-    private adventuresUrl = 'http://' + window.location.hostname + ':8000/adventures/';
-    private npcTypesUrl = 'http://' + window.location.hostname + ':8000/npcTypes/';
-    private npcsUrl = 'http://' + window.location.hostname + ':8000/npcTypes/';
+
+    private adventuresUrl = UrlService.getBaseUrl() + '/adventures/';
+    private npcTypesUrl = UrlService.getBaseUrl() + 'npcTypes/';
+    private currentAdventure = 1;
+    private npcsUrl = `${UrlService.getBaseUrl()}/adventures/${this.currentAdventure}/npcs/`;
+    private fightsURL = `${UrlService.getBaseUrl()}/adventures/${this.currentAdventure}/fights/`;
     private adventures: Adventure[];
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
+
+	}
 
     getAdventures(): Promise<Adventure[]> {
         return this.http.get(this.adventuresUrl)
@@ -24,7 +37,11 @@ export class AdventureService {
             .then(response => {
                 return this.extractAdventures(response);
             }
-            )
+        )
+    }
+
+    getCurrentAdventureId(): number {
+        return 1
     }
 
     extractAdventures(res: Response): Adventure[] {
@@ -67,6 +84,46 @@ export class AdventureService {
             });
         }
         )
+    }
+
+    getNPCs(): Promise<Combatant[]> {
+        return this.http.get(this.npcsUrl)
+        .toPromise()
+        .then(response => {
+            return response.json().map(npcResult => {
+                if(npcResult.character) {
+                    let character = new Hero(this.skillService, this.spellService,
+                                            this.attributeService).setData(npcResult.character)
+                    character.isHero = false
+                    return character;}
+                else return new NPC(
+                    npcResult.npc.id,
+                    npcResult.npc.name, 
+                    null, 
+                    npcResult.npc.life, 
+                    npcResult.npc.initiative,
+                    npcResult.npc.weapon_1_name, 
+                    npcResult.npc.weapon_1_attack, 
+                    npcResult.npc.weapon_1_parade, 
+                    npcResult.npc.weapon_1_damage,
+                    npcResult.npc.weapon_2_name, 
+                    npcResult.npc.weapon_2_attack, 
+                    npcResult.npc.weapon_2_parade, 
+                    npcResult.npc.weapon_2_damage
+                    )
+            });
+        }
+        )
+    }
+
+    getFights(): Promise<Fight[]> {
+        return this.http.get(this.fightsURL)
+        .toPromise()
+        .then(response => {
+            return response.json().map(fight => {
+                return new Fight(fight.name)
+            })
+        })
     }
 
 }
@@ -133,7 +190,7 @@ export class Adventure {
     } 
     
     buildImageLink(absolutePath:string):string {
-        return `http://${window.location.hostname}:8000${absolutePath}`
+        return `${UrlService.getBaseUrl()}${absolutePath}`
     }
 
 }

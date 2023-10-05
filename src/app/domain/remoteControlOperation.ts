@@ -47,5 +47,6 @@ export class OperationFactory {
 export const operationTypes = {
     openImage: 'openImage',
     closeImage: 'closeImage',
-    createNPC: 'createNPC'
+    createNPC: 'createNPC',
+    startFight: 'startFight'
 }

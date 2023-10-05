@@ -1,18 +1,17 @@
 
-import { Hero } from '../domain/hero';
-import { Observable } from 'rxjs';
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
-import { SkillService } from '../domain/skills.service';
 
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 
+import { UrlService } from 'app/url.service';
 import 'rxjs/add/operator/switchMap';
 import { ActualSkill } from '../domain/actualSkill';
-import { EditDialogComponent } from 'app/edit-dialog/edit-dialog.component';
 
 @Component({
 	selector: 'hero-details',
@@ -43,7 +42,7 @@ export class HeroDetailComponent implements OnInit {
 	) {
 		this.detailArea = 'character';
 		this.searchCtrl = new FormControl();
-		this.baseUrl = 'http://' + window.location.hostname + ':8000';
+		this.baseUrl = UrlService.getBaseUrl();
 		let that = this;
 		new Promise(function (resolve, reject) {
 			let heroTimer = setInterval(() => {
