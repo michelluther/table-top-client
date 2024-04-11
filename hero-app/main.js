@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navButton {\r\n    width:100%;text-align:left\r\n}\r\n\r\n.navIcon {\r\n    font-size: 20px\r\n\r\n}"
+module.exports = ".navButton {\r\n  width: 100%;\r\n  text-align: left;\r\n}\r\n\r\n.navIcon {\r\n  font-size: 20px;\r\n}\r\n\r\n#adminContent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n#adminMenu {\r\n  position: fixed;\r\n  z-index: 100;\r\n}\r\n\r\n#appContent {\r\n  margin-top: 4rem;\r\n  width: 100%;\r\n}\r\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".navButton {\r\n    width:100%;text-align:left\r\n}\r\n\r\n.na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<remote-control #remoteControlMaster></remote-control>\r\n<mat-sidenav-container class=\"example-container\">\r\n  <mat-sidenav mode=\"side\" style=\"width:200px\" opened>\r\n    <button mat-button class=\"navButton\" (click)=\"remoteControlMaster.sendImage('')\">\r\n      <mat-icon class=\"navIcon\">burst_mode</mat-icon>\r\n      Send Image to Clients\r\n    </button>\r\n    <button mat-button class=\"navButton\" (click)=\"startFight()\">\r\n      <mat-icon class=\"navIcon\">whatshot</mat-icon>Start Fight!\r\n    </button>\r\n    <button mat-button class=\"navButton\">\r\n      <mat-icon class=\"navIcon\">library_music</mat-icon>Music and Sounds\r\n    </button>\r\n  </mat-sidenav>\r\n  <mat-sidenav-content>\r\n    <router-outlet></router-outlet>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n"
+module.exports = "<remote-control #remoteControlMaster></remote-control>\r\n<div id=\"adminContent\">\r\n  <div id=\"adminMenu\">\r\n    <button class=\"comic-shadow\" (click)=\"showHeroes()\">Heroes</button>\r\n    <button class=\"comic-shadow\" (click)=\"remoteControlMaster.sendImage('')\">\r\n      Images\r\n    </button>\r\n    <button class=\"comic-shadow\" (click)=\"startFight()\">Fight</button>\r\n    <button class=\"comic-shadow\">Music and Sounds</button>\r\n  </div>\r\n  <div id=\"appContent\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -86,6 +86,9 @@ var AdminOverviewComponent = /** @class */ (function () {
     };
     AdminOverviewComponent.prototype.startFight = function () {
         this.router.navigate(['master/fight/start']);
+    };
+    AdminOverviewComponent.prototype.showHeroes = function () {
+        this.router.navigate(['master/heroes']);
     };
     AdminOverviewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -329,49 +332,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin-overview/admin-overview.component */ "./src/app/admin-overview/admin-overview.component.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
-/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
-/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
-/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
-/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
-/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
-/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
-/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
-/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
-/* harmony import */ var _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
-/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
-/* harmony import */ var _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
-/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
-/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
-/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
-/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
-/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
-/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
-/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
-/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
-/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
-/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
-/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
-/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
-/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
-/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
-/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
-/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
-/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
-/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
-/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
-/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
-/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
-/* harmony import */ var _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./adventure-display/adventure-display.component */ "./src/app/adventure-display/adventure-display.component.ts");
+/* harmony import */ var _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./adventure-display/adventure-display.component */ "./src/app/adventure-display/adventure-display.component.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
+/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
+/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
+/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
+/* harmony import */ var _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./combatant/combatant.component */ "./src/app/combatant/combatant.component.ts");
+/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
+/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
+/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
+/* harmony import */ var _domain_fight__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./domain/fight */ "./src/app/domain/fight.ts");
+/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
+/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
+/* harmony import */ var _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
+/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
+/* harmony import */ var _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
+/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
+/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
+/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
+/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
+/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
+/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
+/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
+/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
+/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
+/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
+/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
+/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
+/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
+/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
+/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
+/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
+/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
+/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
+/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
+/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
+/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
+/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -430,26 +437,26 @@ var routes = [
     {
         path: 'master', component: _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
         children: [
-            { path: 'adventure', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"] },
-            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"] },
-            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"] },
-            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__["FightSetupComponent"] }
+            { path: 'adventure', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"] },
+            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"] },
+            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"] },
+            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__["FightSetupComponent"] }
         ]
     },
     {
-        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_39__["PlayerComponent"],
+        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_42__["PlayerComponent"],
         children: [
             {
                 path: 'heroes',
-                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"]
+                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"]
             },
             {
                 path: 'hero/:id',
-                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"]
+                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"]
             },
             {
                 path: 'hero/:id/editStuff',
-                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"]
+                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"]
             }
         ]
     },
@@ -492,61 +499,60 @@ var AppModule = /** @class */ (function () {
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
-                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_32__["HeroesComponent"],
-                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_31__["HeroDetailComponent"],
-                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_30__["HeroControls"],
-                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_29__["HeroCard"],
-                _menu_menu_component__WEBPACK_IMPORTED_MODULE_38__["Menu"],
-                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_46__["TalentCard"],
-                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_43__["SpellCard"],
+                _app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"],
+                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"],
+                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"],
+                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_33__["HeroControls"],
+                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_32__["HeroCard"],
+                _menu_menu_component__WEBPACK_IMPORTED_MODULE_41__["Menu"],
+                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_49__["TalentCard"],
+                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_46__["SpellCard"],
                 _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
-                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_28__["FightSetupComponent"],
-                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_27__["FightDisplayComponent"],
-                // MatSidenavContainer,
-                // MatSidenav,
-                // MatSidenavContent,
+                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__["FightSetupComponent"],
+                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_30__["FightDisplayComponent"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButton"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggleGroup"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggle"],
-                // MatIcon,
-                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_41__["RemoteControlComponent"],
-                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_40__["RemoteControlReceiverComponent"],
-                _player_player_component__WEBPACK_IMPORTED_MODULE_39__["PlayerComponent"],
-                _master_master_component__WEBPACK_IMPORTED_MODULE_37__["MasterComponent"],
-                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__["ImagePopupComponent"],
-                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__["ChooseImageComponent"],
-                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_35__["LifeDisplayComponent"],
-                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_42__["ScrollSpyDirective"],
-                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_36__["MagicDisplayComponent"],
-                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_48__["TalentSearchComponent"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__["MatchesTalentSearchTerm"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_47__["MatchesTalentSearchTermChildren"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__["MatchesSpellSearchTerm"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_45__["MatchesSpellSearchTermChildren"],
-                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_20__["DetailNavigationComponent"],
-                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_14__["AttributesDisplayComponent"],
-                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_15__["BasicDataDisplayComponent"],
-                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_17__["CombatDataDisplayComponent"],
-                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_34__["InventoryDisplayComponent"],
-                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"],
-                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_21__["EditAttributeComponent"],
-                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_26__["ExperienceDisplayComponent"],
-                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_44__["SpellSearchComponent"],
-                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_24__["EditTalentComponent"],
-                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_19__["ConfirmationSheetComponent"],
-                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmDeletionComponent"],
-                _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__["ExperienceAdditionComponent"],
-                _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__["EditMoneyComponent"],
-                _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_49__["AdventureDisplayComponent"]
+                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_44__["RemoteControlComponent"],
+                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_43__["RemoteControlReceiverComponent"],
+                _player_player_component__WEBPACK_IMPORTED_MODULE_42__["PlayerComponent"],
+                _master_master_component__WEBPACK_IMPORTED_MODULE_40__["MasterComponent"],
+                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__["ImagePopupComponent"],
+                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__["ChooseImageComponent"],
+                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_38__["LifeDisplayComponent"],
+                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_45__["ScrollSpyDirective"],
+                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_39__["MagicDisplayComponent"],
+                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_51__["TalentSearchComponent"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__["MatchesTalentSearchTerm"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__["MatchesTalentSearchTermChildren"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__["MatchesSpellSearchTerm"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__["MatchesSpellSearchTermChildren"],
+                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_22__["DetailNavigationComponent"],
+                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_15__["AttributesDisplayComponent"],
+                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_16__["BasicDataDisplayComponent"],
+                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_18__["CombatDataDisplayComponent"],
+                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_37__["InventoryDisplayComponent"],
+                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"],
+                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_24__["EditAttributeComponent"],
+                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_29__["ExperienceDisplayComponent"],
+                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_47__["SpellSearchComponent"],
+                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_27__["EditTalentComponent"],
+                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_21__["ConfirmationSheetComponent"],
+                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__["ConfirmDeletionComponent"],
+                _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__["ExperienceAdditionComponent"],
+                _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__["EditMoneyComponent"],
+                _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_13__["AdventureDisplayComponent"],
+                _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_19__["CombatantComponent"],
+                _domain_fight__WEBPACK_IMPORTED_MODULE_23__["MatchesCombatantSearchTerm"],
+                _domain_fight__WEBPACK_IMPORTED_MODULE_23__["IsGoodFighter"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"]],
             providers: [{
                     provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"],
                     useValue: {}
                 },
                 { provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"], useValue: {} }],
-            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_33__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_16__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_22__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmDeletionComponent"], _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_25__["ExperienceAdditionComponent"], _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_23__["EditMoneyComponent"]],
+            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__["ConfirmDeletionComponent"], _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__["ExperienceAdditionComponent"], _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__["EditMoneyComponent"]],
         })
     ], AppModule);
     return AppModule;
@@ -734,9 +740,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChooseImageComponent", function() { return ChooseImageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _domain_adventure_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../domain/adventure.service */ "./src/app/domain/adventure.service.ts");
-/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
-/* harmony import */ var _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var _domain_adventure_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../domain/adventure.service */ "./src/app/domain/adventure.service.ts");
+/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+/* harmony import */ var _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -749,6 +756,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+
 
 
 
@@ -769,7 +777,7 @@ var ChooseImageComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         this.images = [];
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseUrl();
     }
     ChooseImageComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -781,18 +789,18 @@ var ChooseImageComponent = /** @class */ (function () {
         });
     };
     ChooseImageComponent.prototype.sendImage = function (image) {
-        this.remoteControlService.sendRemoteControlInstruction(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_3__["OperationFactory"].createOperation(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_3__["operationTypes"].openImage, 'all', [image.url, image.caption]));
+        this.remoteControlService.sendRemoteControlInstruction(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["OperationFactory"].createOperation(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["operationTypes"].openImage, 'all', [image.url, image.caption]));
     };
     ChooseImageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-choose-image',
             template: __webpack_require__(/*! ./choose-image.component.html */ "./src/app/choose-image/choose-image.component.html"),
             styles: [__webpack_require__(/*! ./choose-image.component.css */ "./src/app/choose-image/choose-image.component.css")],
-            providers: [_domain_adventure_service__WEBPACK_IMPORTED_MODULE_2__["AdventureService"], _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_4__["RemoteControlService"]]
+            providers: [_domain_adventure_service__WEBPACK_IMPORTED_MODULE_3__["AdventureService"], _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_5__["RemoteControlService"]]
         }),
         __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_domain_adventure_service__WEBPACK_IMPORTED_MODULE_2__["AdventureService"],
-            _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_4__["RemoteControlService"],
+        __metadata("design:paramtypes", [_domain_adventure_service__WEBPACK_IMPORTED_MODULE_3__["AdventureService"],
+            _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_5__["RemoteControlService"],
             _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"],
             ImagePopupData])
     ], ChooseImageComponent);
@@ -894,6 +902,96 @@ var CombatDataDisplayComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_2__["HeroLifeService"]])
     ], CombatDataDisplayComponent);
     return CombatDataDisplayComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/combatant/combatant.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/combatant/combatant.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".wrapper {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 15rem;\r\n  padding: 0.5rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.wrapper.added {\r\n  background-color: #eee;\r\n}\r\n\r\n.wrapper.good {\r\n  background-color: aqua;\r\n  margin-left: -2rem;\r\n}\r\n\r\n.wrapper.evil {\r\n  background-color: coral;\r\n  margin-left: 2rem;\r\n}\r\n\r\n.isNextIndicator {\r\n  width: 0.5rem;\r\n  height: 0.5rem;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -0.25rem;\r\n  left: -0.25rem;\r\n  background-color: blue;\r\n}\r\n\r\n.header {\r\n  min-width: 15rem;\r\n  display: flex;\r\n  position: relative;\r\n  justify-content: space-between;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.fightValues {\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.actions {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.actions {\r\n  margin-top: -2rem;\r\n  min-height: 2rem;\r\n}\r\n\r\n.gotHitButton {\r\n  margin-top: 2rem;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/combatant/combatant.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/combatant/combatant.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div\n  class=\"border wrapper\"\n  [class.added]=\"combatant.selectedForFight === true && isActive === false\"\n  [class.good]=\"combatant.isGood === true\"\n  [class.evil]=\"combatant.isGood === false\"\n>\n  <div class=\"header\">\n    <div class=\"isNextIndicator\" *ngIf=\"combatant.nextUp === true\"></div>\n    <div>{{ combatant.name }}</div>\n    <div>LE: {{ combatant.currentLife }}</div>\n  </div>\n  <div class=\"content\">\n    <div class=\"fightValues\">\n      <div *ngFor=\"let fightString of combatant.fightTexts\">\n        {{ fightString }}\n      </div>\n    </div>\n    <div>IN: {{ combatant.currentInitiative }}</div>\n  </div>\n  <div class=\"actions\">\n    <button\n      (click)=\"addToFight()\"\n      *ngIf=\"isActive === false && combatant.selectedForFight !== true\"\n    >\n      +\n    </button>\n    <button\n      (click)=\"removeFromFight()\"\n      *ngIf=\"isActive === false && combatant.selectedForFight !== false\"\n    >\n      -\n    </button>\n    <button\n      class=\"gotHitButton\"\n      (click)=\"gotHit(1)\"\n      *ngIf=\"isActive === true && combatant.isHero === false\"\n    >\n      -1\n    </button>\n    <button\n      class=\"gotHitButton\"\n      (click)=\"gotHit(5)\"\n      *ngIf=\"isActive === true && combatant.isHero === false\"\n    >\n      -5\n    </button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/combatant/combatant.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/combatant/combatant.component.ts ***!
+  \**************************************************/
+/*! exports provided: CombatantComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CombatantComponent", function() { return CombatantComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CombatantComponent = /** @class */ (function () {
+    function CombatantComponent() {
+    }
+    CombatantComponent.prototype.ngOnInit = function () {
+    };
+    CombatantComponent.prototype.addToFight = function () {
+        this.combatant.selectedForFight = true;
+        this.combatant.isGood = this.usedForGood;
+    };
+    CombatantComponent.prototype.removeFromFight = function () {
+        this.combatant.selectedForFight = false;
+        this.combatant.isGood = null;
+    };
+    CombatantComponent.prototype.gotHit = function (hitPoints) {
+        this.combatant.currentLife = this.combatant.currentLife - hitPoints;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CombatantComponent.prototype, "combatant", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], CombatantComponent.prototype, "usedForGood", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], CombatantComponent.prototype, "sequence", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], CombatantComponent.prototype, "isActive", void 0);
+    CombatantComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'combatant',
+            template: __webpack_require__(/*! ./combatant.component.html */ "./src/app/combatant/combatant.component.html"),
+            styles: [__webpack_require__(/*! ./combatant.component.css */ "./src/app/combatant/combatant.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CombatantComponent);
+    return CombatantComponent;
 }());
 
 
@@ -1449,11 +1547,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Section", function() { return Section; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
+/* harmony import */ var _fight__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./fight */ "./src/app/domain/fight.ts");
+/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var _npc__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./npc */ "./src/app/domain/npc.ts");
+/* harmony import */ var _skills_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./skills.service */ "./src/app/domain/skills.service.ts");
+/* harmony import */ var _spells_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./spells.service */ "./src/app/domain/spells.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1469,20 +1574,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
 var AdventureService = /** @class */ (function () {
-    function AdventureService(http) {
+    function AdventureService(http, skillService, spellService, attributeService) {
         this.http = http;
-        this.adventuresUrl = 'http://' + window.location.hostname + ':8000/adventures/';
+        this.skillService = skillService;
+        this.spellService = spellService;
+        this.attributeService = attributeService;
+        this.adventuresUrl = app_url_service__WEBPACK_IMPORTED_MODULE_12__["UrlService"].getBaseUrl() + '/adventures/';
+        this.npcTypesUrl = app_url_service__WEBPACK_IMPORTED_MODULE_12__["UrlService"].getBaseUrl() + 'npcTypes/';
+        this.currentAdventure = 1;
+        this.npcsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_12__["UrlService"].getBaseUrl() + "/adventures/" + this.currentAdventure + "/npcs/";
+        this.fightsURL = app_url_service__WEBPACK_IMPORTED_MODULE_12__["UrlService"].getBaseUrl() + "/adventures/" + this.currentAdventure + "/fights/";
     }
     AdventureService.prototype.getAdventures = function () {
         var _this = this;
         return this.http.get(this.adventuresUrl)
             .toPromise()
             .then(function (response) {
-            return _this.extractData(response);
+            return _this.extractAdventures(response);
         });
     };
-    AdventureService.prototype.extractData = function (res) {
+    AdventureService.prototype.getCurrentAdventureId = function () {
+        return 1;
+    };
+    AdventureService.prototype.extractAdventures = function (res) {
         var body = res.json();
         var adventures = [];
         body.forEach(function (adventure) {
@@ -1503,7 +1625,7 @@ var AdventureService = /** @class */ (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__["Observable"].throw(errMsg);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(errMsg);
     };
     AdventureService.prototype.getAdventure = function (id) {
         return this.getAdventures()
@@ -1511,9 +1633,43 @@ var AdventureService = /** @class */ (function () {
             return adventures.find(function (adventure) { return adventure.id === id; });
         });
     };
+    AdventureService.prototype.getNPCTypes = function () {
+        return this.http.get(this.npcTypesUrl)
+            .toPromise()
+            .then(function (response) {
+            return response.json().map(function (npcResult) {
+                return new _npc__WEBPACK_IMPORTED_MODULE_9__["NPCType"](npcResult.id, npcResult.name);
+            });
+        });
+    };
+    AdventureService.prototype.getNPCs = function () {
+        var _this = this;
+        return this.http.get(this.npcsUrl)
+            .toPromise()
+            .then(function (response) {
+            return response.json().map(function (npcResult) {
+                if (npcResult.character) {
+                    var character = new _hero__WEBPACK_IMPORTED_MODULE_8__["Hero"](_this.skillService, _this.spellService, _this.attributeService).setData(npcResult.character);
+                    character.isHero = false;
+                    return character;
+                }
+                else
+                    return new _npc__WEBPACK_IMPORTED_MODULE_9__["NPC"](npcResult.npc.id, npcResult.npc.name, null, npcResult.npc.life, npcResult.npc.initiative, npcResult.npc.weapon_1_name, npcResult.npc.weapon_1_attack, npcResult.npc.weapon_1_parade, npcResult.npc.weapon_1_damage, npcResult.npc.weapon_2_name, npcResult.npc.weapon_2_attack, npcResult.npc.weapon_2_parade, npcResult.npc.weapon_2_damage);
+            });
+        });
+    };
+    AdventureService.prototype.getFights = function () {
+        return this.http.get(this.fightsURL)
+            .toPromise()
+            .then(function (response) {
+            return response.json().map(function (fight) {
+                return new _fight__WEBPACK_IMPORTED_MODULE_7__["Fight"](fight.name);
+            });
+        });
+    };
     AdventureService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _skills_service__WEBPACK_IMPORTED_MODULE_10__["SkillService"], _spells_service__WEBPACK_IMPORTED_MODULE_11__["SpellService"], _attribute_service__WEBPACK_IMPORTED_MODULE_6__["AttributeService"]])
     ], AdventureService);
     return AdventureService;
 }());
@@ -1577,7 +1733,7 @@ var Adventure = /** @class */ (function () {
         configurable: true
     });
     Adventure.prototype.buildImageLink = function (absolutePath) {
-        return "http://" + window.location.hostname + ":8000" + absolutePath;
+        return "" + app_url_service__WEBPACK_IMPORTED_MODULE_12__["UrlService"].getBaseUrl() + absolutePath;
     };
     return Adventure;
 }());
@@ -1903,8 +2059,9 @@ var Attribute = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnhancementPricingService", function() { return EnhancementPricingService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ascensionPricing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ascensionPricing */ "./src/app/domain/ascensionPricing.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var _ascensionPricing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ascensionPricing */ "./src/app/domain/ascensionPricing.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1917,10 +2074,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var EnhancementPricingService = /** @class */ (function () {
     function EnhancementPricingService(http) {
         this.http = http;
-        this.ascensionsUrl = 'http://' + window.location.hostname + ':8000/ascensions/';
+        this.ascensionsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseUrl() + '/ascensions/';
     }
     EnhancementPricingService.prototype.getAscensionPricing = function () {
         var _this = this;
@@ -1941,16 +2099,89 @@ var EnhancementPricingService = /** @class */ (function () {
     };
     EnhancementPricingService.prototype.extractAscensions = function (response) {
         return response.map(function (ascensionResponse, index) {
-            return new _ascensionPricing__WEBPACK_IMPORTED_MODULE_1__["AscensionPricing"](ascensionResponse, index);
+            return new _ascensionPricing__WEBPACK_IMPORTED_MODULE_3__["AscensionPricing"](ascensionResponse, index);
         });
     };
     EnhancementPricingService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], EnhancementPricingService);
     return EnhancementPricingService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/domain/fight.ts":
+/*!*********************************!*\
+  !*** ./src/app/domain/fight.ts ***!
+  \*********************************/
+/*! exports provided: Fight, MatchesCombatantSearchTerm, IsGoodFighter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fight", function() { return Fight; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatchesCombatantSearchTerm", function() { return MatchesCombatantSearchTerm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsGoodFighter", function() { return IsGoodFighter; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var Fight = /** @class */ (function () {
+    function Fight(name) {
+        this.name = name;
+    }
+    Object.defineProperty(Fight.prototype, "combatants", {
+        get: function () {
+            return this._combatants;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Fight;
+}());
+
+var MatchesCombatantSearchTerm = /** @class */ (function () {
+    function MatchesCombatantSearchTerm() {
+    }
+    MatchesCombatantSearchTerm.prototype.transform = function (combatants, searchTerm) {
+        if (searchTerm != '' && searchTerm !== undefined) {
+            return combatants.filter(function (combatant) {
+                return (combatant.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+            });
+        }
+        else {
+            return combatants;
+        }
+    };
+    MatchesCombatantSearchTerm = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'MatchesCombatantSearchTerm'
+        })
+    ], MatchesCombatantSearchTerm);
+    return MatchesCombatantSearchTerm;
+}());
+
+var IsGoodFighter = /** @class */ (function () {
+    function IsGoodFighter() {
+    }
+    IsGoodFighter.prototype.transform = function (combatants, isGood) {
+        return combatants.filter(function (combatant) { return combatant.isGood !== !isGood; });
+    };
+    IsGoodFighter = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'IsGoodFighter'
+        })
+    ], IsGoodFighter);
+    return IsGoodFighter;
 }());
 
 
@@ -1969,15 +2200,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroService", function() { return HeroService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
-/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/toPromise */ "./node_modules/rxjs-compat/_esm5/add/operator/toPromise.js");
+/* harmony import */ var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hero */ "./src/app/domain/hero.ts");
 /* harmony import */ var _skills_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./skills.service */ "./src/app/domain/skills.service.ts");
 /* harmony import */ var _spells_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spells.service */ "./src/app/domain/spells.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1997,13 +2229,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HeroService = /** @class */ (function () {
     function HeroService(http, skillService, spellService, attributeService) {
         this.http = http;
         this.skillService = skillService;
         this.spellService = spellService;
         this.attributeService = attributeService;
-        this.heroesUrl = 'http://' + window.location.hostname + ':8000/characters/';
+        this.heroesUrl = app_url_service__WEBPACK_IMPORTED_MODULE_10__["UrlService"].getBaseUrl() + "/characters/";
     }
     HeroService.prototype.getHeroes = function () {
         var _this = this;
@@ -2050,7 +2283,7 @@ var HeroService = /** @class */ (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_5__["Observable"].throw(errMsg);
+        return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(errMsg);
     };
     HeroService.prototype.getHero = function (id) {
         var _this = this;
@@ -2115,10 +2348,37 @@ var Hero = /** @class */ (function () {
         this.skillService = skillService;
         this.spellService = spellService;
         this.attributeService = attributeService;
+        this.isHero = true;
         this.skillService = skillService;
         this.weapons = [];
     }
-    ;
+    Object.defineProperty(Hero.prototype, "damage", {
+        get: function () {
+            throw new Error('Method not implemented.');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Hero.prototype, "initiative", {
+        get: function () {
+            return this._initiative;
+        },
+        set: function (initiative) {
+            this._initiative = initiative;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Hero.prototype, "currentInitiative", {
+        get: function () {
+            return this._currentInitiative;
+        },
+        set: function (initiative) {
+            this._currentInitiative = initiative;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Hero.prototype.setData = function (dataObject) {
         this.attack_basis = dataObject['attack_basis'];
         this.parade_basis = dataObject['parade_basis'];
@@ -2132,7 +2392,7 @@ var Hero = /** @class */ (function () {
         this.gender = dataObject['gender'];
         this.hero_type = dataObject['hero_type'];
         this.id = dataObject['id'];
-        this.initiative = dataObject['ini_basis'];
+        this._initiative = dataObject['ini_basis'];
         this.knowsMagic = dataObject['knows_magic'];
         this.money = new _moneyInventory__WEBPACK_IMPORTED_MODULE_8__["MoneyInventory"](dataObject['money_dukaten'], dataObject['money_silbertaler'], dataObject['money_kreuzer'], dataObject['money_heller']);
         this.hairColor = dataObject['hair_color'];
@@ -2345,6 +2605,20 @@ var Hero = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Hero.prototype, "attack", {
+        get: function () {
+            return this.currentAttack;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Hero.prototype, "parade", {
+        get: function () {
+            return this.currentParade;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Hero.prototype.currentWeaponSkillIsMelee = function () {
         if (this._currentWeapon)
             return this._currentWeapon.skill.skillGroupId === 1;
@@ -2393,6 +2667,13 @@ var Hero = /** @class */ (function () {
         var skillDistribution = this._getDistributionOfSkill(weaponSkill);
         return skillDistribution ? this.parade_basis + skillDistribution.attack : this.parade_basis;
     };
+    Object.defineProperty(Hero.prototype, "fightTexts", {
+        get: function () {
+            return this.currentWeapon ? ["" + this.currentWeapon.name, "AT: " + this.currentAttack + ", PA: " + this.currentParade, "TP: " + this.currentWeaponDamageText] : ['keine Waffe gesetzt', 'AT:', 'PA:'];
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Hero;
 }());
 
@@ -2413,6 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2425,12 +2707,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var InventoryService = /** @class */ (function () {
     function InventoryService(http, chRef, service) {
         this.http = http;
         this.chRef = chRef;
         this.service = service;
-        this.inventoryItemsUrl = 'http://' + window.location.hostname + ':8000/inventoryItems/';
+        this.inventoryItemsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_3__["UrlService"].getBaseUrl() + "/inventoryItems/";
     }
     InventoryService.prototype.updateAccountEntry = function (accountEntry, hero, newAmountValue) {
         var _this = this;
@@ -2605,6 +2888,73 @@ var AccountEntry = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/domain/npc.ts":
+/*!*******************************!*\
+  !*** ./src/app/domain/npc.ts ***!
+  \*******************************/
+/*! exports provided: NPCType, NPC */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NPCType", function() { return NPCType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NPC", function() { return NPC; });
+var NPCType = /** @class */ (function () {
+    function NPCType(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    return NPCType;
+}());
+
+var NPC = /** @class */ (function () {
+    function NPC(id, name, isGood, currentLife, _initiative, _weapon_1, _attack_1, _parade_1, _damage_1, _weapon_2, _attack_2, _parade_2, _damage_2) {
+        this.id = id;
+        this.name = name;
+        this.isGood = isGood;
+        this.currentLife = currentLife;
+        this._initiative = _initiative;
+        this._weapon_1 = _weapon_1;
+        this._attack_1 = _attack_1;
+        this._parade_1 = _parade_1;
+        this._damage_1 = _damage_1;
+        this._weapon_2 = _weapon_2;
+        this._attack_2 = _attack_2;
+        this._parade_2 = _parade_2;
+        this._damage_2 = _damage_2;
+        this.isHero = false;
+    }
+    Object.defineProperty(NPC.prototype, "initiative", {
+        get: function () {
+            return this._initiative;
+        },
+        set: function (initiative) {
+            this._initiative = initiative;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NPC.prototype, "fightTexts", {
+        get: function () {
+            var fightTexts = ["" + this._weapon_1,
+                "AT: " + this._attack_1 + ", PA: " + this._parade_1,
+                "TP: " + this._damage_1];
+            if (this._weapon_2)
+                fightTexts.concat(["" + this._weapon_2,
+                    "AT: " + this._attack_2 + ", PA: " + this._parade_2,
+                    "TP: " + this._damage_2]);
+            return fightTexts;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return NPC;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/domain/remoteControlOperation.ts":
 /*!**************************************************!*\
   !*** ./src/app/domain/remoteControlOperation.ts ***!
@@ -2657,7 +3007,9 @@ var OperationFactory = /** @class */ (function () {
 
 var operationTypes = {
     openImage: 'openImage',
-    closeImage: 'closeImage'
+    closeImage: 'closeImage',
+    createNPC: 'createNPC',
+    startFight: 'startFight'
 };
 
 
@@ -2766,6 +3118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attribute_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attribute.service */ "./src/app/domain/attribute.service.ts");
 /* harmony import */ var _skill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./skill */ "./src/app/domain/skill.ts");
 /* harmony import */ var _skillgroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./skillgroup */ "./src/app/domain/skillgroup.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2780,13 +3133,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SkillService = /** @class */ (function () {
     function SkillService(http, chRef, attributeService) {
         this.http = http;
         this.chRef = chRef;
         this.attributeService = attributeService;
-        this.skillsUrl = 'http://' + window.location.hostname + ':8000/skills/';
-        this.skillTypesUrl = 'http://' + window.location.hostname + ':8000/skillTypes/';
+        this.skillsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_5__["UrlService"].getBaseUrl() + "/skills/";
+        this.skillTypesUrl = app_url_service__WEBPACK_IMPORTED_MODULE_5__["UrlService"].getBaseUrl() + "/skillTypes/";
     }
     SkillService.prototype.getSkills = function () {
         var _this = this;
@@ -2945,6 +3299,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _spell__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spell */ "./src/app/domain/spell.ts");
 /* harmony import */ var _spellGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spellGroup */ "./src/app/domain/spellGroup.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2959,12 +3314,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SpellService = /** @class */ (function () {
     function SpellService(http, chRef) {
         this.http = http;
         this.chRef = chRef;
-        this.spellsUrl = 'http://' + window.location.hostname + ':8000/spells/';
-        this.spellTypesUrl = 'http://' + window.location.hostname + ':8000/spellTypes/';
+        this.spellsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseUrl() + "/spells/";
+        this.spellTypesUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseUrl() + "/spellTypes/";
     }
     SpellService.prototype.getSpells = function () {
         var _this = this;
@@ -3117,7 +3473,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
-/* harmony import */ var _weapon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./weapon */ "./src/app/domain/weapon.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var _weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./weapon */ "./src/app/domain/weapon.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3132,12 +3489,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var WeaponService = /** @class */ (function () {
     function WeaponService(http, chRef, service) {
         this.http = http;
         this.chRef = chRef;
         this.service = service;
-        this.weaponsUrl = 'http://' + window.location.hostname + ':8000/weapons/';
+        this.weaponsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_3__["UrlService"].getBaseUrl() + "/weapons/";
     }
     WeaponService.prototype.getWeapons = function () {
         var _this = this;
@@ -3163,7 +3521,7 @@ var WeaponService = /** @class */ (function () {
         var weapons = [];
         var body = res.json();
         body.forEach(function (weapon) {
-            weapons.push(new _weapon__WEBPACK_IMPORTED_MODULE_3__["Weapon"](weapon['id'], weapon['name'], weapon['tp_dice'], weapon['tp_add_points'], weapon['extra_tp_from_kk']));
+            weapons.push(new _weapon__WEBPACK_IMPORTED_MODULE_4__["Weapon"](weapon['id'], weapon['name'], weapon['tp_dice'], weapon['tp_add_points'], weapon['extra_tp_from_kk']));
         });
         return weapons;
     };
@@ -3917,7 +4275,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  fight-display works!\r\n</p>\r\n"
+module.exports = "<div>\r\n  <div *ngFor=\"let hero of heroes\">\r\n    <span>{{ hero.name }}</span>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3969,7 +4327,7 @@ var FightDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".setupAssistant {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.addHeroes,\r\n.addOpponents {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 0.5rem;\r\n}\r\n\r\n.Grid-cell {\r\n  margin: 1rem;\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  font-size: 2rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n#fight-setup-step-3 combatant,\r\n#fight combatant {\r\n  width: 20rem;\r\n  max-width: 20rem;\r\n}\r\n\r\n#fight-setup-step-3 button {\r\n  margin-bottom: 2rem;\r\n}\r\n\r\ncombatant.good {\r\n  margin-left: -1rem;\r\n}\r\n\r\ncombatant.evil {\r\n  margin-left: 1rem;\r\n}\r\n\r\n.searchInput {\r\n  margin: 0 0.5rem 0.5rem 0.5rem;\r\n  -ms-grid-column-align: center;\r\n      justify-self: center;\r\n}\r\n"
 
 /***/ }),
 
@@ -3980,7 +4338,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  fight-setup works!\r\n</p>\r\n"
+module.exports = "<div class=\"flex-col center page\">\r\n  <div class=\"pageContent\">\r\n    <div *ngIf=\"state === 'initial'\">\r\n      <button (click)=\"startNewFight()\">Neuen Kampf starten</button>\r\n      <div id=\"existingFights\">\r\n        <ul>\r\n          <li *ngFor=\"let fight of existingFights\">\r\n            <span>{{ fight.name }}</span\r\n            ><button (click)=\"continueFight(fight)\">Weiter kämpfen</button>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n    <div id=\"fight-setup-step-1\" *ngIf=\"state === 'setup_1'\" class=\"flex-col\">\r\n      <div class=\"flex-row space-between\">\r\n        <h2>1. Die Guten</h2>\r\n        <button (click)=\"goToStep2()\">> 2. Gegner</button>\r\n      </div>\r\n      <div class=\"Grid\">\r\n        <div class=\"Grid-cell\">\r\n          <div class=\"header\">\r\n            <div>Helden</div>\r\n            <div class=\"headerButtons\">\r\n              <button (click)=\"addAllHeroes()\">Alle +</button>\r\n              <button (click)=\"removeAllHeroes()\">Alle -</button>\r\n            </div>\r\n          </div>\r\n          <div *ngFor=\"let hero of heroes\">\r\n            <combatant\r\n              [isActive]=\"false\"\r\n              class=\"combatant\"\r\n              [usedForGood]=\"true\"\r\n              [combatant]=\"hero\"\r\n            ></combatant>\r\n          </div>\r\n        </div>\r\n        <div class=\"Grid-cell\">\r\n          <div class=\"header\">\r\n            <div>Andere</div>\r\n            <button (click)=\"initNPCGeneration()\">NPC anlegen</button>\r\n          </div>\r\n          <div class=\"flex-col\">\r\n            <input\r\n              class=\"searchInput\"\r\n              placeholder=\"Suchbegriff\"\r\n              [value]=\"combatantSearchTerm\"\r\n              (input)=\"combatantSearchTerm = $event.target.value\"\r\n            />\r\n          </div>\r\n          <div *ngIf=\"createNPCNow === true\">\r\n            <div class=\"header\">Neuer NPC</div>\r\n            <div *ngFor=\"let npcType of npcTypes\">{{ npcType.name }}</div>\r\n          </div>\r\n\r\n          <div\r\n            *ngFor=\"\r\n              let npc of npcs | MatchesCombatantSearchTerm : combatantSearchTerm\r\n            \"\r\n          >\r\n            <combatant\r\n              [isActive]=\"false\"\r\n              class=\"combatant\"\r\n              [combatant]=\"npc\"\r\n              [usedForGood]=\"true\"\r\n            ></combatant>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div id=\"fight-setup-step-2\" *ngIf=\"state === 'setup_2'\" class=\"flex-col\">\r\n      <div class=\"flex-row space-between\">\r\n        <h2>2. Die Bösen</h2>\r\n        <button (click)=\"goToStep3()\">> 3. Initiative</button>\r\n      </div>\r\n      <div class=\"Grid\">\r\n        <div class=\"Grid-cell\">\r\n          <div class=\"header\">\r\n            <div>Andere</div>\r\n            <button (click)=\"initNPCGeneration()\">NPC anlegen</button>\r\n          </div>\r\n          <div class=\"flex-col\">\r\n            <input\r\n              class=\"searchInput\"\r\n              placeholder=\"Suchbegriff\"\r\n              [value]=\"combatantSearchTerm\"\r\n              (input)=\"combatantSearchTerm = $event.target.value\"\r\n            />\r\n          </div>\r\n          <div *ngIf=\"createNPCNow === true\">\r\n            <div class=\"header\">Neuer NPC</div>\r\n            <div *ngFor=\"let npcType of npcTypes\">{{ npcType.name }}</div>\r\n          </div>\r\n\r\n          <div\r\n            *ngFor=\"\r\n              let npc of npcs\r\n                | IsGoodFighter : false\r\n                | MatchesCombatantSearchTerm : combatantSearchTerm\r\n            \"\r\n          >\r\n            <combatant\r\n              [isActive]=\"false\"\r\n              class=\"combatant\"\r\n              [combatant]=\"npc\"\r\n              [usedForGood]=\"false\"\r\n            ></combatant>\r\n          </div>\r\n        </div>\r\n        <div class=\"Grid-cell\">\r\n          <div class=\"header\">\r\n            <div>Helden</div>\r\n            <div class=\"headerButtons\">\r\n              <button (click)=\"addAllHeroes()\">Alle +</button>\r\n              <button (click)=\"removeAllHeroes()\">Alle -</button>\r\n            </div>\r\n          </div>\r\n          <div *ngFor=\"let hero of heroes | IsGoodFighter : false\">\r\n            <combatant\r\n              [isActive]=\"false\"\r\n              class=\"combatant\"\r\n              [combatant]=\"hero\"\r\n              [usedForGood]=\"false\"\r\n            ></combatant>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div\r\n      id=\"fight-setup-step-3\"\r\n      *ngIf=\"state === 'setup_overview'\"\r\n      class=\"flex-col\"\r\n    >\r\n      <div class=\"flex-row space-between\">\r\n        <h2>3. Initiative</h2>\r\n        <button (click)=\"nameIt()\" [disabled]=\"allSet !== true\">\r\n          > 4. Ein Name noch!\r\n        </button>\r\n      </div>\r\n      <button (click)=\"calculateInititives()\">Initiative berechnen</button>\r\n      <div class=\"flex-col center\">\r\n        <combatant\r\n          [isActive]=\"true\"\r\n          *ngFor=\"let combatant of combatants\"\r\n          [combatant]=\"combatant\"\r\n        ></combatant>\r\n      </div>\r\n    </div>\r\n    <div id=\"fight-setup-step-4\" *ngIf=\"state === 'name'\" class=\"flex-col\">\r\n      <div class=\"flex-row space-between\">\r\n        <h2>Gib dem Kampf einen Namen</h2>\r\n        <button (click)=\"go()\" [disabled]=\"allSet !== true\">\r\n          > 5. Let's go!\r\n        </button>\r\n      </div>\r\n      <input [(ngModel)]=\"fightName\" />\r\n    </div>\r\n    <div id=\"fight\" *ngIf=\"state === 'fight'\">\r\n      <button (click)=\"nextFighter()\">Nächster</button>\r\n\r\n      <div class=\"flex-col center\">\r\n        <combatant\r\n          [isActive]=\"true\"\r\n          *ngFor=\"let combatant of combatants\"\r\n          [combatant]=\"combatant\"\r\n        ></combatant>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3995,6 +4353,11 @@ module.exports = "<p>\r\n  fight-setup works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FightSetupComponent", function() { return FightSetupComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_domain_adventure_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/domain/adventure.service */ "./src/app/domain/adventure.service.ts");
+/* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var app_domain_hero_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/hero.service */ "./src/app/domain/hero.service.ts");
+/* harmony import */ var app_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+/* harmony import */ var app_remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4005,10 +4368,123 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var FightSetupComponent = /** @class */ (function () {
-    function FightSetupComponent() {
+    function FightSetupComponent(remoteControlService, adventureService, heroService) {
+        var _this = this;
+        this.remoteControlService = remoteControlService;
+        this.adventureService = adventureService;
+        this.heroService = heroService;
+        this.createNPCNow = false;
+        this.fightName = 'Rumble in the djungle';
+        this.combatantSearchTerm = '';
+        this.state = 'initial';
+        this.heroService.getHeroes().then(function (heroes) {
+            for (var index = 0; index < heroes.length; index++) {
+                var hero = heroes[index];
+                hero.selectedForFight = false;
+            }
+            _this.heroes = heroes;
+        });
+        this.adventureService.getNPCs().then(function (npcs) {
+            for (var index = 0; index < npcs.length; index++) {
+                var npc = npcs[index];
+                npc.selectedForFight = false;
+            }
+            _this.npcs = npcs;
+        });
+        this.adventureService.getNPCTypes().then(function (npcTypes) {
+            _this.npcTypes = npcTypes;
+        });
+        this.adventureService.getFights().then(function (fights) {
+            _this.existingFights = fights;
+        });
     }
     FightSetupComponent.prototype.ngOnInit = function () {
+    };
+    FightSetupComponent.prototype.initNPCGeneration = function () {
+        this.createNPCNow = true;
+    };
+    FightSetupComponent.prototype.startNewFight = function () {
+        this.state = 'setup_1';
+    };
+    FightSetupComponent.prototype.goToStep2 = function () {
+        this.state = 'setup_2';
+        this.combatants = this.heroes.filter(function (hero) { return hero.selectedForFight === true; }).concat(this.npcs.filter(function (npc) { return npc.selectedForFight === true; }));
+    };
+    FightSetupComponent.prototype.goToStep3 = function () {
+        this.state = 'setup_overview';
+        this.combatants = this.combatants.concat(this.heroes.filter(function (hero) { return hero.selectedForFight === true && hero.isGood === false; })).concat(this.npcs.filter(function (npc) { return npc.selectedForFight === true && npc.isGood === false; }));
+    };
+    FightSetupComponent.prototype.calculateInititives = function () {
+        for (var index = 0; index < this.combatants.length; index++) {
+            var combatant = this.combatants[index];
+            combatant.currentInitiative = combatant.initiative + +Math.floor(Math.random() * 6 + 1);
+        }
+        this.combatants.sort(function (combatantA, combatantB) {
+            return combatantB.currentInitiative - combatantA.currentInitiative;
+        });
+        this.allSet = true;
+    };
+    FightSetupComponent.prototype.nameIt = function () {
+        this.state = 'name';
+    };
+    FightSetupComponent.prototype.go = function () {
+        this.state = 'fight';
+        for (var index = 0; index < this.combatants.length; index++) {
+            var combatant = this.combatants[index];
+            if (index === 0)
+                combatant.nextUp = true;
+            else
+                combatant.nextUp = false;
+        }
+        this.startFight(this.fightName, this.adventureService.getCurrentAdventureId(), this.combatants.map(function (combatant) {
+            return {
+                isGood: combatant.isGood,
+                isCharacter: combatant instanceof app_domain_hero__WEBPACK_IMPORTED_MODULE_2__["Hero"],
+                id: combatant.id,
+                initiative: combatant.currentInitiative
+            };
+        }));
+    };
+    FightSetupComponent.prototype.nextFighter = function () {
+        var nextFighterIsUp = false;
+        for (var index = 0; index < this.combatants.length; index++) {
+            var combatant = this.combatants[index];
+            if (combatant.nextUp === true) {
+                nextFighterIsUp = true;
+                combatant.nextUp = false;
+            }
+            else if (nextFighterIsUp) {
+                combatant.nextUp = true;
+                nextFighterIsUp = false;
+            }
+        }
+        if (nextFighterIsUp)
+            this.combatants[0].nextUp = true;
+    };
+    FightSetupComponent.prototype.createNPC = function (templateId, name) {
+        this.remoteControlService.sendRemoteControlInstruction(app_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["OperationFactory"].createOperation(app_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["operationTypes"].createNPC, 'self', { name: name, templateId: templateId }));
+    };
+    FightSetupComponent.prototype.startFight = function (fightNameParam, currentAdventureId, participants) {
+        this.remoteControlService.sendRemoteControlInstruction(app_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["OperationFactory"].createOperation(app_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_4__["operationTypes"].startFight, 'self', { name: fightNameParam, adventureId: currentAdventureId, participants: participants }));
+    };
+    FightSetupComponent.prototype.continueFight = function (fight) {
+        console.log(fight);
+    };
+    FightSetupComponent.prototype.addAllHeroes = function () {
+        this.heroes.forEach(function (hero) {
+            hero.selectedForFight = true;
+        });
+    };
+    FightSetupComponent.prototype.removeAllHeroes = function () {
+        this.heroes.forEach(function (hero) {
+            hero.selectedForFight = false;
+        });
     };
     FightSetupComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4016,7 +4492,7 @@ var FightSetupComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./fight-setup.component.html */ "./src/app/fight-setup/fight-setup.component.html"),
             styles: [__webpack_require__(/*! ./fight-setup.component.css */ "./src/app/fight-setup/fight-setup.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [app_remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_5__["RemoteControlService"], app_domain_adventure_service__WEBPACK_IMPORTED_MODULE_1__["AdventureService"], app_domain_hero_service__WEBPACK_IMPORTED_MODULE_3__["HeroService"]])
     ], FightSetupComponent);
     return FightSetupComponent;
 }());
@@ -4058,8 +4534,9 @@ module.exports = "<div class=\"hero-entry-container\">\r\n  <div class=\"heroes-
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroCard", function() { return HeroCard; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4072,12 +4549,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HeroCard = /** @class */ (function () {
     function HeroCard(heroService, router, route) {
         this.heroService = heroService;
         this.router = router;
         this.route = route;
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseUrl();
     }
     HeroCard.prototype.ngOnInit = function () {
     };
@@ -4109,9 +4587,9 @@ var HeroCard = /** @class */ (function () {
             template: __webpack_require__(/*! ./hero-card.component.html */ "./src/app/hero-card/hero-card.component.html"),
             styles: [__webpack_require__(/*! ./hero-card.component.css */ "./src/app/hero-card/hero-card.component.css")],
         }),
-        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_1__["HeroService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_3__["HeroService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
     ], HeroCard);
     return HeroCard;
 }());
@@ -4293,11 +4771,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_domain_inventoryItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/inventoryItem */ "./src/app/domain/inventoryItem.ts");
 /* harmony import */ var app_domain_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/weapon */ "./src/app/domain/weapon.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../domain/hero.service */ "./src/app/domain/hero.service.ts");
-/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../domain/skills.service */ "./src/app/domain/skills.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../domain/hero.service */ "./src/app/domain/hero.service.ts");
+/* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../domain/skills.service */ "./src/app/domain/skills.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4319,12 +4798,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HeroLifeService = /** @class */ (function () {
     function HeroLifeService(http, heroService, toastr, skillService) {
         this.http = http;
         this.toastr = toastr;
         this.skillService = skillService;
-        this.wsUrl = 'ws://' + window.location.hostname + ':8000/heroes';
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_6__["UrlService"].getBaseURLWS() + "/heroes";
         this.wsClientId = Math.random().toString(36).substring(7);
         this.currentlyConnected = false;
         this.heroService = heroService;
@@ -4334,7 +4814,7 @@ var HeroLifeService = /** @class */ (function () {
         var _this = this;
         try {
             this.socket = new WebSocket(this.wsUrl);
-            this.heroSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
+            this.heroSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
             this.heroSubject.subscribe(this.handleIncommingMessage.bind(this));
             this.socket.onmessage = (function (evt) { return _this.heroSubject.next(evt); });
             this.socket.onopen = function (event) {
@@ -4429,7 +4909,7 @@ var HeroLifeService = /** @class */ (function () {
     };
     HeroLifeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _domain_hero_service__WEBPACK_IMPORTED_MODULE_9__["HeroService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_10__["SkillService"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _domain_hero_service__WEBPACK_IMPORTED_MODULE_10__["HeroService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_11__["SkillService"]])
     ], HeroLifeService);
     return HeroLifeService;
 }());
@@ -4470,13 +4950,14 @@ module.exports = "<!-- <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroDetailComponent", function() { return HeroDetailComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var rxjs_add_operator_switchMap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/switchMap */ "./node_modules/rxjs-compat/_esm5/add/operator/switchMap.js");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var rxjs_add_operator_switchMap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/switchMap */ "./node_modules/rxjs-compat/_esm5/add/operator/switchMap.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4493,6 +4974,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HeroDetailComponent = /** @class */ (function () {
     function HeroDetailComponent(heroService, route, location) {
         this.heroService = heroService;
@@ -4502,7 +4984,7 @@ var HeroDetailComponent = /** @class */ (function () {
         this.talentSearchActive = false;
         this.detailArea = 'character';
         this.searchCtrl = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]();
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_6__["UrlService"].getBaseUrl();
         var that = this;
         new Promise(function (resolve, reject) {
             var heroTimer = setInterval(function () {
@@ -4554,18 +5036,18 @@ var HeroDetailComponent = /** @class */ (function () {
         debugger;
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         __metadata("design:type", String)
     ], HeroDetailComponent.prototype, "_detailArea", void 0);
     HeroDetailComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'hero-details',
             template: __webpack_require__(/*! ./hero-detail.component.html */ "./src/app/herodetail/hero-detail.component.html"),
             styles: [__webpack_require__(/*! ./hero-detail.component.css */ "./src/app/herodetail/hero-detail.component.css")]
         }),
         __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_3__["HeroService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_0__["Location"]])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());
@@ -5330,7 +5812,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var Menu = /** @class */ (function () {
     function Menu(router) {
         this.router = router;
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
     }
     Menu.prototype.ngOnInit = function () {
     };
@@ -5499,11 +5980,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5523,6 +6005,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RemoteControlReceiverService = /** @class */ (function () {
     function RemoteControlReceiverService(http, dialog, toastr) {
         var _this = this;
@@ -5530,8 +6013,8 @@ var RemoteControlReceiverService = /** @class */ (function () {
         this.dialog = dialog;
         this.toastr = toastr;
         this.operationsMap = new Map([
-            [_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__["operationTypes"].openImage, function (url) {
-                    var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_8__["ImagePopupComponent"], {
+            [_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__["operationTypes"].openImage, function (url) {
+                    var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_9__["ImagePopupComponent"], {
                         // width: '250px',
                         data: { url: _this.baseUrl + url }
                     });
@@ -5541,17 +6024,17 @@ var RemoteControlReceiverService = /** @class */ (function () {
                 }
             ]
         ]);
-        this.wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlReceiver';
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseURLWS() + "/remoteControlReceiver";
         this.wsClientId = Math.random().toString(36).substring(7);
         this.currentlyConnected = false;
-        this.baseUrl = 'http://' + window.location.hostname + ':8000';
+        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseUrl();
         // this.createWebsocket()
     }
     RemoteControlReceiverService.prototype.createWebsocket = function () {
         var _this = this;
         try {
             this.socket = new WebSocket(this.wsUrl);
-            this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+            this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
             this.socket.onopen = function (event) {
                 _this.currentlyConnected = true;
                 _this.toastr.success('Du bist online.');
@@ -5574,7 +6057,7 @@ var RemoteControlReceiverService = /** @class */ (function () {
                 }
             });
             this.remoteControlReceiverSubscription = this.remoteControlReceiverSubject.subscribe(function (message) {
-                var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_7__["OperationFactory"].createOperationFromJSON(message.data);
+                var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__["OperationFactory"].createOperationFromJSON(message.data);
                 var parameters = instruction.getParameters();
                 _this.operationsMap.get(instruction.getType()).apply(_this, instruction.getParameters());
             });
@@ -5691,8 +6174,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoteControlService", function() { return RemoteControlService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5707,14 +6192,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // import { Rx } from 'rxjs';
 
 
+
+
 var RemoteControlService = /** @class */ (function () {
     function RemoteControlService(http) {
         this.http = http;
-        this.wsUrl = 'ws://' + window.location.hostname + ':8000/remoteControlSender';
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseURLWS + "/remoteControlSender";
         this.wsClientId = Math.random().toString(36).substring(7);
-        // this.socket = this.createWebsocket();
-        // let subject = this.remoteControlSubject = new Subject();
-        // this.socket.onmessage = (evt => subject.next(evt));
+        this.socket = this.createWebsocket();
+        var subject = this.remoteControlSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.socket.onmessage = (function (evt) { return subject.next(evt); });
     }
     RemoteControlService.prototype.createWebsocket = function () {
         try {
@@ -6259,6 +6746,59 @@ var TalentSearchComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], TalentSearchComponent);
     return TalentSearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/url.service.ts":
+/*!********************************!*\
+  !*** ./src/app/url.service.ts ***!
+  \********************************/
+/*! exports provided: UrlService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlService", function() { return UrlService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UrlService = /** @class */ (function () {
+    function UrlService() {
+    }
+    UrlService_1 = UrlService;
+    UrlService.getBaseUrl = function () {
+        return this._baseURL;
+    };
+    UrlService.getBaseURLWS = function () {
+        return this._baseURLWS;
+    };
+    var UrlService_1;
+    UrlService.productionHost = 'dsa-server-dev.eu-central-1.elasticbeanstalk.com';
+    // private static _baseHostProd = `${window.location.hostname}:${window.location.port}`
+    UrlService._baseHostProd = "" + UrlService_1.productionHost;
+    UrlService._baseHostDev = window.location.hostname + ":8000";
+    UrlService._isDev = window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0' ? true : false;
+    UrlService._baseURL = UrlService_1._isDev ? window.location.protocol + "//" + UrlService_1._baseHostDev : window.location.protocol + "//" + UrlService_1._baseHostProd;
+    UrlService._protocolWebSockets = window.location.protocol === 'http:' ? 'ws:' : 'wss:';
+    UrlService._baseURLWS = UrlService_1._isDev ? UrlService_1._protocolWebSockets + "//" + UrlService_1._baseHostDev : UrlService_1._protocolWebSockets + "//" + UrlService_1._baseHostProd;
+    UrlService = UrlService_1 = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], UrlService);
+    return UrlService;
 }());
 
 

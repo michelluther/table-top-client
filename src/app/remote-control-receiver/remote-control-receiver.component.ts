@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RemoteControlReceiverService } from './remote-control-receiver.service'
-import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
-import { OperationFactory, RemoteControlOperation, operationTypes } from './../domain/remoteControlOperation'
+import { UrlService } from 'app/url.service';
+import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs/Rx';
+import { RemoteControlReceiverService } from './remote-control-receiver.service';
 
 
 
@@ -13,17 +14,18 @@ import { OperationFactory, RemoteControlOperation, operationTypes } from './../d
 })
 export class RemoteControlReceiverComponent implements OnInit {
 
+  private wsUrl = `${UrlService.getBaseURLWS()}/remoteControl`;
+  public remoteControlSubject: Subject<MessageEvent>;
+  private connectionInterval: number;
+  private currentlyConnected: boolean = false;
 
-
-  private service: RemoteControlReceiverService;
-
-  constructor(websocketService: RemoteControlReceiverService,) {
-
-    this.service = websocketService;
+  constructor(private websocketService: RemoteControlReceiverService, private toastr: ToastrService) {}
+  ngOnInit(): void {
     
   }
 
-  ngOnInit() {
+  public handleIncommingMessage(message): void {
+    let messageData = JSON.parse(message.data);
   }
 
 }

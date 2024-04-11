@@ -8,7 +8,8 @@
 body {
   background-image: url("/assets/so-white.png");
   background-attachment: fixed, scroll;
-
+  height: 100%lvh;
+  /* overflow: hidden; */
   /*background-color: #ababab;*/
   /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }

@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class UrlService {
 
-  private static _baseHostProd = `${window.location.hostname}:${window.location.port}`
+  private static productionHost = 'dsa-server-dev.eu-central-1.elasticbeanstalk.com'
+  // private static _baseHostProd = `${window.location.hostname}:${window.location.port}`
+  private static _baseHostProd = `${UrlService.productionHost}`
   private static _baseHostDev = `${window.location.hostname}:8000`
-  private static _isDev = window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0' ? true : false
+  private static _isDev = window.location.hostname === 'localhost' || /^(((1?[1-9]?|10|2[0-4])\d|25[0-5])($|\.(?!$))){4}$/.test(window.location.hostname) ? true : false
   private static _baseURL = UrlService._isDev ? `${window.location.protocol}//${UrlService._baseHostDev}` : `${window.location.protocol}//${UrlService._baseHostProd}`
 
   private static _protocolWebSockets = window.location.protocol === 'http:' ? 'ws:' : 'wss:'

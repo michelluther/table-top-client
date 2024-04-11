@@ -34,4 +34,8 @@ export class AdminOverviewComponent implements OnInit {
     this.router.navigate(['master/heroes']);
   }
 
+  public startTimer(): void {
+    this.router.navigate(['master/startTimer'])
+  }
+
 }

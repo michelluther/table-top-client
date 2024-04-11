@@ -16,6 +16,7 @@ import 'hammerjs';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { AdminOverviewComponent } from './admin-overview/admin-overview.component';
+import { AdminTimerComponent } from './admin-timer/admin-timer.component';
 import { AdventureDisplayComponent } from './adventure-display/adventure-display.component';
 import { AppComponent } from './app.component';
 import { AttributesDisplayComponent } from './attributes-display/attributes-display.component';
@@ -55,6 +56,7 @@ import { MatchesSpellSearchTerm, MatchesSpellSearchTermChildren } from './spell-
 import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
+import { TimerDialogComponent } from './timer-dialog/timer-dialog.component';
 
 
 
@@ -72,7 +74,8 @@ const routes: Routes = [
       { path: 'adventure', component: HeroesComponent },
       { path: 'heroes', component: HeroesComponent },
       { path: 'hero/:id', component: HeroDetailComponent },
-      { path: 'fight/start', component: FightSetupComponent }
+      { path: 'fight/start', component: FightSetupComponent },
+      { path: 'startTimer', component: AdminTimerComponent }
     ]
   },
   {
@@ -99,7 +102,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'top'
+      scrollPositionRestoration: 'top',
+      initialNavigation: 'enabled'
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
@@ -174,7 +178,9 @@ const routes: Routes = [
     AdventureDisplayComponent,
     CombatantComponent,
     MatchesCombatantSearchTerm,
-    IsGoodFighter
+    IsGoodFighter,
+    AdminTimerComponent,
+    TimerDialogComponent
   ],
   bootstrap: [AppComponent],
   providers: [{
@@ -182,6 +188,6 @@ const routes: Routes = [
     useValue: {}
   },
   { provide: MAT_DIALOG_DATA, useValue: {} }],
-  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent, ConfirmDeletionComponent, ExperienceAdditionComponent, EditMoneyComponent],
+  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent, ConfirmDeletionComponent, ExperienceAdditionComponent, EditMoneyComponent,TimerDialogComponent],
 })
 export class AppModule { }

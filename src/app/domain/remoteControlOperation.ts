@@ -3,9 +3,9 @@ export class RemoteControlOperation {
 
     private type: string
     private target: string
-    private params: Array<string>
+    private params: object
 
-    constructor(type: string, target: string, parameters: Array<string>) {
+    constructor(type: string, target: string, parameters: object) {
         this.type = type
         this.target = target
         this.params = parameters
@@ -19,28 +19,32 @@ export class RemoteControlOperation {
         return this.target
     }
 
-    public getParameters(): Array<string> {
+    public getParameters(): object {
         return this.params
+    }
+
+    public getParameter(parameterName:string): string {
+        return this.params[parameterName]
     }
 
     toJSON(): string {
         return JSON.stringify({
             type: this.type,
             target: this.target,
-            params: this.params
+            params: JSON.stringify(this.params)
         })
     }
 }
 
 export class OperationFactory {
 
-    static createOperation(type: string, target: string, parameters: any): RemoteControlOperation {
+    static createOperation(type: string, target: string, parameters: object): RemoteControlOperation {
         return new RemoteControlOperation(type, target, parameters)
     }
 
     static createOperationFromJSON(jsonstring: string): RemoteControlOperation {
         const parsedObject = JSON.parse(jsonstring)
-        return new RemoteControlOperation(parsedObject.type, parsedObject.target, parsedObject.params)
+        return new RemoteControlOperation(parsedObject.type, parsedObject.target, JSON.parse(parsedObject.params))
     }
 }
 
@@ -48,5 +52,8 @@ export const operationTypes = {
     openImage: 'openImage',
     closeImage: 'closeImage',
     createNPC: 'createNPC',
-    startFight: 'startFight'
+    startFight: 'startFight',
+    startTimer: 'startTimer',
+    timerFinished: 'timerFinished',
+    timerStopped: 'timerStopped'
 }

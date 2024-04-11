@@ -12,7 +12,7 @@ import { RemoteControlOperation } from './../domain/remoteControlOperation';
 @Injectable()
 export class RemoteControlService {
 
-    private wsUrl = `${UrlService.getBaseURLWS}/remoteControlSender`;
+    private wsUrl = `${UrlService.getBaseURLWS()}/remoteControl`;
     public wsClientId = Math.random().toString(36).substring(7);
     private socket: WebSocket;
     public remoteControlSubject: Subject<MessageEvent>;
@@ -25,7 +25,6 @@ export class RemoteControlService {
 
     private createWebsocket(): WebSocket {
         try {
-
             let ws = new WebSocket(this.wsUrl);
             return ws;
         } catch (error) {
@@ -34,10 +33,8 @@ export class RemoteControlService {
     }
 
     public sendRemoteControlInstruction(instruction: RemoteControlOperation): void {
-        console.log('will send instruction');
         const jsonOperation = instruction.toJSON();
-        console.log(jsonOperation);
-
+        console.log(`will send instruction: ${jsonOperation}`);
         this.socket.send(jsonOperation);
     }
 

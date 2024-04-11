@@ -36,6 +36,7 @@ export class HeroLifeService {
             this.socket = new WebSocket(this.wsUrl);
             this.heroSubject = new Subject();
             this.heroSubject.subscribe(this.handleIncommingMessage.bind(this))
+            
             this.socket.onmessage = (evt => this.heroSubject.next(evt));
             this.socket.onopen = (event) => {
                 this.currentlyConnected = true;
@@ -48,7 +49,7 @@ export class HeroLifeService {
                 }
             }
             this.socket.addEventListener('error', event => {
-                console.log('hey')
+                this.toastr.error('Fehler bei der Websocketkommunikation mit den Helden.', 'Fehler')
                 event.stopPropagation()
             }
             )
@@ -66,10 +67,8 @@ export class HeroLifeService {
 
     public sendUpate(data): void {
         try {
-
             this.socket.send(JSON.stringify(data));
         } catch (error) {
-
             this.toastr.error('bisher hat es noch nicht geklappt', 'Fehler')
         }
     }
