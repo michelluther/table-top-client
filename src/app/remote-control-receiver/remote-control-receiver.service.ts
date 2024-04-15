@@ -79,13 +79,15 @@ export class RemoteControlReceiverService {
     this.operationsMap.set(operationTypes.timerFinished, (timerFinishedOperation:RemoteControlOperation) => {
       this.closeTimerDialog()
       this.timerService.stopTimer(false)
-      this.toastr.clear(this.timerToaster.toastId)
+      if(this.timerToaster)
+        this.toastr.clear(this.timerToaster.toastId)
       this.toastr.info('Die Zeit ist abgelaufen', `Time's Up!`)
     })
     this.operationsMap.set(operationTypes.timerStopped, (timerFinishedOperation:RemoteControlOperation) => {
       this.closeTimerDialog()
       this.timerService.stopTimer(false)
-      this.toastr.clear(this.timerToaster.toastId)
+      if(this.timerToaster)
+        this.toastr.clear(this.timerToaster.toastId)
       this.toastr.info(`Der Plan ist gefasst!`,'Geschafft')
     })
   }
