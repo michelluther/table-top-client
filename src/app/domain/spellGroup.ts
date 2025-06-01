@@ -1,12 +1,13 @@
 import { Spell } from './spell';
 
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 export class SpellGroup {
 
   id: number;
   name: String;
   spells: Spell[];
+  spellType: String;
 
   constructor(dataObject: Object, private chRef: ChangeDetectorRef) {
     this.name = dataObject['name'];
@@ -19,6 +20,10 @@ export class SpellGroup {
 
   getSpells(): Spell[] {
     return this.spells;
+  }
+
+  getAscensionPricingTableColumn():string {
+    return `price${this.spellType}`
   }
 
   getSpellsPromise(): Promise<Object[]> {

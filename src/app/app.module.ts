@@ -57,6 +57,7 @@ import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
 import { TimerDialogComponent } from './timer-dialog/timer-dialog.component';
+import { EditSpellComponent } from './edit-spell/edit-spell.component';
 
 
 
@@ -180,7 +181,8 @@ const routes: Routes = [
     MatchesCombatantSearchTerm,
     IsGoodFighter,
     AdminTimerComponent,
-    TimerDialogComponent
+    TimerDialogComponent,
+    EditSpellComponent
   ],
   bootstrap: [AppComponent],
   providers: [{

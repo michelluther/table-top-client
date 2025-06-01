@@ -1,6 +1,6 @@
 import { Skill } from './skill';
 
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 export class SkillGroup {
 

@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/hero-app
 
 # dependencies
 /node_modules

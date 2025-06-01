@@ -41,7 +41,7 @@ module.exports = ".navButton {\r\n  width: 100%;\r\n  text-align: left;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<remote-control #remoteControlMaster></remote-control>\r\n<div id=\"adminContent\">\r\n  <div id=\"adminMenu\">\r\n    <button class=\"comic-shadow\" (click)=\"showHeroes()\">Heroes</button>\r\n    <button class=\"comic-shadow\" (click)=\"remoteControlMaster.sendImage('')\">\r\n      Images\r\n    </button>\r\n    <button class=\"comic-shadow\" (click)=\"startFight()\">Fight</button>\r\n    <button class=\"comic-shadow\">Music and Sounds</button>\r\n  </div>\r\n  <div id=\"appContent\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<remote-control #remoteControlMaster></remote-control>\r\n<remote-control-receiver></remote-control-receiver>\r\n<div id=\"adminContent\">\r\n  <div id=\"adminMenu\">\r\n    <button class=\"comic-shadow\" (click)=\"showHeroes()\">Heroes</button>\r\n    <button class=\"comic-shadow\" (click)=\"remoteControlMaster.sendImage('')\">\r\n      Images\r\n    </button>\r\n    <button class=\"comic-shadow\" (click)=\"startFight()\">Fight</button>\r\n    <button class=\"comic-shadow\" (click)=\"startTimer()\">Timer</button>\r\n  </div>\r\n  <div id=\"appContent\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -90,6 +90,9 @@ var AdminOverviewComponent = /** @class */ (function () {
     AdminOverviewComponent.prototype.showHeroes = function () {
         this.router.navigate(['master/heroes']);
     };
+    AdminOverviewComponent.prototype.startTimer = function () {
+        this.router.navigate(['master/startTimer']);
+    };
     AdminOverviewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-admin-overview',
@@ -100,6 +103,98 @@ var AdminOverviewComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_domain_adventure_service__WEBPACK_IMPORTED_MODULE_1__["AdventureService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AdminOverviewComponent);
     return AdminOverviewComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin-timer/admin-timer.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/admin-timer/admin-timer.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin-timer/admin-timer.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/admin-timer/admin-timer.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"padded flex-col center\" *ngIf=\"timer.running === false\">\n  <h1 class=\"\">Timer setzen</h1>\n  <div class=\"flex-col center\">\n    <h3>Presets</h3>\n    <div class=\"flex-row\">\n      <button (click)=\"setTimer('Kurze Bedenkzeit', 0, 15)\">Preset Kurz</button>\n      <button (click)=\"setTimer('Lange Bedenkzeit', 5, 0)\">Preset Lang</button>\n    </div>\n    <h3>Settings</h3>\n    <input [(ngModel)]=\"timer.title\" />\n    <span>Minuten</span>\n    <div class=\"flex-row\">\n      <input [(ngModel)]=\"timer.minutes\" />\n      <button (click)=\"addToTimerMinutes(1)\">\n        <i class=\"fa fa-plus\"></i>\n      </button>\n      <button\n        (click)=\"subtractFromTimerMinutes(1)\"\n        [class.disabled]=\"timer.minutes < 1\"\n      >\n        <i class=\"fa fa-minus\"></i>\n      </button>\n    </div>\n\n    <span>Sekunden</span>\n    <div class=\"flex-row\">\n      <input [(ngModel)]=\"timer.seconds\" />\n      <button (click)=\"addToTimerSeconds(1)\">\n        <i class=\"fa fa-plus\"></i>\n      </button>\n      <button\n        (click)=\"subtractFromTimerSeconds(1)\"\n        [class.disabled]=\"timer.seconds < 1\"\n      >\n        <i class=\"fa fa-minus\"></i>\n      </button>\n    </div>\n    <h3>Go</h3>\n    <button (click)=\"startTimer()\">Timer starten</button>\n  </div>\n</div>\n<div class=\"padded flex-col center\" *ngIf=\"timer.running === true\">\n  <h3>Timer \"{{ timer.title }}\"</h3>\n\n  <h4>{{ timeRemaining.minutes }}:{{ timeRemaining.secondsString }}</h4>\n  <button (click)=\"stopTimer()\">Sie sind fertig!</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-timer/admin-timer.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin-timer/admin-timer.component.ts ***!
+  \******************************************************/
+/*! exports provided: AdminTimerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTimerComponent", function() { return AdminTimerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_domain_timer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/domain/timer.service */ "./src/app/domain/timer.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminTimerComponent = /** @class */ (function () {
+    function AdminTimerComponent(timerService, timer) {
+        this.timerService = timerService;
+        this.timer = timer;
+        this.timer = timerService.timer;
+        this.timeRemaining = timerService.timeRemaining;
+    }
+    AdminTimerComponent.prototype.ngOnInit = function () {
+    };
+    AdminTimerComponent.prototype.addToTimerMinutes = function (minutes) {
+        this.timer.minutes += minutes;
+    };
+    AdminTimerComponent.prototype.addToTimerSeconds = function (seconds) {
+        this.timer.seconds += seconds;
+    };
+    AdminTimerComponent.prototype.subtractFromTimerMinutes = function (minutes) {
+        this.timer.minutes -= minutes;
+    };
+    AdminTimerComponent.prototype.subtractFromTimerSeconds = function (seconds) {
+        this.timer.seconds -= seconds;
+    };
+    AdminTimerComponent.prototype.setTimer = function (title, minutes, seconds) {
+        this.timer.title = title,
+            this.timer.minutes = minutes;
+        this.timer.seconds = seconds;
+    };
+    AdminTimerComponent.prototype.startTimer = function () {
+        this.timerService.startTimer();
+    };
+    AdminTimerComponent.prototype.stopTimer = function () {
+        this.timerService.clearTimer();
+    };
+    AdminTimerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-admin-timer',
+            template: __webpack_require__(/*! ./admin-timer.component.html */ "./src/app/admin-timer/admin-timer.component.html"),
+            styles: [__webpack_require__(/*! ./admin-timer.component.css */ "./src/app/admin-timer/admin-timer.component.css")]
+        }),
+        __metadata("design:paramtypes", [app_domain_timer_service__WEBPACK_IMPORTED_MODULE_1__["TimerService"], app_domain_timer_service__WEBPACK_IMPORTED_MODULE_1__["Timer"]])
+    ], AdminTimerComponent);
+    return AdminTimerComponent;
 }());
 
 
@@ -261,10 +356,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _domain_inventory_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./domain/inventory.service */ "./src/app/domain/inventory.service.ts");
 /* harmony import */ var _domain_skills_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./domain/skills.service */ "./src/app/domain/skills.service.ts");
 /* harmony import */ var _domain_spells_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./domain/spells.service */ "./src/app/domain/spells.service.ts");
-/* harmony import */ var _domain_weapons_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./domain/weapons.service */ "./src/app/domain/weapons.service.ts");
-/* harmony import */ var _hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
-/* harmony import */ var _remote_control_receiver_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.service */ "./src/app/remote-control-receiver/remote-control-receiver.service.ts");
-/* harmony import */ var _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
+/* harmony import */ var _domain_timer_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./domain/timer.service */ "./src/app/domain/timer.service.ts");
+/* harmony import */ var _domain_weapons_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./domain/weapons.service */ "./src/app/domain/weapons.service.ts");
+/* harmony import */ var _hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
+/* harmony import */ var _remote_control_receiver_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.service */ "./src/app/remote-control-receiver/remote-control-receiver.service.ts");
+/* harmony import */ var _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -274,6 +370,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -297,7 +394,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'my-app',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")],
-            providers: [_domain_hero_service__WEBPACK_IMPORTED_MODULE_4__["HeroService"], _domain_attribute_service__WEBPACK_IMPORTED_MODULE_3__["AttributeService"], _hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_9__["HeroLifeService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_6__["SkillService"], _domain_spells_service__WEBPACK_IMPORTED_MODULE_7__["SpellService"], _domain_weapons_service__WEBPACK_IMPORTED_MODULE_8__["WeaponService"], _domain_armor_service__WEBPACK_IMPORTED_MODULE_2__["ArmorService"], _domain_inventory_service__WEBPACK_IMPORTED_MODULE_5__["InventoryService"], _remote_control_receiver_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_10__["RemoteControlReceiverService"], _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_11__["RemoteControlService"], _domain_adventure_service__WEBPACK_IMPORTED_MODULE_1__["AdventureService"]]
+            providers: [_domain_hero_service__WEBPACK_IMPORTED_MODULE_4__["HeroService"], _domain_attribute_service__WEBPACK_IMPORTED_MODULE_3__["AttributeService"], _hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_10__["HeroLifeService"], _domain_skills_service__WEBPACK_IMPORTED_MODULE_6__["SkillService"], _domain_spells_service__WEBPACK_IMPORTED_MODULE_7__["SpellService"], _domain_weapons_service__WEBPACK_IMPORTED_MODULE_9__["WeaponService"], _domain_armor_service__WEBPACK_IMPORTED_MODULE_2__["ArmorService"], _domain_inventory_service__WEBPACK_IMPORTED_MODULE_5__["InventoryService"], _remote_control_receiver_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_11__["RemoteControlReceiverService"], _remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_12__["RemoteControlService"], _domain_adventure_service__WEBPACK_IMPORTED_MODULE_1__["AdventureService"], _domain_timer_service__WEBPACK_IMPORTED_MODULE_8__["TimerService"], _domain_timer_service__WEBPACK_IMPORTED_MODULE_8__["Timer"]]
         }),
         __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_4__["HeroService"], _domain_attribute_service__WEBPACK_IMPORTED_MODULE_3__["AttributeService"]])
     ], AppComponent);
@@ -332,51 +429,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin-overview/admin-overview.component */ "./src/app/admin-overview/admin-overview.component.ts");
-/* harmony import */ var _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./adventure-display/adventure-display.component */ "./src/app/adventure-display/adventure-display.component.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
-/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
-/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
-/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
-/* harmony import */ var _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./combatant/combatant.component */ "./src/app/combatant/combatant.component.ts");
-/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
-/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
-/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
-/* harmony import */ var _domain_fight__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./domain/fight */ "./src/app/domain/fight.ts");
-/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
-/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
-/* harmony import */ var _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
-/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
-/* harmony import */ var _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
-/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
-/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
-/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
-/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
-/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
-/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
-/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
-/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
-/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
-/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
-/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
-/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
-/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
-/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
-/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
-/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
-/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
-/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
-/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
-/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
-/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
+/* harmony import */ var _admin_timer_admin_timer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin-timer/admin-timer.component */ "./src/app/admin-timer/admin-timer.component.ts");
+/* harmony import */ var _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./adventure-display/adventure-display.component */ "./src/app/adventure-display/adventure-display.component.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./attributes-display/attributes-display.component */ "./src/app/attributes-display/attributes-display.component.ts");
+/* harmony import */ var _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./basic-data-display/basic-data-display.component */ "./src/app/basic-data-display/basic-data-display.component.ts");
+/* harmony import */ var _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./choose-image/choose-image.component */ "./src/app/choose-image/choose-image.component.ts");
+/* harmony import */ var _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./combat-data-display/combat-data-display.component */ "./src/app/combat-data-display/combat-data-display.component.ts");
+/* harmony import */ var _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./combatant/combatant.component */ "./src/app/combatant/combatant.component.ts");
+/* harmony import */ var _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./confirm-deletion/confirm-deletion.component */ "./src/app/confirm-deletion/confirm-deletion.component.ts");
+/* harmony import */ var _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./confirmation-sheet/confirmation-sheet.component */ "./src/app/confirmation-sheet/confirmation-sheet.component.ts");
+/* harmony import */ var _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./detail-navigation/detail-navigation.component */ "./src/app/detail-navigation/detail-navigation.component.ts");
+/* harmony import */ var _domain_fight__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./domain/fight */ "./src/app/domain/fight.ts");
+/* harmony import */ var _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
+/* harmony import */ var _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./edit-dialog/edit-dialog.component */ "./src/app/edit-dialog/edit-dialog.component.ts");
+/* harmony import */ var _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./edit-money/edit-money.component */ "./src/app/edit-money/edit-money.component.ts");
+/* harmony import */ var _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./edit-talent/edit-talent.component */ "./src/app/edit-talent/edit-talent.component.ts");
+/* harmony import */ var _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./experience-addition/experience-addition.component */ "./src/app/experience-addition/experience-addition.component.ts");
+/* harmony import */ var _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./experience-display/experience-display.component */ "./src/app/experience-display/experience-display.component.ts");
+/* harmony import */ var _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./fight-display/fight-display.component */ "./src/app/fight-display/fight-display.component.ts");
+/* harmony import */ var _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./fight-setup/fight-setup.component */ "./src/app/fight-setup/fight-setup.component.ts");
+/* harmony import */ var _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./hero-card/hero-card.component */ "./src/app/hero-card/hero-card.component.ts");
+/* harmony import */ var _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./hero-controls/hero-controls.component */ "./src/app/hero-controls/hero-controls.component.ts");
+/* harmony import */ var _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./herodetail/hero-detail.component */ "./src/app/herodetail/hero-detail.component.ts");
+/* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
+/* harmony import */ var _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./inventory-display/inventory-display.component */ "./src/app/inventory-display/inventory-display.component.ts");
+/* harmony import */ var _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./life-display/life-display.component */ "./src/app/life-display/life-display.component.ts");
+/* harmony import */ var _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./magic-display/magic-display.component */ "./src/app/magic-display/magic-display.component.ts");
+/* harmony import */ var _master_master_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./master/master.component */ "./src/app/master/master.component.ts");
+/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
+/* harmony import */ var _player_player_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./player/player.component */ "./src/app/player/player.component.ts");
+/* harmony import */ var _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./remote-control-receiver/remote-control-receiver.component */ "./src/app/remote-control-receiver/remote-control-receiver.component.ts");
+/* harmony import */ var _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./remote-control/remote-control.component */ "./src/app/remote-control/remote-control.component.ts");
+/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy.directive.ts");
+/* harmony import */ var _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./spell-card/spell-card.component */ "./src/app/spell-card/spell-card.component.ts");
+/* harmony import */ var _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./spell-search/spell-search.component */ "./src/app/spell-search/spell-search.component.ts");
+/* harmony import */ var _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./spell-search/spell.pipe */ "./src/app/spell-search/spell.pipe.ts");
+/* harmony import */ var _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./talent-card/talent-card.component */ "./src/app/talent-card/talent-card.component.ts");
+/* harmony import */ var _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./talent-search/skill.pipe */ "./src/app/talent-search/skill.pipe.ts");
+/* harmony import */ var _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./talent-search/talent-search.component */ "./src/app/talent-search/talent-search.component.ts");
+/* harmony import */ var _timer_dialog_timer_dialog_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./timer-dialog/timer-dialog.component */ "./src/app/timer-dialog/timer-dialog.component.ts");
+/* harmony import */ var _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./edit-spell/edit-spell.component */ "./src/app/edit-spell/edit-spell.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -437,26 +540,27 @@ var routes = [
     {
         path: 'master', component: _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
         children: [
-            { path: 'adventure', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"] },
-            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"] },
-            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"] },
-            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__["FightSetupComponent"] }
+            { path: 'adventure', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_36__["HeroesComponent"] },
+            { path: 'heroes', component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_36__["HeroesComponent"] },
+            { path: 'hero/:id', component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_35__["HeroDetailComponent"] },
+            { path: 'fight/start', component: _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_32__["FightSetupComponent"] },
+            { path: 'startTimer', component: _admin_timer_admin_timer_component__WEBPACK_IMPORTED_MODULE_13__["AdminTimerComponent"] }
         ]
     },
     {
-        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_42__["PlayerComponent"],
+        path: 'player', component: _player_player_component__WEBPACK_IMPORTED_MODULE_43__["PlayerComponent"],
         children: [
             {
                 path: 'heroes',
-                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"]
+                component: _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_36__["HeroesComponent"]
             },
             {
                 path: 'hero/:id',
-                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"]
+                component: _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_35__["HeroDetailComponent"]
             },
             {
                 path: 'hero/:id/editStuff',
-                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"]
+                component: _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_26__["EditDialogComponent"]
             }
         ]
     },
@@ -469,7 +573,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes, {
-                    scrollPositionRestoration: 'top'
+                    scrollPositionRestoration: 'top',
+                    initialNavigation: 'enabled'
                 }),
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_10__["ToastrModule"].forRoot({
@@ -499,60 +604,63 @@ var AppModule = /** @class */ (function () {
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"],
-                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_35__["HeroesComponent"],
-                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_34__["HeroDetailComponent"],
-                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_33__["HeroControls"],
-                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_32__["HeroCard"],
-                _menu_menu_component__WEBPACK_IMPORTED_MODULE_41__["Menu"],
-                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_49__["TalentCard"],
-                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_46__["SpellCard"],
+                _app_component__WEBPACK_IMPORTED_MODULE_15__["AppComponent"],
+                _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_36__["HeroesComponent"],
+                _herodetail_hero_detail_component__WEBPACK_IMPORTED_MODULE_35__["HeroDetailComponent"],
+                _hero_controls_hero_controls_component__WEBPACK_IMPORTED_MODULE_34__["HeroControls"],
+                _hero_card_hero_card_component__WEBPACK_IMPORTED_MODULE_33__["HeroCard"],
+                _menu_menu_component__WEBPACK_IMPORTED_MODULE_42__["Menu"],
+                _talent_card_talent_card_component__WEBPACK_IMPORTED_MODULE_50__["TalentCard"],
+                _spell_card_spell_card_component__WEBPACK_IMPORTED_MODULE_47__["SpellCard"],
                 _admin_overview_admin_overview_component__WEBPACK_IMPORTED_MODULE_12__["AdminOverviewComponent"],
-                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_31__["FightSetupComponent"],
-                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_30__["FightDisplayComponent"],
+                _fight_setup_fight_setup_component__WEBPACK_IMPORTED_MODULE_32__["FightSetupComponent"],
+                _fight_display_fight_display_component__WEBPACK_IMPORTED_MODULE_31__["FightDisplayComponent"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButton"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggleGroup"],
                 _angular_material___WEBPACK_IMPORTED_MODULE_3__["MatButtonToggle"],
-                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_44__["RemoteControlComponent"],
-                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_43__["RemoteControlReceiverComponent"],
-                _player_player_component__WEBPACK_IMPORTED_MODULE_42__["PlayerComponent"],
-                _master_master_component__WEBPACK_IMPORTED_MODULE_40__["MasterComponent"],
-                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__["ImagePopupComponent"],
-                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__["ChooseImageComponent"],
-                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_38__["LifeDisplayComponent"],
-                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_45__["ScrollSpyDirective"],
-                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_39__["MagicDisplayComponent"],
-                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_51__["TalentSearchComponent"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__["MatchesTalentSearchTerm"],
-                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_50__["MatchesTalentSearchTermChildren"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__["MatchesSpellSearchTerm"],
-                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_48__["MatchesSpellSearchTermChildren"],
-                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_22__["DetailNavigationComponent"],
-                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_15__["AttributesDisplayComponent"],
-                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_16__["BasicDataDisplayComponent"],
-                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_18__["CombatDataDisplayComponent"],
-                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_37__["InventoryDisplayComponent"],
-                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"],
-                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_24__["EditAttributeComponent"],
-                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_29__["ExperienceDisplayComponent"],
-                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_47__["SpellSearchComponent"],
-                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_27__["EditTalentComponent"],
-                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_21__["ConfirmationSheetComponent"],
-                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__["ConfirmDeletionComponent"],
-                _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__["ExperienceAdditionComponent"],
-                _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__["EditMoneyComponent"],
-                _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_13__["AdventureDisplayComponent"],
-                _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_19__["CombatantComponent"],
-                _domain_fight__WEBPACK_IMPORTED_MODULE_23__["MatchesCombatantSearchTerm"],
-                _domain_fight__WEBPACK_IMPORTED_MODULE_23__["IsGoodFighter"]
+                _remote_control_remote_control_component__WEBPACK_IMPORTED_MODULE_45__["RemoteControlComponent"],
+                _remote_control_receiver_remote_control_receiver_component__WEBPACK_IMPORTED_MODULE_44__["RemoteControlReceiverComponent"],
+                _player_player_component__WEBPACK_IMPORTED_MODULE_43__["PlayerComponent"],
+                _master_master_component__WEBPACK_IMPORTED_MODULE_41__["MasterComponent"],
+                _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_37__["ImagePopupComponent"],
+                _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_18__["ChooseImageComponent"],
+                _life_display_life_display_component__WEBPACK_IMPORTED_MODULE_39__["LifeDisplayComponent"],
+                _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_46__["ScrollSpyDirective"],
+                _magic_display_magic_display_component__WEBPACK_IMPORTED_MODULE_40__["MagicDisplayComponent"],
+                _talent_search_talent_search_component__WEBPACK_IMPORTED_MODULE_52__["TalentSearchComponent"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_51__["MatchesTalentSearchTerm"],
+                _talent_search_skill_pipe__WEBPACK_IMPORTED_MODULE_51__["MatchesTalentSearchTermChildren"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_49__["MatchesSpellSearchTerm"],
+                _spell_search_spell_pipe__WEBPACK_IMPORTED_MODULE_49__["MatchesSpellSearchTermChildren"],
+                _detail_navigation_detail_navigation_component__WEBPACK_IMPORTED_MODULE_23__["DetailNavigationComponent"],
+                _attributes_display_attributes_display_component__WEBPACK_IMPORTED_MODULE_16__["AttributesDisplayComponent"],
+                _basic_data_display_basic_data_display_component__WEBPACK_IMPORTED_MODULE_17__["BasicDataDisplayComponent"],
+                _combat_data_display_combat_data_display_component__WEBPACK_IMPORTED_MODULE_19__["CombatDataDisplayComponent"],
+                _inventory_display_inventory_display_component__WEBPACK_IMPORTED_MODULE_38__["InventoryDisplayComponent"],
+                _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_26__["EditDialogComponent"],
+                _edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_25__["EditAttributeComponent"],
+                _experience_display_experience_display_component__WEBPACK_IMPORTED_MODULE_30__["ExperienceDisplayComponent"],
+                _spell_search_spell_search_component__WEBPACK_IMPORTED_MODULE_48__["SpellSearchComponent"],
+                _edit_talent_edit_talent_component__WEBPACK_IMPORTED_MODULE_28__["EditTalentComponent"],
+                _confirmation_sheet_confirmation_sheet_component__WEBPACK_IMPORTED_MODULE_22__["ConfirmationSheetComponent"],
+                _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_21__["ConfirmDeletionComponent"],
+                _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_29__["ExperienceAdditionComponent"],
+                _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_27__["EditMoneyComponent"],
+                _adventure_display_adventure_display_component__WEBPACK_IMPORTED_MODULE_14__["AdventureDisplayComponent"],
+                _combatant_combatant_component__WEBPACK_IMPORTED_MODULE_20__["CombatantComponent"],
+                _domain_fight__WEBPACK_IMPORTED_MODULE_24__["MatchesCombatantSearchTerm"],
+                _domain_fight__WEBPACK_IMPORTED_MODULE_24__["IsGoodFighter"],
+                _admin_timer_admin_timer_component__WEBPACK_IMPORTED_MODULE_13__["AdminTimerComponent"],
+                _timer_dialog_timer_dialog_component__WEBPACK_IMPORTED_MODULE_53__["TimerDialogComponent"],
+                _edit_spell_edit_spell_component__WEBPACK_IMPORTED_MODULE_54__["EditSpellComponent"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_15__["AppComponent"]],
             providers: [{
                     provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"],
                     useValue: {}
                 },
                 { provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"], useValue: {} }],
-            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_36__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_17__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_25__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_20__["ConfirmDeletionComponent"], _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_28__["ExperienceAdditionComponent"], _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_26__["EditMoneyComponent"]],
+            entryComponents: [_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_37__["ImagePopupComponent"], _choose_image_choose_image_component__WEBPACK_IMPORTED_MODULE_18__["ChooseImageComponent"], _edit_dialog_edit_dialog_component__WEBPACK_IMPORTED_MODULE_26__["EditDialogComponent"], _confirm_deletion_confirm_deletion_component__WEBPACK_IMPORTED_MODULE_21__["ConfirmDeletionComponent"], _experience_addition_experience_addition_component__WEBPACK_IMPORTED_MODULE_29__["ExperienceAdditionComponent"], _edit_money_edit_money_component__WEBPACK_IMPORTED_MODULE_27__["EditMoneyComponent"], _timer_dialog_timer_dialog_component__WEBPACK_IMPORTED_MODULE_53__["TimerDialogComponent"]],
         })
     ], AppModule);
     return AppModule;
@@ -1460,6 +1568,7 @@ var ActualSpell = /** @class */ (function () {
     function ActualSpell(actualSpell, hero, spell, spellGroup) {
         this.spell = spell;
         this.spellGroup = spellGroup;
+        this.assignmentId = actualSpell ? actualSpell['assignmentId'] : null;
         this.value = actualSpell ? actualSpell['value'] : -7;
         this.isAssignedToHero = actualSpell ? true : false;
         this.hero = hero;
@@ -2982,11 +3091,14 @@ var RemoteControlOperation = /** @class */ (function () {
     RemoteControlOperation.prototype.getParameters = function () {
         return this.params;
     };
+    RemoteControlOperation.prototype.getParameter = function (parameterName) {
+        return this.params[parameterName];
+    };
     RemoteControlOperation.prototype.toJSON = function () {
         return JSON.stringify({
             type: this.type,
             target: this.target,
-            params: this.params
+            params: JSON.stringify(this.params)
         });
     };
     return RemoteControlOperation;
@@ -3000,7 +3112,7 @@ var OperationFactory = /** @class */ (function () {
     };
     OperationFactory.createOperationFromJSON = function (jsonstring) {
         var parsedObject = JSON.parse(jsonstring);
-        return new RemoteControlOperation(parsedObject.type, parsedObject.target, parsedObject.params);
+        return new RemoteControlOperation(parsedObject.type, parsedObject.target, JSON.parse(parsedObject.params));
     };
     return OperationFactory;
 }());
@@ -3009,7 +3121,10 @@ var operationTypes = {
     openImage: 'openImage',
     closeImage: 'closeImage',
     createNPC: 'createNPC',
-    startFight: 'startFight'
+    startFight: 'startFight',
+    startTimer: 'startTimer',
+    timerFinished: 'timerFinished',
+    timerStopped: 'timerStopped'
 };
 
 
@@ -3242,7 +3357,11 @@ var Spell = /** @class */ (function () {
         this.dice2 = dataObject['dice2'];
         this.dice3 = dataObject['dice3'];
         this.be = dataObject['be'];
+        this.complexity = dataObject['complexity'];
     }
+    Spell.prototype.getAscensionPricingTableColumn = function () {
+        return "price" + this.complexity;
+    };
     return Spell;
 }());
 
@@ -3271,6 +3390,9 @@ var SpellGroup = /** @class */ (function () {
     };
     SpellGroup.prototype.getSpells = function () {
         return this.spells;
+    };
+    SpellGroup.prototype.getAscensionPricingTableColumn = function () {
+        return "price" + this.spellType;
     };
     SpellGroup.prototype.getSpellsPromise = function () {
         return new Promise(function (resolve, reject) {
@@ -3378,6 +3500,151 @@ var SpellService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
     ], SpellService);
     return SpellService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/domain/timer.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/domain/timer.service.ts ***!
+  \*****************************************/
+/*! exports provided: TimerService, Timer, TimeRemaining */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimerService", function() { return TimerService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Timer", function() { return Timer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeRemaining", function() { return TimeRemaining; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/remote-control/remote-control.service */ "./src/app/remote-control/remote-control.service.ts");
+/* harmony import */ var _remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TimerService = /** @class */ (function () {
+    function TimerService(remoteControlService) {
+        this.remoteControlService = remoteControlService;
+        this.timer = new Timer();
+        this.timer.minutes = 0;
+        this.timer.seconds = 0;
+        this.timer.title = 'Denkt nach';
+        this.timer.running = false;
+        this.timeRemaining = new TimeRemaining(0, 0, 0);
+    }
+    TimerService.prototype.startTimer = function (isLocal) {
+        if (isLocal === void 0) { isLocal = false; }
+        this.timer.isLocal = isLocal;
+        var timerPeriod = this.timer.getTimerMilliseconds();
+        this.timer.timerId = window.setTimeout(this.stopTimer.bind(this), timerPeriod);
+        if (this.timer.isLocal === false) {
+            var remoteControlOperation = _remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["OperationFactory"].createOperation(_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["operationTypes"].startTimer, 'all', this.timer);
+            this.remoteControlService.sendRemoteControlInstruction(remoteControlOperation);
+        }
+        this.timer.running = true;
+        this.timeRemaining.minutes = this.timer.minutes;
+        this.timeRemaining.seconds = this.timer.seconds;
+        this.timeRemaining.intervalId = window.setInterval(this._countDown.bind(this), 1000, this.timeRemaining);
+    };
+    TimerService.prototype.stopTimer = function (letOthersKnow) {
+        if (letOthersKnow === void 0) { letOthersKnow = true; }
+        window.clearTimeout(this.timer.timerId);
+        window.clearInterval(this.timeRemaining.intervalId);
+        this.timer.running = false;
+        if (letOthersKnow === true) {
+            var remoteControlOperation = _remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["OperationFactory"].createOperation(_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["operationTypes"].timerFinished, 'all', this.timer);
+            this.remoteControlService.sendRemoteControlInstruction(remoteControlOperation);
+        }
+    };
+    TimerService.prototype.clearTimer = function () {
+        window.clearTimeout(this.timer.timerId);
+        window.clearInterval(this.timeRemaining.intervalId);
+        this.timer.running = false;
+        var remoteControlOperation = _remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["OperationFactory"].createOperation(_remoteControlOperation__WEBPACK_IMPORTED_MODULE_2__["operationTypes"].timerStopped, 'all', this.timer);
+        this.remoteControlService.sendRemoteControlInstruction(remoteControlOperation);
+    };
+    TimerService.prototype._countDown = function (timeRemaining) {
+        timeRemaining.seconds--;
+        if (timeRemaining.seconds < 0) {
+            timeRemaining.minutes--;
+            if (timeRemaining.minutes < 0)
+                this.stopTimer();
+            else
+                timeRemaining.seconds = 59;
+        }
+    };
+    TimerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [app_remote_control_remote_control_service__WEBPACK_IMPORTED_MODULE_1__["RemoteControlService"]])
+    ], TimerService);
+    return TimerService;
+}());
+
+var Timer = /** @class */ (function () {
+    function Timer() {
+        this.isLocal = false;
+    }
+    Timer.prototype.getTimerMilliseconds = function () {
+        return (this.seconds + this.minutes * 60) * 1000;
+    };
+    return Timer;
+}());
+
+var TimeRemaining = /** @class */ (function () {
+    function TimeRemaining(_intervalId, _minutes, _seconds) {
+        this._intervalId = _intervalId;
+        this._minutes = _minutes;
+        this._seconds = _seconds;
+    }
+    Object.defineProperty(TimeRemaining.prototype, "secondsString", {
+        get: function () {
+            return this.seconds.toString().padStart(2, '0');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TimeRemaining.prototype, "intervalId", {
+        get: function () {
+            return this._intervalId;
+        },
+        set: function (intervalId) {
+            this._intervalId = intervalId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TimeRemaining.prototype, "minutes", {
+        get: function () {
+            return this._minutes;
+        },
+        set: function (minutes) {
+            this._minutes = minutes;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TimeRemaining.prototype, "seconds", {
+        get: function () {
+            return this._seconds;
+        },
+        set: function (seconds) {
+            this._seconds = seconds;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TimeRemaining;
 }());
 
 
@@ -3714,7 +3981,7 @@ var EditAttributeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navigationButton {\r\n    width: 250px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.attributeContainer, .skillEntry {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n"
+module.exports = ".navigationButton {\r\n  width: 250px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.attributeContainer,\r\n.skillEntry,\r\n.spellEntry {\r\n  margin-bottom: 10px;\r\n}\r\n"
 
 /***/ }),
 
@@ -3725,7 +3992,7 @@ module.exports = ".navigationButton {\r\n    width: 250px;\r\n    margin-bottom:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page flex-col center\">\r\n  <div class=\"pageContent\">\r\n    <div class=\"sheet flex-col center\" *ngIf=\"hero\">\r\n      <h2>Punkte einsetzen</h2>\r\n      <div>{{hero.availablePoints}}</div>\r\n      <div id=\"firstStep\" *ngIf=\"state === 'initial'\" class=\"flex-col center\">\r\n        <h3>Was möchtest Du mit {{hero.name}} tun?</h3>\r\n        <div class=\"flex-col\">\r\n            <button class=\"navigationButton\" (click)=\"setState('raiseAttribute')\">Eigenschaft steigern</button>\r\n            <button class=\"navigationButton\" (click)=\"setState('raiseTalent')\">Talent steigern</button>\r\n            <button class=\"navigationButton\" *ngIf=\"hero.knowsMagic === true\">Zauberfertigkeit steigern</button>\r\n          </div>\r\n      </div>\r\n      <div id=\"raiseAttribute\" *ngIf=\"state === 'raiseAttribute'\" class=\"flex-col center\">\r\n        <h3>Welche Eigenschaft möchtest Du steigern?</h3>\r\n        <div class=\"navigationButton flex-item\" *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\">\r\n          <edit-attribute [attribute]=\"attribute\" [costOfAscension]=\"getCostOfAttributeAscension(attribute)\" [hero]=\"hero\"></edit-attribute>\r\n        </div>\r\n        \r\n      </div>\r\n      <div id=\"raiseTalent\" *ngIf=\"state === 'raiseTalent'\" class=\"flex-col center\">\r\n        <h3>Welches Talent möchtest Du steigern?</h3>\r\n        <div class=\"flex-col flex-item center\">\r\n          <div class=\"flex-row padded searchContainer center\" >\r\n            <input placeholder=\"Suchbegriff\" [value]=\"talentSearchTerm\" (input)=\"talentSearchTerm  = $event.target.value\" />\r\n          </div>\r\n          <div class=\"talente padded\">\r\n            <div class=\"flex-col center\" *ngFor=\"let skillGroup of hero.skillGroups | MatchesTalentSearchTermChildren:talentSearchTerm\">\r\n              <div class=\"skillGroupTitle\">{{skillGroup.skillGroup.name}}</div>\r\n              <div class=\"skillGroupEntries\">\r\n                  <div class=\"skillEntry\" *ngFor=\"let skill of skillGroup.skills | MatchesTalentSearchTerm:talentSearchTerm\">\r\n                    <edit-talent [skill]=\"skill\" [hero]=\"hero\" [costOfAscension]=\"getCostOfSkillAscension(skill)\"></edit-talent>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"page flex-col center\">\r\n  <div class=\"pageContent\">\r\n    <div class=\"sheet flex-col center\" *ngIf=\"hero\">\r\n      <h2>Punkte einsetzen</h2>\r\n      <div>{{ hero.availablePoints }}</div>\r\n      <div id=\"firstStep\" *ngIf=\"state === 'initial'\" class=\"flex-col center\">\r\n        <h3>Was möchtest Du mit {{ hero.name }} tun?</h3>\r\n        <div class=\"flex-col\">\r\n          <button class=\"navigationButton\" (click)=\"setState('raiseAttribute')\">\r\n            Eigenschaft steigern\r\n          </button>\r\n          <button class=\"navigationButton\" (click)=\"setState('raiseTalent')\">\r\n            Talent steigern\r\n          </button>\r\n          <button\r\n            class=\"navigationButton\"\r\n            (click)=\"setState('raiseMagicTalent')\"\r\n            *ngIf=\"hero.knowsMagic === true\"\r\n          >\r\n            Zauberfertigkeit steigern\r\n          </button>\r\n        </div>\r\n      </div>\r\n      <div\r\n        id=\"raiseAttribute\"\r\n        *ngIf=\"state === 'raiseAttribute'\"\r\n        class=\"flex-col center\"\r\n      >\r\n        <h3>Welche Eigenschaft möchtest Du steigern?</h3>\r\n        <div\r\n          class=\"navigationButton flex-item\"\r\n          *ngFor=\"let attribute of hero.attributes; index as i; keyvalue\"\r\n        >\r\n          <edit-attribute\r\n            [attribute]=\"attribute\"\r\n            [costOfAscension]=\"getCostOfAttributeAscension(attribute)\"\r\n            [hero]=\"hero\"\r\n          ></edit-attribute>\r\n        </div>\r\n      </div>\r\n      <div\r\n        id=\"raiseTalent\"\r\n        *ngIf=\"state === 'raiseTalent'\"\r\n        class=\"flex-col center\"\r\n      >\r\n        <h3>Welches Talent möchtest Du steigern?</h3>\r\n        <div class=\"flex-col flex-item center\">\r\n          <div class=\"flex-row padded searchContainer center\">\r\n            <input\r\n              placeholder=\"Suchbegriff\"\r\n              [value]=\"talentSearchTerm\"\r\n              (input)=\"talentSearchTerm = $event.target.value\"\r\n            />\r\n          </div>\r\n          <div class=\"talente padded\">\r\n            <div\r\n              class=\"flex-col center\"\r\n              *ngFor=\"\r\n                let skillGroup of hero.skillGroups\r\n                  | MatchesTalentSearchTermChildren : talentSearchTerm\r\n              \"\r\n            >\r\n              <div class=\"skillGroupTitle\">\r\n                {{ skillGroup.skillGroup.name }}\r\n              </div>\r\n              <div class=\"skillGroupEntries\">\r\n                <div\r\n                  class=\"skillEntry\"\r\n                  *ngFor=\"\r\n                    let skill of skillGroup.skills\r\n                      | MatchesTalentSearchTerm : talentSearchTerm\r\n                  \"\r\n                >\r\n                  <edit-talent\r\n                    [skill]=\"skill\"\r\n                    [hero]=\"hero\"\r\n                    [costOfAscension]=\"getCostOfSkillAscension(skill)\"\r\n                  ></edit-talent>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div\r\n        id=\"raiseTalent\"\r\n        *ngIf=\"state === 'raiseMagicTalent'\"\r\n        class=\"flex-col center\"\r\n      >\r\n        <h3>Welche Zauberfertigkeit möchtest Du steigern?</h3>\r\n        <div class=\"flex-col flex-item center\">\r\n          <div class=\"flex-row padded searchContainer center\">\r\n            <input\r\n              placeholder=\"Suchbegriff\"\r\n              [value]=\"spellSearchTerm\"\r\n              (input)=\"spellSearchTerm = $event.target.value\"\r\n            />\r\n          </div>\r\n          <div class=\"talente padded\">\r\n            <div\r\n              class=\"flex-col center spellGroup\"\r\n              *ngFor=\"\r\n                let spellGroup of hero.spellGroups\r\n                  | MatchesSpellSearchTermChildren : spellSearchTerm\r\n              \"\r\n            >\r\n              <div class=\"spellGroupTitle\">\r\n                {{ spellGroup.spellGroup.name }}\r\n              </div>\r\n              <div class=\"spellGroupEntries\">\r\n                <div\r\n                  class=\"spellEntry\"\r\n                  *ngFor=\"\r\n                    let spell of spellGroup.spells\r\n                      | MatchesSpellSearchTerm : spellSearchTerm\r\n                  \"\r\n                >\r\n                  <edit-spell\r\n                    [spell]=\"spell\"\r\n                    [hero]=\"hero\"\r\n                    [costOfAscension]=\"getCostOfSpellAscension(spell)\"\r\n                  ></edit-spell>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3741,10 +4008,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditDialogComponent", function() { return EditDialogComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
-/* harmony import */ var app_edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
-/* harmony import */ var app_domain_enhancement_pricing_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/enhancement-pricing.service */ "./src/app/domain/enhancement-pricing.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_domain_enhancement_pricing_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/domain/enhancement-pricing.service */ "./src/app/domain/enhancement-pricing.service.ts");
+/* harmony import */ var app_edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/edit-attribute/edit-attribute.component */ "./src/app/edit-attribute/edit-attribute.component.ts");
+/* harmony import */ var _domain_hero_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../domain/hero.service */ "./src/app/domain/hero.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3767,6 +4034,7 @@ var EditDialogComponent = /** @class */ (function () {
         this.route = route;
         this.dialogRef = dialogRef;
         this.talentSearchTerm = '';
+        this.spellSearchTerm = '';
         this.enhancementPricingService = enhancementPricingService;
         this.enhancementPricingService.getAscensionPricing().then(function (pricing) {
             _this.pricingTable = pricing;
@@ -3812,6 +4080,15 @@ var EditDialogComponent = /** @class */ (function () {
         })[skill.getSkillGroup().getAscensionPricingTableColumn()];
         return price;
     };
+    EditDialogComponent.prototype.getCostOfSpellAscension = function (spell) {
+        var rowValue = spell.value;
+        if (rowValue === -7)
+            rowValue = 0;
+        var price = this.pricingTable.find(function (ascensionPricing) {
+            return ascensionPricing.levelFrom === rowValue;
+        })[spell.getSpell().getAscensionPricingTableColumn()];
+        return price;
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object),
@@ -3821,15 +4098,15 @@ var EditDialogComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-dialog',
             providers: [
-                app_edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_3__["EditAttributeComponent"]
+                app_edit_attribute_edit_attribute_component__WEBPACK_IMPORTED_MODULE_4__["EditAttributeComponent"]
                 // MatDialogRef
             ],
             template: __webpack_require__(/*! ./edit-dialog.component.html */ "./src/app/edit-dialog/edit-dialog.component.html"),
             styles: [__webpack_require__(/*! ./edit-dialog.component.css */ "./src/app/edit-dialog/edit-dialog.component.css")]
         }),
-        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
-            app_domain_enhancement_pricing_service__WEBPACK_IMPORTED_MODULE_4__["EnhancementPricingService"],
+        __metadata("design:paramtypes", [_domain_hero_service__WEBPACK_IMPORTED_MODULE_5__["HeroService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            app_domain_enhancement_pricing_service__WEBPACK_IMPORTED_MODULE_3__["EnhancementPricingService"],
             _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
     ], EditDialogComponent);
     return EditDialogComponent;
@@ -3939,6 +4216,126 @@ var EditMoneyData = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/edit-spell/edit-spell.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/edit-spell/edit-spell.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".skillTitle {\r\n  width: 140px;\r\n  font-weight: 600;\r\n  text-align: left;\r\n}\r\n\r\n.targetValue {\r\n  margin-right: 0.25rem;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/edit-spell/edit-spell.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/edit-spell/edit-spell.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flex-col center\">\n  <button (click)=\"increaseSpell()\">\n    <div class=\"flex-row skill\">\n      <div class=\"skillTitle\">{{ spell.getSpell().name }}</div>\n      <div class=\"targetValue\">\n        <i class=\"fa fa-tachometer\"></i> {{ targetValue }}\n      </div>\n      <div class=\"costOfRaise\">\n        <i class=\"fa fa-dollar\"></i> {{ costOfAscension }}\n      </div>\n    </div>\n  </button>\n  <confirmation-sheet\n    *ngIf=\"state === 'toBeConfirmed'\"\n    confirmationText=\"Zahle {{ costOfAscension }} um {{\n      spell.spell.name\n    }} zu steigern?\"\n    (confirm)=\"confirmIncrease()\"\n    (cancel)=\"cancelIncrease()\"\n  ></confirmation-sheet>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/edit-spell/edit-spell.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/edit-spell/edit-spell.component.ts ***!
+  \****************************************************/
+/*! exports provided: EditSpellComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditSpellComponent", function() { return EditSpellComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_domain_actualSpell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/domain/actualSpell */ "./src/app/domain/actualSpell.ts");
+/* harmony import */ var app_domain_hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/domain/hero */ "./src/app/domain/hero.ts");
+/* harmony import */ var app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/hero-controls/hero-life.service */ "./src/app/hero-controls/hero-life.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EditSpellComponent = /** @class */ (function () {
+    function EditSpellComponent(service) {
+        this.service = service;
+        this._service = service;
+    }
+    EditSpellComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(EditSpellComponent.prototype, "targetValue", {
+        get: function () {
+            if (this.spell.value === -7)
+                return 0;
+            else
+                return this.spell.value + 1;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    EditSpellComponent.prototype.increaseSpell = function () {
+        this._state = 'toBeConfirmed';
+    };
+    EditSpellComponent.prototype.cancelIncrease = function () {
+        this._state = '';
+    };
+    EditSpellComponent.prototype.confirmIncrease = function () {
+        this._service.sendUpate({
+            heroId: this.hero.id,
+            type: 'updateSpell',
+            skillId: this.spell.getSpell().id,
+            assignmentId: this.spell.assignmentId,
+            value: this.targetValue,
+            price: this.costOfAscension
+        });
+        this.spell.value = this.targetValue;
+        this.hero.experience_used += this.costOfAscension;
+        // this.heroMU
+        this._state = '';
+    };
+    Object.defineProperty(EditSpellComponent.prototype, "state", {
+        get: function () {
+            return this._state;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", app_domain_actualSpell__WEBPACK_IMPORTED_MODULE_1__["ActualSpell"])
+    ], EditSpellComponent.prototype, "spell", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], EditSpellComponent.prototype, "costOfAscension", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", app_domain_hero__WEBPACK_IMPORTED_MODULE_2__["Hero"])
+    ], EditSpellComponent.prototype, "hero", void 0);
+    EditSpellComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'edit-spell',
+            template: __webpack_require__(/*! ./edit-spell.component.html */ "./src/app/edit-spell/edit-spell.component.html"),
+            styles: [__webpack_require__(/*! ./edit-spell.component.css */ "./src/app/edit-spell/edit-spell.component.css")]
+        }),
+        __metadata("design:paramtypes", [app_hero_controls_hero_life_service__WEBPACK_IMPORTED_MODULE_3__["HeroLifeService"]])
+    ], EditSpellComponent);
+    return EditSpellComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/edit-talent/edit-talent.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/edit-talent/edit-talent.component.css ***!
@@ -3946,7 +4343,7 @@ var EditMoneyData = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".skillTitle {\r\n    width: 140px;\r\n    font-weight: 600;\r\n    text-align: left;\r\n}"
+module.exports = ".skillTitle {\r\n  width: 140px;\r\n  font-weight: 600;\r\n  text-align: left;\r\n}\r\n\r\n.targetValue {\r\n  margin-right: 0.25rem;\r\n}\r\n"
 
 /***/ }),
 
@@ -4077,7 +4474,7 @@ module.exports = "input {\r\n    margin-top: 3rem;\r\n    margin-bottom: 3rem;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-col center\">\r\n  <img src=\"/assets/scroll.png\" class=\"dialogHeroImage no-border\" />\r\n  <h4 class=\"titleText\">\r\n    Neue Abenteuerpunkte\r\n  </h4>\r\n  <input type=\"number\" placeholder=\"Die Anzahl deiner neuen Abenteuerpunkte\" [(ngModel)]=\"newPointsToAdd\" />\r\n</div>\r\n<div class=\"buttonRow row\">\r\n  <button (click)=\"raiseCancel()\">Aaah, Quatsch, kommt doch nichts dazu.</button>\r\n  <button class=\"\" (click)=\"raiseAccept()\"><i class=\"fa fa-magic\"></i> Her mit den Punkten!</button>\r\n</div>"
+module.exports = "<div class=\"flex-col center\">\r\n  <img src=\"/assets/scroll.png\" class=\"dialogHeroImage no-border\" />\r\n  <h4 class=\"titleText\">Neue Abenteuerpunkte</h4>\r\n  <input\r\n    type=\"number\"\r\n    placeholder=\"Die Anzahl deiner neuen Abenteuerpunkte\"\r\n    [(ngModel)]=\"newPointsToAdd\"\r\n  />\r\n</div>\r\n<div class=\"buttonRow row\">\r\n  <button (click)=\"raiseCancel()\">\r\n    Aaah, Quatsch, kommt doch nichts dazu.\r\n  </button>\r\n  <button class=\"\" (click)=\"raiseStopTimer()\">\r\n    <i class=\"fa fa-magic\"></i> Her mit den Punkten!\r\n  </button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4828,7 +5225,7 @@ var HeroLifeService = /** @class */ (function () {
                 }
             };
             this.socket.addEventListener('error', function (event) {
-                console.log('hey');
+                _this.toastr.error('Fehler bei der Websocketkommunikation mit den Helden.', 'Fehler');
                 event.stopPropagation();
             });
             this.socket.addEventListener('close', function (event) {
@@ -5932,7 +6329,9 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoteControlReceiverComponent", function() { return RemoteControlReceiverComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./remote-control-receiver.service */ "./src/app/remote-control-receiver/remote-control-receiver.service.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./remote-control-receiver.service */ "./src/app/remote-control-receiver/remote-control-receiver.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5944,12 +6343,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 // import { Lightbox } from 'ngx-lightbox';
 var RemoteControlReceiverComponent = /** @class */ (function () {
-    function RemoteControlReceiverComponent(websocketService) {
-        this.service = websocketService;
+    function RemoteControlReceiverComponent(websocketService, toastr) {
+        this.websocketService = websocketService;
+        this.toastr = toastr;
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_1__["UrlService"].getBaseURLWS() + "/remoteControl";
+        this.currentlyConnected = false;
     }
     RemoteControlReceiverComponent.prototype.ngOnInit = function () {
+    };
+    RemoteControlReceiverComponent.prototype.handleIncommingMessage = function (message) {
+        var messageData = JSON.parse(message.data);
     };
     RemoteControlReceiverComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -5957,7 +6364,7 @@ var RemoteControlReceiverComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./remote-control-receiver.component.html */ "./src/app/remote-control-receiver/remote-control-receiver.component.html"),
             styles: [__webpack_require__(/*! ./remote-control-receiver.component.css */ "./src/app/remote-control-receiver/remote-control-receiver.component.css")]
         }),
-        __metadata("design:paramtypes", [_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_1__["RemoteControlReceiverService"]])
+        __metadata("design:paramtypes", [_remote_control_receiver_service__WEBPACK_IMPORTED_MODULE_3__["RemoteControlReceiverService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]])
     ], RemoteControlReceiverComponent);
     return RemoteControlReceiverComponent;
 }());
@@ -5980,12 +6387,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
-/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
-/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
+/* harmony import */ var app_domain_timer_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/domain/timer.service */ "./src/app/domain/timer.service.ts");
+/* harmony import */ var app_timer_dialog_timer_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/timer-dialog/timer-dialog.component */ "./src/app/timer-dialog/timer-dialog.component.ts");
+/* harmony import */ var app_url_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/url.service */ "./src/app/url.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../domain/remoteControlOperation */ "./src/app/domain/remoteControlOperation.ts");
+/* harmony import */ var _image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../image-popup/image-popup.component */ "./src/app/image-popup/image-popup.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6006,35 +6416,78 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var RemoteControlReceiverService = /** @class */ (function () {
-    function RemoteControlReceiverService(http, dialog, toastr) {
+    function RemoteControlReceiverService(http, dialog, toastr, timerService) {
         var _this = this;
         this.http = http;
         this.dialog = dialog;
         this.toastr = toastr;
-        this.operationsMap = new Map([
-            [_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__["operationTypes"].openImage, function (url) {
-                    var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_9__["ImagePopupComponent"], {
-                        // width: '250px',
-                        data: { url: _this.baseUrl + url }
-                    });
-                    dialogRef.afterClosed().subscribe(function (result) {
-                        console.log('The dialog was closed');
-                    });
-                }
-            ]
-        ]);
-        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseURLWS() + "/remoteControlReceiver";
+        this.timerService = timerService;
+        this.operationsMap = new Map();
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_6__["UrlService"].getBaseURLWS() + "/remoteControl";
         this.wsClientId = Math.random().toString(36).substring(7);
         this.currentlyConnected = false;
-        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_4__["UrlService"].getBaseUrl();
-        // this.createWebsocket()
+        this.baseUrl = app_url_service__WEBPACK_IMPORTED_MODULE_6__["UrlService"].getBaseUrl();
+        this.createWebsocket();
+        this.operationsMap.set(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__["operationTypes"].openImage, function (openImageOperation) {
+            var dialogRef = _this.dialog.open(_image_popup_image_popup_component__WEBPACK_IMPORTED_MODULE_12__["ImagePopupComponent"], {
+                // width: '250px',
+                data: { url: _this.baseUrl + openImageOperation.getParameter('url') }
+            });
+        });
+        this.operationsMap.set(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__["operationTypes"].startTimer, function (startTimerOperation) {
+            if (_this.timerService.timer.running === false) {
+                var timerData = startTimerOperation.getParameters();
+                _this.timerService.timer.minutes = timerData.minutes;
+                _this.timerService.timer.seconds = timerData.seconds;
+                _this.timerService.timer.title = timerData.title;
+                _this.timerService.startTimer(true);
+                _this.timerToaster = _this.toastr.info("Ihr k\u00F6nnt kurz nachdenken: \n" + startTimerOperation.getParameter('minutes') + " Minuten\n" + startTimerOperation.getParameter('seconds') + " Sekunden!", 'Bedenkzeit', {
+                    timeOut: _this.timerService.timer.getTimerMilliseconds(),
+                    tapToDismiss: false,
+                    progressBar: true
+                });
+                _this.timerToaster.onTap.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["take"])(1))
+                    .subscribe(function () {
+                    var _this = this;
+                    this.timerDialogRef = this.dialog.open(app_timer_dialog_timer_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TimerDialogComponent"], {
+                        data: { timer: this.timerService.timer, timeRemaining: this.timerService.timeRemaining }
+                    });
+                    this.timerDialogRef.componentInstance.cancelDialog.subscribe(this.closeTimerDialog.bind(this));
+                    this.timerDialogRef.componentInstance.stopTimer.subscribe(function () {
+                        _this.timerService.clearTimer();
+                        _this.closeTimerDialog();
+                    });
+                }.bind(_this));
+            }
+        });
+        this.operationsMap.set(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__["operationTypes"].timerFinished, function (timerFinishedOperation) {
+            _this.closeTimerDialog();
+            _this.timerService.stopTimer(false);
+            if (_this.timerToaster)
+                _this.toastr.clear(_this.timerToaster.toastId);
+            _this.toastr.info('Die Zeit ist abgelaufen', "Time's Up!");
+        });
+        this.operationsMap.set(_domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__["operationTypes"].timerStopped, function (timerFinishedOperation) {
+            _this.closeTimerDialog();
+            _this.timerService.stopTimer(false);
+            if (_this.timerToaster)
+                _this.toastr.clear(_this.timerToaster.toastId);
+            _this.toastr.info("Der Plan ist gefasst!", 'Geschafft');
+        });
     }
+    RemoteControlReceiverService.prototype.closeTimerDialog = function () {
+        if (this.timerDialogRef)
+            this.timerDialogRef.close();
+    };
     RemoteControlReceiverService.prototype.createWebsocket = function () {
         var _this = this;
         try {
             this.socket = new WebSocket(this.wsUrl);
-            this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+            this.remoteControlReceiverSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
             this.socket.onopen = function (event) {
                 _this.currentlyConnected = true;
                 _this.toastr.success('Du bist online.');
@@ -6057,11 +6510,15 @@ var RemoteControlReceiverService = /** @class */ (function () {
                 }
             });
             this.remoteControlReceiverSubscription = this.remoteControlReceiverSubject.subscribe(function (message) {
-                var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_8__["OperationFactory"].createOperationFromJSON(message.data);
+                var instruction = _domain_remoteControlOperation__WEBPACK_IMPORTED_MODULE_11__["OperationFactory"].createOperationFromJSON(message.data);
                 var parameters = instruction.getParameters();
-                _this.operationsMap.get(instruction.getType()).apply(_this, instruction.getParameters());
+                var instructionFunction = _this.operationsMap.get(instruction.getType());
+                instructionFunction.apply(_this, [instruction]);
+                // this.operationsMap.get(instruction.getType()).apply(this, parameters)
             });
-            this.socket.onmessage = (function (evt) { return _this.remoteControlReceiverSubject.next(evt); });
+            this.socket.onmessage = (function (evt) {
+                return _this.remoteControlReceiverSubject.next(evt);
+            });
         }
         catch (error) {
             console.log('error setting up web socket with remote control receiver');
@@ -6069,7 +6526,7 @@ var RemoteControlReceiverService = /** @class */ (function () {
     };
     RemoteControlReceiverService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], app_domain_timer_service__WEBPACK_IMPORTED_MODULE_4__["TimerService"]])
     ], RemoteControlReceiverService);
     return RemoteControlReceiverService;
 }());
@@ -6197,7 +6654,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RemoteControlService = /** @class */ (function () {
     function RemoteControlService(http) {
         this.http = http;
-        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseURLWS + "/remoteControlSender";
+        this.wsUrl = app_url_service__WEBPACK_IMPORTED_MODULE_2__["UrlService"].getBaseURLWS() + "/remoteControl";
         this.wsClientId = Math.random().toString(36).substring(7);
         this.socket = this.createWebsocket();
         var subject = this.remoteControlSubject = new rxjs_Rx__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
@@ -6213,9 +6670,8 @@ var RemoteControlService = /** @class */ (function () {
         }
     };
     RemoteControlService.prototype.sendRemoteControlInstruction = function (instruction) {
-        console.log('will send instruction');
         var jsonOperation = instruction.toJSON();
-        console.log(jsonOperation);
+        console.log("will send instruction: " + jsonOperation);
         this.socket.send(jsonOperation);
     };
     RemoteControlService = __decorate([
@@ -6752,6 +7208,93 @@ var TalentSearchComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/timer-dialog/timer-dialog.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/timer-dialog/timer-dialog.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".spacer {\r\n  background: url(\"/assets/time.png\");\r\n  height: 90px;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  width: 100%;\r\n}\r\n\r\nh3,\r\nh4 {\r\n  margin: 20px 0;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/timer-dialog/timer-dialog.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/timer-dialog/timer-dialog.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flex-col center\">\n  <h3>Timer \"{{ timerData.timer.title }}\"</h3>\n  <div class=\"spacer\">&nbsp;</div>\n  <h4>\n    {{ timerData.timeRemaining.minutes }}:{{\n      timerData.timeRemaining.secondsString\n    }}\n  </h4>\n  <div class=\"flex-row\">\n    <button (click)=\"raiseCancel()\">Mach mal zu den Dialog</button>\n    <button class=\"\" (click)=\"raiseStopTimer()\">\n      <i class=\"fa fa-brain\"></i> Wir haben's!\n    </button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/timer-dialog/timer-dialog.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/timer-dialog/timer-dialog.component.ts ***!
+  \********************************************************/
+/*! exports provided: TimerDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimerDialogComponent", function() { return TimerDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var TimerDialogComponent = /** @class */ (function () {
+    function TimerDialogComponent(dialog, timerData) {
+        this.dialog = dialog;
+        this.timerData = timerData;
+        this.stopTimer = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.cancelDialog = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    TimerDialogComponent.prototype.ngOnInit = function () {
+    };
+    TimerDialogComponent.prototype.raiseStopTimer = function () {
+        this.stopTimer.emit();
+    };
+    TimerDialogComponent.prototype.raiseCancel = function () {
+        this.cancelDialog.emit();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], TimerDialogComponent.prototype, "stopTimer", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], TimerDialogComponent.prototype, "cancelDialog", void 0);
+    TimerDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-timer-dialog',
+            template: __webpack_require__(/*! ./timer-dialog.component.html */ "./src/app/timer-dialog/timer-dialog.component.html"),
+            styles: [__webpack_require__(/*! ./timer-dialog.component.css */ "./src/app/timer-dialog/timer-dialog.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], Object])
+    ], TimerDialogComponent);
+    return TimerDialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/url.service.ts":
 /*!********************************!*\
   !*** ./src/app/url.service.ts ***!
@@ -6788,7 +7331,7 @@ var UrlService = /** @class */ (function () {
     // private static _baseHostProd = `${window.location.hostname}:${window.location.port}`
     UrlService._baseHostProd = "" + UrlService_1.productionHost;
     UrlService._baseHostDev = window.location.hostname + ":8000";
-    UrlService._isDev = window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0' ? true : false;
+    UrlService._isDev = window.location.hostname === 'localhost' || /^(((1?[1-9]?|10|2[0-4])\d|25[0-5])($|\.(?!$))){4}$/.test(window.location.hostname) ? true : false;
     UrlService._baseURL = UrlService_1._isDev ? window.location.protocol + "//" + UrlService_1._baseHostDev : window.location.protocol + "//" + UrlService_1._baseHostProd;
     UrlService._protocolWebSockets = window.location.protocol === 'http:' ? 'ws:' : 'wss:';
     UrlService._baseURLWS = UrlService_1._isDev ? UrlService_1._protocolWebSockets + "//" + UrlService_1._baseHostDev : UrlService_1._protocolWebSockets + "//" + UrlService_1._baseHostProd;

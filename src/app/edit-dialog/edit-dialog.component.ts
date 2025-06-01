@@ -1,14 +1,15 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ActualAttribute } from 'app/domain/actualAttribute';
-import { Hero } from 'app/domain/hero';
-import { HeroService } from '../domain/hero.service';
-import { EditAttributeComponent } from 'app/edit-attribute/edit-attribute.component';
+import { ActualSkill } from 'app/domain/actualSkill';
 import { AscensionPricing } from 'app/domain/ascensionPricing';
 import { EnhancementPricingService } from 'app/domain/enhancement-pricing.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { ActualSkill } from 'app/domain/actualSkill';
+import { Hero } from 'app/domain/hero';
+import { EditAttributeComponent } from 'app/edit-attribute/edit-attribute.component';
+import { HeroService } from '../domain/hero.service';
+import { ActualSpell } from 'app/domain/actualSpell';
 
 @Component({
   selector: 'edit-dialog',
@@ -26,6 +27,7 @@ export class EditDialogComponent implements OnInit {
   private state: String
   private _hero: Hero
   talentSearchTerm: String = '';
+  spellSearchTerm: String = '';
 
   constructor(
     private heroService: HeroService,
@@ -80,6 +82,16 @@ export class EditDialogComponent implements OnInit {
     const price = this.pricingTable.find(ascensionPricing => {
       return ascensionPricing.levelFrom === rowValue
     })[skill.getSkillGroup().getAscensionPricingTableColumn()]
+
+    return price
+  }
+
+  public getCostOfSpellAscension(spell: ActualSpell): number {
+    let rowValue = spell.value
+    if(rowValue === -7) rowValue = 0
+    const price = this.pricingTable.find(ascensionPricing => {
+      return ascensionPricing.levelFrom === rowValue
+    })[spell.getSpell().getAscensionPricingTableColumn()]
 
     return price
   }

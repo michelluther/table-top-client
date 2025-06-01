@@ -1,9 +1,10 @@
 .navigationButton {
-    width: 250px;
-    margin-bottom: 5px;
+  width: 250px;
+  margin-bottom: 5px;
 }
 
-.attributeContainer, .skillEntry {
-    margin-bottom: 10px;
+.attributeContainer,
+.skillEntry,
+.spellEntry {
+  margin-bottom: 10px;
 }
-
