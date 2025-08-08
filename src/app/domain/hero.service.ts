@@ -18,28 +18,40 @@ import { UrlService } from 'app/url.service';
 export class HeroService {
 
 	private heroesUrl = `${UrlService.getBaseUrl()}/characters/`;
-	private heroes: Hero[];
+	private _heroes: Hero[];
 	private attributesConfigured: Attribute[]
 
 	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
 
 	}
 
-	getHeroes(): Promise<Hero[]> {
-		if (this.heroes) {
+	getHeroes(force: boolean = false) : Promise<Hero[]> {
+		if (this._heroes && !force) {
 			return new Promise((resolve, reject) => {
-				resolve(this.heroes)
+				resolve(this._heroes)
 			})
 		} else {
 			const characterGetPromise = this.http.get(this.heroesUrl)
 				.toPromise()
 				.then(response => {
-					this.heroes = this.extractData(response);
-					return this.heroes.sort((heroA, heroB) => {
+					if (!this._heroes) {
+						this._heroes = [];
+					}
+					let heroes = this.extractData(response);
+					for (let hero of heroes) {
+						const bufferdHero = this._heroes ? this._heroes.find(h => h.id === hero.id) : null;
+						if (bufferdHero) {
+							Object.assign(bufferdHero, hero);
+						} else {
+							this._heroes.push(hero);
+						}
+					}
+					this._heroes.sort((heroA, heroB) => {
 						if(heroA.name > heroB.name)
 							return 1
 						else return -1
 					})
+					return this._heroes;
 				}
 				)
 
@@ -47,6 +59,14 @@ export class HeroService {
 				console.log('error getting characters')
 			})
 			return characterGetPromise
+		}
+	}
+
+	get heroes (): Hero[] {
+		if (this._heroes) {
+			return this._heroes;
+		} else {
+			return [];
 		}
 	}
 

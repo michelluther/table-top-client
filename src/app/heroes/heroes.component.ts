@@ -50,7 +50,7 @@ export class HeroesComponent implements OnInit {
 		const heroesPromise = this.heroService.getHeroes()
 		const skillsPromise = this.skillService.getSkills()
 		Promise.all([heroesPromise, skillsPromise]).then(results => {
-			this.heroes = results[0];
+			this.heroes = this.heroService.heroes;
 			this.skills = results[1];
 			this.currentlyLoading = false;
 			gameState.dataInitialized = true;

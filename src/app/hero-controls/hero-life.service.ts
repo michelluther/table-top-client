@@ -23,6 +23,7 @@ export class HeroLifeService {
     public heroSubject: Subject<MessageEvent>;
     private heroService: HeroService;
     private connectionInterval: number;
+    private hasBeenDisconnected: boolean = false;
 
     private currentlyConnected: boolean = false;
 
@@ -38,10 +39,11 @@ export class HeroLifeService {
             this.heroSubject.subscribe(this.handleIncommingMessage.bind(this))
             
             this.socket.onmessage = (evt => this.heroSubject.next(evt));
-            this.socket.onopen = (event) => {
+            this.socket.onopen = async (event) => {
                 this.currentlyConnected = true;
                 this.toastr.success('Du bist online.')
                 clearInterval(this.connectionInterval)
+                await this.heroService.getHeroes(true);
             }
             this.socket.onerror = error => {
                 if (this.socket.readyState === this.socket.OPEN) {
