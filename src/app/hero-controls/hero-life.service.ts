@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Armor } from 'app/domain/armor';
 import { InventoryItem } from 'app/domain/inventoryItem';
 import { Weapon } from 'app/domain/weapon';
@@ -27,7 +27,7 @@ export class HeroLifeService {
 
     private currentlyConnected: boolean = false;
 
-    constructor(private http: Http, heroService: HeroService, private toastr: ToastrService, private skillService: SkillService) {
+    constructor(private http: HttpClient, heroService: HeroService, private toastr: ToastrService, private skillService: SkillService) {
         this.heroService = heroService;
         this.createWebsocket();
     }

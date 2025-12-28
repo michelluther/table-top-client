@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 // import { Rx } from 'rxjs';
 import { UrlService } from 'app/url.service';
 import { Subject } from 'rxjs/Rx';
@@ -17,7 +17,7 @@ export class RemoteControlService {
     private socket: WebSocket;
     public remoteControlSubject: Subject<MessageEvent>;
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
         this.socket = this.createWebsocket();
         let subject = this.remoteControlSubject = new Subject();
         this.socket.onmessage = (evt => subject.next(evt));

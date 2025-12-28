@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ActiveToast, Toast, ToastrService } from 'ngx-toastr';
 // import { Rx } from 'rxjs';
@@ -33,7 +33,7 @@ export class RemoteControlReceiverService {
   private timerDialogRef: MatDialogRef<TimerDialogComponent>
   private timerToaster: ActiveToast<Toast>;
 
-  constructor(private http: Http, public dialog: MatDialog, private toastr: ToastrService, private timerService:TimerService) {
+  constructor(private http: HttpClient, public dialog: MatDialog, private toastr: ToastrService, private timerService:TimerService) {
 
     this.baseUrl = UrlService.getBaseUrl();
     this.createWebsocket()
