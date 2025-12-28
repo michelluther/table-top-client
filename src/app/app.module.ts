@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatAutocompleteModule, MatButton, MatButtonToggle, MatButtonToggleGroup, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule
 } from '@angular/material/';
@@ -112,7 +112,7 @@ const routes: Routes = [
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    HttpModule,
+    HttpClientModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { Attribute } from './attribute';
 import { AttributeService } from './attribute.service';
 import { Hero } from './hero';
@@ -21,7 +20,7 @@ export class HeroService {
 	private _heroes: Hero[];
 	private attributesConfigured: Attribute[]
 
-	constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
+	constructor(private http: HttpClient, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
 
 	}
 
@@ -31,7 +30,7 @@ export class HeroService {
 				resolve(this._heroes)
 			})
 		} else {
-			const characterGetPromise = this.http.get(this.heroesUrl)
+			const characterGetPromise = this.http.get<any[]>(this.heroesUrl)
 				.toPromise()
 				.then(response => {
 					if (!this._heroes) {
@@ -70,8 +69,7 @@ export class HeroService {
 		}
 	}
 
-	extractData(res: Response): Hero[] {
-		let body = res.json();
+	extractData(body: any[]): Hero[] {
 		let heroes = [];
 		body.forEach(function (hero) {
 			var newHero = new Hero(this.skillService, this.spellService,

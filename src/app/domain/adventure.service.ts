@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { AttributeService } from './attribute.service';
 import { Combatant, Fight } from './fight';
 import { Hero } from './hero';

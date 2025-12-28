@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 import { Hero } from './hero';
 import { InventoryItem } from './inventoryItem';

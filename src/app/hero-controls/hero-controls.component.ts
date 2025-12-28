@@ -20,8 +20,8 @@ export class HeroControls {
 	private _activeDisplayComponent: Component;
 	
 
-	@ViewChild(LifeDisplayComponent) lifeDisplay : LifeDisplayComponent;
-	@ViewChild(MagicDisplayComponent) magicDisplay : MagicDisplayComponent; 
+	@ViewChild(LifeDisplayComponent, { static: false }) lifeDisplay : LifeDisplayComponent;
+	@ViewChild(MagicDisplayComponent, { static: false }) magicDisplay : MagicDisplayComponent; 
 
 
 	constructor(websocketService: HeroLifeService) {
