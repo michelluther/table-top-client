@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Spell } from './spell';
 import { SpellGroup } from './spellGroup';
@@ -21,12 +21,12 @@ export class SpellService {
   private spellGroupsPromise: Promise<SpellGroup[]>;
   private spellsPromise: Promise<Spell[]>;
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef) {
+  constructor(private http: HttpClient, private chRef: ChangeDetectorRef) {
   }
 
   getSpells(): Promise<Spell[]> {
     if (!this.spellsPromise) {
-      this.spellsPromise = this.http.get(this.spellsUrl)
+      this.spellsPromise = this.http.get<any[]>(this.spellsUrl)
         .toPromise()
         .then(response => {
           return this.extractSpells(response);
@@ -37,7 +37,7 @@ export class SpellService {
 
   getSpellGroups(): Promise<SpellGroup[]> {
     if (!this.spellGroupsPromise) {
-      this.spellGroupsPromise = this.http.get(this.spellTypesUrl)
+      this.spellGroupsPromise = this.http.get<any[]>(this.spellTypesUrl)
         .toPromise()
         .then(response => {
           this.spellGroups = this.extractSpellTypes(response);
@@ -47,18 +47,16 @@ export class SpellService {
     return this.spellGroupsPromise;
   }
 
-  extractSpells(res: Response): Spell[] {
+  extractSpells(body: any[]): Spell[] {
     let spells = [];
-    let body = res.json();
     body.forEach(spell => {
       spells.push(new Spell(spell));
     });
     return spells;
   }
 
-  extractSpellTypes(res: Response): SpellGroup[] {
+  extractSpellTypes(body: any[]): SpellGroup[] {
     let spellTypes = [];
-    let body = res.json();
     body.forEach(spellType => {
       spellTypes.push(new SpellGroup(spellType, this.chRef));
     });

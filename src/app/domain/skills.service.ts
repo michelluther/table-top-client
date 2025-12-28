@@ -20,12 +20,12 @@ export class SkillService {
   private skillGroupsPromise: Promise<SkillGroup[]>;
   private skillsPromise: Promise<Skill[]>;
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef, private attributeService: AttributeService) {
+   constructor(private http: HttpClient, private chRef: ChangeDetectorRef, private attributeService: AttributeService) {
   }
 
   getSkills(): Promise<Skill[]> {
     if (!this.skillsPromise) {
-      this.skillsPromise = this.http.get(this.skillsUrl)
+      this.skillsPromise = this.http.get<any[]>(this.skillsUrl)
         .toPromise()
         .then(response => {
           return this.extractSkills(response);
@@ -40,7 +40,7 @@ export class SkillService {
 
   getSkillGroups(): Promise<SkillGroup[]> {
     if (!this.skillGroupsPromise) {
-      this.skillGroupsPromise = this.http.get(this.skillTypesUrl)
+      this.skillGroupsPromise = this.http.get<any[]>(this.skillTypesUrl)
         .toPromise()
         .then(response => {
           this.skillGroups = this.extractSkillTypes(response);
@@ -53,18 +53,16 @@ export class SkillService {
     return this.skillGroupsPromise;
   }
 
-  extractSkills(res: Response): Skill[] {
+  extractSkills(body: any[]): Skill[] {
     let skills = [];
-    let body = res.json();
     body.forEach(skill => {
       skills.push(new Skill(skill, this.attributeService));
     });
     return skills;
   }
 
-  extractSkillTypes(res: Response): SkillGroup[] {
+  extractSkillTypes(body: any[]): SkillGroup[] {
     let skillTypes = [];
-    let body = res.json();
     body.forEach(skillType => {
       skillTypes.push(new SkillGroup(skillType, this.chRef));
     });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { UrlService } from 'app/url.service';
 import { AscensionPricing } from './ascensionPricing';
 
@@ -11,14 +11,14 @@ export class EnhancementPricingService {
   private ascensionsUrl: string = UrlService.getBaseUrl() + '/ascensions/';
   private ascensionsPromise: Promise<AscensionPricing[]>;
   private ascensionPricing: Array<AscensionPricing>;
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   public getAscensionPricing(): Promise<AscensionPricing[]> {
     if (!this.ascensionPricing) {
       this.ascensionsPromise = this.http.get(this.ascensionsUrl)
         .toPromise()
         .then(response => {
-          this.ascensionPricing = this.extractAscensions(response.json());
+          this.ascensionPricing = this.extractAscensions(response);
           return this.ascensionPricing;
         })
         return this.ascensionsPromise;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Skill } from './skill';
 
@@ -22,7 +22,7 @@ export class WeaponService {
 
   
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef, private service:HeroLifeService) {
+  constructor(private http: HttpClient, private chRef: ChangeDetectorRef, private service:HeroLifeService) {
   }
 
   getWeapons(): Promise<Weapon[]> {
@@ -32,7 +32,7 @@ export class WeaponService {
       })
     } else {
       if (!this.weaponsPromise) {
-        this.weaponsPromise = this.http.get(this.weaponsUrl)
+        this.weaponsPromise = this.http.get<any[]>(this.weaponsUrl)
           .toPromise()
           .then(response => {
             this.weapons = this.extractWeapons(response);
@@ -43,9 +43,8 @@ export class WeaponService {
     }
   }
 
-  extractWeapons(res: Response, skills: Skill[] = null): Weapon[] {
+  extractWeapons(body: any[], skills: Skill[] = null): Weapon[] {
     let weapons = [];
-    let body = res.json();
     
     body.forEach(weapon => {
       weapons.push(new Weapon(

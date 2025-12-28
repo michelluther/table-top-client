@@ -20,7 +20,7 @@ export class InventoryService {
 
 
 
-  constructor(private http: Http, private chRef: ChangeDetectorRef, private service: HeroLifeService) {
+   constructor(private http: HttpClient, private chRef: ChangeDetectorRef, private service: HeroLifeService) {
   }
 
   updateAccountEntry(accountEntry: AccountEntry, hero: Hero, newAmountValue: number) {

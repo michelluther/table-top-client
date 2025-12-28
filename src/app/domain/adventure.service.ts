@@ -26,12 +26,12 @@ export class AdventureService {
     private fightsURL = `${UrlService.getBaseUrl()}/adventures/${this.currentAdventure}/fights/`;
     private adventures: Adventure[];
 
-    constructor(private http: Http, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
+    constructor(private http: HttpClient, private skillService: SkillService, private spellService: SpellService, private attributeService: AttributeService) {
 
 	}
 
     getAdventures(): Promise<Adventure[]> {
-        return this.http.get(this.adventuresUrl)
+        return this.http.get<any[]>(this.adventuresUrl)
             .toPromise()
             .then(response => {
                 return this.extractAdventures(response);
@@ -43,8 +43,7 @@ export class AdventureService {
         return 1
     }
 
-    extractAdventures(res: Response): Adventure[] {
-        let body = res.json();
+    extractAdventures(body: any[]): Adventure[] {
         let adventures = [];
         body.forEach(function (adventure) {
             var newAdventure = new Adventure()
@@ -54,17 +53,17 @@ export class AdventureService {
         return adventures;
     }
 
-    handleError(error: Response | any) {
+    handleError(error: any) {
         let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+        if (error.error instanceof ErrorEvent) {
+            // Client-side or network error
+            errMsg = error.error.message;
         } else {
-            errMsg = error.message ? error.message : error.toString();
+            // Backend error
+            errMsg = `${error.status}: ${error.error || error.message}`;
         }
         console.error(errMsg);
-        return Observable.throw(errMsg);
+        return of([]);
     }
 
     getAdventure(id: string): Promise<Adventure> {
@@ -75,10 +74,10 @@ export class AdventureService {
     }
 
     getNPCTypes(): Promise<NPCType[]> {
-        return this.http.get(this.npcTypesUrl)
+        return this.http.get<any[]>(this.npcTypesUrl)
         .toPromise()
         .then(response => {
-            return response.json().map(npcResult => {
+            return response.map(npcResult => {
                 return new NPCType(npcResult.id, npcResult.name)
             });
         }
@@ -86,10 +85,10 @@ export class AdventureService {
     }
 
     getNPCs(): Promise<Combatant[]> {
-        return this.http.get(this.npcsUrl)
+        return this.http.get<any[]>(this.npcsUrl)
         .toPromise()
         .then(response => {
-            return response.json().map(npcResult => {
+            return response.map(npcResult => {
                 if(npcResult.character) {
                     let character = new Hero(this.skillService, this.spellService,
                                             this.attributeService).setData(npcResult.character)
@@ -116,10 +115,10 @@ export class AdventureService {
     }
 
     getFights(): Promise<Fight[]> {
-        return this.http.get(this.fightsURL)
+        return this.http.get<any[]>(this.fightsURL)
         .toPromise()
         .then(response => {
-            return response.json().map(fight => {
+            return response.map(fight => {
                 return new Fight(fight.name)
             })
         })

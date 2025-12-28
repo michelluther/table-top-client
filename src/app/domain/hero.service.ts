@@ -79,14 +79,14 @@ export class HeroService {
 		return heroes;
 	}
 
-	handleError(error: Response | any) {
+	handleError(error: any) {
 		let errMsg: string;
-		if (error instanceof Response) {
-			const body = error.json() || '';
-			const err = body.error || JSON.stringify(body);
-			errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+		if (error.error instanceof ErrorEvent) {
+			// Client-side or network error
+			errMsg = error.error.message;
 		} else {
-			errMsg = error.message ? error.message : error.toString();
+			// Backend error
+			errMsg = `${error.status}: ${error.error || error.message}`;
 		}
 		console.error(errMsg);
 		return Observable.throw(errMsg);
