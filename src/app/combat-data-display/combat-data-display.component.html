@@ -20,17 +20,6 @@
   <div class="padded flex-item flex-col">
     <h4>Aktuelle Werte</h4>
     <div class="flex-col">
-      
-      <!-- Debug information -->
-      <div style="background: yellow; padding: 10px; margin: 5px;">
-        <strong>Debug Info:</strong><br>
-        currentWeapon exists: {{ !!hero.currentWeapon }}<br>
-        currentWeapon name: {{ hero.currentWeapon?.name }}<br>
-        isMelee: {{ hero.currentWeaponSkillIsMelee() }}<br>
-        currentAttack: {{ hero.currentAttack }}<br>
-        currentParade: {{ hero.currentParade }}<br>
-      </div>
-
       <div class="currentValues flex-item flex-row " *ngIf="hero.currentWeapon && hero.currentWeaponSkillIsMelee()">
         <div class="flex-row">
           <label>Attacke:&nbsp;</label><span class="currentValue"> {{ hero.currentAttack }}</span>
