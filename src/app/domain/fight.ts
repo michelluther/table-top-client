@@ -28,7 +28,8 @@ export interface Combatant {
 }
 
 @Pipe({
-    name: 'MatchesCombatantSearchTerm'
+    name: 'MatchesCombatantSearchTerm',
+    standalone: false
 })
 
 export class MatchesCombatantSearchTerm implements PipeTransform {
@@ -45,7 +46,8 @@ export class MatchesCombatantSearchTerm implements PipeTransform {
 }
 
 @Pipe({
-    name: 'IsGoodFighter'
+    name: 'IsGoodFighter',
+    standalone: false
 })
 
 export class IsGoodFighter implements PipeTransform {

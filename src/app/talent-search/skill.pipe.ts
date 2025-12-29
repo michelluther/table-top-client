@@ -3,7 +3,8 @@ import { ActualSkill } from '../domain/actualSkill';
 import { ActualSkillGroup } from '../domain/actualSkillGroup';
 
 @Pipe({
-    name: 'MatchesTalentSearchTerm'
+    name: 'MatchesTalentSearchTerm',
+    standalone: false
 })
 
 export class MatchesTalentSearchTerm implements PipeTransform {
@@ -20,7 +21,8 @@ export class MatchesTalentSearchTerm implements PipeTransform {
 }
 
 @Pipe({
-    name: 'MatchesTalentSearchTermChildren'
+    name: 'MatchesTalentSearchTermChildren',
+    standalone: false
 })
 
 export class MatchesTalentSearchTermChildren implements PipeTransform {

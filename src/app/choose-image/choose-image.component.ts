@@ -13,10 +13,11 @@ export class ImagePopupData {
 
 
 @Component({
-  selector: 'app-choose-image',
-  templateUrl: './choose-image.component.html',
-  styleUrls: ['./choose-image.component.css'],
-  providers: [AdventureService, RemoteControlService]
+    selector: 'app-choose-image',
+    templateUrl: './choose-image.component.html',
+    styleUrls: ['./choose-image.component.css'],
+    providers: [AdventureService, RemoteControlService],
+    standalone: false
 })
 export class ChooseImageComponent implements OnInit {
 

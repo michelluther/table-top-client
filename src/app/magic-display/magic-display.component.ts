@@ -17,9 +17,10 @@ const rippleColors = {
 }
 
 @Component({
-  selector: 'magic-display',
-  templateUrl: './magic-display.component.html',
-  styleUrls: ['./magic-display.component.css']
+    selector: 'magic-display',
+    templateUrl: './magic-display.component.html',
+    styleUrls: ['./magic-display.component.css'],
+    standalone: false
 })
 export class MagicDisplayComponent implements OnInit {
 

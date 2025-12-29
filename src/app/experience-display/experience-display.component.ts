@@ -4,9 +4,10 @@ import { Hero } from 'app/domain/hero';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 
 @Component({
-  selector: 'experience-display',
-  templateUrl: './experience-display.component.html',
-  styleUrls: ['./experience-display.component.css']
+    selector: 'experience-display',
+    templateUrl: './experience-display.component.html',
+    styleUrls: ['./experience-display.component.css'],
+    standalone: false
 })
 export class ExperienceDisplayComponent implements OnInit {
 

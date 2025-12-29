@@ -2,9 +2,10 @@ import { Component, Inject, OnInit, Output, EventEmitter, Input} from '@angular/
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-experience-addition',
-  templateUrl: './experience-addition.component.html',
-  styleUrls: ['./experience-addition.component.css']
+    selector: 'app-experience-addition',
+    templateUrl: './experience-addition.component.html',
+    styleUrls: ['./experience-addition.component.css'],
+    standalone: false
 })
 export class ExperienceAdditionComponent implements OnInit {
 

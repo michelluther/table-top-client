@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
  */
 
 @Component({
-	selector: 'menu',
-	templateUrl: './menu.component.html',
-	styleUrls: ['./menu.component.css']
-  	
+    selector: 'menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.css'],
+    standalone: false
 })
 export class Menu implements OnInit {
 

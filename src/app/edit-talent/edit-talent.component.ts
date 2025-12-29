@@ -4,9 +4,10 @@ import { Hero } from 'app/domain/hero';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 
 @Component({
-  selector: 'edit-talent',
-  templateUrl: './edit-talent.component.html',
-  styleUrls: ['./edit-talent.component.css']
+    selector: 'edit-talent',
+    templateUrl: './edit-talent.component.html',
+    styleUrls: ['./edit-talent.component.css'],
+    standalone: false
 })
 export class EditTalentComponent implements OnInit {
 

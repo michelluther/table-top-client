@@ -7,9 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Image } from 'app/domain/adventure.service';
 
 @Component({
-  selector: 'remote-control',
-  templateUrl: './remote-control.component.html',
-  styleUrls: ['./remote-control.component.css']
+    selector: 'remote-control',
+    templateUrl: './remote-control.component.html',
+    styleUrls: ['./remote-control.component.css'],
+    standalone: false
 })
 export class RemoteControlComponent implements OnInit {
 

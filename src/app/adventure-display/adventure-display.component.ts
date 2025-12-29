@@ -5,9 +5,10 @@ import { ImagePopupComponent } from 'app/image-popup/image-popup.component';
 
 
 @Component({
-  selector: 'adventure-display',
-  templateUrl: './adventure-display.component.html',
-  styleUrls: ['./adventure-display.component.css']
+    selector: 'adventure-display',
+    templateUrl: './adventure-display.component.html',
+    styleUrls: ['./adventure-display.component.css'],
+    standalone: false
 })
 export class AdventureDisplayComponent implements OnInit {
 

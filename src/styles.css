@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("./assets/font-awesome/css/font-awesome.min.css");
-/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*@import "@angular/material/prebuilt-themes/indigo-pink.css";*/
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "./assets/papercss/paper.min.css";
 
 body {

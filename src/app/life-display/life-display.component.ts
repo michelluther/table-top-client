@@ -17,9 +17,10 @@ const rippleColors = {
 }
 
 @Component({
-  selector: 'life-display',
-  templateUrl: './life-display.component.html',
-  styleUrls: ['./life-display.component.css']
+    selector: 'life-display',
+    templateUrl: './life-display.component.html',
+    styleUrls: ['./life-display.component.css'],
+    standalone: false
 })
 
 export class LifeDisplayComponent implements OnInit {

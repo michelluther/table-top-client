@@ -4,9 +4,10 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AccountEntry } from 'app/domain/moneyInventory';
 
 @Component({
-  selector: 'app-edit-money',
-  templateUrl: './edit-money.component.html',
-  styleUrls: ['./edit-money.component.css']
+    selector: 'app-edit-money',
+    templateUrl: './edit-money.component.html',
+    styleUrls: ['./edit-money.component.css'],
+    standalone: false
 })
 export class EditMoneyComponent implements OnInit {
 

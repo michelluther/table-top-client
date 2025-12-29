@@ -3,7 +3,8 @@ import { ActualSpell } from '../domain/actualSpell';
 import { ActualSpellGroup } from '../domain/actualSpellGroup';
 
 @Pipe({
-    name: 'MatchesSpellSearchTerm'
+    name: 'MatchesSpellSearchTerm',
+    standalone: false
 })
 
 export class MatchesSpellSearchTerm implements PipeTransform {
@@ -20,7 +21,8 @@ export class MatchesSpellSearchTerm implements PipeTransform {
 }
 
 @Pipe({
-    name: 'MatchesSpellSearchTermChildren'
+    name: 'MatchesSpellSearchTermChildren',
+    standalone: false
 })
 
 export class MatchesSpellSearchTermChildren implements PipeTransform {

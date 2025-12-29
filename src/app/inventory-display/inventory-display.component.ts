@@ -14,9 +14,10 @@ import { WeaponService } from 'app/domain/weapons.service';
 import { EditMoneyComponent, EditMoneyData } from 'app/edit-money/edit-money.component';
 
 @Component({
-  selector: 'inventory-display',
-  templateUrl: './inventory-display.component.html',
-  styleUrls: ['./inventory-display.component.css']
+    selector: 'inventory-display',
+    templateUrl: './inventory-display.component.html',
+    styleUrls: ['./inventory-display.component.css'],
+    standalone: false
 })
 export class InventoryDisplayComponent implements OnInit {
 

@@ -2,9 +2,10 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angu
 
 
 @Component({
-  selector: 'confirmation-sheet',
-  templateUrl: './confirmation-sheet.component.html',
-  styleUrls: ['./confirmation-sheet.component.css']
+    selector: 'confirmation-sheet',
+    templateUrl: './confirmation-sheet.component.html',
+    styleUrls: ['./confirmation-sheet.component.css'],
+    standalone: false
 })
 export class ConfirmationSheetComponent implements OnInit {
 

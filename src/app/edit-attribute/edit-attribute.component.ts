@@ -8,9 +8,10 @@ import { Hero } from 'app/domain/hero';
 import { HeroLifeService } from './../hero-controls/hero-life.service';
 
 @Component({
-  selector: 'edit-attribute',
-  templateUrl: './edit-attribute.component.html',
-  styleUrls: ['./edit-attribute.component.css']
+    selector: 'edit-attribute',
+    templateUrl: './edit-attribute.component.html',
+    styleUrls: ['./edit-attribute.component.css'],
+    standalone: false
 })
 export class EditAttributeComponent implements OnInit {
 

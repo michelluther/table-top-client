@@ -3,9 +3,10 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
-  selector: 'confirm-deletion',
-  templateUrl: './confirm-deletion.component.html',
-  styleUrls: ['./confirm-deletion.component.css']
+    selector: 'confirm-deletion',
+    templateUrl: './confirm-deletion.component.html',
+    styleUrls: ['./confirm-deletion.component.css'],
+    standalone: false
 })
 export class ConfirmDeletionComponent implements OnInit {
 

@@ -8,9 +8,10 @@ import { RemoteControlReceiverService } from './remote-control-receiver.service'
 
 // import { Lightbox } from 'ngx-lightbox';
 @Component({
-  selector: 'remote-control-receiver',
-  templateUrl: './remote-control-receiver.component.html',
-  styleUrls: ['./remote-control-receiver.component.css']
+    selector: 'remote-control-receiver',
+    templateUrl: './remote-control-receiver.component.html',
+    styleUrls: ['./remote-control-receiver.component.css'],
+    standalone: false
 })
 export class RemoteControlReceiverComponent implements OnInit {
 

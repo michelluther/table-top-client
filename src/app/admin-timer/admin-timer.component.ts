@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TimeRemaining, Timer, TimerService } from 'app/domain/timer.service';
 
 @Component({
-  selector: 'app-admin-timer',
-  templateUrl: './admin-timer.component.html',
-  styleUrls: ['./admin-timer.component.css']
+    selector: 'app-admin-timer',
+    templateUrl: './admin-timer.component.html',
+    styleUrls: ['./admin-timer.component.css'],
+    standalone: false
 })
 export class AdminTimerComponent implements OnInit {
 

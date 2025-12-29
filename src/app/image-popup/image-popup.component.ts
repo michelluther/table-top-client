@@ -9,9 +9,10 @@ export interface ImagePopupData {
 
 
 @Component({
-  selector: 'app-image-popup',
-  templateUrl: './image-popup.component.html',
-  styleUrls: ['./image-popup.component.css']
+    selector: 'app-image-popup',
+    templateUrl: './image-popup.component.html',
+    styleUrls: ['./image-popup.component.css'],
+    standalone: false
 })
 export class ImagePopupComponent implements OnInit {
 

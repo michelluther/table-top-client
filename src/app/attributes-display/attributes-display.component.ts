@@ -4,10 +4,11 @@ import { ActualAttribute } from 'app/domain/actualAttribute';
 import { EditDialogComponent } from './../edit-dialog/edit-dialog.component'
 
 @Component({
-  selector: 'attributes-display',
-  providers: [EditDialogComponent],
-  templateUrl: './attributes-display.component.html',
-  styleUrls: ['./attributes-display.component.css']
+    selector: 'attributes-display',
+    providers: [EditDialogComponent],
+    templateUrl: './attributes-display.component.html',
+    styleUrls: ['./attributes-display.component.css'],
+    standalone: false
 })
 export class AttributesDisplayComponent implements OnInit {
 

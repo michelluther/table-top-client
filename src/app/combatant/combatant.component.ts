@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Combatant } from 'app/domain/fight';
 
 @Component({
-  selector: 'combatant',
-  templateUrl: './combatant.component.html',
-  styleUrls: ['./combatant.component.css']
+    selector: 'combatant',
+    templateUrl: './combatant.component.html',
+    styleUrls: ['./combatant.component.css'],
+    standalone: false
 })
 export class CombatantComponent implements OnInit {
 

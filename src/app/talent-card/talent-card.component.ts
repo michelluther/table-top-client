@@ -3,9 +3,10 @@ import { ActualSkill } from '../domain/actualSkill';
 import { SkillService } from '../domain/skills.service';
 
 @Component({
-  selector: 'talent-card',
-  templateUrl: './talent-card.component.html',
-  styleUrls: ['./talent-card.component.css']
+    selector: 'talent-card',
+    templateUrl: './talent-card.component.html',
+    styleUrls: ['./talent-card.component.css'],
+    standalone: false
 })
 export class TalentCard implements OnInit {
 

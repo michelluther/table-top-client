@@ -5,10 +5,10 @@ import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
 
 @Component({
-	selector: 'hero-card',
-	templateUrl: './hero-card.component.html',
-	styleUrls: ['./hero-card.component.css'],
-
+    selector: 'hero-card',
+    templateUrl: './hero-card.component.html',
+    styleUrls: ['./hero-card.component.css'],
+    standalone: false
 })
 
 export class HeroCard implements OnInit {

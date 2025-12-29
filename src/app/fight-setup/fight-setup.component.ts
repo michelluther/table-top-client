@@ -8,9 +8,10 @@ import { OperationFactory, operationTypes } from 'app/domain/remoteControlOperat
 import { RemoteControlService } from 'app/remote-control/remote-control.service';
 
 @Component({
-  selector: 'app-fight-setup',
-  templateUrl: './fight-setup.component.html',
-  styleUrls: ['./fight-setup.component.css']
+    selector: 'app-fight-setup',
+    templateUrl: './fight-setup.component.html',
+    styleUrls: ['./fight-setup.component.css'],
+    standalone: false
 })
 export class FightSetupComponent implements OnInit {
 

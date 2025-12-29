@@ -4,10 +4,11 @@ import { Adventure, AdventureService } from './../domain/adventure.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-overview',
-  templateUrl: './admin-overview.component.html',
-  styleUrls: ['./admin-overview.component.css'],
-  providers: [AdventureService]
+    selector: 'app-admin-overview',
+    templateUrl: './admin-overview.component.html',
+    styleUrls: ['./admin-overview.component.css'],
+    providers: [AdventureService],
+    standalone: false
 })
 export class AdminOverviewComponent implements OnInit {
 

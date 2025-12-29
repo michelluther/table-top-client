@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TimeRemaining, Timer } from 'app/domain/timer.service';
 
 @Component({
-  selector: 'app-timer-dialog',
-  templateUrl: './timer-dialog.component.html',
-  styleUrls: ['./timer-dialog.component.css']
+    selector: 'app-timer-dialog',
+    templateUrl: './timer-dialog.component.html',
+    styleUrls: ['./timer-dialog.component.css'],
+    standalone: false
 })
 export class TimerDialogComponent implements OnInit {
 

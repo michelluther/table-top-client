@@ -19,9 +19,10 @@ class MenuItem {
 }
 
 @Component({
-  selector: 'detail-navigation',
-  templateUrl: './detail-navigation.component.html',
-  styleUrls: ['./detail-navigation.component.css']
+    selector: 'detail-navigation',
+    templateUrl: './detail-navigation.component.html',
+    styleUrls: ['./detail-navigation.component.css'],
+    standalone: false
 })
 export class DetailNavigationComponent implements OnInit {
 

@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[scrollSpy]'
+    selector: '[scrollSpy]',
+    standalone: false
 })
 export class ScrollSpyDirective {
   @Input() public spiedTags = [];

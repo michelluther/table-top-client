@@ -6,9 +6,10 @@ import { MagicDisplayComponent } from 'app/magic-display/magic-display.component
 
 
 @Component({
-	selector: 'hero-controls',
-	templateUrl: './hero-controls.component.html',
-	styleUrls: ['./hero-controls.component.css']
+    selector: 'hero-controls',
+    templateUrl: './hero-controls.component.html',
+    styleUrls: ['./hero-controls.component.css'],
+    standalone: false
 })
 export class HeroControls {
 

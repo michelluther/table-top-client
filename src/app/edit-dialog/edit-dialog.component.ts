@@ -13,13 +13,14 @@ import { HeroService } from '../domain/hero.service';
 import { ActualSpell } from 'app/domain/actualSpell';
 
 @Component({
-  selector: 'edit-dialog',
-  providers: [
-    EditAttributeComponent
-    // MatDialogRef
-  ],
-  templateUrl: './edit-dialog.component.html',
-  styleUrls: ['./edit-dialog.component.css']
+    selector: 'edit-dialog',
+    providers: [
+        EditAttributeComponent
+        // MatDialogRef
+    ],
+    templateUrl: './edit-dialog.component.html',
+    styleUrls: ['./edit-dialog.component.css'],
+    standalone: false
 })
 export class EditDialogComponent implements OnInit {
 

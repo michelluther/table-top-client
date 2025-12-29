@@ -3,9 +3,10 @@ import { ActualSpell } from '../domain/actualSpell';
 import { SpellService } from '../domain/spells.service';
 
 @Component({
-  selector: 'spell-card',
-  templateUrl: './spell-card.component.html',
-  styleUrls: ['./../talent-card/talent-card.component.css']
+    selector: 'spell-card',
+    templateUrl: './spell-card.component.html',
+    styleUrls: ['./../talent-card/talent-card.component.css'],
+    standalone: false
 })
 export class SpellCard implements OnInit {
 

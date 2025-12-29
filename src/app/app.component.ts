@@ -13,11 +13,11 @@ import { RemoteControlReceiverService } from './remote-control-receiver/remote-c
 import { RemoteControlService } from './remote-control/remote-control.service';
 
 @Component({
-	selector: 'my-app',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
-	providers: [HeroService, AttributeService, HeroLifeService, SkillService, SpellService, WeaponService, ArmorService, InventoryService, RemoteControlReceiverService, RemoteControlService, AdventureService, TimerService, Timer]
-
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    providers: [HeroService, AttributeService, HeroLifeService, SkillService, SpellService, WeaponService, ArmorService, InventoryService, RemoteControlReceiverService, RemoteControlService, AdventureService, TimerService, Timer],
+    standalone: false
 })
 export class AppComponent {
 	title = 'Tour of Heroes';

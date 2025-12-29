@@ -8,23 +8,18 @@ import { Skill } from '../domain/skill';
 import { SkillService } from '../domain/skills.service';
 
 @Component({
-	selector: 'heroes-list',
-	templateUrl: './heroes.component.html',
-	styleUrls: ['./heroes.component.css'],
-	animations: [
-		trigger(
-		  'inOutAnimation', 
-		  [
-			transition(
-			  ':enter', 
-			  [
-				style({ opacity: 0 }),
-				animate('0.5s 1s ease-out', 
-						style({ opacity: 1 }))
-			  ]
-			)
-		  ]
-		)],
+    selector: 'heroes-list',
+    templateUrl: './heroes.component.html',
+    styleUrls: ['./heroes.component.css'],
+    animations: [
+        trigger('inOutAnimation', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate('0.5s 1s ease-out', style({ opacity: 1 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 
 export class HeroesComponent implements OnInit {

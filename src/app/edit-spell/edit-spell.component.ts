@@ -4,9 +4,10 @@ import { Hero } from 'app/domain/hero';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 
 @Component({
-  selector: 'edit-spell',
-  templateUrl: './edit-spell.component.html',
-  styleUrls: ['./edit-spell.component.css']
+    selector: 'edit-spell',
+    templateUrl: './edit-spell.component.html',
+    styleUrls: ['./edit-spell.component.css'],
+    standalone: false
 })
 export class EditSpellComponent implements OnInit {
 

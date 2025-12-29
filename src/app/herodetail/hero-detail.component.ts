@@ -14,9 +14,10 @@ import { UrlService } from 'app/url.service';
 import { ActualSkill } from '../domain/actualSkill';
 
 @Component({
-	selector: 'hero-details',
-	templateUrl: './hero-detail.component.html',
-	styleUrls: ['./hero-detail.component.css']
+    selector: 'hero-details',
+    templateUrl: './hero-detail.component.html',
+    styleUrls: ['./hero-detail.component.css'],
+    standalone: false
 })
 export class HeroDetailComponent implements OnInit {
 
