@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /hero-app
+/.angular
 
 # dependencies
 /node_modules
