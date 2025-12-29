@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fight-display',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FightDisplayComponent implements OnInit {
 
+  @Input()
+  heroes: any[] = [];
   constructor() { }
 
   ngOnInit() {

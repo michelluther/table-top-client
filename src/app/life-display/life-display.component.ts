@@ -63,7 +63,6 @@ export class LifeDisplayComponent implements OnInit {
 
   // Test stuff
   public rippleText(text: String): void {
-    console.log(text)
   };
 
 }

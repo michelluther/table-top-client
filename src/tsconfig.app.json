@@ -8,6 +8,8 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "app/domain/mock-heroes.ts",
+    "app/splash-screen/splash-screen.component.ts"
   ]
 }

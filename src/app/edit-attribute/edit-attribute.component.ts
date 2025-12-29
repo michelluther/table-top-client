@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ActualAttribute } from 'app/domain/actualAttribute';
 import { AscensionPricing } from 'app/domain/ascensionPricing'
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EnhancementPricingService } from 'app/domain/enhancement-pricing.service';
 import { Attribute } from 'app/domain/attribute';
 import { Hero } from 'app/domain/hero';

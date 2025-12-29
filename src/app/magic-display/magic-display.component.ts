@@ -62,7 +62,6 @@ export class MagicDisplayComponent implements OnInit {
 
   // Test stuff
   public rippleText(text: String): void {
-    console.log(text)
   };
 
 }

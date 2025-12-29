@@ -133,7 +133,6 @@ export class FightSetupComponent implements OnInit {
   }
 
   continueFight(fight:Fight) {
-    console.log(fight)
   }
 
   addAllHeroes() {

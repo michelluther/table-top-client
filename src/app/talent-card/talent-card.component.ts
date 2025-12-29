@@ -9,6 +9,8 @@ import { SkillService } from '../domain/skills.service';
 })
 export class TalentCard implements OnInit {
 
+  @Input()
+  state: string = '';
   skillProperty: ActualSkill;
 
   constructor(private skillService: SkillService) { }

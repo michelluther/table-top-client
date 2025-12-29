@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Hero } from 'app/domain/hero';
-import { ExperienceAdditionComponent,ConfirmationData } from 'app/experience-addition/experience-addition.component';
 import { HeroLifeService } from 'app/hero-controls/hero-life.service';
 
 @Component({
@@ -22,7 +21,7 @@ export class ExperienceDisplayComponent implements OnInit {
 
   
 
-  private addExperiencePointsDialogRef: MatDialogRef<ExperienceAdditionComponent>
+  // private addExperiencePointsDialogRef: MatDialogRef<ExperienceAdditionComponent>
 
   constructor( private dialog: MatDialog, private lifeService: HeroLifeService) { }
 
@@ -30,9 +29,9 @@ export class ExperienceDisplayComponent implements OnInit {
   }
 
   openAddExperiencePointsDialog():void {
-    this.addExperiencePointsDialogRef = this.dialog.open(ExperienceAdditionComponent ,{data: new ConfirmationData(this.hero.experience, 0)})
-    this.addExperiencePointsDialogRef.componentInstance.confirm.subscribe(this.addExperiencePoints.bind(this));
-    this.addExperiencePointsDialogRef.componentInstance.cancel.subscribe(this.closeAddExperiencePointsDialog.bind(this));
+    // this.addExperiencePointsDialogRef = this.dialog.open(ExperienceAdditionComponent ,{data: new ConfirmationData(this.hero.experience, 0)})
+    // this.addExperiencePointsDialogRef.componentInstance.confirm.subscribe(this.addExperiencePoints.bind(this));
+    // this.addExperiencePointsDialogRef.componentInstance.cancel.subscribe(this.closeAddExperiencePointsDialog.bind(this));
 
   }
 
@@ -46,7 +45,7 @@ export class ExperienceDisplayComponent implements OnInit {
   }
 
   closeAddExperiencePointsDialog(): void {
-    this.addExperiencePointsDialogRef.close()
+    // this.addExperiencePointsDialogRef.close()
   }
 
   

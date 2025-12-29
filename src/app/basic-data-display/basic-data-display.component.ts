@@ -14,6 +14,10 @@ export class BasicDataDisplayComponent implements OnInit {
 
   constructor() { }
 
+  get raceName(): string {
+    return (this.hero?.race as any)?.name || this.hero?.race || '';
+  }
+
   ngOnInit() {
   }
 

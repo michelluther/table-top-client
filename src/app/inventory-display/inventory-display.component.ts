@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationData, ConfirmDeletionComponent } from 'app/confirm-deletion/confirm-deletion.component';
 import { Armor } from 'app/domain/armor';
 import { ArmorService } from 'app/domain/armor.service';

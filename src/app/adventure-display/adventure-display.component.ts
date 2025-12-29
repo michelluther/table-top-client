@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Adventure, AdventureElement, AdventureService } from 'app/domain/adventure.service';
 import { ImagePopupComponent } from 'app/image-popup/image-popup.component';
 
@@ -43,7 +43,7 @@ export class AdventureDisplayComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.debug('The dialog was closed');
     });
   }
 

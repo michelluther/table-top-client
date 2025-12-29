@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Output, EventEmitter} from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({

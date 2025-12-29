@@ -7,10 +7,10 @@ import { Hero } from '../domain/hero';
 import { HeroService } from '../domain/hero.service';
 
 import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 import { UrlService } from 'app/url.service';
-import 'rxjs/add/operator/switchMap';
+
 import { ActualSkill } from '../domain/actualSkill';
 
 @Component({
@@ -44,16 +44,16 @@ export class HeroDetailComponent implements OnInit {
 		this.searchCtrl = new FormControl();
 		this.baseUrl = UrlService.getBaseUrl();
 		let that = this;
-		new Promise(function (resolve, reject) {
+		new Promise((resolve, reject) => {
 			let heroTimer = setInterval(() => {
-				if (that.hero && that.hero.skills) {
-					console.log(that.hero.skills);
+				if (this.hero && this.hero.skills) {
+					console.debug(this.hero.skills);
 					resolve(
-						that.filteredSkills = that.searchCtrl.valueChanges
+						this.filteredSkills = this.searchCtrl.valueChanges
 							.pipe(
 								startWith(''),
 								map(searchTerm => {
-									return searchTerm ? that.filterSkills(searchTerm) : that.hero.skills.slice()
+									return searchTerm ? this.filterSkills(searchTerm) : this.hero.skills.slice()
 								})
 							));
 					clearTimeout(heroTimer);
@@ -67,7 +67,7 @@ export class HeroDetailComponent implements OnInit {
 	ngOnInit(): void {
 
 		this.route.params
-			.switchMap((params: Params) => this.heroService.getHero(+params['id']))
+			.pipe(switchMap((params: Params) => this.heroService.getHero(+params['id'])))
 			.subscribe(hero => {
 				this.hero = hero;
 			});;
@@ -85,7 +85,6 @@ export class HeroDetailComponent implements OnInit {
 	}
 
 	onSectionChange(event):void {
-		console.log('hey');
 	}
 
 	showArea(areaTarget):void {

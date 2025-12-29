@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { ActualAttribute } from 'app/domain/actualAttribute';
 import { ActualSkill } from 'app/domain/actualSkill';
 import { AscensionPricing } from 'app/domain/ascensionPricing';
@@ -44,7 +45,7 @@ export class EditDialogComponent implements OnInit {
   ngOnInit(): void {
 
 		this.route.params
-			.switchMap((params: Params) => this.heroService.getHero(+params['id']))
+			.pipe(switchMap((params: Params) => this.heroService.getHero(+params['id'])))
 			.subscribe(hero => {
 				this._hero = hero;
 			});

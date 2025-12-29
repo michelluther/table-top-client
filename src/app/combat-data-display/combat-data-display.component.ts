@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Armor } from 'app/domain/armor';
 import { Hero } from 'app/domain/hero';
 import { Weapon } from 'app/domain/weapon';
@@ -14,9 +14,13 @@ export class CombatDataDisplayComponent implements OnInit {
   @Input()
   hero: Hero
 
-  constructor(private service:HeroLifeService) { }
+  constructor(private service:HeroLifeService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
+    // Trigger change detection after a short delay to ensure async hero initialization is complete
+    setTimeout(() => {
+      this.cdr.detectChanges();
+    }, 100);
   }
 
   updateCurrentWeapon(weapon: Weapon) {

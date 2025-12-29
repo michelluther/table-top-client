@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { find, filter } from 'lodash';
 import { ActualAttribute } from "./actualAttribute";
 import { ActualSkill } from "./actualSkill";
 import { ActualSkillGroup } from "./actualSkillGroup";
@@ -82,7 +82,7 @@ export class Hero implements Combatant {
   spellGroups: ActualSpellGroup[];
 
   weapons: Array<Weapon>
-  _currentWeapon: Weapon
+  _currentWeapon: Weapon | null
 
   armor: Array<Armor>
   inventory: Array<InventoryItem>
@@ -118,7 +118,8 @@ export class Hero implements Combatant {
     this._currentInitiative = initiative
   }
 
-  setData(dataObject: Object): Hero {
+  setData(dataObject: Object): Promise<Hero> {
+     
     this.attack_basis = dataObject['attack_basis'];
     this.parade_basis = dataObject['parade_basis'];
     this.fernkampf_basis = dataObject['fernkampf_basis']
@@ -153,7 +154,18 @@ export class Hero implements Combatant {
       new ActualAttribute(dataObject['KO'], this.attributeService.attributes.get('KO')),
       new ActualAttribute(dataObject['KK'], this.attributeService.attributes.get('KK'))
     ];
+    
 
+    // Set individual attribute properties
+    this.MU = dataObject['MU'];
+    this.KL = dataObject['KL'];
+    this.IN = dataObject['IN'];
+    this.CH = dataObject['CH'];
+    this.FF = dataObject['FF'];
+    this.GE = dataObject['GE'];
+    this.KO = dataObject['KO'];
+    this.KK = dataObject['KK'];
+    
     this.life = dataObject['life'];
     this.magicEnergy = dataObject['magic_energy'];
     this.magicEnergy_lost = dataObject['magic_energy_lost'];
@@ -165,25 +177,28 @@ export class Hero implements Combatant {
 
     this.weapons = []
     this.armor = []
-
+    
     this.weaponSkillDistributions = dataObject['weaponSkillDistributions'].map(weaponSkillDistribution => {
       return new WeaponSkillDistribution(weaponSkillDistribution.skill, weaponSkillDistribution.attack, weaponSkillDistribution.parade)
     })
 
-    this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons'], dataObject['armor']);
-    if (this.knowsMagic) {
-      this.structureSpells(dataObject['spells']);
-    }
-
     this.inventory = dataObject['inventoryItems'].map(inventoryItem => {
       return new InventoryItem(inventoryItem.id, inventoryItem.name, inventoryItem.amount, inventoryItem.weight)
     });
-    return this;
+    
+    // Wait for async initialization to complete before returning
+    return this.structureSkills(dataObject['skills'], dataObject['weaponSkillDistributions'], dataObject['weapons'], dataObject['armor'])
+      .then(() => {
+        if (this.knowsMagic) {
+          this.structureSpells(dataObject['spells']);
+        }
+        return this;
+      });
   }
 
-  structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>, armor: Array<Object>): void {
+  structureSkills(actualSkillsOfHero: Array<Object>, weaponSkillDistributions: Array<Object>, weapons: Array<Object>, armor: Array<Object>): Promise<void> {
 
-    let skillsPromise = Promise.all([
+    return Promise.all([
       this.skillService.getSkillGroups(),
       this.skillService.getSkills()
     ]).then(skillGroupsAndSkills => {
@@ -193,8 +208,8 @@ export class Hero implements Combatant {
       this.skills = [];
 
       allSkills.forEach(skill => {
-        let actualSkill = _.find(actualSkillsOfHero, actualSkillData => { return skill.id === actualSkillData['id'] }) // can be undefined, the hero does not have the skill
-        let skillSkillGroup = _.find(skillGroups, skillGroup => { return skill.skillGroupId == skillGroup.id });
+        let actualSkill = find(actualSkillsOfHero, actualSkillData => { return skill.id === actualSkillData['id'] }) // can be undefined, the hero does not have the skill
+        let skillSkillGroup = find(skillGroups, skillGroup => { return skill.skillGroupId == skillGroup.id });
         this.skills.push(new ActualSkill(actualSkill, this, skill, skillSkillGroup));
       })
 
@@ -205,7 +220,7 @@ export class Hero implements Combatant {
       })
 
       skillGroups.forEach(skillGroup => {
-        let skills = _.filter(this.skills, actualSkill => {
+        let skills = filter(this.skills, actualSkill => {
           return actualSkill.getSkill().skillGroupId == skillGroup.id
         });
         this.skillGroups.push(new ActualSkillGroup(skillGroup, skills));
@@ -218,15 +233,17 @@ export class Hero implements Combatant {
           weapon['tp_dice'],
           weapon['tp_add_points'],
           weapon['extra_tp_from_kk'],
-          _.find(allSkills, skill => {
+          find(allSkills, skill => {
             return skill.id === weapon['skill']
           }),
           this.getAttribute('KK').value
         ))
       })
-      if (this.weapons.length > 0)
+      if (this.weapons.length > 0){
         this.currentWeapon = this.weapons[0]
-
+      } else {
+        this.currentWeapon = null
+      } 
       armor.forEach(armor => {
         this.addArmor(new Armor(
           armor['id'],
@@ -360,8 +377,15 @@ export class Hero implements Combatant {
     return this.attributes.find(attribute => attribute.attribute.id === id)
   }
 
-  set currentWeapon(weapon: Weapon) {
+  set currentWeapon(weapon: Weapon | null) {
     this._currentWeapon = weapon
+    
+    // Check if weapon has a skill before proceeding
+    if (!weapon?.skill) {
+      console.warn('Weapon has no skill, returning early. Weapon:', weapon);
+      return
+    }
+    
     const skillDistribution = this._getDistributionOfSkill(weapon.skill)
 
     if (this._currentWeapon.skill.skillGroupId === 1) {
@@ -372,7 +396,11 @@ export class Hero implements Combatant {
       const actualSkill = this.skills.find((skill) => {
         return skill.getSkill().id === this._currentWeapon.skill.id
       })
-      this.currentLongRangeValue = this.fernkampf_basis + actualSkill.value
+      if (actualSkill) {
+        this.currentLongRangeValue = this.fernkampf_basis + actualSkill.value
+      } else {
+        console.error('ERROR: Could not find actualSkill for ranged weapon, skills array length:', this.skills.length);
+      }
     }
 
   }
@@ -390,9 +418,8 @@ export class Hero implements Combatant {
   }
 
   currentWeaponSkillIsMelee(): boolean {
-    if (this._currentWeapon)
-      return this._currentWeapon.skill.skillGroupId === 1
-    else return false
+    const result = this._currentWeapon && this._currentWeapon.skill.skillGroupId === 1;
+    return result;
   }
 
   currentWeaponSkillIsLongRange(): boolean {

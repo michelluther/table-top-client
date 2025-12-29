@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-experience-addition',
@@ -20,7 +20,6 @@ export class ExperienceAdditionComponent implements OnInit {
   ngOnInit() {
   }
 
-
   public raiseAccept(): void {
     this.confirm.emit(this.newPointsToAdd)
   }
@@ -33,5 +32,4 @@ export class ExperienceAdditionComponent implements OnInit {
 
 export class ConfirmationData {
   constructor(public currentPoints: number, public newPointsToAdd: number){}
-
 }

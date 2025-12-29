@@ -1,6 +1,6 @@
 
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AccountEntry } from 'app/domain/moneyInventory';
 
 @Component({

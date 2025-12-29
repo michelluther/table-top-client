@@ -31,7 +31,7 @@ export class SkillService {
           return this.extractSkills(response);
         })
       this.skillsPromise.catch(error => {
-        console.log('error getting skills')
+        console.error('error getting skills')
         this.skillsPromise = null;
       })
     }
@@ -47,7 +47,7 @@ export class SkillService {
           return this.skillGroups;
         })
       this.skillGroupsPromise.catch(error => {
-        console.log('error getting skill groups')
+        console.error('error getting skill groups')
       })
     }
     return this.skillGroupsPromise;

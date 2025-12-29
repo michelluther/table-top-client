@@ -1,13 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
 import {
-  MatAutocompleteModule, MatButton, MatButtonToggle, MatButtonToggleGroup, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule
-} from '@angular/material/';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule, MatDialogRef
+    MAT_DIALOG_DATA,
+    MatDialogModule, MatDialogRef
 } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -31,6 +41,7 @@ import { IsGoodFighter, MatchesCombatantSearchTerm } from './domain/fight';
 import { EditAttributeComponent } from './edit-attribute/edit-attribute.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { EditMoneyComponent } from './edit-money/edit-money.component';
+import { EditSpellComponent } from './edit-spell/edit-spell.component';
 import { EditTalentComponent } from './edit-talent/edit-talent.component';
 import { ExperienceAdditionComponent } from './experience-addition/experience-addition.component';
 import { ExperienceDisplayComponent } from './experience-display/experience-display.component';
@@ -57,7 +68,6 @@ import { TalentCard } from './talent-card/talent-card.component';
 import { MatchesTalentSearchTerm, MatchesTalentSearchTermChildren } from './talent-search/skill.pipe';
 import { TalentSearchComponent } from './talent-search/talent-search.component';
 import { TimerDialogComponent } from './timer-dialog/timer-dialog.component';
-import { EditSpellComponent } from './edit-spell/edit-spell.component';
 
 
 
@@ -104,7 +114,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'top',
-      initialNavigation: 'enabled'
+      initialNavigation: 'enabledBlocking'
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
@@ -116,11 +126,12 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
     MatRadioModule,
     MatSelectModule,
     MatRippleModule,
     MatDialogModule,
-    MatAutocompleteModule,
     MatFormFieldModule,
     MatCardModule,
     MatGridListModule,
@@ -145,9 +156,6 @@ const routes: Routes = [
     AdminOverviewComponent,
     FightSetupComponent,
     FightDisplayComponent,
-    MatButton,
-    MatButtonToggleGroup,
-    MatButtonToggle,
     RemoteControlComponent,
     RemoteControlReceiverComponent,
     PlayerComponent,
@@ -189,7 +197,6 @@ const routes: Routes = [
     provide: MatDialogRef,
     useValue: {}
   },
-  { provide: MAT_DIALOG_DATA, useValue: {} }],
-  entryComponents: [ImagePopupComponent, ChooseImageComponent, EditDialogComponent, ConfirmDeletionComponent, ExperienceAdditionComponent, EditMoneyComponent,TimerDialogComponent],
+  { provide: MAT_DIALOG_DATA, useValue: {} }]
 })
 export class AppModule { }

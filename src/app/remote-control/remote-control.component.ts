@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RemoteControlService } from './remote-control.service'
-import { Subject, Observable, Subscription, Observer } from 'rxjs/Rx';
+import { Subject, Observable, Subscription, Observer } from 'rxjs';
 import { OperationFactory, RemoteControlOperation } from './../domain/remoteControlOperation'
 import { ChooseImageComponent, ImagePopupData } from './../choose-image/choose-image.component'
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Image } from 'app/domain/adventure.service';
 
 @Component({

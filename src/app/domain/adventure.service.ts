@@ -84,34 +84,37 @@ export class AdventureService {
         )
     }
 
-    getNPCs(): Promise<Combatant[]> {
+    async getNPCs(): Promise<Combatant[]> {
         return this.http.get<any[]>(this.npcsUrl)
         .toPromise()
-        .then(response => {
-            return response.map(npcResult => {
+        .then(async response => {
+            const combatants = [];
+            for (const npcResult of response) {
                 if(npcResult.character) {
-                    let character = new Hero(this.skillService, this.spellService,
-                                            this.attributeService).setData(npcResult.character)
-                    character.isHero = false
-                    return character;}
-                else return new NPC(
-                    npcResult.npc.id,
-                    npcResult.npc.name, 
-                    null, 
-                    npcResult.npc.life, 
-                    npcResult.npc.initiative,
-                    npcResult.npc.weapon_1_name, 
-                    npcResult.npc.weapon_1_attack, 
-                    npcResult.npc.weapon_1_parade, 
-                    npcResult.npc.weapon_1_damage,
-                    npcResult.npc.weapon_2_name, 
-                    npcResult.npc.weapon_2_attack, 
-                    npcResult.npc.weapon_2_parade, 
-                    npcResult.npc.weapon_2_damage
-                    )
-            });
-        }
-        )
+                    let character = await new Hero(this.skillService, this.spellService,
+                                            this.attributeService).setData(npcResult.character);
+                    character.isHero = false;
+                    combatants.push(character);
+                } else {
+                    combatants.push(new NPC(
+                        npcResult.npc.id,
+                        npcResult.npc.name, 
+                        null, 
+                        npcResult.npc.life, 
+                        npcResult.npc.initiative,
+                        npcResult.npc.weapon_1_name, 
+                        npcResult.npc.weapon_1_attack, 
+                        npcResult.npc.weapon_1_parade, 
+                        npcResult.npc.weapon_1_damage,
+                        npcResult.npc.weapon_2_name, 
+                        npcResult.npc.weapon_2_attack, 
+                        npcResult.npc.weapon_2_parade, 
+                        npcResult.npc.weapon_2_damage
+                    ));
+                }
+            }
+            return combatants;
+        })
     }
 
     getFights(): Promise<Fight[]> {

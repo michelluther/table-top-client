@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Rx } from 'rxjs';
 import { UrlService } from 'app/url.service';
-import { Subject } from 'rxjs/Rx';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs';
+
 import { RemoteControlOperation } from './../domain/remoteControlOperation';
 
 
@@ -28,13 +27,13 @@ export class RemoteControlService {
             let ws = new WebSocket(this.wsUrl);
             return ws;
         } catch (error) {
-            console.log('error setting up web socket to remote control sender')
+            console.error('error setting up web socket to remote control sender')
         }
     }
 
     public sendRemoteControlInstruction(instruction: RemoteControlOperation): void {
         const jsonOperation = instruction.toJSON();
-        console.log(`will send instruction: ${jsonOperation}`);
+        console.debug(`will send instruction: ${jsonOperation}`);
         this.socket.send(jsonOperation);
     }
 

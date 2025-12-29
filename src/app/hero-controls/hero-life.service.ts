@@ -6,9 +6,7 @@ import { Weapon } from 'app/domain/weapon';
 import { ToastrService } from 'ngx-toastr';
 // import { Rx } from 'rxjs';
 import { UrlService } from 'app/url.service';
-import { Subject } from 'rxjs/Rx';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs';
 import { HeroService } from "./../domain/hero.service";
 import { SkillService } from "./../domain/skills.service";
 

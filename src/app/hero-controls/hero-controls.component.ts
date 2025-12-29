@@ -12,6 +12,9 @@ import { MagicDisplayComponent } from 'app/magic-display/magic-display.component
 })
 export class HeroControls {
 
+	@Input()
+	listMode: boolean = false;
+	
 	private _hero: Hero;
 	private lifeDisplayNumber: number;
 	private service: HeroLifeService;

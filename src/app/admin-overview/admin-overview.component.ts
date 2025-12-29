@@ -16,7 +16,6 @@ export class AdminOverviewComponent implements OnInit {
   constructor(public adventureService: AdventureService, private router: Router) {
     this.adventureService.getAdventures().then(adventures => {
       this.adventures = adventures
-      console.log(this.adventures)
     })
   }
 

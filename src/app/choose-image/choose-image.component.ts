@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UrlService } from 'app/url.service';
 import { Adventure, AdventureService, Image } from './../domain/adventure.service';
 import { OperationFactory, operationTypes } from './../domain/remoteControlOperation';

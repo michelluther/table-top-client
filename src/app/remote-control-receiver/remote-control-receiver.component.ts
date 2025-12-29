@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from 'app/url.service';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs/Rx';
+import { Subject } from 'rxjs';
 import { RemoteControlReceiverService } from './remote-control-receiver.service';
 
 

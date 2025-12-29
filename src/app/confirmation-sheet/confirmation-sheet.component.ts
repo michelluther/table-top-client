@@ -10,6 +10,8 @@ export class ConfirmationSheetComponent implements OnInit {
 
   @Input()
   public confirmationText: String
+  @Input()
+  public showExternalTemplate: boolean = false
   @Output()
   confirm = new EventEmitter()
   @Output()

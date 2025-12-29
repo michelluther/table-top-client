@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Attribute } from './attribute';
@@ -32,11 +32,11 @@ export class HeroService {
 		} else {
 			const characterGetPromise = this.http.get<any[]>(this.heroesUrl)
 				.toPromise()
-				.then(response => {
+				.then(async response => {
 					if (!this._heroes) {
 						this._heroes = [];
 					}
-					let heroes = this.extractData(response);
+					let heroes = await this.extractData(response);
 					for (let hero of heroes) {
 						const bufferdHero = this._heroes ? this._heroes.find(h => h.id === hero.id) : null;
 						if (bufferdHero) {
@@ -55,7 +55,7 @@ export class HeroService {
 				)
 
 			characterGetPromise.catch(error => {
-				console.log('error getting characters')
+				console.error('error getting characters')
 			})
 			return characterGetPromise
 		}
@@ -69,13 +69,13 @@ export class HeroService {
 		}
 	}
 
-	extractData(body: any[]): Hero[] {
-		let heroes = [];
-		body.forEach(function (hero) {
-			var newHero = new Hero(this.skillService, this.spellService,
-				this.attributeService).setData(hero);
-			heroes.push(newHero);
-		}.bind(this));
+	async extractData(body: any[]): Promise<Hero[]> {
+		const heroes = [];
+		for (const heroData of body) {
+			const newHero = new Hero(this.skillService, this.spellService, this.attributeService);
+			const initializedHero = await newHero.setData(heroData);
+			heroes.push(initializedHero);
+		}
 		return heroes;
 	}
 
@@ -89,7 +89,7 @@ export class HeroService {
 			errMsg = `${error.status}: ${error.error || error.message}`;
 		}
 		console.error(errMsg);
-		return Observable.throw(errMsg);
+		return throwError(errMsg);
 	}
 
 	getHero(id: number): Promise<Hero> {

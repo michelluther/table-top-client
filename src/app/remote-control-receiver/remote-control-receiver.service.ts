@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActiveToast, Toast, ToastrService } from 'ngx-toastr';
 // import { Rx } from 'rxjs';
 import { Timer, TimerService } from 'app/domain/timer.service';
 import { TimerDialogComponent } from 'app/timer-dialog/timer-dialog.component';
 import { UrlService } from 'app/url.service';
-import { Subject, Subscription } from 'rxjs/Rx';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { Subject, Subscription } from 'rxjs';
+
 import { take } from 'rxjs/operators';
 import { OperationFactory, RemoteControlOperation, operationTypes } from './../domain/remoteControlOperation';
 import { ImagePopupComponent } from './../image-popup/image-popup.component';
@@ -112,7 +111,6 @@ export class RemoteControlReceiverService {
         }
       }
       this.socket.addEventListener('error', event => {
-        console.log('hey')
         event.stopPropagation()
       }
       )
@@ -137,7 +135,7 @@ export class RemoteControlReceiverService {
       );
 
     } catch (error) {
-      console.log('error setting up web socket with remote control receiver')
+      console.error('error setting up web socket with remote control receiver')
     }
   }
 
